@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+<style type="text/css">
+    #map {position: relative; border-width: 1; border: solid; height: 500px;}
+</style>
+
+{% block title %}
+Add new estate
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function() {
+        var map = null;
+        var geocoder = null;
+
+        if (GBrowserIsCompatible()) {
+            //map = new GMap2(document.getElementById("map"));
+            map.setCenter(new GLatLng(37.4419, -122.1419), 13);
+            geocoder = new GClientGeocoder();
+        }
+
+        function showAddress(address) {
+            if (geocoder) {
+                geocoder.getLatLng(address, function(point) {
+                    if (!point) {
+                        alert(address + " not found");
+                    } else {
+                        map.setCenter(point, 13);
+                        var marker = new GMarker(point);
+                        map.addOverlay(marker);
+                        marker.openInfoWindowHtml(address);
+                    }
+                });
+            }
+        }
+
+        $('#update-map').click(function() {
+            var addr = $("#id_address").text();
+            showAddress(addr);
+        });
+ 
+    });
+
+    //$("#map").gMap({ markers: [{ latitude: 47.660937, longitude: 9.569803 }] });
+</script>
+{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Add a new place</h1>
+    </header>
+    
+    <form action="/places/new/" method="post">{{ csrf_token }}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+    </form>
+    <a id="update-map" href="#">Update map</a>
+    
+    <div id="map"></div>
+{% endblock %}

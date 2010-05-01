@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} 
+    All public repositories - CEID Code Repositories
+{% endblock %}
+
+
+{% block body %} 
+    {% if places_list %}
+        <ul>
+        {% for place in places_list %}
+            <li>{{ place.address }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+    <h3>Nothing to see here.</h3>
+    {% endif %}
+{% endblock %} 

@@ -1,25 +1,48 @@
 {% extends "base.html" %}
 
 {% block title %}
+{% endblock %}
 
+{% block script %}
+<script>
+    $(document).ready(function() {
+            $("#map-latest").gMap();
+            $("#map-popular").gMap();
+    });
+</script>
 {% endblock %}
 
 {% block body %}
-    <header>
+<div id="container">
+
+    <header id="header">
         <h1>Welcome</h1>
+        <ul id="top-nav">
+            <li><a href="/accounts/register">Register</a></li>
+            <li><a href="/accounts/login">Login</a></li>
+        </ul>
     </header>
 
-    <!-- 5 latest -->
+    <div id="content" class="clearfix">
+
     <section>
-        <article></article>
+        <header>Latest places</header>
+        {% for place in latest_list %}
+        <article>{{ place.name }}</article>
+        {% endfor %}
+        <div id="map-latest"></div>
     </section>
 
-    <!-- 5 popular -->
     <section>
-        <article></article>
+        <header>Popular places</header>
+        {% for place in popular_list %}
+        <article>{{ place.name }}</article>
+        {% endfor %}
+        <div id="map-popular"></div>
     </section>
-
+    </div> <!--#content -->
     <footer>
-        <p>footer</p>
+        <p>Copyright 2010</p>
     </footer>
+</div>
 {% endblock %}
