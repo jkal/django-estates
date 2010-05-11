@@ -14,8 +14,8 @@ def details(request):
 
 def all_view(request):
     # all_places = Place.objects.all()
-    all_places = get_list_or_404(Place)
-    # all_places = get_list_or_404(Place, published=True)
+    #all_places = get_list_or_404(Place)
+    all_places = get_list_or_404(Place, published=True)
     return render_to_response('all.html', {'places_list' : all_places}, context_instance=RequestContext(request))
 
 def new_view(request):

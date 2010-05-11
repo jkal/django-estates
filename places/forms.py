@@ -6,4 +6,5 @@ class PlaceForm(ModelForm):
         model = Place
 
         # fields to show on the form, with this order
-        fields = ['address', 'city', 'country', 'category', 'price', 'area', 'year']
+        fields = ['address', 'city', 'country', 'category', 'price', 'area',
+                  'year', 'description']

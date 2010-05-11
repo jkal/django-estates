@@ -6,13 +6,24 @@ All places
 
 
 {% block content %} 
-    {% if places_list %}
-        <ul>
-        {% for place in places_list %}
-            <li>{{ place.address }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-    <h3>Nothing to see here.</h3>
-    {% endif %}
+<div class="grid_12"> 
+    <h2 id="page-heading">All places</h2> 
+</div>
+
+<div class="grid_12"> 
+    <div class="block" id="places"> 
+        {% if places_list %}
+            {% for place in places_list %}
+                <div class="article"> 
+                    <h3><a href="#">{{ place.address }}, {{ place.city }}</a></h3>                                                           
+                    <h4>Subheading</h4> 
+                    <p class="meta">Plublished on {{ place.pub_date }}</p>
+                    <p>{{ place.description }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+        <h3>Nothing to see here.</h3>
+        {% endif %}
+    </div>
+</div>
 {% endblock %} 
