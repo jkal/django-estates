@@ -5,32 +5,49 @@
 
 {% block script %}
 <script>
-    $(document).ready(function() {
-            $("#map-latest").gMap();
-            $("#map-popular").gMap();
-    });
+    $(document).ready(function() { 
+        $('#map-popular').googleMaps(); 
+    }); 
 </script>
 {% endblock %}
 
-{% block body %}
-<div id="container">
+{% block content %}
+<div class="grid_12"> 
+    <h2 id="page-heading">Αρχική</h2> 
+</div> 
 
-    <header id="header">
-        <h1>Welcome</h1>
-        <ul id="top-nav">
-            <li><a href="/accounts/register">Register</a></li>
-            <li><a href="/accounts/login">Login</a></li>
-        </ul>
-    </header>
 
-    <div id="content" class="clearfix">
+<div class="grid_8"> 
+    <div id="slidedeck_framr">
+            <dl class="slidedeck">
+                <dt>Slide 1</dt>
+                <dd>Slide content</dd>
+                <dt>Slide 2</dt>
+                <dd>Slide content</dd>
+                <dt>Slide 3</dt>
+                <dd>Slide content</dd>
+                <dt>Slide 4</dt>
+                <dd>Slide content</dd>
+                <dt>Slide 5</dt>
+                <dd>Slide content</dd>
+            </dl>
+        </div>
+        <script type="text/javascript">
+            $('.slidedeck').slidedeck();
+        </script>
+</div> 
 
+    {% comment %}
     <section>
+
         <header>Latest places</header>
+        
         {% for place in latest_list %}
         <article>{{ place.name }}</article>
         {% endfor %}
+        
         <div id="map-latest"></div>
+        
     </section>
 
     <section>
@@ -38,11 +55,10 @@
         {% for place in popular_list %}
         <article>{{ place.name }}</article>
         {% endfor %}
-        <div id="map-popular"></div>
+        <div style="width: 547px; height: 320px; border: 1px solid #777" id="map-popular"></div>
     </section>
-    </div> <!--#content -->
-    <footer>
-        <p>Copyright 2010</p>
-    </footer>
-</div>
+
+    {% endcomment %}
+ <div class="clear"></div>
+
 {% endblock %}

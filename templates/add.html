@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+<style type="text/css">
+    #map {position: relative; border-width: 1; border: solid; height: 500px;}
+</style>
+
+{% block title %}
+Add new estate
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+ 
+    var mapstraction;
+    var geocoder;
+    var address;
+
+    function initialize() {
+        mapstraction = new Mapstraction('map', 'google');
+        mapstraction.setCenterAndZoom(new LatLonPoint(37.59,23.44), 6);
+        mapstraction.setMapType(3); 
+
+        // initialise the map with the Google API
+        geocoder = new MapstractionGeocoder(geocode_return, 'google');
+    }
+  
+    function geocode_return(geocoded_location) {
+
+        // display the map centered on a latitude and longitude
+        mapstraction.setCenterAndZoom(geocoded_location.point, 18);
+
+        mapstraction.addControls({
+            pan: true, 
+            zoom: 'small',
+            map_type: true,
+        });
+
+        // create a marker positioned at a lat/lon 
+        geocode_marker = new Marker(geocoded_location.point);
+
+        //var address = geocoded_location.street + ", " + geocoded_location.locality + ", " + geocoded_location.region;
+        geocode_marker.setLabel("A");
+        geocode_marker.setInfoBubble(geocoded_location.address);
+
+        // display marker 
+        mapstraction.addMarker(geocode_marker);
+
+        // open the marker
+        geocode_marker.openBubble();
+    }
+  
+    function user_submit() {
+        var address = new Object();
+        var myaddr = document.getElementById('id_address').value + ', ' + document.getElementById('id_city').value + ', ' + document.getElementById('id_country').value;
+
+        address.address = myaddr;
+        geocoder.geocode(address);
+    }
+    
+    $(document).ready(function(){
+        initialize();
+        $("#showonmap").click(user_submit);
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="grid_12"> 
+    <h2 id="page-heading">Add a new place</h2> 
+</div> 
+
+<div class="clear"></div> 
+
+<div class="grid_4">
+
+    <form action="/places/new/" method="post">{% csrf_token %} 
+        
+    <div class="box"> 
+        <h2><a>Location Information</a></h2> 
+        <div class="block"> 
+            <fieldset>
+                <p> 
+                    {{ form.address.label_tag }}
+                    {{ form.address }}
+                    {{ form.address.errors }}
+                </p> 
+                <p> 
+                    {{ form.city.label_tag }}
+                    {{ form.city }}
+                    {{ form.city.errors }}
+                </p> 
+                <p> 
+                    {{ form.country.label_tag }}
+                    {{ form.country }}
+                    {{ form.country.errors }}
+                </p> 
+                <button id="showonmap" class="confirm button" type="button">Show on map</button> 
+            </fieldset>
+        </div> 
+    </div>
+
+    <div class="box"> 
+        <h2><a>Estate Information</a></h2> 
+        <div class="block"> 
+            <fieldset>
+                <p> 
+                    {{ form.category.label_tag }}
+                    {{ form.category }}
+                    {{ form.category.errors }}
+                </p> 
+                <p> 
+                    {{ form.price.label_tag }}
+                    {{ form.price }}
+                    {{ form.price.errors }}
+                </p> 
+                <p> 
+                    {{ form.area.label_tag }}
+                    {{ form.area }}
+                    {{ form.area.errors }}
+                </p> 
+                <p> 
+                    {{ form.year.label_tag }}
+                    {{ form.year }}
+                    {{ form.year.errors }}
+                </p> 
+                <!--<p> -->
+                    <!--{{ form.image.label_tag }}-->
+                    <!--{{ form.image }}-->
+                    <!--{{ form.image.errors }}-->
+                <!--</p> -->
+                <input class="confirm button" type="submit" value="Submit" /> 
+        </fieldset>
+        </div> 
+    </div> 
+</form>
+</div>
+
+<div class="grid_8">
+    <div class="box"> 
+        <h2>Map</h2> 
+        <div class="block" style="height: 500px; padding:0px;" id="map"> 
+        </div> 
+    </div> 
+</div>
+
+<div class="clear"></div> 
+
+{% endblock %}

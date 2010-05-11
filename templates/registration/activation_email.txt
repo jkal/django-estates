@@ -1,1 +1,6 @@
-Για να ενεργοποιήσετε το λογαριασμό σας ακολουθήστε τον παρακάτω σύνδεσμο: {{ site }}/accounts/activate/{{ activation_key }}/
+{% load i18n %}
+{% trans "Activate account at" %} {{ site.name }}:
+
+http://{{ site.domain }}{% url registration_activate activation_key %}
+
+{% blocktrans %}Link is valid for {{ expiration_days }} days.{% endblocktrans %}

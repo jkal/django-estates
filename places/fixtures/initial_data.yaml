@@ -1,0 +1,13 @@
+- model: places.Category
+  pk: 1
+  fields:
+    name: "Test Category 1"
+    slug: "test-category-1"
+    description: "This is a default category loaded as a fixture."
+
+- model: places.Category
+  pk: 2
+  fields:
+    name: "Another Category"
+    slug: "another-category"
+    description: "This is another category loaded as a fixture."

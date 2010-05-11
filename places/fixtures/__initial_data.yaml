@@ -1,9 +1,0 @@
-# APP_DIR/fixtures/
-# loaded every time you run syncdb. 
-
-- model: realty.Site
-  pk: 1
-  fields:
-    id: 1
-    domain: john.com
-    name: john.com

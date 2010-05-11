@@ -1,5 +1,11 @@
-{% extends "base.html" %}
+{% extends "base.html"  %}
+ 
+{% block title %}
+Logged out
+{% endblock %}
 
-{% block body %}
-<h1>You have been logged out.</h1>
+{% block content %}
+<div class="grid_12">
+    <h2 id="page-heading">You have been succesfully logged out. <a href="/">Back to home</a>.</h2> 
+</div> 
 {% endblock %}

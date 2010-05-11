@@ -1,19 +1,52 @@
 {% extends "base.html" %}
 
-{% block body %}
+{% block title %}
+Login | AppName
+{% endblock %}
 
-  {% if form.errors %}
-    <p class="error">Sorry, that's not a valid username or password</p>
-  {% endif %}
+{% block content %}
+<div class="grid_12">
+    <h2 id="page-heading">Login</h2>
+</div>
 
-  <form action="" method="post">
-    <label for="username">User name:</label>
-    <input type="text" name="username" value="" id="username">
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
+<div class="grid_4">
+    <div class="block" id="login-form">
+        <form action="" method="post">{% csrf_token %} 
+            <fieldset class="login"> 
+                <legend>Login</legend>
+                <p class="notice">Login to complete your purchase.</p> 
+                
+                <p>
+                     <label for="username">Username: </label> 
+                     <input type="text" name="username" /> 
+                </p> 
+                
+                 <p> 
+                     <label for="password">Password: </label> 
+                     <input type="password" name="password" /> 
+                </p> 
+                
+                <input class="login button" type="submit" value="Login" /> 
+                <input type="hidden" name="next" value="{{ next|escape }}" />
+                 
+                {% if form.errors %}
+                <p class="notice">Sorry, that's not a valid username or password.</p> 
+                {% endif %}
+            </fieldset> 
+        </form> 
+    </div> 
+</div> 
 
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next|escape }}" />
-  </form>
+<div class="grid_4">
+    <div class="block" id="login-form">
+        <form action="/accounts/register" type="get">
+            <fieldset> 
+                <legend>Register</legend>
+                <p>If you do not already have an account, please create a new account to register.</p>
+                <input type="submit" value="Create Account" />
+            </fieldset> 
+        </form> 
+    </div>  
+</div>  
 
 {% endblock %}

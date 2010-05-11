@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+Account Activation
+{% endblock %}
+
+
+{% block content %}
+
+<div class="grid_12">
+    {% if account %}
+    <h2 id="page-heading">Your account has been activated. You may now login.</h2> 
+    {% else %}
+    <h2 id="page-heading">Account activation failed.</h2> 
+    {% endif %}
+</div> 
+
+{% endblock %}

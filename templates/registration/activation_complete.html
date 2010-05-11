@@ -1,1 +1,11 @@
-<h3>Your account is now activated!</h3>
+{% extends "base.html"  %}
+ 
+{% block title %}
+Account activated!
+{% endblock %}
+
+{% block content %}
+<div class="grid_12">
+    <h2 id="page-heading">Your account has been activated.<a href="/accounts/login">Login</a>.</h2> 
+</div> 
+{% endblock %}

@@ -1,6 +1,9 @@
-from django import forms
+from django.forms import Form, ModelForm
+from places.models import Place
 
-class PlaceForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    address = forms.CharField()
-    year = forms.IntegerField()
+class PlaceForm(ModelForm):
+    class Meta:
+        model = Place
+
+        # fields to show on the form, with this order
+        fields = ['address', 'city', 'country', 'category', 'price', 'area', 'year']

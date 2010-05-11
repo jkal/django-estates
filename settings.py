@@ -31,7 +31,7 @@ TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'el-gr'
 
 SITE_ID = 1
 
@@ -99,3 +99,8 @@ EMAIL_HOST = 'mail.ceid.upatras.gr'
 #EMAIL_HOST_PASSWORD = ''
 #EMAIL_USE_TLS = ''
 DEFAULT_FROM_EMAIL = 'ikalantzis@ceid.upatras.gr'
+
+# localhost key
+# MAPS_API_KEY = 'ABQIAAAAMashrlwvVLv6hXnc5KNfwRQYYK77f-x0yOKgeo_jr5YxUmKfkxQL3MaoyGRzcm3c9jny3yL3BZLVfg'
+# 150.140.140.47
+MAPS_API_KEY = 'ABQIAAAAMashrlwvVLv6hXnc5KNfwRTWVnpkm8JYN5Jdrp29jjPg8NwgnRSmocEXm1wzmoGZilmixb_wKHorxQ'

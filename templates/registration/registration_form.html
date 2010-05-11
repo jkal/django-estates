@@ -1,17 +1,48 @@
 {% extends "base.html" %}
  
-{% block body %}
-Hello! Please register an account!<br/>
-<form method="post" action="">{% csrf_token %}
-<dl>
-{% for field in form %}
-    <dt>{{ field.label_tag }}</dt>
-    <dd>{{ field }}</dd>
-    {% if field.help_text %}<dd>{{ field.help_text }}</dd>{% endif %}
-    {% if field.errors %}<dd class="myerrors">{{ field.errors }}</dd>{% endif %}
-{% endfor %}
-</dl>
-<input type="submit" />
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    
+<div class="grid_12">
+        <h2 id="page-heading">Register an account</h2>
+</div>
+
+    
+    <div class="grid_4"> 
+        <div class="block" id="forms"> 
+            <fieldset class="login"> 
+                <legend>Login Information</legend> 
+                
+                {% for field in form %}
+                
+                <p> 
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}<div class="notice">{{ field.errors }}</div>{% endif %}
+                </p> 
+                
+                {% endfor %}
+            </fieldset>
+        </div>
+    </div>
+    
+    <div class="grid_4"> 
+        <div class="block" id="forms"> 
+            <fieldset>
+                <legend>Additional Information</legend> 
+            </fieldset>
+                <input class="confirm button" type="submit" value="Register" /> 
+        </div>
+    </div> 
+    
+    <div class="grid_4"> 
+        <div class="block" id="forms"> 
+        </div>
+    </div>
 </form>
- 
+
 {% endblock %}
