@@ -1,3 +1,6 @@
+#
+# Initial Categories
+#
 - model: places.Category
   pk: 1
   fields:
@@ -11,3 +14,86 @@
     name: "Another Category"
     slug: "another-category"
     description: "This is another category loaded as a fixture."
+
+#
+# Sample places
+#
+- model: places.Place
+  pk: 1
+  fields:
+    address     : "Al. Moraitidi 56"
+    zipcode     : 26443
+    city        : "Patras"
+    country     : "Greece"
+    latitude    : "33.768"
+    longitude   : "22.995"
+    
+    submitter: 1
+    price: 15000 
+    area: 80
+    year: 2009 
+    description: "Place loaded from fixture."
+
+    category: 1 
+    pub_date: 2008-07-20 17:44:31
+    published: True
+
+- model: places.Place
+  pk: 2
+  fields:
+    address     : "Al. Moraitidi 56"
+    zipcode     : 26443
+    city        : "Patras"
+    country     : "Greece"
+    latitude    : "33.768"
+    longitude   : "22.995"
+    
+    submitter: 1
+    price: 15000 
+    area: 80
+    year: 2009 
+    description: "Place loaded from fixture."
+
+    category: 1 
+    pub_date: 2008-07-20 17:44:31
+    published: True
+
+- model: places.Place
+  pk: 3
+  fields:
+    address     : "Al. Moraitidi 56"
+    zipcode     : 26443
+    city        : "Patras"
+    country     : "Greece"
+    latitude    : "33.768"
+    longitude   : "22.995"
+    
+    submitter: 1
+    price: 15000 
+    area: 80
+    year: 2009 
+    description: "Place loaded from fixture."
+
+    category: 1 
+    pub_date: 2008-07-20 17:44:31
+    published: True
+
+- model: places.Place
+  pk: 4
+  fields:
+    address     : "Al. Moraitidi 56"
+    zipcode     : 26443
+    city        : "Patras"
+    country     : "Greece"
+    latitude    : "33.768"
+    longitude   : "22.995"
+    
+    submitter: 1
+    price: 15000 
+    area: 80
+    year: 2009 
+    description: "Place loaded from fixture."
+
+    category: 1 
+    pub_date: 2008-07-20 17:44:31
+    published: True

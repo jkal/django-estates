@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from places.widgets import *
 
+class UserProfile(models.Model):
+    home_address = models.TextField()
+    phone_numer = models.CharField(max_length=12)
+    user = models.ForeignKey(User, unique=True)
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField()
@@ -24,23 +29,29 @@ class Category(models.Model):
         super(Category, self).save(*args, **kwargs)
 
 class Place(models.Model):
+    
+    # location
     address = models.CharField(max_length=50, verbose_name='Address')
+    zipcode = models.IntegerField(verbose_name='Zip Code')
     city = models.CharField(max_length=50, verbose_name='City')
     country = models.CharField(max_length=50, default='Greece', verbose_name='Country')
-    category = models.ForeignKey(Category, verbose_name="Category")
-    price = models.IntegerField(verbose_name="Price in Euros")
-    area = models.IntegerField(verbose_name="Area in square meters")
-    year = models.IntegerField(verbose_name="Construction year")
+    
+    latitude = models.DecimalField(max_digits=8, decimal_places=6)
+    longitude = models.DecimalField(max_digits=8, decimal_places=6)
 
-    pub_date = models.DateTimeField(auto_now_add=True)
+    # estate info 
+    price = models.IntegerField(verbose_name='Price in Euros')
+    area = models.IntegerField(verbose_name='Area in square meters')
+    year = models.IntegerField(verbose_name='Construction year')
     description = models.TextField()
-
     #image = models.FileField(upload_to="uploads")
-    #hits = models.IntegerField()
-    #latitude = models.DecimalField(max_digits=8, decimal_places=6)
-    #longitude = models.DecimalField(max_digits=8, decimal_places=6)
-    #location = LocationField(blank=True, max_length=255)
+
+    # submission related
+    submitter = models.ForeignKey(User, verbose_name='Submitter')
+    category = models.ForeignKey(Category, verbose_name='Category')
+    pub_date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField()
+    #hits = models.IntegerField()
 
     class Meta:
         get_latest_by = 'pub_date'

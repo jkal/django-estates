@@ -91,6 +91,8 @@ INSTALLED_APPS = (
     'places',
 )
 
+AUTH_PROFILE_MODULE = 'places.UserProfile'
+
 ACCOUNT_ACTIVATION_DAYS = 7 
 
 EMAIL_HOST = 'mail.ceid.upatras.gr'

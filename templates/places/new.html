@@ -73,7 +73,7 @@ Add new estate
 
 <div class="grid_4">
 
-    <form action="/places/new/" method="post">{% csrf_token %} 
+    <form action="/places/new/" method="post">
         
     <div class="box"> 
         <h2><a>Location Information</a></h2> 
@@ -93,6 +93,16 @@ Add new estate
                     {{ form.country.label_tag }}
                     {{ form.country }}
                     {{ form.country.errors }}
+                </p> 
+                <p> 
+                    {{ form.latitude.label_tag }}
+                    {{ form.latitude }}
+                    {{ form.latitude.errors }}
+                </p> 
+                <p> 
+                    {{ form.longitude.label_tag }}
+                    {{ form.longitude }}
+                    {{ form.longitude.errors }}
                 </p> 
                 <button id="showonmap" class="confirm button" type="button">Show on map</button> 
             </fieldset>

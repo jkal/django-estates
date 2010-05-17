@@ -7,4 +7,4 @@ class PlaceForm(ModelForm):
 
         # fields to show on the form, with this order
         fields = ['address', 'city', 'country', 'category', 'price', 'area',
-                  'year', 'description']
+                  'year', 'description', 'latitude', 'longitude', ]
