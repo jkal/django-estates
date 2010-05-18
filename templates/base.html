@@ -6,30 +6,19 @@
             {% block title %}{% endblock %}
         </title>
 
-        <!--<link rel="stylesheet" type="text/css" href="/static/css/reset.css" media="screen" /> -->
-        <!--<link rel="stylesheet" type="text/css" href="/static/css/text.css" media="screen" /> -->
-        <!--<link rel="stylesheet" type="text/css" href="/static/css/grid.css" media="screen" /> -->
-        <!--<link rel="stylesheet" type="text/css" href="/static/css/layout.css" media="screen" /> -->
-        <!--<link rel="stylesheet" type="text/css" href="/static/css/nav.css" media="screen" /> -->
-
         <style type="text/css">
-            @import url(/static/css/reset.css);
-            @import url(/static/css/text.css);
-            @import url(/static/css/grid.css);
-            @import url(/static/css/layout.css);
-            @import url(/static/css/nav.css);
+            @import url(/static/css/master.css);
         </style>
  
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAMashrlwvVLv6hXnc5KNfwRTWVnpkm8JYN5Jdrp29jjPg8NwgnRSmocEXm1wzmoGZilmixb_wKHorxQ"></script>
-        <script type="text/javascript" src="/static/jquery-fluid16.js"></script>
 
         {# mapstraction #}
         <script type="text/javascript" charset="utf-8" src="http://mapstraction.com/mapstraction-js/mapstraction.js"></script>
         <script type="text/javascript" charset="utf-8" src="http://mapstraction.com/mapstraction-js/mapstraction-geocode.js"></script>
 
-        <!--<script type="text/javascript" charset="utf-8" src="/static/js/slidedeck.jquery.js"></script>       -->
-        <link rel="stylesheet" href="/static/js/slidedeck.skin.css" type="text/css" media="screen">
+        <script type="text/javascript" src="/static/js/jquery.gmap-1.1.0-min.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.infieldlabel.min.js"></script>
 
         {% block script %}{% endblock %}
     
@@ -37,54 +26,27 @@
   
     <body>
 
-        <div class="container_12">
-            
-                <div class="grid_12"> 
-                    <!--<h1 id="branding"><a href="#">CEID Real Estate Agency</a></h1> -->
-                </div>
+        <ul id="network">
+            {% if user.is_authenticated %}
+            <li><a>Hi, {{ user.username }} {{ user.last_name }}<a></li>
+            <li><a href="/accounts/logout/" title="Logout">Logout</a></li>
+            {% else %}
+            <li><a href="/accounts/login/" title="Login">Login</a></li>
+            <li><a href="/accounts/register" title="Register">New account?</a></li>
+            {% endif %}
+        </ul>
+ 
+        <div id="container">
 
-                <div class="clear"></div>
-            
-                <div class="grid_12"> 
-                    <ul class="nav main">
-                        <!--{% if user.is_authenticated %}-->
-                        <!--<li><a>Hi, {{ user.username }} {{ user.last_name }}<a></li>-->
-                        <!--{% else %}-->
-                        <!--<li> -->
-                            <!--<a href="#">All Categories</a> -->
-                            <!--<ul> -->
-                                <!--<li><a href="#">Category 1</a></li> -->
-                                <!--<li><a href="#">Another Cat</a></li> -->
-                                <!--<li><a href="#">And another</a></li> -->
-                            <!--</ul> -->
-                        <!--</li> -->
-                        <!--<li><a>All places<a></li>-->
-                        <!--<li><a>Search<a></li>-->
-                        <!--{% endif %}-->
+            {% block content %}
+            {% endblock %}
 
-                        {% if user.is_authenticated %}
-                        <li class='secondary'><a href="/accounts/logout">Logout</a></li>
-                        <li class='secondary'><a href="/accounts/profile">You are logged in as {{ user.username }}</a></li>
-                        {% else %}
-                        <li class='secondary'><a href="/accounts/login">Login</a></li>
-                        <li class='secondary'><a href="/accounts/login">You are not logged in.</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-    
-                <div class="clear"></div>                 
-
-                {% block content %}
-                {% endblock %}
+            <hr />
+            <div id="footer">
+                <p>&copy; 2010. Powered by Django.</p>
+            </div>
                 
-                <div class="grid_12" id="site_info">
-                    <div class="box"> 
-                        <p>&copy 2010. Powered by <a href="#">Django</a>.</p> 
-                    </div>          
-                </div>  
-                
-                <div class="clear"></div>
-        </div>
+        <div>
 
     </body>
 </html>

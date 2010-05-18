@@ -4,49 +4,48 @@
 Login | AppName
 {% endblock %}
 
+{% block script %}
+<script>
+$(document).ready(function(){
+  $("label").inFieldLabels();
+});
+</script>
+{% endblock %}
+
+
 {% block content %}
-<div class="grid_12">
-    <h2 id="page-heading">Login</h2>
-</div>
 
-<div class="grid_4">
-    <div class="block" id="login-form">
-        <form action="" method="post">{% csrf_token %} 
-            <fieldset class="login"> 
-                <legend>Login</legend>
-                <p class="notice">Login to complete your purchase.</p> 
-                
-                <p>
-                     <label for="username">Username: </label> 
-                     <input type="text" name="username" /> 
-                </p> 
-                
-                 <p> 
-                     <label for="password">Password: </label> 
-                     <input type="password" name="password" /> 
-                </p> 
-                
-                <input class="login button" type="submit" value="Login" /> 
-                <input type="hidden" name="next" value="{{ next|escape }}" />
-                 
-                {% if form.errors %}
-                <p class="notice">Sorry, that's not a valid username or password.</p> 
-                {% endif %}
-            </fieldset> 
-        </form> 
-    </div> 
-</div> 
+<ul id="posts" >
+    <li class="post">
+    <h3><a href="" title="">Login</a></h3>
+    <div class="post-content">
 
-<div class="grid_4">
-    <div class="block" id="login-form">
-        <form action="/accounts/register" type="get">
-            <fieldset> 
-                <legend>Register</legend>
-                <p>If you do not already have an account, please create a new account to register.</p>
-                <input type="submit" value="Create Account" />
-            </fieldset> 
+        <form action="" method="post">
+            <fieldset>
+            <p>
+            <label for="username">Username</label>
+            <input id="username" type="text" name="username" /> 
+            </p>
+
+            <p>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" /> 
+            </p>
+            </fieldset>
+            <p>
+            <input type="submit" value="Login" /> 
+            <input type="hidden" name="next" value="{{ next|escape }}" />
+            </p>
+
+            {% if form.errors %}
+            <p class="notice">Sorry, that's not a valid username or password.</p> 
+            {% endif %}
         </form> 
-    </div>  
-</div>  
+
+    </div>
+    </li>
+</ul>
+
+
 
 {% endblock %}

@@ -1,21 +1,47 @@
 {% extends "base.html" %}
 
-<style type="text/css">
-    #map {position: relative; border-width: 1; border: solid; height: 500px;}
-</style>
-
 {% block title %}
-View place
 {% endblock %}
 
 {% block script %}
 <script>
     $(document).ready(function(){
-        //$("#map").gMap({ markers: [{ latitude: 47.660937, longitude: 9.569803 }] });
+        $("#map").gMap({ 
+            controls: false,
+            scrollwheel: false,
+            maptype: G_HYBRID_MAP,
+            markers: [{ latitude: {{ place.latitude }}, longitude: {{ place.longitude }} }], 
+            zoom: 10,
+        });
     });
 </script>
 {% endblock %}
 
 {% block content %}
+<div id="header">
+    <ul>
+        <li><a href="">Places</a></li>
+        <li><a href="">Search</a></li>
+        <li><a href="">Contact</a></li>
+    </ul>
+</div>
 
+<ul id="posts" >
+
+    <li class="post">
+        <h3><a href="" title="">{{ place.address}}, {{ place.city}}</a></h3>
+        <a href="#" class="image"><div id="map" style="height: 100%;">&nbsp</div></a>
+        
+        <p class="meta">
+            <a href="" rel="tag">{{ place.area }} m</a> &bull;
+            <a href="" rel="tag">{{ place.price }} $</a> &bull;
+        </p>
+
+        <div class="post-content">
+            <p>Description goes here.</p>
+        </div>
+
+        <p class="date">Submitted on {{ place.pub_date }}</p>
+    </li>
+</ul>
 {% endblock %}

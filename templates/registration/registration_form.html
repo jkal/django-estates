@@ -4,19 +4,23 @@
 Register
 {% endblock %}
 
-{% block content %}
-<form action="" method="post">{% csrf_token %}
-    
-<div class="grid_12">
-        <h2 id="page-heading">Register an account</h2>
-</div>
+{% block script %}
+<script>
+$(document).ready(function(){
+  $("label").inFieldLabels();
+});
+</script>
+{% endblock %}
 
-    
-    <div class="grid_4"> 
-        <div class="block" id="forms"> 
-            <fieldset class="login"> 
-                <legend>Login Information</legend> 
-                
+{% block content %}
+
+<ul id="posts" >
+    <li class="post">
+        <h3><a href="" title="">Register</a></h3>
+        <div class="post-content">
+
+            <form action="" method="post">
+                <fieldset>
                 {% for field in form %}
                 
                 <p> 
@@ -26,23 +30,13 @@ Register
                 </p> 
                 
                 {% endfor %}
-            </fieldset>
-        </div>
-    </div>
-    
-    <div class="grid_4"> 
-        <div class="block" id="forms"> 
-            <fieldset>
-                <legend>Additional Information</legend> 
-            </fieldset>
-                <input class="confirm button" type="submit" value="Register" /> 
-        </div>
-    </div> 
-    
-    <div class="grid_4"> 
-        <div class="block" id="forms"> 
-        </div>
-    </div>
-</form>
+                </fieldset>
+                    <p>
+                    <input type="submit" value="Register" /> 
+                </p>    
+            </form>
 
+        </div>
+    </li>
+</ul>
 {% endblock %}

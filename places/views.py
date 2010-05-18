@@ -19,8 +19,9 @@ def view_place(request, place_id):
     """
     Find a place using its primary key and pass its information to the template.
     """
+
     my_place = get_object_or_404(Place, pk=place_id)
-    return HttpResponse("Viewing place with id=%s: %s" % (place_id, my_place.address))
+    return render_to_response('places/place.html', {'place' : my_place}, context_instance=RequestContext(request))
 
 def new_place(request):
     if request.method == 'POST':

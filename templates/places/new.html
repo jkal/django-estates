@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
-<style type="text/css">
-    #map {position: relative; border-width: 1; border: solid; height: 500px;}
-</style>
-
 {% block title %}
 Add new estate
 {% endblock %}
 
 {% block script %}
 <script type="text/javascript">
+$(document).ready(function(){
+  $("label").inFieldLabels();
+});
  
     var mapstraction;
     var geocoder;
@@ -65,20 +64,24 @@ Add new estate
 {% endblock %}
 
 {% block content %}
-<div class="grid_12"> 
-    <h2 id="page-heading">Add a new place</h2> 
-</div> 
+<div id="header">
+    <ul>
+        <li><a href="">Places</a></li>
+        <li><a href="">Search</a></li>
+        <li><a href="">Contact</a></li>
+    </ul>
+</div>
 
-<div class="clear"></div> 
+<ul id="posts" >
 
-<div class="grid_4">
+    <li class="post">
+        <h3><a href="" title="">Something</a></h3>
+        <a href="#" class="image"><div id="map"></div></a>
 
+        <div class="post-content">
     <form action="/places/new/" method="post">
-        
-    <div class="box"> 
-        <h2><a>Location Information</a></h2> 
-        <div class="block"> 
-            <fieldset>
+        <fieldset>        
+            <legend>hello</legend>
                 <p> 
                     {{ form.address.label_tag }}
                     {{ form.address }}
@@ -104,14 +107,9 @@ Add new estate
                     {{ form.longitude }}
                     {{ form.longitude.errors }}
                 </p> 
-                <button id="showonmap" class="confirm button" type="button">Show on map</button> 
-            </fieldset>
-        </div> 
-    </div>
+        </fieldset>        
+                <button id="showonmap" type="button">Show on map</button> 
 
-    <div class="box"> 
-        <h2><a>Estate Information</a></h2> 
-        <div class="block"> 
             <fieldset>
                 <p> 
                     {{ form.category.label_tag }}
@@ -138,21 +136,14 @@ Add new estate
                     {{ form.description }}
                     {{ form.description.errors }}
                 </p>
-                <input class="confirm button" type="submit" value="Submit" /> 
         </fieldset>
-        </div> 
-    </div> 
+                <p>
+                <input class="" type="submit" value="Submit" /> 
+                </p>
 </form>
-</div>
+        </div>
+    </li>
+</ul>
 
-<div class="grid_8">
-    <div class="box"> 
-        <h2>Map</h2> 
-        <div class="block" style="height: 500px; padding:0px;" id="map"> 
-        </div> 
-    </div> 
-</div>
-
-<div class="clear"></div> 
 
 {% endblock %}
