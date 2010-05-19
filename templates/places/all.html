@@ -4,26 +4,70 @@
 All places
 {% endblock %}
 
+{% block script %} 
+<script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+                $('#example').dataTable( {
+                    "bJQueryUI": true,
+                    "sPaginationType": "full_numbers"
+                });
+            });
+</script>
+{% endblock %}
 
 {% block content %} 
-<div class="grid_12"> 
-    <h2 id="page-heading">All places</h2> 
+<div id="header">
+    <ul>
+        <li><a href="">Places</a></li>
+        <li><a href="">Categories</a></li>
+        <li><a href="">Search</a></li>
+    </ul>
 </div>
 
-<div class="grid_12"> 
-    <div class="block" id="places"> 
-        {% if places_list %}
-            {% for place in places_list %}
-                <div class="article"> 
-                    <h3><a href="#">{{ place.address }}, {{ place.city }}</a></h3>                                                           
-                    <h4>Subheading</h4> 
-                    <p class="meta">Plublished on {{ place.pub_date }}</p>
-                    <p>{{ place.description }}</p>
-                </div>
-            {% endfor %}
-        {% else %}
-        <h3>Nothing to see here.</h3>
-        {% endif %}
-    </div>
-</div>
+
+<ul id="posts" >
+    <li class="post">
+        <h3><a href="" title="">All Places</a></h3>
+        
+        <div class="post-content">
+            
+            <table class="display" id="example" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Price</th>
+                        <th>Area</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% if places_list %}
+                        {% for place in places_list %}
+                        <tr>
+                            <td><a href="/places/{{ place.pk }}/">{{ place.address }}</a></td>
+                            <td>{{ place.city }}</td>
+                            <td>{{ place.price }}</td>
+                            <td>{{ place.area }}</td>
+                            <td>{{ place.year }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                    <h3>Nothing to see here.</h3>
+                    {% endif %}
+
+                </tbody>
+            </table>
+
+        </div>
+    
+    </li>
+</ul>
+
+
+
+
+
+
 {% endblock %} 

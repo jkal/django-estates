@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Login | AppName
+Login
 {% endblock %}
 
 {% block script %}
@@ -20,7 +20,7 @@ $(document).ready(function(){
     <h3><a href="" title="">Login</a></h3>
     <div class="post-content">
 
-        <form action="" method="post">
+        <form action="" method="post">{% csrf_token %}
             <fieldset>
             <p>
             <label for="username">Username</label>
@@ -33,7 +33,7 @@ $(document).ready(function(){
             </p>
             </fieldset>
             <p>
-            <input type="submit" value="Login" /> 
+            <input type="submit" value="&rarr;" /> 
             <input type="hidden" name="next" value="{{ next|escape }}" />
             </p>
 

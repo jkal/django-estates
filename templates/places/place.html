@@ -25,23 +25,29 @@
         <li><a href="">Contact</a></li>
     </ul>
 </div>
-
+<br />
 <ul id="posts" >
 
     <li class="post">
-        <h3><a href="" title="">{{ place.address}}, {{ place.city}}</a></h3>
+        <h3><a href="" title="">Diamerisma &bull; {{ place.address}}, {{ place.city}}</a></h3>
         <a href="#" class="image"><div id="map" style="height: 100%;">&nbsp</div></a>
         
         <p class="meta">
-            <a href="" rel="tag">{{ place.area }} m</a> &bull;
-            <a href="" rel="tag">{{ place.price }} $</a> &bull;
+            Εμβαδόν <a href="" rel="tag">{{ place.area }} m</a> &bull;
+            Τιμή <a href="" rel="tag">{{ place.price }} $</a> &bull;
+            Έτος Κατασκευής <a href="" rel="tag">{{ place.year }} $</a> &bull;
         </p>
 
         <div class="post-content">
             <p>Description goes here.</p>
         </div>
 
-        <p class="date">Submitted on {{ place.pub_date }}</p>
+        <p class="images">
+            <img src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg">
+            <img src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg">
+            <img src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg">
+        </p>
+        <p class="date">Submitted on {{ place.pub_date }} by {{ place.submitter.username }}</p>
     </li>
 </ul>
 {% endblock %}

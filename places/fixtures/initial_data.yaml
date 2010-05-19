@@ -18,13 +18,14 @@
 #
 # Sample places
 #
+
 - model: places.Place
   pk: 1
   fields:
-    address     : "Al. Moraitidi 56"
-    zipcode     : 26443
-    city        : "Patras"
-    country     : "Greece"
+    address     : "Φωκίδος 4"
+    zipcode     : 30123
+    city        : "Πάτρα"
+    country     : "Ελλάδα"
     latitude    : "33.768"
     longitude   : "22.995"
     

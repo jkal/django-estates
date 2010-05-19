@@ -1,25 +1,35 @@
 /* reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
-body {color:#747474;font:100% "Lucida Grande", Helvetica, Arial, Sans-serif;text-align:center;}
-a {color:#006d92;text-decoration:none;}
-a:hover {color:#e78200;}
+body { 
+    color: #747474; 
+    font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif;
+    text-align: center;
+}
+
+a {
+    color: #006d92;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e78200;
+}
 
 hr {display:none;}
 
 
-/*---------------------------------
-	3. LAYOUT
----------------------------------*/
-/*- NETWORK -*/
-	#network {background:#f1f7f8;font-size:80%;list-style:none;padding:10px;text-align:left;}
-		#network li {display:inline;margin:0 20px 0 0;}
-/*- CONTAINER -*/
-	#container {margin:20px auto;text-align:left;width:960px;}
-	/* header */
+/* NETWORK */
+#network {background:#f1f7f8;font-size:80%;list-style:none;padding:10px;text-align:left;}
+    #network li {display:inline;margin:0 20px 0 0;}
+
+/* CONTAINER */
+#container {margin:20px auto;text-align:left;width:960px;}
+
+/* header */
 		#header {border-bottom:#f1f7f8 3px solid;}
 			#header h1 {float:right;}
-				#header h1 a {background:#424242 url(../images/logo.gif) no-repeat center center;display:block;height:45px;text-indent:-5000px;width:65px;}
+				#header h1 a {display:block;height:45px;text-indent:-5000px;width:65px;}
 					#header h1 a:hover {background-color:#e78200;}
 			#header ul {border-bottom:#424242 1px solid;}
 				#header ul li {float:left;margin:0 20px 0 0;}
@@ -57,6 +67,7 @@ hr {display:none;}
                     #posts li div.post-content p:first-child {color:#424242;font-size:102%;}
 					#posts li div.post-content .more-link {display:block;margin:10px 0 0 0;}
 				#posts li p.date {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:15px 0 0 0;}
+				#posts li p.images {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:5px 0 0 0;}
 	/* content */
 		#content {padding:20px 10px 5px 10px;}
 			#content .col {float:left;margin:10px 20px 0 0;}

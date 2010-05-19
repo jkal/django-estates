@@ -7,12 +7,56 @@ Register
 {% block script %}
 <script>
 $(document).ready(function(){
-  $("label").inFieldLabels();
+    $("label").inFieldLabels();
+    
+    $("#id_username").change(function() { 
+        var username = $("#id_username").val();
+        var msgbox = $("#status");
+
+        if(username.length > 3) {
+            $("#status").html('<img src="/static/img/loader.gif">&nbsp;Checking availability.');
+
+            $.ajax({
+                type: "POST", 
+                url: "/usercheck/", 
+                data: "username="+ username, 
+                success: function(msg) { 
+                    $("#status").ajaxComplete(function(event, request) { 
+                        var d = msg;
+                        var str = msg.substr(0, 2);
+                        if(str == 'OK') { 
+                            // if you don't want background color remove these following two lines
+                            $("#id_username").removeClass("red");   // remove red color
+                            $("#id_username").addClass("green");    // add green color
+                            //msgbox.html('<img src="/static/img/yes.png"> <font color="Green"> Available </font>');
+                            msgbox.html('');
+                        } else { 
+                            // if you don't want background color remove these following two lines
+                            $("#id_username").removeClass("green");     // remove green color
+                            $("#id_username").addClass("red");          // add red  color
+                            msgbox.html(msg);
+                        } 
+                    });
+                } 
+            }); 
+        } else {
+            // if you don't want background color remove this following line
+            $("#id_username").addClass("red"); // add red color
+            $("#status").html('<font color="#cc0000">Enter valid User Name</font>');
+        }
+        
+        return false;
+    });
 });
 </script>
 {% endblock %}
 
 {% block content %}
+<style>
+#status { margin-left:10px; }
+.green { background-color:#CEFFCE; }
+.red { background-color: #FFD9D9; }
+</style>
 
 <ul id="posts" >
     <li class="post">
@@ -25,14 +69,14 @@ $(document).ready(function(){
                 
                 <p> 
                     {{ field.label_tag }}
-                    {{ field }}
+                    {{ field }}<div style="display:inline;" id="status"></div> 
                     {% if field.errors %}<div class="notice">{{ field.errors }}</div>{% endif %}
                 </p> 
                 
                 {% endfor %}
                 </fieldset>
                     <p>
-                    <input type="submit" value="Register" /> 
+                    <input type="submit" value="&rarr;" /> 
                 </p>    
             </form>
 

@@ -7,12 +7,20 @@ Account Activation
 
 {% block content %}
 
-<div class="grid_12">
-    {% if account %}
-    <h2 id="page-heading">Your account has been activated. You may now login.</h2> 
-    {% else %}
-    <h2 id="page-heading">Account activation failed.</h2> 
-    {% endif %}
-</div> 
+<ul id="posts" >
+    <li class="post">
+        <h3><a href="" title="">Account Activation</a></h3>
+        
+        <div class="post-content">
+
+        {% if account %}
+            <p>Your account has been activated. You may now <a href="/accounts/login/">login</a>.</p> 
+        {% else %}
+            <p>Account activation failed. Probably not a valid link.</p> 
+        {% endif %}
+
+        </div>
+    </li>
+</ul>
 
 {% endblock %}
