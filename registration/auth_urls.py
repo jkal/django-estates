@@ -27,6 +27,18 @@ from django.conf.urls.defaults import *
 
 from django.contrib.auth import views as auth_views
 
+def login_view(request, template_name='login.html'):
+    """ 
+    If the user is already authenticated, send him back to his profile.
+    Otherwise, login the user and redirect back. 
+    """
+    
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/')
+    else:
+        next = request.GET.get('next')
+        return login(request, template_name=template_name, redirect_field_name='next')
+
 
 urlpatterns = patterns('',
                        url(r'^login/$',

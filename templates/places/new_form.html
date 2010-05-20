@@ -21,7 +21,9 @@
             <p> 
                 {{ form.address.label_tag }}
                 {{ form.address }}
+                <span>
                 {{ form.address.errors }}
+                </span>
             </p> 
             <p> 
                 {{ form.city.label_tag }}
@@ -78,8 +80,8 @@
     <fieldset>
         <legend>Map</legend>
         <p>
+    <input id="new-place-submit" type="submit" value="Submit" /> 
         </p>
     </fieldset>
     
-    <input id="new-place-submit" type="submit" value="Submit" /> 
 </form>

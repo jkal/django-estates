@@ -1,10 +1,23 @@
 from django.shortcuts import render_to_response, get_list_or_404, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import login, logout
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseServerError
 
 from places.models import Place, Category, User
 from places.forms import PlaceForm
+
+def custom_login(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/')
+    else:
+        return login(request)
+
+def custom_logout(request):
+    if request.user.is_anonymous():
+        return HttpResponseRedirect('/')
+    else:
+        return logout(request)
 
 def check_username(request):
     """ 

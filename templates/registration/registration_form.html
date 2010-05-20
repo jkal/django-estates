@@ -62,25 +62,22 @@ $(document).ready(function(){
     <li class="post">
         <h3><a href="" title="">Register</a></h3>
         <div class="post-content">
-
             <form action="" method="post">
                 <fieldset>
-                {% for field in form %}
+
+                    {% for field in form %}
+                        <p>
+                            {{ field.label_tag }}
+                            {{ field }}<span id="status"></span>
+                            {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
+                        </p>
+                    {% endfor %}
+                </fieldset>
                 
                 <p>
-                    {{ field.label_tag }}
-                    {{ field }}<span id="status"></span>
-                    {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
-                </p>
-                
-                {% endfor %}
-
-                </fieldset>
-                    <p>
                     <input type="submit" value="&rarr;" /> 
                 </p>    
             </form>
-
         </div>
     </li>
 </ul>

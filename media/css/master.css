@@ -141,6 +141,14 @@ form fieldset textarea {
     margin: 0;
 }
 
+form fieldset input,
+form fieldset textarea {
+    /*display: block;*/
+    padding: 5px;
+    /*width: 400px;*/
+    margin: 0;
+}
+
 form fieldset label {
     width: 380px;
     display: block;

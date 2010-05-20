@@ -2,34 +2,30 @@
 <html>
     <head>
         
-        <title>
-            {% block title %}{% endblock %}
-        </title>
+        <title>{% block title %}{% endblock %}</title>
 
         <style type="text/css">
             @import url(/static/css/master.css);
         </style>
+        
+        {# Favicon #}
+        <link type="image/png" rel="icon" href="/static/img/favicon.png" />
 
-        <!--<link rel="icon" type="image/png" href="/static/img/icon1.png" />-->
-        <link rel="icon" type="image/png" href="http://cdn.iconfinder.net/data/icons/dusk/Icons/Maps.png" />
-
+        {# JQuery and Maps API #}
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAMashrlwvVLv6hXnc5KNfwRTWVnpkm8JYN5Jdrp29jjPg8NwgnRSmocEXm1wzmoGZilmixb_wKHorxQ"></script>
 
+        {# JQuery Plugins #}
         <script type="text/javascript" src="/static/js/jquery.gmap-1.1.0-min.js"></script>
         <script type="text/javascript" src="/static/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/static/js/jquery.dataTables.js"></script>
-        <!--<script type="text/javascript" src="/static/js/jquery.idTabs.min.js"></script>-->
         <script type="text/javascript" src="/static/js/formToWizard.js"></script>
-
         <script type="text/javascript" src="/static/js/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-
         <link rel="stylesheet" href="/static/js/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
 
         <script>
             $(document).ready(function() {
-                //$('#network').hide();
                 $('#top').slideDown(500);
             });
         </script>
@@ -39,7 +35,7 @@
     </head>
   
     <body>
-        <div id="top" style="display: none;">
+        <div id="top" style="display:none;">
             <ul id="network" > 
                 <li><a href="/" title="Home"><img src="http://cdn.iconfinder.net/data/icons/gnomeicontheme/24x24/actions/redhat-home.png"></a></li>
                 {% if user.is_anonymous%}
@@ -54,8 +50,7 @@
  
         <div id="container">
 
-            {% block content %}
-            {% endblock %}
+            {% block content %}{% endblock %}
 
             <div id="footer">
                 <p>&copy; 2010. Powered by Django and JQuery.</p>
