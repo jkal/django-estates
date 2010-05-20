@@ -49,7 +49,7 @@ class Place(models.Model):
 
     # submission related
     submitter = models.ForeignKey(User, verbose_name='Submitter')
-    category = models.ForeignKey(Category, null=False, verbose_name='Category')
+    category = models.ForeignKey(Category, null=False, verbose_name='Category', help_text="Category")
     pub_date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
     hits = models.IntegerField(default=0)

@@ -10,6 +10,7 @@ def check_username(request):
     """ 
     Checks if the POST-ed username is available. 
     Called from an AJAX request in the registration form.
+    ? Move this to some utility file.
     """
     if not request.POST:
         return HttpResponseForbidden()
@@ -43,7 +44,7 @@ def all_places(request):
 @login_required
 def fav_places(request):
     u = request.user
-    return HttpResponse('Favorite ads for user %s' % u.username)
+    return render_to_response('places/fav.html', {}, context_instance=RequestContext(request))
 
 def view_place(request, place_id):
     """
@@ -64,4 +65,4 @@ def new_place(request):
             print 'invalid form'
     else:
         form = PlaceForm()
-    return render_to_response('places/new.html', { 'form': form })
+    return render_to_response('places/new.html', { 'form' : form }, context_instance=RequestContext(request))

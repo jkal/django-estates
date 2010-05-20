@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function() { 
+        $("#map").gMap();
+    }); 
+</script>
+{% endblock %}
+
+{% block content %}
+
+{% include "menu.html" %}
+
+<ul id="posts" >
+    <li class="post">
+        <h3><a href="" title="">Your favorites places</a></h3>
+
+        <div class="post-content">
+        </div>
+    </li>
+</ul>
+
+<ul id="projects"> 
+    <li>
+        <div id="map" style="width: 100%; height: 480px; overflow: hidden;"></div> 
+    </li>
+</ul>
+
+
+{% endblock %}

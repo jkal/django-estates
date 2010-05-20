@@ -41,14 +41,13 @@
     <body>
         <div id="top" style="display: none;">
             <ul id="network" > 
-                {% if user.is_authenticated %}
-                    <li><a href="/" title="Home"><img src="http://cdn.iconfinder.net/data/icons/gnomeicontheme/24x24/actions/redhat-home.png"></a></li>
-                    <li><a href="#" >Hi, {{ user.username }}</a></li>
-                    <li><a href="/accounts/logout/" title="Logout">Logout</a></li>
-                {% else %}
-                    <li><a href="/" title="Home"><img src="http://cdn.iconfinder.net/data/icons/gnomeicontheme/24x24/actions/redhat-home.png"></a></li>
+                <li><a href="/" title="Home"><img src="http://cdn.iconfinder.net/data/icons/gnomeicontheme/24x24/actions/redhat-home.png"></a></li>
+                {% if user.is_anonymous%}
                     <li><a href="/accounts/login/" title="Login">Login</a></li>
                     <li><a href="/accounts/register" title="Register">New account?</a></li>
+                {% else %}
+                    <li><a href="#" >Hi, {{ user.username }}</a></li>
+                    <li><a href="/accounts/logout/" title="Logout">Logout</a></li>
                 {% endif %}
             </ul>
         </div>
