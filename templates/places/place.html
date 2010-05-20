@@ -5,7 +5,12 @@
 
 {% block script %}
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
+
+        $("a.thumb").fancybox({
+        });
+
+        /*
         $("#map").gMap({ 
             controls: false,
             scrollwheel: false,
@@ -13,19 +18,16 @@
             markers: [{ latitude: {{ place.latitude }}, longitude: {{ place.longitude }} }], 
             zoom: 10,
         });
+        */
+
     });
 </script>
 {% endblock %}
 
 {% block content %}
-<div id="header">
-    <ul>
-        <li><a href="">Places</a></li>
-        <li><a href="">Search</a></li>
-        <li><a href="">Contact</a></li>
-    </ul>
-</div>
-<br />
+
+{% include "menu.html" %}
+
 <ul id="posts" >
 
     <li class="post">
@@ -43,9 +45,15 @@
         </div>
 
         <p class="images">
-            <img src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg">
-            <img src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg">
-            <img src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg">
+            <a rel="thumb_group" class="thumb" href="http://ignati.com/wp-content/uploads/2008/03/fancybox.jpg">
+                <img alt="thumb_group" src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg" />
+            </a>
+            <a rel="thumb_group" class="thumb" href="http://ignati.com/wp-content/uploads/2008/03/fancybox.jpg">
+                <img alt="thumb_group" src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg" />
+            </a>
+            <a rel="thumb_group" class="thumb" href="http://ignati.com/wp-content/uploads/2008/03/fancybox.jpg">
+                <img alt="thumb_group" src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg" />
+            </a>
         </p>
         <p class="date">Submitted on {{ place.pub_date }} by {{ place.submitter.username }}</p>
     </li>
