@@ -20,8 +20,8 @@ hr {display:none;}
 
 
 /* NETWORK */
-#network {background:#f1f7f8;font-size:80%;list-style:none;padding:10px;text-align:left;}
-    #network li {display:inline;margin:0 20px 0 0;}
+#network {background:#f1f7f8; font-size:80%; list-style:none; padding:8px; text-align:left;}
+    #network li {display:table-cell; padding: 0 9px 0 9px; margin:0 20px 0 0;  vertical-align:middle;}
 
 /* CONTAINER */
 #container {margin:20px auto;text-align:left;width:960px;}
@@ -32,11 +32,12 @@ hr {display:none;}
 				#header h1 a {display:block;height:45px;text-indent:-5000px;width:65px;}
 					#header h1 a:hover {background-color:#e78200;}
 			#header ul {border-bottom:#424242 1px solid;}
-				#header ul li {float:left;margin:0 20px 0 0;}
+				#header ul li {float:right;margin:0 20px 0 0;}
 					#header ul li a {color:#424242;font-family:Georgia, "Times New Roman", Serif;font-size:150%;line-height:45px;}
 					#header ul li a:hover {color:#e78200;}
 	/* tagline */
 		h2#tag {color:#424242;font-size:300%;font-weight:normal;padding:50px 0;text-align:center;}
+		#tag{color:#424242;font-size:300%;font-weight:normal;padding:50px 0;text-align:center;}
 	/* projects */
 		#projects {background:#f1f7f8;border:#e3f0f2 1px solid;list-style:none;margin:0;padding:10px;}
 			#projects li {display:none;}
@@ -63,7 +64,7 @@ hr {display:none;}
 				#posts.single li .image {height:auto;}
 				#posts li p.meta {background:#f1f7f8;color:#bdced1;font-size:73%;line-height:1.6;padding:5px 10px;}
                 #posts li div.post-content {font-size:80%;line-height:1.6;padding:15px 15px 15px 10px;}
-                    #posts li div.post-content p {margin:0 0 12px 0;}
+                    /*#posts li div.post-content p {margin:0 0 12px 0;}*/
                     #posts li div.post-content p:first-child {color:#424242;font-size:102%;}
 					#posts li div.post-content .more-link {display:block;margin:10px 0 0 0;}
 				#posts li p.date {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:15px 0 0 0;}
@@ -114,6 +115,7 @@ hr {display:none;}
 /* Hide from IE Mac \*/
 .clear, #network, #header, #header ul, #projects, #content, .post {display:block;}
 /* End hide from IE Mac */
+
 form legend {
     color: #333;
     padding: 0 0 20px 0;
@@ -130,34 +132,32 @@ form, form fieldset input, form fieldset textarea, form label {
 }
 form p { position: relative; margin: 10px 0;}
 form p label { position: absolute; top: 0; left: 0;}
-form p br {display: none;}
 
-
-form fieldset p input,
-form fieldset p textarea {
-    display: block;
+form fieldset input,
+form fieldset textarea {
+    /*display: block;*/
     padding: 5px;
     /*width: 400px;*/
     margin: 0;
 }
 
-form fieldset p label {
+form fieldset label {
     width: 380px;
     display: block;
     margin: 5px 5px 5px 6px;
     padding: 0;
 }
 
-form fieldset p textarea {
+form fieldset textarea {
     padding: 2px;
     width: 404px;
 }
 
-form fieldset p textarea,
-form fieldset p input {
+form textarea,
+form input {
     border: solid 1px #ccc;
 }
-form fieldset p label {
+form label {
     color: #777;
 }
 

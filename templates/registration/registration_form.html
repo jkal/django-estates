@@ -8,7 +8,7 @@ Register
 <script>
 $(document).ready(function(){
     $("label").inFieldLabels();
-    
+
     $("#id_username").change(function() { 
         var username = $("#id_username").val();
         var msgbox = $("#status");
@@ -42,7 +42,7 @@ $(document).ready(function(){
         } else {
             // if you don't want background color remove this following line
             $("#id_username").addClass("red"); // add red color
-            $("#status").html('<font color="#cc0000">Enter valid User Name</font>');
+            $("#status").html('<font color="#cc0000">Enter a valid username.</font>');
         }
         
         return false;
@@ -53,8 +53,8 @@ $(document).ready(function(){
 
 {% block content %}
 <style>
-#status { margin-left:10px; }
-.green { background-color:#CEFFCE; }
+#status { margin-left:10px; display:inline; }
+.green { background-color:#f1f7f8; }
 .red { background-color: #FFD9D9; }
 </style>
 
@@ -67,13 +67,14 @@ $(document).ready(function(){
                 <fieldset>
                 {% for field in form %}
                 
-                <p> 
+                <p>
                     {{ field.label_tag }}
-                    {{ field }}<div style="display:inline;" id="status"></div> 
-                    {% if field.errors %}<div class="notice">{{ field.errors }}</div>{% endif %}
-                </p> 
+                    {{ field }}<span id="status"></span>
+                    {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
+                </p>
                 
                 {% endfor %}
+
                 </fieldset>
                     <p>
                     <input type="submit" value="&rarr;" /> 

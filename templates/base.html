@@ -10,8 +10,9 @@
             @import url(/static/css/master.css);
         </style>
 
-        <!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/overcast/jquery-ui.css"  type="text/css" media="screen" />-->
- 
+        <!--<link rel="icon" type="image/png" href="/static/img/icon1.png" />-->
+        <link rel="icon" type="image/png" href="http://cdn.iconfinder.net/data/icons/dusk/Icons/Maps.png" />
+
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAMashrlwvVLv6hXnc5KNfwRTWVnpkm8JYN5Jdrp29jjPg8NwgnRSmocEXm1wzmoGZilmixb_wKHorxQ"></script>
@@ -19,22 +20,33 @@
         <script type="text/javascript" src="/static/js/jquery.gmap-1.1.0-min.js"></script>
         <script type="text/javascript" src="/static/js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="/static/js/jquery.dataTables.js"></script>
+        <!--<script type="text/javascript" src="/static/js/jquery.idTabs.min.js"></script>-->
+        <script type="text/javascript" src="/static/js/formToWizard.js"></script>
 
+        <script>
+            $(document).ready(function() {
+                //$('#network').hide();
+                $('#top').slideDown(500);
+            });
+        </script>
         {% block script %}{% endblock %}
     
     </head>
   
     <body>
-
-        <ul id="network">
+        <div id="top" style="display: none;">
+        <ul id="network" > 
             {% if user.is_authenticated %}
-                <li><a>Hi, {{ user.username }}<a></li>
+                <li><a href="/" title="Home"><img src="http://cdn.iconfinder.net/data/icons/gnomeicontheme/24x24/actions/redhat-home.png"></a></li>
+                <li><a href="#" >Hi, {{ user.username }}</a></li>
                 <li><a href="/accounts/logout/" title="Logout">Logout</a></li>
             {% else %}
+                <li><a href="/" title="Home"><img src="http://cdn.iconfinder.net/data/icons/gnomeicontheme/24x24/actions/redhat-home.png"></a></li>
                 <li><a href="/accounts/login/" title="Login">Login</a></li>
                 <li><a href="/accounts/register" title="Register">New account?</a></li>
             {% endif %}
         </ul>
+        </div>
  
         <div id="container">
 

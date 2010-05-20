@@ -3,10 +3,14 @@ from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseServerError
 
-from places.models import Place, User
+from places.models import Place, Category, User
 from places.forms import PlaceForm
 
 def check_username(request):
+    """ 
+    Checks if the POST-ed username is available. 
+    Called from an AJAX request in the registration form.
+    """
     if not request.POST:
         return HttpResponseForbidden()
     uname = request.POST.get('username', False)
@@ -19,7 +23,18 @@ def index(request):
     """
     Find the 5 latest and 5 most popular ads to display.
     """
-    return render_to_response('index.html', {}, context_instance=RequestContext(request))
+
+    latest5 = Place.objects.order_by('-pub_date')[:5]
+    popular5 = Place.objects.order_by('-hits')[:5]
+    categories = Category.objects.all()
+
+    cx = { 
+        'latest_places' : latest5,
+        'popular_places' : popular5,
+        'categories' : categories,
+    }
+
+    return render_to_response('index.html', cx, context_instance=RequestContext(request))
 
 def all_places(request):
     all_places = get_list_or_404(Place, published=True)
@@ -44,7 +59,6 @@ def new_place(request):
         form = PlaceForm(request.POST)
         if form.is_valid():
             new_place = form.save()
-            #new_place.save()
             return HttpResponseRedirect('/places/new/thanks/') 
         else:
             print 'invalid form'

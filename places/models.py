@@ -2,7 +2,6 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
-from places.widgets import *
 
 class UserProfile(models.Model):
     home_address = models.TextField()
@@ -50,7 +49,7 @@ class Place(models.Model):
 
     # submission related
     submitter = models.ForeignKey(User, verbose_name='Submitter')
-    category = models.ForeignKey(Category, verbose_name='Category')
+    category = models.ForeignKey(Category, null=False, verbose_name='Category')
     pub_date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
     hits = models.IntegerField(default=0)

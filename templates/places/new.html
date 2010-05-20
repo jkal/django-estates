@@ -7,140 +7,24 @@ Add new estate
 {% block script %}
 <script type="text/javascript">
 $(document).ready(function(){
-  $("label").inFieldLabels();
+    $("label").inFieldLabels();
+    $("#new-place-form").formToWizard({ submitButton: 'new-place-submit' })
 });
- 
-    var mapstraction;
-    var geocoder;
-    var address;
-
-    function initialize() {
-        mapstraction = new Mapstraction('map', 'google');
-        mapstraction.setCenterAndZoom(new LatLonPoint(37.59,23.44), 6);
-        mapstraction.setMapType(3); 
-
-        // initialise the map with the Google API
-        geocoder = new MapstractionGeocoder(geocode_return, 'google');
-    }
-  
-    function geocode_return(geocoded_location) {
-
-        // display the map centered on a latitude and longitude
-        mapstraction.setCenterAndZoom(geocoded_location.point, 18);
-
-        mapstraction.addControls({
-            pan: true, 
-            zoom: 'small',
-            map_type: true,
-        });
-
-        // create a marker positioned at a lat/lon 
-        geocode_marker = new Marker(geocoded_location.point);
-
-        //var address = geocoded_location.street + ", " + geocoded_location.locality + ", " + geocoded_location.region;
-        geocode_marker.setLabel("A");
-        geocode_marker.setInfoBubble(geocoded_location.address);
-
-        // display marker 
-        mapstraction.addMarker(geocode_marker);
-
-        // open the marker
-        geocode_marker.openBubble();
-    }
-  
-    function user_submit() {
-        var address = new Object();
-        var myaddr = document.getElementById('id_address').value + ', ' + document.getElementById('id_city').value + ', ' + document.getElementById('id_country').value;
-
-        address.address = myaddr;
-        geocoder.geocode(address);
-    }
-    
-    $(document).ready(function(){
-        initialize();
-        $("#showonmap").click(user_submit);
-    });
 </script>
 {% endblock %}
 
 {% block content %}
-<div id="header">
-    <ul>
-        <li><a href="">Places</a></li>
-        <li><a href="">Search</a></li>
-        <li><a href="">Contact</a></li>
-    </ul>
-</div>
+
+<!--{% include "menu.html" %}-->
 
 <ul id="posts" >
 
     <li class="post">
-        <h3><a href="" title="">Something</a></h3>
-        <a href="#" class="image"><div id="map"></div></a>
+        <h3><a href="" title="">New Place</a></h3>
+        <!--<a href="#" class="image"><div id="map"></div></a>-->
 
         <div class="post-content">
-    <form action="/places/new/" method="post">
-        <fieldset>        
-            <legend>hello</legend>
-                <p> 
-                    {{ form.address.label_tag }}
-                    {{ form.address }}
-                    {{ form.address.errors }}
-                </p> 
-                <p> 
-                    {{ form.city.label_tag }}
-                    {{ form.city }}
-                    {{ form.city.errors }}
-                </p> 
-                <p> 
-                    {{ form.country.label_tag }}
-                    {{ form.country }}
-                    {{ form.country.errors }}
-                </p> 
-                <p> 
-                    {{ form.latitude.label_tag }}
-                    {{ form.latitude }}
-                    {{ form.latitude.errors }}
-                </p> 
-                <p> 
-                    {{ form.longitude.label_tag }}
-                    {{ form.longitude }}
-                    {{ form.longitude.errors }}
-                </p> 
-        </fieldset>        
-                <button id="showonmap" type="button">Show on map</button> 
-
-            <fieldset>
-                <p> 
-                    {{ form.category.label_tag }}
-                    {{ form.category }}
-                    {{ form.category.errors }}
-                </p> 
-                <p> 
-                    {{ form.price.label_tag }}
-                    {{ form.price }}
-                    {{ form.price.errors }}
-                </p> 
-                <p> 
-                    {{ form.area.label_tag }}
-                    {{ form.area }}
-                    {{ form.area.errors }}
-                </p> 
-                <p> 
-                    {{ form.year.label_tag }}
-                    {{ form.year }}
-                    {{ form.year.errors }}
-                </p> 
-                <p>
-                    {{ form.description.label_tag }}
-                    {{ form.description }}
-                    {{ form.description.errors }}
-                </p>
-        </fieldset>
-                <p>
-                <input class="" type="submit" value="Submit" /> 
-                </p>
-</form>
+            {% include "places/new_form.html" %}
         </div>
     </li>
 </ul>

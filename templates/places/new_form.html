@@ -1,0 +1,85 @@
+<style type="text/css"> 
+        #main { width:960px; margin: 0px auto; border:solid 1px #b2b3b5; -moz-border-radius:10px; padding:20px; background-color:#f6f6f6;}
+        #header { text-align:center; border-bottom:solid 1px #b2b3b5; margin: 0 0 20px 0; }
+        fieldset { border:none; width:320px;}
+        legend { font-size:18px; margin:0px; padding:10px 0px; color:#b0232a; font-weight:bold;}
+        .prev, .next { background-color:#b0232a; padding:5px 10px; color:#fff; text-decoration:none;}
+        .prev:hover, .next:hover { background-color:#424242; color: #fff; text-decoration:none;}
+        .prev { float:left;}
+        .next { float:left;}
+        #steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
+        #steps li {font-size:24px; float:left; padding:10px; color:#b0b1b3;}
+        #steps li span {font-size:11px; display:block;}
+        #steps li.current { color:#000;}
+        #makeWizard { background-color:#b0232a; color:#fff; padding:5px 10px; text-decoration:none; font-size:18px;}
+        #makeWizard:hover { background-color:#000;}
+    </style> 
+<form id="new-place-form" action="/places/new/" method="post">
+
+    <fieldset>        
+        <legend>Location Information</legend>
+            <p> 
+                {{ form.address.label_tag }}
+                {{ form.address }}
+                {{ form.address.errors }}
+            </p> 
+            <p> 
+                {{ form.city.label_tag }}
+                {{ form.city }}
+                {{ form.city.errors }}
+            </p> 
+            <p> 
+                {{ form.zipcode.label_tag }}
+                {{ form.zipcode }}
+                {{ form.zipcode.errors }}
+            </p> 
+            <p> 
+                {{ form.country.label_tag }}
+                {{ form.country }}
+                {{ form.country.errors }}
+            </p> 
+    </fieldset>        
+
+    <fieldset>
+        <legend>Estate Information</legend>
+        <p> 
+            <!--{{ form.category.label_tag }}-->
+            {{ form.category }}
+            {{ form.category.errors }}
+        </p> 
+        <p> 
+            {{ form.price.label_tag }}
+            {{ form.price }}
+            {{ form.price.errors }}
+        </p> 
+        <p> 
+            {{ form.area.label_tag }}
+            {{ form.area }}
+            {{ form.area.errors }}
+        </p> 
+        <p> 
+            {{ form.year.label_tag }}
+            {{ form.year }}
+            {{ form.year.errors }}
+        </p> 
+        <p>
+            {{ form.description.label_tag }}
+            {{ form.description }}
+            {{ form.description.errors }}
+        </p>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Other Info</legend>
+        <p>
+        </p>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Map</legend>
+        <p>
+        </p>
+    </fieldset>
+    
+    <input id="new-place-submit" type="submit" value="Submit" /> 
+</form>
