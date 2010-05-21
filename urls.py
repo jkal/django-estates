@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
-from places.views import index as index_view, check_username, custom_login, custom_logout
+from places.views import index as index_view, check_username, custom_login
 import settings
 
 admin.autodiscover()
@@ -11,7 +11,6 @@ urlpatterns = patterns('',
 
     (r'^admin/', include(admin.site.urls)),
     (r'^accounts/login/', custom_login),
-    (r'^accounts/logout/', custom_logout),
     (r'^accounts/', include('registration.backends.default.urls')),
     # login right after registration
     # (r'^accounts/', include('registration.backends.simple.urls')),

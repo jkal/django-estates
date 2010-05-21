@@ -13,12 +13,6 @@ def custom_login(request):
     else:
         return login(request)
 
-def custom_logout(request):
-    if request.user.is_anonymous():
-        return HttpResponseRedirect('/')
-    else:
-        return logout(request)
-
 def check_username(request):
     """ 
     Checks if the POST-ed username is available. 
