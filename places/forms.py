@@ -4,7 +4,4 @@ from places.models import Place
 class PlaceForm(ModelForm):
     class Meta:
         model = Place
-
-        # fields to show on the form, with this order
-        fields = ['address', 'city', 'country', 'zipcode', 'category', 'price', 'area',
-                  'year', 'description', 'latitude', 'longitude', ]
+        exclude = ['latitude', 'longitude', 'submitter', 'pub_date', 'published', 'hits',]

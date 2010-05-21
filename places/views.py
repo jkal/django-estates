@@ -32,8 +32,8 @@ def index(request):
     Find the 5 latest and 5 most popular ads to display.
     """
 
-    latest5 = Place.objects.order_by('-pub_date')[:5]
-    popular5 = Place.objects.order_by('-hits')[:5]
+    latest5 = Place.objects.filter(published=True).order_by('-pub_date')[:5]
+    popular5 = Place.objects.filter(published=True).order_by('-hits')[:5]
     categories = Category.objects.all()
 
     cx = { 
@@ -66,10 +66,21 @@ def new_place(request):
     if request.method == 'POST':
         form = PlaceForm(request.POST)
         if form.is_valid():
-            new_place = form.save()
+            print 'valid form'
+            new_place = form.save(commit=False)
+
+            new_place.submitter = request.user
+            new_place.latitude = 33.3333
+            new_place.longitude = 33.3333
+            #new_place.pub_date = 
+            #new_place.published = 'Mr'
+            #new_place.hits = 'Mr'
+
+            new_place.save()
             return HttpResponseRedirect('/places/new/thanks/') 
         else:
             print 'invalid form'
+            print form.errors
     else:
         form = PlaceForm()
     return render_to_response('places/new.html', { 'form' : form }, context_instance=RequestContext(request))

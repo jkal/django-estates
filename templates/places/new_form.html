@@ -45,6 +45,10 @@
     <fieldset>
         <legend>Estate Information</legend>
         <p> 
+            {{ form.action }}
+            {{ form.action.errors }}
+        </p> 
+        <p> 
             <!--{{ form.category.label_tag }}-->
             {{ form.category }}
             {{ form.category.errors }}

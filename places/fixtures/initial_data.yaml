@@ -67,6 +67,7 @@
     longitude   : "21.74035"
     
     submitter: 1
+    action: 'S'
     price: 300 
     area: 60
     year: 1997 
@@ -87,6 +88,7 @@
     longitude   : "21.7422088"
     
     submitter: 1
+    action: 'S'
     price: 300 
     area: 56
     year: 2002 
@@ -107,6 +109,7 @@
     longitude   : "21.7393362"
     
     submitter: 1
+    action: 'S'
     price: 250000 
     area: 95
     year: 1985
@@ -127,6 +130,7 @@
     longitude   : "21.72728776"
     
     submitter: 1
+    action: 'S'
     price: 500 
     area: 90
     year: 1973 

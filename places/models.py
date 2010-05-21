@@ -16,7 +16,7 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'categories'
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
     def save(self, *args, **kwargs):
@@ -27,18 +27,23 @@ class Category(models.Model):
             self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
 
+
+
 class Place(models.Model):
     
+    ACTIONS = (('S', 'For sale'), ('R', 'For rent'))
+
     # location
     address = models.CharField(max_length=50, verbose_name='Address')
     zipcode = models.IntegerField(verbose_name='Zip Code')
     city = models.CharField(max_length=50, verbose_name='City')
     country = models.CharField(max_length=50, default='Greece', verbose_name='Country')
     
-    latitude = models.DecimalField(max_digits=8, decimal_places=6)
-    longitude = models.DecimalField(max_digits=8, decimal_places=6)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
 
-    # estate info 
+    # property info 
+    action = models.CharField(max_length=1, choices=ACTIONS)
     price = models.IntegerField(verbose_name='Price in Euros')
     area = models.IntegerField(verbose_name='Area in square meters')
     year = models.IntegerField(verbose_name='Construction year')
@@ -47,7 +52,7 @@ class Place(models.Model):
 
     # submission related
     submitter = models.ForeignKey(User, verbose_name='Submitter')
-    category = models.ForeignKey(Category, null=False, verbose_name='Category', help_text="Category")
+    category = models.ForeignKey(Category, null=False, verbose_name='Category')
     pub_date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
     hits = models.IntegerField(default=0)
