@@ -1,0 +1,7 @@
++ Custom fields in registration form (username, password, email, phone number, [firstname, lastname])
++ Edit profile for registered users.
++ Favorite ads
++ Submitter can delete his own ads.
++ Custom fields in PlaceForm
++ Delete category => delete all child ads
++ RSS with 10 latest ads
