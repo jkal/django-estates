@@ -56,6 +56,7 @@ hr {display:none;}
 			#posts .flickr-rss {background:#FFF;border:#e3f0f2 10px solid;float:right;margin:0 0 0 15px;width:375px;}
 				#posts .flickr-rss li {height:75px;float:left;overflow:hidden;width:75px;}
 			#posts .post {border-bottom:#CCC 1px dotted;padding:15px 0;}
+				#posts li h4 {border-bottom:#e3f0f2 1px solid;color:#424242;font-size:120%;padding:0 0 5px 5px;}
 				#posts li h3 {border-bottom:#e3f0f2 1px solid;color:#424242;font-size:150%;padding:0 0 5px 5px;}
 					#posts li h3 a {color:#424242;}
 						#posts li h3 a:hover {color:#e78200;}

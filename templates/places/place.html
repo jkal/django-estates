@@ -18,7 +18,7 @@
             scrollwheel: false,
             maptype: G_HYBRID_MAP,
             markers: [{ latitude: {{ place.latitude }}, longitude: {{ place.longitude }} }], 
-            zoom: 10,
+            zoom: 18,
         });
     });
 </script>
@@ -31,17 +31,17 @@
 <ul id="posts" >
 
     <li class="post">
-        <h3><a href="" title="">Diamerisma &bull; {{ place.address}}, {{ place.city}}</a></h3>
+        <h4><a href="" title="">{{ place.category.name }} &bull; {{ place.address}}, {{ place.city}}</a></h4>
         <a href="#" class="image"><div id="map" style="height: 100%;">&nbsp</div></a>
         
         <p class="meta">
             Εμβαδόν <a href="" rel="tag">{{ place.area }} m</a> &bull;
             Τιμή <a href="" rel="tag">{{ place.price }} $</a> &bull;
-            Έτος Κατασκευής <a href="" rel="tag">{{ place.year }} $</a> &bull;
+            Έτος Κατασκευής <a href="" rel="tag">{{ place.year }} $</a> 
         </p>
 
         <div class="post-content">
-            <p>Description goes here.</p>
+            <p>{{ place.description }}</p>
         </div>
 
         <p class="images">

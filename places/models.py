@@ -39,8 +39,6 @@ class Place(models.Model):
     longitude = models.DecimalField(max_digits=8, decimal_places=6)
 
     # estate info 
-    # type = Diamerisma, Monokatoikia, Garsoniera, 
-    # bedrooms = 3
     price = models.IntegerField(verbose_name='Price in Euros')
     area = models.IntegerField(verbose_name='Area in square meters')
     year = models.IntegerField(verbose_name='Construction year')

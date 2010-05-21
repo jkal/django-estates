@@ -1,59 +1,96 @@
-#
+
 # Initial Categories
 #
 - model: places.Category
   pk: 1
   fields:
-    name: "Test Category 1"
-    slug: "test-category-1"
-    description: "This is a default category loaded as a fixture."
+    name: "Διαμέρισμα"
+    slug: ""
+    description: ""
 
 - model: places.Category
   pk: 2
   fields:
-    name: "Another Category"
-    slug: "another-category"
-    description: "This is another category loaded as a fixture."
+    name: "Γκαρσονιέρα"
+    slug: ""
+    description: ""
+
+- model: places.Category
+  pk: 3
+  fields:
+    name: "Μονοκατοικία"
+    slug: ""
+    description: ""
+
+- model: places.Category
+  pk: 4
+  fields:
+    name: "Οροφοδιαμέρισμα"
+    slug: ""
+    description: ""
+
+- model: places.Category
+  pk: 5
+  fields:
+    name: "Ρετιρέ"
+    slug: ""
+    description: ""
+
+- model: places.Category
+  pk: 6
+  fields:
+    name: "Μεζονέτα"
+    slug: ""
+    description: ""
+
+- model: places.Category
+  pk: 7
+  fields:
+    name: "Οικόπεδο"
+    slug: ""
+    description: ""
 
 #
 # Sample places
+#
+# javascript:void(prompt('',gApplication.getMap().getCenter()));
 #
 
 - model: places.Place
   pk: 1
   fields:
-    address     : "Φωκίδος 4"
-    zipcode     : 30123
+    address     : "Φαβιέρου 17"
+    zipcode     : 26223
     city        : "Πάτρα"
     country     : "Ελλάδα"
-    latitude    : "33.768"
-    longitude   : "22.995"
+    latitude    : "38.25418"
+    longitude   : "21.74035"
     
     submitter: 1
-    price: 15000 
-    area: 80
-    year: 2009 
-    description: "Place loaded from fixture."
+    price: 300 
+    area: 60
+    year: 1997 
+    description: ""
 
     category: 1 
-    pub_date: 2008-07-20 17:44:31
+    pub_date: 2009-07-20 17:44:31
     published: True
 
 - model: places.Place
   pk: 2
   fields:
-    address     : "Al. Moraitidi 56"
-    zipcode     : 26443
-    city        : "Patras"
-    country     : "Greece"
-    latitude    : "33.768"
-    longitude   : "22.995"
+    address     : "Αμερικής 13"
+    zipcode     : 26442
+    city        : "Πάτρα"
+    country     : "Ελλάδα"
+    latitude    : "38.2644525"
+    longitude   : "21.7422088"
     
     submitter: 1
-    price: 15000 
-    area: 80
-    year: 2009 
-    description: "Place loaded from fixture."
+    price: 300 
+    area: 56
+    year: 2002 
+    description: "Studio a few meters from the port arrivals from Italy, equipped with air conditioning, crockery, coffee maker, cutlery, 1 bed, 1 bath."
 
     category: 1 
     pub_date: 2008-07-20 17:44:31
@@ -62,18 +99,18 @@
 - model: places.Place
   pk: 3
   fields:
-    address     : "Al. Moraitidi 56"
-    zipcode     : 26443
-    city        : "Patras"
-    country     : "Greece"
-    latitude    : "33.768"
-    longitude   : "22.995"
+    address     : "Μαιζώνος 35"
+    zipcode     : 26223
+    city        : "Πάτρα"
+    country     : "Ελλάδα"
+    latitude    : "38.2499852"
+    longitude   : "21.7393362"
     
     submitter: 1
-    price: 15000 
-    area: 80
-    year: 2009 
-    description: "Place loaded from fixture."
+    price: 250000 
+    area: 95
+    year: 1985
+    description: "Maizwnos 35 description."
 
     category: 1 
     pub_date: 2008-07-20 17:44:31
@@ -82,18 +119,18 @@
 - model: places.Place
   pk: 4
   fields:
-    address     : "Al. Moraitidi 56"
-    zipcode     : 26443
-    city        : "Patras"
-    country     : "Greece"
-    latitude    : "33.768"
-    longitude   : "22.995"
+    address     : "Μαξιμίλλης 4"
+    zipcode     : 26222
+    city        : "Πάτρα"
+    country     : "Ελλάδα"
+    latitude    : "38.24369110"
+    longitude   : "21.72728776"
     
     submitter: 1
-    price: 15000 
-    area: 80
-    year: 2009 
-    description: "Place loaded from fixture."
+    price: 500 
+    area: 90
+    year: 1973 
+    description: "desc desc desc"
 
     category: 1 
     pub_date: 2008-07-20 17:44:31
