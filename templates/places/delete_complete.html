@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} 
+New Place Added
+{% endblock %}
+
+{% block content %} 
+
+<ul id="posts" >
+    <li class="post">
+        <h3><a href="" title="">Delete Successful</a></h3>
+        <div class="post-content">
+            {{ place }} was deleted succesfully. Back to the <a
+                href="/">homepage</a> or <a href="/places/all">all places</a>.
+        </div>
+    </li>
+</ul>
+
+{% endblock %} 

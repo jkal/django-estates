@@ -3,7 +3,7 @@
 + View place: thumbnails!
     http://www.alrond.com/en/2007/sep/20/making-thumbnails-in-django/
 + Favorite ads
-+ Submitter can delete his own ads.
+OK Submitter can delete his own ads.
 + Custom fields in PlaceForm
 + Delete category => delete all child ads
 + RSS with 10 latest ads

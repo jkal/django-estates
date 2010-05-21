@@ -9,20 +9,18 @@ Add new estate
 $(document).ready(function(){
     $("label").inFieldLabels();
     $("#new-place-form").formToWizard({ submitButton: 'new-place-submit' })
+    
+    $("#new-place-map").gMap({ markers: [{ address: "Tettnang, Germany", html: "The place I live" },], zoom: 10 });
 });
 </script>
 {% endblock %}
 
 {% block content %}
 
-<!--{% include "menu.html" %}-->
-
 <ul id="posts" >
 
     <li class="post">
         <h3><a href="" title="">New Place</a></h3>
-        <!--<a href="#" class="image"><div id="map"></div></a>-->
-
         <div class="post-content">
             {% include "places/new_form.html" %}
         </div>

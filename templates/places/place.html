@@ -20,6 +20,32 @@
             markers: [{ latitude: {{ place.latitude }}, longitude: {{ place.longitude }} }], 
             zoom: 18,
         });
+    
+        /*
+        $('place-delete-link').live('click', function() {
+            if (confirm("Are you sure you want to delete this property?")) {
+                var property_id = {{ place.pk }}; 
+                var data = 'id=' + property_id;
+                
+                $.ajax({
+                    type: "POST",
+                    url: "/places/delete/",
+                    data: data,
+                    cache: false,
+                    
+                    success: function() {
+                        var row_count = $('#repo-table tr').size();
+                        parent.fadeOut('slow', function() { $(this).remove(); }); 
+                        if ( row_count == 1 ) { 
+                            $('#repo-table').append('<tr id="no-repos"><th scope="row">No repositories yet!</th></tr>');
+                        }   
+                    },  
+                    error: function() { alert('AJAX request failed. Report to unixgrp@ceid.upatras.gr.'); },
+            }); 
+        }   
+    });         
+    */
+
     });
 </script>
 {% endblock %}
@@ -31,13 +57,18 @@
 <ul id="posts" >
 
     <li class="post">
-        <h4><a href="" title="">{{ place.category.name }} &bull; {{ place.address}}, {{ place.city}}</a></h4>
+        <h4>
+            <a href="" title="">{{ place.category.name }} &bull; {{ place.address}}, {{ place.city}}</a>
+            {% if place.submitter == user %}
+                <span style="color:#ff0000;font-size:80%;padding-left:5px;"><a href="/places/{{ place.pk }}/delete/">[Delete]</a></span>
+            {% endif %}
+        </h4>
         <a href="#" class="image"><div id="map" style="height: 100%;">&nbsp</div></a>
         
         <p class="meta">
-            Εμβαδόν <a href="" rel="tag">{{ place.area }} m</a> &bull;
+            Εμβαδόν <a href="" rel="tag">{{ place.area }}m</a> &bull;
             Τιμή <a href="" rel="tag">{{ place.price }} $</a> &bull;
-            Έτος Κατασκευής <a href="" rel="tag">{{ place.year }} $</a> 
+            Έτος Κατασκευής <a href="" rel="tag">{{ place.year }}</a> 
         </p>
 
         <div class="post-content">

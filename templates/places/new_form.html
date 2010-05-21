@@ -1,8 +1,8 @@
 <style type="text/css"> 
         #main { width:960px; margin: 0px auto; border:solid 1px #b2b3b5; -moz-border-radius:10px; padding:20px; background-color:#f6f6f6;}
         #header { text-align:center; border-bottom:solid 1px #b2b3b5; margin: 0 0 20px 0; }
-        fieldset { border:none; width:320px;}
-        legend { font-size:18px; margin:0px; padding:10px 0px; color:#b0232a; font-weight:bold;}
+        fieldset { border:none;}
+        legend { font-size:18px; margin:0px; padding:0px 0px; color:#b0232a; font-weight:bold;}
         .prev, .next { background-color:#b0232a; padding:5px 10px; color:#fff; text-decoration:none;}
         .prev:hover, .next:hover { background-color:#424242; color: #fff; text-decoration:none;}
         .prev { float:left;}
@@ -83,9 +83,13 @@
     
     <fieldset>
         <legend>Map</legend>
-        <p>
-    <input id="new-place-submit" type="submit" value="Submit" /> 
-        </p>
+            <p>Is this the right location?</p>
+            <p>
+            <div id="new-place-map" style="width: 840px; height: 380px;  #777; overflow: hidden;"></div> 
+            </p>
+            <p>
+                <input id="new-place-submit" type="submit" value="Submit" /> 
+            </p>
     </fieldset>
     
 </form>

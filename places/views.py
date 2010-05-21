@@ -62,6 +62,18 @@ def view_place(request, place_id):
     return render_to_response('places/place.html', {'place' : my_place}, context_instance=RequestContext(request))
 
 @login_required
+def delete_place(request, place_id):
+    my_place = get_object_or_404(Place, pk=place_id)
+    if request.method == 'POST':
+        if request.user == my_place.submitter:
+            my_place.delete()
+            return render_to_response('places/delete_complete.html', {'place' : my_place}, context_instance=RequestContext(request))
+        else:
+            return HttpResponseForbidden()
+    else:
+        return render_to_response('places/delete.html', {'place' : my_place}, context_instance=RequestContext(request))
+
+@login_required
 def new_place(request):
     if request.method == 'POST':
         form = PlaceForm(request.POST)

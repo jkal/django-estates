@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete Place
+{% endblock %}
+
+{% block script %}
+<script>
+
+// pause plugin
+$.fn.pause = function(duration) {
+    $(this).animate({ dummy: 1 }, duration);
+    return this;
+};
+
+$(document).ready(function() {
+    $("label").inFieldLabels();
+
+    /* remove the login error box after 3 seconds */
+    $("#login-error").pause(3000).fadeOut();
+});
+</script>
+{% endblock %}
+
+
+{% block content %}
+<ul id="posts" >
+    <li class="post">
+        <h3><a href="" title="">Delete Place</a></h3>
+        <div class="post-content">
+            
+            {% if place.submitter == user %}
+            <p>Are you sure you want to delete "{{ place }}"?</p>
+            <form action="/places/{{ place.pk }}/delete/" method="post">{% csrf_token %}
+                <p><input type="submit" value="Yes, delete it." /></p>
+            </form> 
+            {% else %}
+                <p>You can only delete the items you submitted. <a href="javascript:history.back()">Go back.</a></p>
+            {% endif %}
+
+        </div>
+    </li>
+</ul>
+{% endblock %}
