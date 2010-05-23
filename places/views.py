@@ -45,8 +45,9 @@ def index(request):
     return render_to_response('index.html', cx, context_instance=RequestContext(request))
 
 def all_places(request):
+    q = request.GET.get('q', '')
     all_places = get_list_or_404(Place, published=True)
-    return render_to_response('places/all.html', {'places_list' : all_places}, context_instance=RequestContext(request))
+    return render_to_response('places/all.html', {'places_list' : all_places, 'filter_on' : q}, context_instance=RequestContext(request))
 
 @login_required
 def fav_places(request):
@@ -76,18 +77,13 @@ def delete_place(request, place_id):
 @login_required
 def new_place(request):
     if request.method == 'POST':
-        form = PlaceForm(request.POST)
+        form = PlaceForm(request.POST, request.FILES)
         if form.is_valid():
             print 'valid form'
             new_place = form.save(commit=False)
-
             new_place.submitter = request.user
             new_place.latitude = 33.3333
             new_place.longitude = 33.3333
-            #new_place.pub_date = 
-            #new_place.published = 'Mr'
-            #new_place.hits = 'Mr'
-
             new_place.save()
             return HttpResponseRedirect('/places/new/thanks/') 
         else:

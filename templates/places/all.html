@@ -7,9 +7,19 @@ All places
 {% block script %} 
 <script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-                $('#example').dataTable( {
+                oTable = $('#example').dataTable({
                     "bJQueryUI": true,
-                    "sPaginationType": "full_numbers"
+                    "sPaginationType": "full_numbers",
+                });
+
+                {% if filter_on %}
+                oTable.fnFilter('{{ filter_on }}');
+                {% endif %}
+
+                $("#reset-filter").click(function() {
+                    oTable.fnFilter('');
+                    $(this).hide();
+                    $("#searching-for").html("All places");
                 });
             });
 </script>
@@ -21,13 +31,22 @@ All places
 
 <ul id="posts" >
     <li class="post">
-        <h3><a href="" title="">All Places</a></h3>
+        <h3>
+            <span>Searching for: </span>
+            {% if filter_on %}
+                <span id="searching-for">"{{ filter_on }}"</span>
+                <span id="reset-filter" style="font-size:60%;"><a>[Reset filter]</a></span>
+            {% else %}
+                <span id="searching-for">All places</span>
+            {% endif %}
+        </h3>
         
         <div class="post-content">
             
             <table class="display" id="example" style="width:100%">
                 <thead>
                     <tr>
+                        <th>Category</th>
                         <th>Address</th>
                         <th>City</th>
                         <th>Price</th>
@@ -41,6 +60,7 @@ All places
                         {% for place in places_list %}
                         <tr>
                             <td><a href="/places/{{ place.pk }}/">{{ place.address }}</a></td>
+                            <td>{{ place.category.name }}</td>
                             <td>{{ place.city }}</td>
                             <td>{{ place.price }}</td>
                             <td>{{ place.area }}</td>

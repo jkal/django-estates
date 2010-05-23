@@ -30,7 +30,7 @@ $(document).ready(function() {
         <div class="post-content">
             
             {% if place.submitter == user %}
-            <p>Are you sure you want to delete "{{ place }}"?</p>
+            <p>Are you sure you want to delete "<strong>{{ place }}</strong>"?</p>
             <form action="/places/{{ place.pk }}/delete/" method="post">{% csrf_token %}
                 <p><input type="submit" value="Yes, delete it." /></p>
             </form> 

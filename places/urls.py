@@ -9,7 +9,7 @@ site_feeds = {
 }
 
 urlpatterns = patterns('',
-    (r'^all/$', all_places),
+    (r'^$', all_places),
     (r'^favs/$', fav_places),
     (r'^new/$', new_place),
     (r'^new/thanks/$', direct_to_template, {'template':'places/thanks.html'}),

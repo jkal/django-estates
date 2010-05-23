@@ -31,7 +31,7 @@ CEID Real Estate Agency
             Browse by categories 
             <span> 
                 {% for cat in categories %}
-                &nbsp <a href='#'>{{ cat.name }}</a>
+                &nbsp <a href='/places/?q={{ cat.name }}'>{{ cat.name }}</a>
                 {% endfor %}
             </span>
             <br /><br />

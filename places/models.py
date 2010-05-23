@@ -5,8 +5,8 @@ from django.template.defaultfilters import slugify
 
 class UserProfile(models.Model):
     home_address = models.TextField()
-    phone_numer = models.CharField(max_length=12)
-    user = models.ForeignKey(User, unique=True)
+    phone_number = models.CharField(max_length=12)
+    user = models.OneToOneField(User)
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -27,8 +27,6 @@ class Category(models.Model):
             self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
 
-
-
 class Place(models.Model):
     
     ACTIONS = (('S', 'For sale'), ('R', 'For rent'))
@@ -48,7 +46,7 @@ class Place(models.Model):
     area = models.IntegerField(verbose_name='Area in square meters')
     year = models.IntegerField(verbose_name='Construction year')
     description = models.TextField()
-    #image = models.FileField(upload_to="uploads")
+    #image = models.FileField(upload_to="uploads", blank=True)
 
     # submission related
     submitter = models.ForeignKey(User, verbose_name='Submitter')
@@ -61,4 +59,4 @@ class Place(models.Model):
         get_latest_by = 'pub_date'
 
     def __unicode__(self):
-        return '%s, %s, %s' % (self.address, self.city, self.country)
+        return '%s @ %s, %s' % (self.category.name, self.address, self.city)
