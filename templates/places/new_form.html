@@ -1,22 +1,6 @@
-<style type="text/css"> 
-        #main { width:960px; margin: 0px auto; border:solid 1px #b2b3b5; -moz-border-radius:10px; padding:20px; background-color:#f6f6f6;}
-        #header { text-align:center; border-bottom:solid 1px #b2b3b5; margin: 0 0 20px 0; }
-        fieldset { border:none;}
-        legend { font-size:18px; margin:0px; padding:0px 0px; color:#b0232a; font-weight:bold;}
-        .prev, .next { background-color:#b0232a; padding:5px 10px; color:#fff; text-decoration:none;}
-        .prev:hover, .next:hover { background-color:#424242; color: #fff; text-decoration:none;}
-        .prev { float:left;}
-        .next { float:left;}
-        #steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
-        #steps li {font-size:24px; float:left; padding:10px; color:#b0b1b3;}
-        #steps li span {font-size:11px; display:block;}
-        #steps li.current { color:#000;}
-        #makeWizard { background-color:#b0232a; color:#fff; padding:5px 10px; text-decoration:none; font-size:18px;}
-        #makeWizard:hover { background-color:#000;}
-    </style> 
 <form id="new-place-form" action="/places/new/" method="post">
 
-    <fieldset id="#location-fieldset">        
+    <fieldset id="step1" class="step">        
         <legend>Location Information</legend>
             <p> 
                 {{ form.address.label_tag }}
@@ -40,8 +24,8 @@
             </p> 
     </fieldset>        
 
-    <fieldset>
-        <legend>Estate Information</legend>
+    <fieldset id="step2" class="step">        
+        <legend>Property Information</legend>
         <span> 
             {{ form.category }}
             {{ form.category.errors }}
@@ -72,7 +56,7 @@
         </p>
     </fieldset>
     
-    <fieldset>
+    <fieldset id="step3" class="step">        
         <legend>Other Info</legend>
         <p>
             {{ form.image.label_tag }}
@@ -81,18 +65,16 @@
         </p>
     </fieldset>
     
-    <fieldset style="width: 100%;">
-        <legend>Map</legend>
-            <p>Is this the right location?</p>
-
-            <div id="new-place-map" style="width: 840px; height: 380px;"></div> 
-
-            {# LatLong hidden input #}
-            <input type="hidden" name="latitude" value="">
-            <input type="hidden" name="longitude" value="">
-            
-            <p>
-                <input id="new-place-submit" type="submit" value="Submit" /> 
-            </p>
+    <fieldset id="step4" class="step submit_step">        
+            <div id="new-place-map" style="width: 100%; height: 400px; overflow:hidden;">&nbsp;</div>
     </fieldset>
+    
+    <div>
+        <p>
+            <input class="navigation_button" value="Back" type="reset">
+            <input class="navigation_button" value="Next" type="submit">
+        </p>
+    </div>
+    {{ form.latitude }}
+    {{ form.longitude }}
 </form>

@@ -1,4 +1,4 @@
-from django.forms import Form, ModelForm
+from django.forms import Form, ModelForm, HiddenInput
 from places.models import Place, UserProfile
 
 #from registration.models import RegistrationProfile
@@ -9,6 +9,11 @@ class PlaceForm(ModelForm):
     class Meta:
         model = Place
         exclude = ['submitter', 'pub_date', 'published', 'hits',]
+
+        widgets = {
+            'latitude': HiddenInput(attrs={'value': ''}), 
+            'longitude': HiddenInput(attrs={'value': ''}), 
+        }
 
 #attrs_dict = { 'class': 'required' }
 

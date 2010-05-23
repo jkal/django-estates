@@ -4,6 +4,13 @@
 Add new estate
 {% endblock %}
 
+{% block style %}
+<script type="text/javascript" src="/static/js/jquery.history.js"></script>
+<script type="text/javascript" src="/static/js/jquery.form.js"></script>
+<script type="text/javascript" src="/static/js/jquery.validate.js"></script>
+<script type="text/javascript" src="/static/js/jquery.form.wizard-2.0.1-min.js"></script>
+{% endblock %}
+
 {% block script %}
 <script type="text/javascript">
 var geocoder;
@@ -31,8 +38,10 @@ function codeAddress() {
         geocoder.geocode( { 'address': fulladdr}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
-                $("input[name=latitude]").attr('value', results[0].geometry.location.lat());
-                $("input[name=longitude]").attr('value', results[0].geometry.location.lng());
+                window.lat = results[0].geometry.location.lat();
+                window.lng = results[0].geometry.location.lng();
+                $("#id_latitude").attr('value', window.lat); 
+                $("#id_longitude").attr('value', window.lng);
                 var marker = new google.maps.Marker({
                     map: map, 
                     position: results[0].geometry.location
@@ -45,12 +54,31 @@ function codeAddress() {
 }
 
 $(document).ready(function(){
-    initialize();
     $("label").inFieldLabels();
-    $("#new-place-form").formToWizard({ submitButton: 'new-place-submit' })
+    
+    initialize();
 
-    $(".next").click(function() {
+    //$("#new-place-map").
+
+    $(".navigation_button").click(function() {
         codeAddress();
+    });
+
+    $("#new-place-form").formwizard({
+        historyEnabled : true, 
+        formPluginEnabled: false, 
+        validationEnabled : false,
+        focusFirstInput : false,     // puts focus at the first input on each step
+    }, {
+        //validation settings
+    }, {
+        success: function(data) {   // called when the form has been submitted correctly to the server
+            alert("post successful"); 
+        },
+        beforeSubmit: function(data){   // called just before the form is submitted
+        },
+        dataType: 'json',
+        resetForm: true,
     });
 });
 </script>
@@ -66,6 +94,5 @@ $(document).ready(function(){
         </div>
     </li>
 </ul>
-
 
 {% endblock %}
