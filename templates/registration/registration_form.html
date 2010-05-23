@@ -6,6 +6,12 @@ Register
 
 {% block script %}
 <script>
+
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    return pattern.test(emailAddress);
+}
+
 $(document).ready(function(){
     $("label").inFieldLabels();
 
@@ -14,7 +20,7 @@ $(document).ready(function(){
         var msgbox = $("#status");
 
         if(username.length > 3) {
-            $("#status").html('<img src="/static/img/loader.gif">&nbsp;Checking availability.');
+            $("#status").html('<img src="/static/img/loader.gif">&nbsp;Checking availability...');
 
             $.ajax({
                 type: "POST", 
@@ -24,29 +30,57 @@ $(document).ready(function(){
                     $("#status").ajaxComplete(function(event, request) { 
                         var d = msg;
                         var str = msg.substr(0, 2);
-                        if(str == 'OK') { 
-                            // if you don't want background color remove these following two lines
-                            $("#id_username").removeClass("red");   // remove red color
-                            $("#id_username").addClass("green");    // add green color
-                            //msgbox.html('<img src="/static/img/yes.png"> <font color="Green"> Available </font>');
+                        if (str == 'OK') { 
+                            $("#id_username").removeClass("red");
+                            $("#id_username").addClass("green");
                             msgbox.html('');
                         } else { 
-                            // if you don't want background color remove these following two lines
-                            $("#id_username").removeClass("green");     // remove green color
-                            $("#id_username").addClass("red");          // add red  color
+                            $("#id_username").removeClass("green");
+                            $("#id_username").addClass("red");
                             msgbox.html(msg);
                         } 
                     });
                 } 
             }); 
         } else {
-            // if you don't want background color remove this following line
-            $("#id_username").addClass("red"); // add red color
+            $("#id_username").addClass("red"); 
             $("#status").html('<font color="#cc0000">Enter a valid username.</font>');
         }
-        
         return false;
     });
+
+        $("#id_email").change(function() {
+            var email = $("#id_email").val();
+            if (email != 0) {    
+                if(!isValidEmailAddress(email)) {
+                    $("#id_email").removeClass("green");
+                    $("#id_email").addClass("red");
+                } else {
+                    $("#id_email").removeClass("red");
+                    $("#id_email").addClass("green");
+                }
+            } else {
+                $("#id_email").removeClass("red");
+                $("#id_email").removeClass("green");
+            }
+        });
+        
+        $("#id_password2").keyup(function() {
+            var pass1 = $("#id_password1").val();
+            var pass2 = $("#id_password2").val();
+            
+            if (pass1 != pass2 ) {
+                $("#id_password1").removeClass("green");
+                $("#id_password1").addClass("red");
+                $("#id_password2").removeClass("green");
+                $("#id_password2").addClass("red");
+            } else {
+                $("#id_password1").removeClass("red");
+                $("#id_password1").addClass("green");
+                $("#id_password2").removeClass("red");
+                $("#id_password2").addClass("green");
+            }
+        });
 });
 </script>
 {% endblock %}
