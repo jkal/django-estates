@@ -56,19 +56,17 @@ function codeAddress() {
 $(document).ready(function(){
     $("label").inFieldLabels();
     
-    initialize();
-
-    //$("#new-place-map").
-
-    $(".navigation_button").click(function() {
-        codeAddress();
-    });
-
     $("#new-place-form").formwizard({
         historyEnabled : true, 
         formPluginEnabled: false, 
         validationEnabled : false,
         focusFirstInput : false,     // puts focus at the first input on each step
+        afterNext : function(wizardData) {
+            if (wizardData.isLastStep) {
+                initialize();
+                codeAddress();
+            }
+        },
     }, {
         //validation settings
     }, {
