@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
+    {{ place }}
 {% endblock %}
 
 {% block script %}
@@ -13,39 +14,19 @@
             'transitionOut' : 'elastic'
         });
 
-        $("#map").gMap({ 
-            controls: false,
-            scrollwheel: false,
-            maptype: G_HYBRID_MAP,
-            markers: [{ latitude: {{ place.latitude }}, longitude: {{ place.longitude }} }], 
-            zoom: 18,
-        });
-    
-        /*
-        $('place-delete-link').live('click', function() {
-            if (confirm("Are you sure you want to delete this property?")) {
-                var property_id = {{ place.pk }}; 
-                var data = 'id=' + property_id;
-                
-                $.ajax({
-                    type: "POST",
-                    url: "/places/delete/",
-                    data: data,
-                    cache: false,
-                    
-                    success: function() {
-                        var row_count = $('#repo-table tr').size();
-                        parent.fadeOut('slow', function() { $(this).remove(); }); 
-                        if ( row_count == 1 ) { 
-                            $('#repo-table').append('<tr id="no-repos"><th scope="row">No repositories yet!</th></tr>');
-                        }   
-                    },  
-                    error: function() { alert('AJAX request failed. Report to unixgrp@ceid.upatras.gr.'); },
-            }); 
-        }   
-    });         
-    */
-
+        var myLatlng = new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }});
+        var myOptions = {
+            zoom: 15,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        
+        var map = new google.maps.Map(document.getElementById("map"), myOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng, 
+            map: map, 
+            title:"{{ place }}"
+        });  
     });
 </script>
 {% endblock %}
@@ -76,14 +57,14 @@
         </div>
 
         <p class="images">
-            <a rel="thumb_group" class="thumb" href="http://ignati.com/wp-content/uploads/2008/03/fancybox.jpg">
-                <img alt="thumb_group" src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg" />
+            <a rel="thumb_group" class="thumb" href="/static/img/sample.jpg">
+                <img alt="thumb_group" src="/static/img/photo.png" />
             </a>
-            <a rel="thumb_group" class="thumb" href="http://ignati.com/wp-content/uploads/2008/03/fancybox.jpg">
-                <img alt="thumb_group" src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg" />
+            <a rel="thumb_group" class="thumb" href="/static/img/sample.jpg">
+                <img alt="thumb_group" src="/static/img/photo.png" />
             </a>
-            <a rel="thumb_group" class="thumb" href="http://ignati.com/wp-content/uploads/2008/03/fancybox.jpg">
-                <img alt="thumb_group" src="http://www.no-margin-for-errors.com/wp-content/themes/NMFE/images/thumbnails/t_1.jpg" />
+            <a rel="thumb_group" class="thumb" href="/static/img/sample.jpg">
+                <img alt="thumb_group" src="/static/img/photo.png" />
             </a>
         </p>
         <p class="date">Submitted on {{ place.pub_date }} by {{ place.submitter.username }}</p>

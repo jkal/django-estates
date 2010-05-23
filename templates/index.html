@@ -7,7 +7,24 @@ CEID Real Estate Agency
 {% block script %}
 <script>
     $(document).ready(function() { 
-        $("#map").gMap();
+        var greece = new google.maps.LatLng(39.0, 22.0);
+        var init_options = { zoom: 5, center: greece, mapTypeId: google.maps.MapTypeId.ROADMAP }
+        
+        var map = new google.maps.Map(document.getElementById("map"), init_options);
+
+        var popular_markers = new Array;
+        {% for place in popular_places %}
+            popular_markers.push(new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }}));
+        {% endfor %} 
+
+        var bounds = new maps.google.LatLngBounds();
+        for (var i = 0; i < popular_markers.length; i++) {
+            marker = new google.maps.Marker({ position: popular_markers[i], map: map });
+            bounds.extend(popular_markers[i]);
+        }
+        
+        map.fitBounds(bounds);
+
     }); 
 </script>
 {% endblock %}
@@ -15,13 +32,6 @@ CEID Real Estate Agency
 {% block content %}
 
 {% include "menu.html" %}
-
-<!--
-   -<div id="tag">
-   -    <img src="http://cdn.iconfinder.net/data/icons/dellipack/128/pathing.png">
-   -    Find your way <strong>home</strong>.
-   -</div>
-   -->
 
 <div id="content"> 
     <div class="col g2"> 

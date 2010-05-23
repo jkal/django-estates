@@ -41,7 +41,7 @@ class Place(models.Model):
     longitude = models.FloatField()
 
     # property info 
-    action = models.CharField(max_length=1, choices=ACTIONS)
+    action = models.CharField(max_length=1, blank=False, choices=ACTIONS, default="")
     price = models.IntegerField(verbose_name='Price in Euros')
     area = models.IntegerField(verbose_name='Area in square meters')
     year = models.IntegerField(verbose_name='Construction year')
@@ -50,7 +50,7 @@ class Place(models.Model):
 
     # submission related
     submitter = models.ForeignKey(User, verbose_name='Submitter')
-    category = models.ForeignKey(Category, null=False, verbose_name='Category')
+    category = models.ForeignKey(Category, blank=False, verbose_name='Category', default="")
     pub_date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
     hits = models.IntegerField(default=0)

@@ -8,7 +8,7 @@ from places.models import Place, UserProfile
 class PlaceForm(ModelForm):
     class Meta:
         model = Place
-        exclude = ['latitude', 'longitude', 'submitter', 'pub_date', 'published', 'hits',]
+        exclude = ['submitter', 'pub_date', 'published', 'hits',]
 
 #attrs_dict = { 'class': 'required' }
 

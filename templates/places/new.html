@@ -6,11 +6,52 @@ Add new estate
 
 {% block script %}
 <script type="text/javascript">
+var geocoder;
+var map;
+
+function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var myOptions = {
+        zoom: 15,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(document.getElementById("new-place-map"), myOptions);
+}
+
+function codeAddress() {
+    var address = $("#id_address").val();
+    var city = $("#id_city").val();
+    var zipcode = $("#id_zipcode").val();
+    var country = $("#id_country").val();
+    var fulladdr = address + ', ' + city + ', ' + country;
+    
+    if (geocoder) {
+        geocoder.geocode( { 'address': fulladdr}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                $("input[name=latitude]").attr('value', results[0].geometry.location.lat());
+                $("input[name=longitude]").attr('value', results[0].geometry.location.lng());
+                var marker = new google.maps.Marker({
+                    map: map, 
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    }
+}
+
 $(document).ready(function(){
+    initialize();
     $("label").inFieldLabels();
     $("#new-place-form").formToWizard({ submitButton: 'new-place-submit' })
-    
-    $("#new-place-map").gMap({ markers: [{ address: "Tettnang, Germany", html: "The place I live" },], zoom: 10 });
+
+    $(".next").click(function() {
+        codeAddress();
+    });
 });
 </script>
 {% endblock %}
@@ -18,7 +59,6 @@ $(document).ready(function(){
 {% block content %}
 
 <ul id="posts" >
-
     <li class="post">
         <h3><a href="" title="">New Place</a></h3>
         <div class="post-content">

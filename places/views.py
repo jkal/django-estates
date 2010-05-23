@@ -79,15 +79,11 @@ def new_place(request):
     if request.method == 'POST':
         form = PlaceForm(request.POST, request.FILES)
         if form.is_valid():
-            print 'valid form'
             new_place = form.save(commit=False)
             new_place.submitter = request.user
-            new_place.latitude = 33.3333
-            new_place.longitude = 33.3333
             new_place.save()
             return HttpResponseRedirect('/places/new/thanks/') 
         else:
-            print 'invalid form'
             print form.errors
     else:
         form = PlaceForm()

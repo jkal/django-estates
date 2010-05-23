@@ -16,14 +16,12 @@
     </style> 
 <form id="new-place-form" action="/places/new/" method="post">
 
-    <fieldset>        
+    <fieldset id="#location-fieldset">        
         <legend>Location Information</legend>
             <p> 
                 {{ form.address.label_tag }}
                 {{ form.address }}
-                <span>
                 {{ form.address.errors }}
-                </span>
             </p> 
             <p> 
                 {{ form.city.label_tag }}
@@ -44,15 +42,14 @@
 
     <fieldset>
         <legend>Estate Information</legend>
-        <p> 
-            {{ form.action }}
-            {{ form.action.errors }}
-        </p> 
-        <p> 
-            <!--{{ form.category.label_tag }}-->
+        <span> 
             {{ form.category }}
             {{ form.category.errors }}
-        </p> 
+        </span> 
+        <span> 
+            {{ form.action }}
+            {{ form.action.errors }}
+        </span> 
         <p> 
             {{ form.price.label_tag }}
             {{ form.price }}
@@ -84,15 +81,18 @@
         </p>
     </fieldset>
     
-    <fieldset>
+    <fieldset style="width: 100%;">
         <legend>Map</legend>
             <p>Is this the right location?</p>
-            <p>
-            <div id="new-place-map" style="width: 840px; height: 380px;  #777; overflow: hidden;"></div> 
-            </p>
+
+            <div id="new-place-map" style="width: 840px; height: 380px;"></div> 
+
+            {# LatLong hidden input #}
+            <input type="hidden" name="latitude" value="">
+            <input type="hidden" name="longitude" value="">
+            
             <p>
                 <input id="new-place-submit" type="submit" value="Submit" /> 
             </p>
     </fieldset>
-    
 </form>
