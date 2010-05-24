@@ -4,7 +4,7 @@ from django.contrib.auth.views import login, logout
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseServerError
 
-from places.models import Place, Category, User
+from places.models import Place, Category, User, Favorite
 from places.forms import PlaceForm
 
 def custom_login(request):
@@ -52,7 +52,20 @@ def all_places(request):
 @login_required
 def fav_places(request):
     u = request.user
-    return render_to_response('places/fav.html', {}, context_instance=RequestContext(request))
+    all_favs = get_list_or_404(Favorite, user=u)
+    return render_to_response('places/fav.html', {'fav_list' : all_favs}, context_instance=RequestContext(request))
+
+@login_required
+def fav_place(request, place_id):
+    """ User makes a POST request to favorite a place. """ 
+    if request.method == 'GET':
+        u = request.user
+        my_place = get_object_or_404(Place, pk=place_id)
+        obj, create = Favorite.objects.get_or_create(user=u, place=my_place)
+        return HttpResponseRedirect('/places/favs/') 
+    else:
+        print request
+        return HttpResponseForbidden()
 
 def view_place(request, place_id):
     """

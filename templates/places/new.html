@@ -18,11 +18,11 @@ var map;
 
 function initialize() {
     geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var latlng = new google.maps.LatLng(38, 22);
     var myOptions = {
-        zoom: 15,
+        zoom: 4,
         center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.HYBRID
     };
     map = new google.maps.Map(document.getElementById("new-place-map"), myOptions);
 }
@@ -33,29 +33,33 @@ function codeAddress() {
     var zipcode = $("#id_zipcode").val();
     var country = $("#id_country").val();
     var fulladdr = address + ', ' + city + ', ' + country;
-    
-    if (geocoder) {
-        geocoder.geocode( { 'address': fulladdr}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
-                window.lat = results[0].geometry.location.lat();
-                window.lng = results[0].geometry.location.lng();
-                $("#id_latitude").attr('value', window.lat); 
-                $("#id_longitude").attr('value', window.lng);
-                var marker = new google.maps.Marker({
-                    map: map, 
-                    position: results[0].geometry.location
-                });
-            } else {
-                alert("Geocode was not successful for the following reason: " + status);
-            }
-        });
+
+    if (address != '' && city != '') {
+        if (geocoder) {
+            geocoder.geocode( { 'address': fulladdr }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    $("#map-status").hide();
+                    var geolocation = results[0].geometry.location;
+
+                    map.setCenter(geolocation);
+                    map.setZoom(15);
+
+                    $("#id_latitude").attr('value', geolocation.lat()); 
+                    $("#id_longitude").attr('value', geolocation.lng());
+                    var marker = new google.maps.Marker({
+                        map: map, 
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    $("#map-status").show();
+                }
+            });
+        }
     }
 }
 
 $(document).ready(function(){
     $("label").inFieldLabels();
-    
     $("#new-place-form").formwizard({
         historyEnabled : true, 
         formPluginEnabled: false, 

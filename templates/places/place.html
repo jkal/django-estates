@@ -14,6 +14,20 @@
             'transitionOut' : 'elastic'
         });
 
+        $("#favlink").click(function() {
+            $.ajax({
+                type: "GET",
+                url: "/places/{{ place.pk }}/fave/",
+                data: " ",
+                cache: false,
+                    
+                success: function() {
+                        alert("fave post ok");
+                },  
+                error: function() { alert('AJAX request failed. Report to unixgrp@ceid.upatras.gr.'); },
+            }); 
+        });
+
         var myLatlng = new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }});
         var myOptions = {
             zoom: 15,
@@ -54,6 +68,7 @@
 
         <div class="post-content">
             <p>{{ place.description }}</p>
+            <a id="favlink">Favorite this place!</a>
         </div>
 
         <p class="images">

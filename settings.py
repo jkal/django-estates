@@ -83,7 +83,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'registration',
     'places',
-    'south',
+    #'south',
 )
 
 AUTH_PROFILE_MODULE = 'places.UserProfile'

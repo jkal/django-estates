@@ -20,6 +20,11 @@
         <h3><a href="" title="">Your favorites places</a></h3>
 
         <div class="post-content">
+            <ul>
+            {% for fav in fav_list %}
+                <li>{{ fav.place }}</li>
+            {% endfor %}
+        </ul>
         </div>
     </li>
 </ul>

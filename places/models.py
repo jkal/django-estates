@@ -60,3 +60,7 @@ class Place(models.Model):
 
     def __unicode__(self):
         return '%s @ %s, %s' % (self.category.name, self.address, self.city)
+
+class Favorite(models.Model):
+    user = models.ForeignKey(User)
+    place = models.ForeignKey(Place)
