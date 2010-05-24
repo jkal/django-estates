@@ -77,11 +77,14 @@
             Εμβαδόν <a href="" rel="tag">{{ place.area }} m&sup2;</a> &bull;
             Τιμή <a href="" rel="tag">{{ place.price }} $</a> &bull;
             Έτος Κατασκευής <a href="" rel="tag">{{ place.year }}</a> 
+            {% if user.is_authenticated %}
+            <a href="#" id="favlink" style="padding-left: 10px;"><img title="Bookmark this place." src="/static/img/star.png" /></a>
+            {% endif %}
         </p>
 
         <div class="post-content">
             <p>{{ place.description }}</p>
-            <a id="favlink">Favorite this place!</a>
+
         </div>
 
         <p class="images">
