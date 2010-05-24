@@ -5,8 +5,10 @@
 {% endblock %}
 
 {% block style %}
-<link rel="stylesheet" href="/static/js/jquery.notice.css" type="text/css" /> 
-<script type="text/javascript" src="/static/js/jquery.notice.js"></script> 
+<!--<link rel="stylesheet" href="/static/js/jquery.notice.css" type="text/css" /> -->
+<!--<script type="text/javascript" src="/static/js/jquery.notice.js"></script> -->
+<link rel="stylesheet" href="/static/js/jquery.notifyBar.css" type="text/css" /> 
+<script type="text/javascript" src="/static/js/jquery.notifyBar.js"></script> 
 {% endblock %}
 
 {% block script %}
@@ -27,16 +29,14 @@
                 cache: false,
                     
                 success: function(data) {
-                    jQuery.noticeAdd({
-                        text: '<h2>Notice</h2><p>' + data + '</p>',
-                        stay: false
+                    $.notifyBar({
+                        html: data,
+                        delay: 2000,
+                        animationSpeed: "normal"
                     });
                 },  
                 error: function(textStatus) { 
-                    jQuery.noticeAdd({
-                        text: '<strong>Error!</strong><p>Ajax request failed:' + textStatus + '</p>',
-                        stay: false
-                    });
+                    $.notifyBar({ cls: "error", html: "AJAX request failed because of:" + textStatus });
                 },
             }); 
         });

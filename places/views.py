@@ -63,9 +63,9 @@ def fav_place(request, place_id):
         my_place = get_object_or_404(Place, pk=place_id)
         obj, created = Favorite.objects.get_or_create(user=u, place=my_place)
         if created:
-            return HttpResponse('Place has been marked as a favorite of yours.') 
+            return HttpResponse('Your bookmarks have been updated.') 
         else:
-            return HttpResponse('This is already one of your favorite places.') 
+            return HttpResponse('This is already on your bookmarks.') 
     else:
         return HttpResponse('What are you trying to do?')
 
