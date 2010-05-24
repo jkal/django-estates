@@ -4,9 +4,10 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 
 class UserProfile(models.Model):
-    home_address = models.TextField()
+    home_address = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=12)
     user = models.OneToOneField(User)
+    public_profile_field = models.BooleanField()
 
     def get_absolute_url(self):
         return ('profiles_profile_detail', (), { 'username': self.user.username })
