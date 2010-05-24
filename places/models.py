@@ -8,6 +8,11 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length=12)
     user = models.OneToOneField(User)
 
+    def get_absolute_url(self):
+        return ('profiles_profile_detail', (), { 'username': self.user.username })
+    
+    get_absolute_url = models.permalink(get_absolute_url)
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField()
