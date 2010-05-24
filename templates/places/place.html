@@ -4,6 +4,11 @@
     {{ place }}
 {% endblock %}
 
+{% block style %}
+<link rel="stylesheet" href="/static/js/jquery.notice.css" type="text/css" /> 
+<script type="text/javascript" src="/static/js/jquery.notice.js"></script> 
+{% endblock %}
+
 {% block script %}
 <script>
     $(document).ready(function() {
@@ -22,9 +27,17 @@
                 cache: false,
                     
                 success: function() {
-                        alert("fave post ok");
+                    jQuery.noticeAdd({
+                        text: '<strong>Notice</strong><p>"{{ place }}" has been marked as a favorite.</p>',
+                        stay: false
+                    });
                 },  
-                error: function() { alert('AJAX request failed. Report to unixgrp@ceid.upatras.gr.'); },
+                error: function() { 
+                    jQuery.noticeAdd({
+                        text: '<strong>Error!</strong><p>AJAX request failed!</p>',
+                        stay: false
+                    });
+                },
             }); 
         });
 
