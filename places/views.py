@@ -47,7 +47,7 @@ def index(request):
 def all_places(request):
     q = request.GET.get('q', '')
     all_places = get_list_or_404(Place, published=True)
-    return render_to_response('places/all.html', {'places_list' : all_places, 'filter_on' : q}, context_instance=RequestContext(request))
+    return render_to_response('places/all.html', { 'places_list' : all_places, 'filter_on' : q }, context_instance=RequestContext(request))
 
 @login_required
 def fav_places(request):
@@ -61,11 +61,13 @@ def fav_place(request, place_id):
     if request.method == 'GET':
         u = request.user
         my_place = get_object_or_404(Place, pk=place_id)
-        obj, create = Favorite.objects.get_or_create(user=u, place=my_place)
-        return HttpResponseRedirect('/places/favs/') 
+        obj, created = Favorite.objects.get_or_create(user=u, place=my_place)
+        if created:
+            return HttpResponse('Place has been marked as a favorite of yours.') 
+        else:
+            return HttpResponse('This is already one of your favorite places.') 
     else:
-        print request
-        return HttpResponseForbidden()
+        return HttpResponse('What are you trying to do?')
 
 def view_place(request, place_id):
     """

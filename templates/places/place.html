@@ -26,15 +26,15 @@
                 data: " ",
                 cache: false,
                     
-                success: function() {
+                success: function(data) {
                     jQuery.noticeAdd({
-                        text: '<strong>Notice</strong><p>"{{ place }}" has been marked as a favorite.</p>',
+                        text: '<h2>Notice</h2><p>' + data + '</p>',
                         stay: false
                     });
                 },  
-                error: function() { 
+                error: function(textStatus) { 
                     jQuery.noticeAdd({
-                        text: '<strong>Error!</strong><p>AJAX request failed!</p>',
+                        text: '<strong>Error!</strong><p>Ajax request failed:' + textStatus + '</p>',
                         stay: false
                     });
                 },
@@ -68,13 +68,13 @@
         <h4>
             <a href="" title="">{{ place.category.name }} &bull; {{ place.address}}, {{ place.city}}</a>
             {% if place.submitter == user %}
-                <span style="color:#ff0000;font-size:80%;padding-left:5px;"><a href="/places/{{ place.pk }}/delete/">[Delete]</a></span>
+                <span style="color:#ff0000;font-size:80%;padding-left:5px;"><a title="You can delete this place." href="/places/{{ place.pk }}/delete/">[&times;]</a></span>
             {% endif %}
         </h4>
         <a href="#" class="image"><div id="map" style="height: 100%;">&nbsp</div></a>
         
         <p class="meta">
-            Εμβαδόν <a href="" rel="tag">{{ place.area }}m</a> &bull;
+            Εμβαδόν <a href="" rel="tag">{{ place.area }} m&sup2;</a> &bull;
             Τιμή <a href="" rel="tag">{{ place.price }} $</a> &bull;
             Έτος Κατασκευής <a href="" rel="tag">{{ place.year }}</a> 
         </p>
