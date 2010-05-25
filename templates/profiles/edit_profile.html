@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Edit Profile{% endblock %}
+
+{% block script %}
+{% endblock %}
  
 {% block content %}
 <ul id="posts" >
@@ -7,8 +10,16 @@
         <h3><a href="" title="">Edit Profile</a></h3>
         <div class="post-content">
             <form method="POST" action="">
-                {{ form }}
-                <input type="submit" name="submit" value="Update" id="submit">
+                <fieldset>
+                    {% for field in form %}
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
+                    {% endfor %}
+                    <p>
+                        <input type="submit" name="submit" value="Update Profile" id="submit">
+                    </p>
+                </fieldset>
             </form>
         </div>
     </li>

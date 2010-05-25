@@ -7,8 +7,16 @@
         <h3><a href="" title="">Create Profile</a></h3>
         <div class="post-content">
             <form method="POST" action="">
-                {{ form }}
-                <input type="submit" name="submit" value="Update" id="submit">
+                <fieldset>
+                    {% for field in form %}
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
+                    {% endfor %}
+                    <p>
+                        <input type="submit" name="submit" value="Create Profile" id="submit">
+                    </p>
+                </fieldset>
             </form>
         </div>
     </li>

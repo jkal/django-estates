@@ -4,7 +4,12 @@
 {% if profile %}
 <ul id="posts" >
     <li class="post">
-        <h3><a href="" title="">{{ profile.user }}'s Profile</a></h3>
+        <h3>
+            <a href="" title="">{{ profile.user }}'s Profile</a>
+            {% if user == profile.user %}
+                <span style="color:#ff0000;font-size:60%;padding-left:5px;"><a title="Edit your profile." href="/profiles/edit/">[Edit]</a></span>
+            {% endif %}
+        </h3>
         <div class="post-content">
             <ul>
                 <li>{{ profile.phone_number }}</li>

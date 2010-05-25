@@ -7,7 +7,7 @@ class UserProfile(models.Model):
     home_address = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=12)
     user = models.OneToOneField(User)
-    public_profile_field = models.BooleanField()
+    public_profile_field = models.BooleanField(verbose_name="Public profile?")
 
     def get_absolute_url(self):
         return ('profiles_profile_detail', (), { 'username': self.user.username })

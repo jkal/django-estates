@@ -99,3 +99,7 @@ EMAIL_HOST = 'mail.ceid.upatras.gr'
 #EMAIL_HOST_PASSWORD = ''
 #EMAIL_USE_TLS = ''
 DEFAULT_FROM_EMAIL = 'ikalantzis@ceid.upatras.gr'
+
+ABSOLUTE_URL_OVERRIDES = {
+    'django.contrib.auth.user': lambda o: "/blogs/%s/" % o.username,
+}
