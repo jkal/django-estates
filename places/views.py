@@ -50,23 +50,17 @@ def all_places(request):
     return render_to_response('places/all.html', { 'places_list' : all_places, 'filter_on' : q }, context_instance=RequestContext(request))
 
 @login_required
-def fav_places(request):
-    u = request.user
-    all_favs = get_list_or_404(Favorite, user=u)
-
-    return render_to_response('places/fav.html', {'fav_list' : all_favs}, context_instance=RequestContext(request))
 def fav_place(request, place_id):
-@login_required
+    """ User makes a GET request to favorite a place. """ 
     if request.method == 'GET':
-    """ User makes a POST request to favorite a place. """ 
-        my_place = get_object_or_404(Place, pk=place_id)
         u = request.user
-        if created:
+        my_place = get_object_or_404(Place, pk=place_id)
         obj, created = Favorite.objects.get_or_create(user=u, place=my_place)
-        else:
+        if created:
             return HttpResponse('Your bookmarks have been updated.') 
-    else:
+        else:
             return HttpResponse('This is already on your bookmarks.') 
+    else:
         return HttpResponse('What are you trying to do?')
 
 def view_place(request, place_id):

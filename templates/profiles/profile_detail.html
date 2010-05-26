@@ -26,7 +26,7 @@
 			<h3>Favorite places</h3>
 			<ul>
             {% for fav in fav_list %}
-                <li>{{ fav.place }}</li>
+                <li><a href="/places/{{ fav.place.pk }}/">{{ fav.place }}</a></li>
             {% endfor %}
         </ul>
         </div>
