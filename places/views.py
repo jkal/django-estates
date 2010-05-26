@@ -24,7 +24,7 @@ def check_username(request):
     uname = request.POST.get('username', False)
     if User.objects.filter(username=uname):
         return HttpResponse('Username is not available.')
-    else:
+    else:	
         return HttpResponse('OK')
 
 def index(request):

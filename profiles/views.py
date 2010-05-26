@@ -9,11 +9,13 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, get_list_or_404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic.list_detail import object_list
 from django.contrib.auth.decorators import login_required
+
+from places.models import Favorite
 
 from profiles import utils
 
@@ -283,10 +285,8 @@ def profile_detail(request, username, public_profile_field=None,
     context = RequestContext(request)
     for key, value in extra_context.items():
         context[key] = callable(value) and value() or value
-    
-    return render_to_response(template_name,
-                              { 'profile': profile_obj },
-                              context_instance=context)
+
+    return render_to_response(template_name, { 'profile' : profile_obj, 'fav_list' : Favorite.objects.filter(user=user), }, context_instance=context)
 
 def profile_list(request, public_profile_field=None,
                  template_name='profiles/profile_list.html', **kwargs):

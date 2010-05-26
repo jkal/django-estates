@@ -1,24 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 {% if profile %}
+
 <ul id="posts" >
     <li class="post">
         <h3>
-            <a href="" title="">{{ profile.user }}'s Profile</a>
+            {{ profile.user }}'s Profile
             {% if user == profile.user %}
                 <span style="color:#ff0000;font-size:60%;padding-left:5px;"><a title="Edit your profile." href="/profiles/edit/">[Edit]</a></span>
             {% endif %}
         </h3>
         <div class="post-content">
             <ul>
-                <li>{{ profile.phone_number }}</li>
-                <li>{{ profile.home_address}}</li>
+                <li style="padding-bottom: 10px;"><span>Phone Number</span><div style="padding-left: 10px;"><b>{{ profile.phone_number }}</b></div></li>
+                <li style="padding-bottom: 10px;"><span>Home Address</span><div style="padding-left: 10px;"><b>{{ profile.home_address}}</b></div></li>
             </ul>
+
+			<br />
+			<h3>Favorite places</h3>
+			<ul>
+            {% for fav in fav_list %}
+                <li>{{ fav.place }}</li>
+            {% endfor %}
+        </ul>
         </div>
     </li>
 </ul>
+
 {% else %}
+
 <ul id="posts" >
     <li class="post">
         <h3><a href="" title="">Private Profile</a></h3>
@@ -27,5 +39,7 @@
         </div>
     </li>
 </ul>
+
 {% endif %}
+
 {% endblock %}

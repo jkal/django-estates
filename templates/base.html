@@ -47,7 +47,7 @@
                     <li><a href="/accounts/login/" title="Login">Login</a></li>
                     <li><a href="/accounts/register" title="Register">New account?</a></li>
                 {% else %}
-                    <li><a>Hi, {{ user.username }}</a></li>
+                    <li><a href="/profiles/{{ user.username }}">Hi, {{ user.username }}</a></li>
                     <li><a href="/accounts/logout/" title="Logout">Logout</a></li>
                 {% endif %}
             </ul>

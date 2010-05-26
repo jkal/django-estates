@@ -37,7 +37,7 @@ $(document).ready(function(){
                         } else { 
                             $("#id_username").removeClass("green");
                             $("#id_username").addClass("red");
-                            msgbox.html(msg);
+                            msgbox.html('<font color="#cc0000">' + msg + '</font>');
                         } 
                     });
                 } 
@@ -98,7 +98,6 @@ $(document).ready(function(){
         <div class="post-content">
             <form action="" method="post">
                 <fieldset>
-
                     {% for field in form %}
                         <p>
                             {{ field.label_tag }}
@@ -107,9 +106,8 @@ $(document).ready(function(){
                         </p>
                     {% endfor %}
                 </fieldset>
-                
                 <p>
-                    <input type="submit" value="&rarr;" /> 
+		      		<input type="submit" value="&rarr;" /> 
                 </p>    
             </form>
         </div>
