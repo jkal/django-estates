@@ -52,7 +52,6 @@ class Place(models.Model):
     area = models.IntegerField(verbose_name='Area in square meters')
     year = models.IntegerField(verbose_name='Construction year')
     description = models.TextField()
-    #image = models.FileField(upload_to="uploads", blank=True)
 
     # submission related
     submitter = models.ForeignKey(User, verbose_name='Submitter')
@@ -70,3 +69,7 @@ class Place(models.Model):
 class Favorite(models.Model):
     user = models.ForeignKey(User)
     place = models.ForeignKey(Place)
+
+class Photo(models.Model):
+    place = models.ForeignKey(Place)
+    pic = models.ImageField(upload_to="uploads/", blank=True)

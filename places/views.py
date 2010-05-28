@@ -4,7 +4,7 @@ from django.contrib.auth.views import login, logout
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseServerError
 
-from places.models import Place, Category, User, Favorite
+from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
 
 def custom_login(request):
@@ -69,7 +69,8 @@ def view_place(request, place_id):
     """
 
     my_place = get_object_or_404(Place, pk=place_id)
-    return render_to_response('places/place.html', {'place' : my_place}, context_instance=RequestContext(request))
+    my_photos = get_list_or_404(Photo, place=my_place)
+    return render_to_response('places/place.html', {'place' : my_place, 'photos' : my_photos}, context_instance=RequestContext(request))
 
 @login_required
 def delete_place(request, place_id):

@@ -49,38 +49,38 @@ $(document).ready(function(){
         return false;
     });
 
-        $("#id_email").change(function() {
-            var email = $("#id_email").val();
-            if (email != 0) {    
-                if(!isValidEmailAddress(email)) {
-                    $("#id_email").removeClass("green");
-                    $("#id_email").addClass("red");
-                } else {
-                    $("#id_email").removeClass("red");
-                    $("#id_email").addClass("green");
-                }
-            } else {
-                $("#id_email").removeClass("red");
-                $("#id_email").removeClass("green");
-            }
-        });
-        
-        $("#id_password2").keyup(function() {
-            var pass1 = $("#id_password1").val();
-            var pass2 = $("#id_password2").val();
-            
-            if (pass1 != pass2 ) {
-                $("#id_password1").removeClass("green");
-                $("#id_password1").addClass("red");
-                $("#id_password2").removeClass("green");
-                $("#id_password2").addClass("red");
-            } else {
-                $("#id_password1").removeClass("red");
-                $("#id_password1").addClass("green");
-                $("#id_password2").removeClass("red");
-                $("#id_password2").addClass("green");
-            }
-        });
+	$("#id_email").change(function() {
+		var email = $("#id_email").val();
+		if (email != 0) {    
+			if(!isValidEmailAddress(email)) {
+				$("#id_email").removeClass("green");
+				$("#id_email").addClass("red");
+			} else {
+				$("#id_email").removeClass("red");
+				$("#id_email").addClass("green");
+			}
+		} else {
+			$("#id_email").removeClass("red");
+			$("#id_email").removeClass("green");
+		}
+	});
+
+	$("#id_password2").keyup(function() {
+		var pass1 = $("#id_password1").val();
+		var pass2 = $("#id_password2").val();
+
+		if (pass1 != pass2 ) {
+			$("#id_password1").removeClass("green");
+			$("#id_password1").addClass("red");
+			$("#id_password2").removeClass("green");
+			$("#id_password2").addClass("red");
+		} else {
+			$("#id_password1").removeClass("red");
+			$("#id_password1").addClass("green");
+			$("#id_password2").removeClass("red");
+			$("#id_password2").addClass("green");
+		}
+	});
 });
 </script>
 {% endblock %}

@@ -88,15 +88,11 @@
         </div>
 
         <p class="images">
-            <a rel="thumb_group" class="thumb" href="/static/img/sample.jpg">
-                <img alt="thumb_group" src="/static/img/photo.png" />
-            </a>
-            <a rel="thumb_group" class="thumb" href="/static/img/sample.jpg">
-                <img alt="thumb_group" src="/static/img/photo.png" />
-            </a>
-            <a rel="thumb_group" class="thumb" href="/static/img/sample.jpg">
-                <img alt="thumb_group" src="/static/img/photo.png" />
-            </a>
+			{% for p in photos %}
+            	<a rel="Photos" class="thumb" href="{{ p.pic.url }}">
+					<img src="{{ p.pic.url }}" width="60" height="60"/>
+				</a>
+			{% endfor %}
         </p>
         <p class="date">Submitted on {{ place.pub_date }} by {{ place.submitter.username }}</p>
     </li>
