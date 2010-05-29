@@ -7,11 +7,7 @@ class LatestPlacesFeed(Feed):
     description = 'The 10 most recently added places.'
     
     def items(self):
-        return Place.objects.filter(published=True).order_by('-pub_date')[:10]
-    
-    # def item_title(self, item):
-    #     return item.title
-    # 
+        return Place.objects.filter(published=True).order_by('-pub_date')[:10] 
     
     def item_description(self, item):
         return item.description

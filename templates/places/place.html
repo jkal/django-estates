@@ -88,11 +88,15 @@
         </div>
 
         <p class="images">
-			{% for p in photos %}
-            	<a rel="Photos" class="thumb" href="{{ p.pic.url }}">
-					<img src="{{ p.pic.url }}" width="60" height="60"/>
-				</a>
-			{% endfor %}
+			{% if photos %}
+				{% for p in photos %}
+            		<a rel="Photos" class="thumb" href="{{ p.pic.url }}">
+						<img src="{{ p.pic.url }}" width="60" height="60"/>
+					</a>
+				{% endfor %}
+			{% else %}
+				No photos submitted.
+			{% endif %}
         </p>
         <p class="date">Submitted on {{ place.pub_date }} by {{ place.submitter.username }}</p>
     </li>

@@ -69,7 +69,7 @@ def view_place(request, place_id):
     """
 
     my_place = get_object_or_404(Place, pk=place_id)
-    my_photos = get_list_or_404(Photo, place=my_place)
+    my_photos = list(Photo.objects.filter(place=my_place))
     return render_to_response('places/place.html', {'place' : my_place, 'photos' : my_photos}, context_instance=RequestContext(request))
 
 @login_required
