@@ -46,7 +46,7 @@ def index(request):
 
 def all_places(request):
     q = request.GET.get('q', '')
-    all_places = get_list_or_404(Place, published=True)
+    all_places = Place.objects.filter(published=True)
     return render_to_response('places/all.html', { 'places_list' : all_places, 'filter_on' : q }, context_instance=RequestContext(request))
 
 @login_required

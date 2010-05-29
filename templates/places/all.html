@@ -54,23 +54,18 @@ All places
                         <th>Year</th>
                     </tr>
                 </thead>
-                <tbody>
-
-                    {% if places_list %}
-                        {% for place in places_list %}
-                        <tr>
-                            <td><a href="/places/{{ place.pk }}/">{{ place.address }}</a></td>
-                            <td>{{ place.category.name }}</td>
-                            <td>{{ place.city }}</td>
-                            <td>{{ place.price }}</td>
-                            <td>{{ place.area }}</td>
-                            <td>{{ place.year }}</td>
-                        </tr>
-                        {% endfor %}
-                    {% else %}
-                    <h3>Nothing to see here.</h3>
-                    {% endif %}
-
+                
+				<tbody>
+                    {% for place in places_list %}
+                    <tr>
+                        <td><a href="/places/{{ place.pk }}/">{{ place.address }}</a></td>
+                        <td>{{ place.category.name }}</td>
+                        <td>{{ place.city }}</td>
+                        <td>{{ place.price }}</td>
+                        <td>{{ place.area }}</td>
+                        <td>{{ place.year }}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
 
@@ -79,9 +74,4 @@ All places
     </li>
 </ul>
 
-
-
-
-
-
-{% endblock %} 
+{% endblock %}

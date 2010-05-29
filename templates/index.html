@@ -45,19 +45,27 @@ CEID Real Estate Agency
                 {% endfor %}
             </span>
             <br /><br />
-            Popular
-            <span> 
-                {% for place in popular_places %}
-                &nbsp <a href='/places/{{ place.pk }}/'>{{ place.address }}</a>
-                {% endfor %}
-            </span>
-            <br />
-            Latest
-            <span> 
-                {% for place in latest_places %}
-                &nbsp <a href='/places/{{ place.pk }}/'>{{ place.address }}</a>
-                {% endfor %}
-            </span>
+            
+			{% if popular_places and latest_places %}
+				Popular
+            	<span>
+                	{% for place in popular_places %}
+                	&nbsp <a href='/places/{{ place.pk }}/'>{{ place.address }}</a>
+                	{% endfor %}
+            	</span>
+            
+				<br />
+            
+				Latest
+            	<span> 
+                	{% for place in latest_places %}
+                	&nbsp <a href='/places/{{ place.pk }}/'>{{ place.address }}</a>
+                	{% endfor %}
+            	</span>
+			{% else %}
+				No places added yet.
+			{% endif %}
+
         </p> 
     </div>
 </div> 

@@ -7,7 +7,7 @@ Delete Place
 {% block script %}
 <script>
 
-// pause plugin
+// Pause plugin
 $.fn.pause = function(duration) {
     $(this).animate({ dummy: 1 }, duration);
     return this;
@@ -19,6 +19,7 @@ $(document).ready(function() {
     /* remove the login error box after 3 seconds */
     $("#login-error").pause(3000).fadeOut();
 });
+
 </script>
 {% endblock %}
 
@@ -30,10 +31,10 @@ $(document).ready(function() {
         <div class="post-content">
             
             {% if place.submitter == user %}
-            <p>Are you sure you want to delete "<strong>{{ place }}</strong>"?</p>
-            <form action="/places/{{ place.pk }}/delete/" method="post">{% csrf_token %}
-                <p><input type="submit" value="Yes, delete it." /></p>
-            </form> 
+            	<p>Are you sure you want to delete "<strong>{{ place }}</strong>"?</p>
+            	<form action="/places/{{ place.pk }}/delete/" method="post">{% csrf_token %}
+                	<p><input type="submit" value="Yes, delete it." /></p>
+            	</form> 
             {% else %}
                 <p>You can only delete the items you submitted. <a href="javascript:history.back()">Go back.</a></p>
             {% endif %}
