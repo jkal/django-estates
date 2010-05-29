@@ -66,6 +66,10 @@ class Place(models.Model):
     def __unicode__(self):
         return '%s @ %s, %s' % (self.category.name, self.address, self.city)
 
+    def get_absolute_url(self):
+        return '/places/%i/' % self.pk
+        
+
 class Favorite(models.Model):
     user = models.ForeignKey(User)
     place = models.ForeignKey(Place)

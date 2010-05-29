@@ -1,12 +1,17 @@
-from django.contrib.syndication.feeds import Feed
+from django.contrib.syndication.views import Feed
 from places.models import Place
 
-class LatestPlaces(Feed):
+class LatestPlacesFeed(Feed):
     title = 'Latest Places'
-    description = 'Latest Places'
+    link = '/places/'
+    description = 'The 10 most recently added places.'
     
     def items(self):
-        return Place.objects.order_by('-pub_date')[:15]
+        return Place.objects.filter(published=True).order_by('-pub_date')[:10]
     
-    def item_pubdate(self, item):
-        return item.pub_date
+    # def item_title(self, item):
+    #     return item.title
+    # 
+    
+    def item_description(self, item):
+        return item.description

@@ -95,8 +95,8 @@ hr {display:none;}
 	/* footer */
 		#footer {border-top:#f1f7f8 3px solid;}
 			#footer p {border-top:#424242 1px solid;color:#999;font-size:75%;line-height:30px;}
-				#footer p a {background:#424242 url(../images/logo.gif) no-repeat center center;float:left;display:block;height:30px;margin:0 10px 0 0;text-indent:-5000px;width:46px;}
-					#footer p a:hover {background-color:#e78200;}
+/*              #footer p a {background:#424242 url(../images/logo.gif) no-repeat center center;float:left;display:block;height:30px;margin:0 10px 0 0;text-indent:-5000px;width:46px;}*/
+/*                  #footer p a:hover {background-color:#e78200;}*/
 /*---------------------------------
 	4. CLASSES
 ---------------------------------*/
