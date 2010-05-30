@@ -1,35 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}
-Delete Place
+    Delete "{{ place }}"
 {% endblock %}
-
-{% block script %}
-<script>
-
-// Pause plugin
-$.fn.pause = function(duration) {
-    $(this).animate({ dummy: 1 }, duration);
-    return this;
-};
-
-$(document).ready(function() {
-    $("label").inFieldLabels();
-
-    /* remove the login error box after 3 seconds */
-    $("#login-error").pause(3000).fadeOut();
-});
-
-</script>
-{% endblock %}
-
 
 {% block content %}
 <ul id="posts" >
     <li class="post">
-        <h3><a href="" title="">Delete Place</a></h3>
-        <div class="post-content">
-            
+        <h3>Delete Place</h3>
+        
+        <div class="post-content">    
             {% if place.submitter == user %}
             	<p>Are you sure you want to delete "<strong>{{ place }}</strong>"?</p>
             	<form action="/places/{{ place.pk }}/delete/" method="post">{% csrf_token %}
@@ -38,7 +18,6 @@ $(document).ready(function() {
             {% else %}
                 <p>You can only delete the items you submitted. <a href="javascript:history.back()">Go back.</a></p>
             {% endif %}
-
         </div>
     </li>
 </ul>
