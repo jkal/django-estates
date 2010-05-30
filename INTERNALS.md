@@ -5,7 +5,7 @@
 διαχωρισμό του business logic από την εμφάνιση/input και την αλληλεπίδραση με τη βάση δεδομένων.
 
 ## Views
-Ένα view είναι μια απλή python function που παίρνει από το Django ως parameter ένα HTTP request και εκτελεί την
+Ένα view είναι μια απλή Python function που παίρνει από το Django ως parameter ένα HTTP request και εκτελεί την
 κατάλληλη επεξεργασία πάνω σε αυτό. Επιστρέφει ένα HTTP response με τα αποτελέσματα της επεξεργασίας.
 
 ## URLs

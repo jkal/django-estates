@@ -7,6 +7,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidde
 from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
 
+#http://stackoverflow.com/questions/1608261/django-login-redirect-url-with-dynamic-value
 def custom_login(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect('/')

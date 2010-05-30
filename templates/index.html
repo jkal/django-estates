@@ -24,7 +24,6 @@ CEID Real Estate Agency
         }
         
         map.fitBounds(bounds);
-
     }); 
 </script>
 {% endblock %}
@@ -38,12 +37,16 @@ CEID Real Estate Agency
         <p class="preamble">Welcome </p>
         
         <p class="clients">
-            Browse by categories 
-            <span> 
-                {% for cat in categories %}
-                &nbsp <a href='/places/?q={{ cat.name }}'>{{ cat.name }}</a>
-                {% endfor %}
-            </span>
+            {% if categories %}
+                Browse by categories 
+                <span>
+                    {% for cat in categories %}
+                        &nbsp <a href='/places/?q={{ cat.name }}'>{{ cat.name }}</a>
+                    {% endfor %}
+                </span>
+            {% else %}
+                No categories yet. Bummer.
+            {% endif %}
             <br /><br />
             
 			{% if popular_places and latest_places %}

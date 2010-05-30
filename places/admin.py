@@ -1,5 +1,8 @@
 from django.contrib import admin
-from places.models import Place, Category, UserProfile, Photo
+from places.models import Place, Category, UserProfile, Photo, Asset
+
+class AssetAdmin(admin.ModelAdmin):
+    pass
 
 class UserProfileAdmin(admin.ModelAdmin):
     pass
@@ -17,3 +20,4 @@ admin.site.register(Place, PlaceAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Photo, PhotoAdmin)
+admin.site.register(Asset, AssetAdmin)
