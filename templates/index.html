@@ -17,7 +17,7 @@ CEID Real Estate Agency
             popular_markers.push(new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }}));
         {% endfor %} 
 
-        var bounds = new maps.google.LatLngBounds();
+        var bounds = new google.maps.LatLngBounds();
         for (var i = 0; i < popular_markers.length; i++) {
             marker = new google.maps.Marker({ position: popular_markers[i], map: map });
             bounds.extend(popular_markers[i]);
