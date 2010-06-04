@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 
 class UserProfile(models.Model):
+    firstname = models.CharField(max_length=30)
+    lastname = models.CharField(max_length=30)
     home_address = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=12)
     user = models.OneToOneField(User)
