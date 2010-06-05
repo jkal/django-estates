@@ -12,6 +12,8 @@
 {% block script %}
 <script>
     $(document).ready(function() {
+        
+        $("a").css("cursor", "pointer");
 
         $("a.thumb").fancybox({
             'padding'       : 0,
@@ -22,7 +24,7 @@
         $("#favlink").click(function() {
             $.ajax({
                 type: "GET",
-                url: "/places/{{ place.pk }}/fave/",
+                url: "{% url fave-place place.pk %}",
                 data: " ",
                 cache: false,
                     
@@ -64,25 +66,24 @@
 
     <li class="post">
         <h4>
-            <a href="" title="">{{ place.category.name }} &bull; {{ place.address}}, {{ place.city}}</a>
+            {{ place.category.name }} &bull; {{ place.address}}, {{ place.city}}
             {% if place.submitter == user %}
-                <span style="color:#ff0000;font-size:80%;padding-left:5px;"><a title="You can delete this place." href="/places/{{ place.pk }}/delete/">[&times;]</a></span>
+                <span style="color:#ff0000;font-size:80%;padding-left:5px;"><a title="You can delete this place." href="{% url delete-place place.pk %}">[&times;]</a></span>
             {% endif %}
         </h4>
-        <a href="#" class="image"><div id="map" style="height: 100%;">&nbsp</div></a>
+        <a class="image"><div id="map" style="height: 100%;">&nbsp</div></a>
         
         <p class="meta">
-            Εμβαδόν <a href="" rel="tag">{{ place.area }} m&sup2;</a> &bull;
-            Τιμή <a href="" rel="tag">{{ place.price }} $</a> &bull;
+            Εμβαδόν <a rel="tag">{{ place.area }} m&sup2;</a> &bull;
+            Τιμή <a rel="tag">{{ place.price }} $</a> &bull;
             Έτος Κατασκευής <a href="" rel="tag">{{ place.year }}</a> 
             {% if user.is_authenticated %}
-            <a href="#" id="favlink" style="padding-left: 10px;"><img title="Bookmark this place." src="/static/img/star.png" /></a>
+                <a id="favlink" style="padding-left: 10px;"><img title="Bookmark this place." src="{{ MEDIA_URL }}img/star.png" /></a>
             {% endif %}
         </p>
 
         <div class="post-content">
             <p>{{ place.description }}</p>
-
         </div>
 
         <p class="images">

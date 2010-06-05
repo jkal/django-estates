@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %} 
-New Place Added
+    Deleted
 {% endblock %}
 
 {% block content %} 
@@ -10,7 +10,7 @@ New Place Added
     <li class="post">
         <h3>Deleted</h3>
         <div class="post-content">
-            {{ place }} was deleted succesfully. Back to the <a href="/">homepage</a> or <a href="/places/">all places</a>.
+            {{ place }} was deleted succesfully. Back to the <a href="/">homepage</a> or <a href="{% url all-places %}">all places</a>.
         </div>
     </li>
 </ul>

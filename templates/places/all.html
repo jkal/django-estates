@@ -6,22 +6,22 @@ All places
 
 {% block script %} 
 <script type="text/javascript" charset="utf-8">
-            $(document).ready(function() {
-                oTable = $('#example').dataTable({
-                    "bJQueryUI": true,
-                    "sPaginationType": "full_numbers",
-                });
+    $(document).ready(function() {
+        oTable = $('#example').dataTable({
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers",
+        });
 
-                {% if filter_on %}
-                oTable.fnFilter('{{ filter_on }}');
-                {% endif %}
+        {% if filter_on %}
+        oTable.fnFilter('{{ filter_on }}');
+        {% endif %}
 
-                $("#reset-filter").click(function() {
-                    oTable.fnFilter('');
-                    $(this).hide();
-                    $("#searching-for").html("All places");
-                });
-            });
+        $("#reset-filter").click(function() {
+            oTable.fnFilter('');
+            $(this).hide();
+            $("#searching-for").html("All places");
+        });
+    });
 </script>
 {% endblock %}
 
@@ -58,7 +58,7 @@ All places
 				<tbody>
                     {% for place in places_list %}
                     <tr>
-                        <td><a href="/places/{{ place.pk }}/">{{ place.address }}</a></td>
+                        <td><a href="{% url view-place place.pk %}">{{ place.address }}</a></td>
                         <td>{{ place.category.name }}</td>
                         <td>{{ place.city }}</td>
                         <td>{{ place.price }}</td>

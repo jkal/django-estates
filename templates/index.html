@@ -41,7 +41,7 @@ CEID Real Estate Agency
                 Browse by categories 
                 <span>
                     {% for cat in categories %}
-                        &nbsp <a href='/places/?q={{ cat.name }}'>{{ cat.name }}</a>
+                        &nbsp <a href='{% url all-places %}?q={{ cat.name }}' title='{{ cat.description }}'>{{ cat.name }}</a>
                     {% endfor %}
                 </span>
             {% else %}
@@ -53,7 +53,7 @@ CEID Real Estate Agency
 				Popular
             	<span>
                 	{% for place in popular_places %}
-                	&nbsp <a href='/places/{{ place.pk }}/'>{{ place.address }}</a>
+                	&nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
                 	{% endfor %}
             	</span>
             
@@ -62,7 +62,7 @@ CEID Real Estate Agency
 				Latest
             	<span> 
                 	{% for place in latest_places %}
-                	&nbsp <a href='/places/{{ place.pk }}/'>{{ place.address }}</a>
+                	&nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
                 	{% endfor %}
             	</span>
 			{% else %}

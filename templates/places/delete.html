@@ -12,7 +12,7 @@
         <div class="post-content">    
             {% if place.submitter == user %}
             	<p>Are you sure you want to delete "<strong>{{ place }}</strong>"?</p>
-            	<form action="/places/{{ place.pk }}/delete/" method="post">{% csrf_token %}
+            	<form action="{% url delete-place place.pk %}" method="post">{% csrf_token %}
                 	<p><input type="submit" value="Yes, delete it." /></p>
             	</form> 
             {% else %}
