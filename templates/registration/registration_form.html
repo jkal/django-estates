@@ -20,11 +20,11 @@ $(document).ready(function(){
         var msgbox = $("#status");
 
         if(username.length > 3) {
-            $("#status").html('<img src="/static/img/loader.gif">&nbsp;Checking availability...');
+            $("#status").html('<img src="{{ MEDIA_URL }}img/loader.gif">&nbsp;Checking availability...');
 
             $.ajax({
                 type: "POST", 
-                url: "/usercheck/", 
+                url: "{% url check-username %}", 
                 data: "username="+ username, 
                 success: function(msg) { 
                     $("#status").ajaxComplete(function(event, request) { 

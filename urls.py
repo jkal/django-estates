@@ -7,19 +7,19 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # static content
-    (r'%s(?P<path>.*)/$' % settings.MEDIA_URL[1:], 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT, }),
+    url(r'%s(?P<path>.*)/$' % settings.MEDIA_URL[1:], 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT, }),
 
-    (r'^admin/', include(admin.site.urls)),
-    (r'^accounts/login/', custom_login),
-    
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/login/', custom_login),
+
     # login right after registration
-    (r'^accounts/', include('registration.backends.simple.urls')),
-    
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+
     # uncomment to enable mail verification
     # (r'^accounts/', include('registration.backends.default.urls')),
 
-    (r'^places/', include('places.urls')),
-    (r'^profiles/', include('profiles.urls')),
-    (r'^usercheck/$', check_username),
-    (r'^$', index_view),
+    url(r'^places/', include('places.urls')),
+    url(r'^profiles/', include('profiles.urls')),
+    url(r'^usercheck/$', check_username, name='check-username'),
+    url(r'^$', index_view),
 )
