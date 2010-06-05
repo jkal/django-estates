@@ -5,10 +5,10 @@
         <title>{% block title %}{% endblock %}</title>
         
         {# RSS feed #}
-        <link type="application/rss+xml" rel="alternate" title="RSS" href="/places/feed/" />
+        <link type="application/rss+xml" rel="alternate" title="RSS" href="{% url places-feed %}" />
 
         {# Favicon #}
-        <link type="image/png" rel="icon" href="/static/img/favicon.png" />
+        <link type="image/png" rel="icon" href="{{ MEDIA_URL }}img/favicon.png" />
 
         {# JQuery and Maps API #}
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -40,13 +40,13 @@
     <body>
         <div id="top" style="display:none;">
             <ul id="network" > 
-                <li><a href="/" title="Home"><img src="/static/img/home.png"></a></li>
+                <li><a href="" title="Home"><img src="{{ MEDIA_URL }}img/home.png"></a></li>
                 {% if user.is_anonymous%}
-                    <li><a href="/accounts/login/" title="Login">Login</a></li>
-                    <li><a href="/accounts/register" title="Register">New account?</a></li>
+                    <li><a href="{% url auth_login %}" title="Login">Login</a></li>
+                    <li><a href="{% url registration_register %}" title="Register">New account?</a></li>
                 {% else %}
-                    <li><a href="/profiles/{{ user.username }}">Hi, {{ user.username }}</a></li>
-                    <li><a href="/accounts/logout/" title="Logout">Logout</a></li>
+                    <li><a href="{% url profiles_profile_detail user.username %}">Hi, {{ user.username }}</a></li>
+                    <li><a href="{% url auth_logout %}" title="Logout">Logout</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -60,7 +60,7 @@
             <div id="footer">
                 <p>&copy; 2010. Powered by Django and JQuery.
 					<span style="float: right;">
-						<a href="/places/feed/"><img src="/static/img/rss.png"></a>
+						<a href="{% url places-feed %}"><img src="{{ MEDIA_URL }}img/rss.png"></a>
 					</span>
 				</p>
             </div>

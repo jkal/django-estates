@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response, get_list_or_404, get_object_or_404
+from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login, logout
 from django.template import RequestContext
@@ -93,7 +94,7 @@ def new_place(request):
             new_place = form.save(commit=False)
             new_place.submitter = request.user
             new_place.save()
-            return HttpResponseRedirect('/places/new/thanks/') 
+            return HttpResponseRedirect(reverse('new-place-thanks')) 
         else:
             print form.errors
     else:
