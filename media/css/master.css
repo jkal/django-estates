@@ -58,6 +58,8 @@ body { color: #747474; font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif;
 				#content .preamble {font-size:115%;line-height:1.8;margin:0 0 30px 0;}
 					#content .preamble strong {color:#424242;}
 					#content .preamble em {background:#fff6e3;}
+				#content .clients {border-top:#CCC 1px dotted;font-size:75%;line-height:1.6;padding:25px 0 0 0;}
+                    #content .clients span {color:#CCC;}
 				#content #quotes {background:#CCC;height:195px;overflow:hidden;position:relative;}
 				#content .g1 blockquote {background:#FFF;min-height:195px;position:absolute;}
 				#content .g1 blockquote:first-child {z-index:10;}
