@@ -91,6 +91,7 @@ def new_place(request):
     if request.method == 'POST':
         form = PlaceForm(request.POST, request.FILES)
         if form.is_valid():
+            print request.FILES
             new_place = form.save(commit=False)
             new_place.submitter = request.user
             new_place.save()

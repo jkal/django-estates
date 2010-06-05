@@ -58,7 +58,12 @@ function codeAddress() {
     }
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
+    
+    $('#add-image').click(function() {
+        $(this).parent().append('<p><input type="file" name="photo1"></p>');
+    });
+    
     $("label").inFieldLabels();
     $("#new-place-form").formwizard({
         historyEnabled : true, 
