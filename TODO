@@ -9,4 +9,4 @@ OK Delete category => delete all child ads
 OK RSS with 10 latest ads
 
 -- After profile creation redirect to the homepage
--- Add name/surname in user profile
+OK Add name/surname in user profile

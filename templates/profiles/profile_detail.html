@@ -27,11 +27,11 @@
 			<br />
 			<h3>Favorite places</h3>
 			{% if fav_list %}
-				<ul>
+                <ul>
             		{% for fav in fav_list %}
-                	<li><a href="{% url view-place fav.place.pk %}">{{ fav.place }}</a></li>
+                	<li><a href="{% url view-place fav.place.pk %}">{{ fav.place }}</li></li>
             		{% endfor %}
-        		</ul>
+                </ul>
 			{% else %}
 				<div style="padding: 10px 10px">No favorite places yet.</div>
 			{% endif %}

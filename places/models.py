@@ -79,7 +79,7 @@ class Favorite(models.Model):
 class Photo(models.Model):
     place = models.ForeignKey(Place)
     pic = models.ImageField(upload_to="uploads/", blank=True)
-
+    
 class Asset(models.Model):
     name = models.CharField(max_length=30, blank=False)
 
