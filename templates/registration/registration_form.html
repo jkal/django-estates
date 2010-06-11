@@ -86,12 +86,6 @@ $(document).ready(function(){
 {% endblock %}
 
 {% block content %}
-<style>
-#status { margin-left:10px; display:inline; }
-.green { background-color:#f1f7f8; }
-.red { background-color: #FFD9D9; }
-</style>
-
 <ul id="posts" >
     <li class="post">
         <h3>Register</h3>
@@ -107,7 +101,7 @@ $(document).ready(function(){
                     {% endfor %}
                 </fieldset>
                 <p>
-		      		<input type="submit" value="&rarr;" /> 
+		      		<button type="submit">&rarr;</button>
                 </p>    
             </form>
         </div>

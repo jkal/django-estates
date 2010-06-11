@@ -13,10 +13,10 @@
             {% if place.submitter == user %}
             	<p>Are you sure you want to delete "<strong>{{ place }}</strong>"?</p>
             	<form action="{% url delete-place place.pk %}" method="post">{% csrf_token %}
-                	<p><input type="submit" value="Yes, delete it." /></p>
+                	<p><button type="submit">Yes, delete it.</button></p>                    
             	</form> 
             {% else %}
-                <p>You can only delete the items you submitted. <a href="javascript:history.back()">Go back.</a></p>
+                <p>You can only delete the items you submitted. <a href="javascript:history.back()" >Go back.</a></p>
             {% endif %}
         </div>
     </li>

@@ -6,7 +6,7 @@
     <li class="post">
         <h3>Create Profile</h3>
         <div class="post-content">
-            <form method="POST" action="">
+            <form method="post" action="">
                 <fieldset>
                     {% for field in form %}
                         {{ field.label_tag }}
@@ -14,7 +14,7 @@
                         {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
                     {% endfor %}
                     <p>
-                        <input type="submit" name="submit" value="Create Profile" id="submit">
+                        <button type="submit" >Create Profile</button>
                     </p>
                 </fieldset>
             </form>

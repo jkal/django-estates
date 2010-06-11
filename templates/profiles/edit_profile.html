@@ -1,8 +1,5 @@
 {% extends "base.html" %}
 {% block title %}Edit Profile{% endblock %}
-
-{% block script %}
-{% endblock %}
  
 {% block content %}
 <ul id="posts" >
@@ -17,7 +14,7 @@
                         {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
                     {% endfor %}
                     <p>
-                        <input type="submit" name="submit" value="Update Profile" id="submit">
+                        <button type="submit">Update Profile</button>
                     </p>
                 </fieldset>
             </form>

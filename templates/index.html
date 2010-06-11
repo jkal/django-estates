@@ -33,10 +33,10 @@ CEID Real Estate Agency
 {% include "menu.html" %}
 
 <div id="content"> 
-    <div class="col g2"> 
+    <div>
         <p class="preamble">Welcome </p>
         
-        <p class="clients">
+        <p class="quicklinks">
             {% if categories %}
                 Browse by categories 
                 <span>
@@ -73,10 +73,8 @@ CEID Real Estate Agency
     </div>
 </div> 
 
-<ul id="projects"> 
-    <li>
-        <div id="map" style="width: 100%; height: 480px; overflow: hidden;"></div> 
-    </li>
-</ul>
+<div id="map-wrapper"> 
+    <div id="map" style="width: 100%; height: 480px; overflow: hidden;"></div> 
+</div>
 
 {% endblock %}
