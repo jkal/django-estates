@@ -84,6 +84,7 @@ INSTALLED_APPS = (
     'registration',
     'profiles',
     'places',
+    'disqus',
     #'south',
 )
 
@@ -103,3 +104,6 @@ DEFAULT_FROM_EMAIL = 'ikalantzis@ceid.upatras.gr'
 ABSOLUTE_URL_OVERRIDES = {
     'django.contrib.auth.user': lambda o: "/blogs/%s/" % o.username,
 }
+
+DISQUS_API_KEY = 'fLVXYwkA1CQHcd17qMmfRbjOXKkyfhTKXh5GSqLMQFg7abkGYCpWMqyWKKcweL67'
+DISQUS_WEBSITE_SHORTNAME = 'realtyceid'

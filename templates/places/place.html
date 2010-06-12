@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load disqus_tags %}
+
 
 {% block title %}
     {{ place }}
@@ -106,4 +108,10 @@
         </div>
     </li>
 </ul>
+
+<div id="comments">
+    {% disqus_dev %}
+    {% disqus_show_comments %}
+</div>
+
 {% endblock %}
