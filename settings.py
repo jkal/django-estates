@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     'profiles',
     'places',
     'disqus',
+    'easy_thumbnails',
     #'south',
 )
 
@@ -107,3 +108,5 @@ ABSOLUTE_URL_OVERRIDES = {
 
 DISQUS_API_KEY = 'fLVXYwkA1CQHcd17qMmfRbjOXKkyfhTKXh5GSqLMQFg7abkGYCpWMqyWKKcweL67'
 DISQUS_WEBSITE_SHORTNAME = 'realtyceid'
+
+THUMBNAIL_DEBUG = True

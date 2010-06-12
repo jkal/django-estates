@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load disqus_tags %}
-
+{% load thumbnail %}
 
 {% block title %}
     {{ place }}
@@ -14,8 +14,6 @@
 {% block script %}
 <script>
     $(document).ready(function() {
-        
-        $("a").css("cursor", "pointer");
 
         $("a.thumb").fancybox({
             'padding'       : 0,
@@ -95,7 +93,7 @@
 			{% if photos %}
 				{% for p in photos %}
             		<a rel="Photos" class="thumb" href="{{ p.pic.url }}">
-						<img src="{{ p.pic.url }}" width="60" height="60"/>
+                        <img src="{% thumbnail p.pic 100x50 %}" width="60" height="60"/>
 					</a>
 				{% endfor %}
 			{% else %}

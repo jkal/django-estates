@@ -80,6 +80,9 @@ class Photo(models.Model):
     place = models.ForeignKey(Place)
     pic = models.ImageField(upload_to="uploads/", blank=True)
     
+    def __unicode__(self):
+        return '%s for %s' % (self.pic.name, self.place)
+    
 class Asset(models.Model):
     name = models.CharField(max_length=30, blank=False)
 

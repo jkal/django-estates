@@ -61,10 +61,11 @@ function codeAddress() {
 $(document).ready(function() {
     
     $('#add-image').click(function() {
-        $(this).parent().append('<p><input type="file" name="photo1"></p>');
+        $(this).parent().prepend('<p><input type="file" name="image"></p>');
     });
     
     $("label").inFieldLabels();
+    
     $("#new-place-form").formwizard({
         historyEnabled : true, 
         formPluginEnabled: false, 

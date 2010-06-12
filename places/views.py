@@ -4,11 +4,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login, logout
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseServerError
+from django.core.files.base import ContentFile
 
 from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
 
-#http://stackoverflow.com/questions/1608261/django-login-redirect-url-with-dynamic-value
 def custom_login(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect('/')
@@ -93,10 +93,17 @@ def new_place(request):
     if request.method == 'POST':
         form = PlaceForm(request.POST, request.FILES)
         if form.is_valid():
-            print request.FILES
+            # print request.FILES
             new_place = form.save(commit=False)
             new_place.submitter = request.user
             new_place.save()
+            
+            # handle images
+            for f in request.FILES.getlist('image'):
+                new_photo = Photo(place=new_place)
+                file_content = ContentFile(f.read())
+                new_photo.pic.save(f.name, file_content)
+                
             return HttpResponseRedirect(reverse('new-place-thanks')) 
         else:
             print form.errors

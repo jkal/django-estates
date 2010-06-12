@@ -1,4 +1,4 @@
-<form id="new-place-form" action="{% url new-place %}" method="post">
+<form id="new-place-form" enctype="multipart/form-data" action="{% url new-place %}" method="post">
 
     <fieldset id="step1" class="step">        
         <legend>Location Information</legend>
@@ -58,6 +58,13 @@
     
     <fieldset id="step3" class="step">        
         <legend>Other Info</legend>
+        <p>
+            <input type="file" name="image">
+        </p>
+
+        <div style="padding: 10px 0 20px 0;" id="add-image">
+            <a>+ Add image</a></span>
+        </div>
     </fieldset>
     
     <fieldset id="step4" class="step">        
