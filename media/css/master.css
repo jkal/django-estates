@@ -32,13 +32,11 @@ body { color: #747474; font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif;
 		#posts li h3 {border-bottom:#e3f0f2 1px solid;color:#424242;font-size:150%;padding:0 0 5px 5px;}
 		    #posts li h3 a {color:#424242;}
 			#posts li h3 a:hover {color:#e78200;}
-		    #posts li .image {background:#FFF;border:#e3f0f2 10px solid;display:block;float:right;height:250px;margin:-35px 0 0 15px;overflow:hidden;width:500px;}
-			#posts li .image:hover {border-color:#cce4e8;}
-				#posts li p.meta {background:#f1f7f8;color:#bdced1;font-size:73%;line-height:1.6;padding:5px 10px;}
-                #posts li div.post-content {font-size:80%;line-height:1.6;padding:15px 15px 15px 10px;}
-                    #posts li div.post-content p:first-child {color:#424242;font-size:102%;}
-				#posts li p.date {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:15px 0 0 0;}
-				#posts li p.images {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:5px 0 0 0;}
+		#posts li .side-map {background:#FFF;border:#e3f0f2 5px solid;display:block;float:right;height:250px;margin:-35px 0 0 15px;overflow:hidden;width:500px;}
+        #posts li div.meta {background:#f1f7f8;color:#bdced1;font-size:73%;line-height:1.6;padding:5px 10px;}
+        #posts li div.post-content {font-size:80%;line-height:1.6;padding:15px 15px 15px 10px;}
+		#posts li div.date {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:15px 0 0 0;}
+		#posts li div.images {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:5px 0 0 0;}
 				
 	#content {padding:20px 10px 5px 10px;}
 	    #content p {margin:0 0 20px 0;}
