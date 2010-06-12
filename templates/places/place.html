@@ -59,6 +59,21 @@
 {% endblock %}
 
 {% block content %}
+<style>
+.round {
+    background-color:#747474;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
+}
+
+a.round-red {
+    font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
+}
+a.round-blue {
+    font-size: 60%; background-color:#5f99cf;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
+}
+a.round-other {
+    font-size: 60%; background-color:#5F99CF;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
+}
+</style>
 
 {% include "menu.html" %}
 
@@ -66,9 +81,12 @@
 
     <li class="post">
         <h4>
-            {{ place.category.name }}, {{ place.address}}, {{ place.city}}
+            {{ place.address}}, {{ place.city}}
             {% if place.submitter == user %}
-                <span style="color:#ff0000;font-size:80%;padding-left:5px;"><a title="You can delete this place." href="{% url delete-place place.pk %}">[&times;]</a></span>
+                <a class="round-red" title="You can delete this place." href="{% url delete-place place.pk %}">Delete<a>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <a class="round-blue" id="favlink" style="padding-left: 5px;">Like!</a>
             {% endif %}
         </h4>
         
@@ -77,15 +95,19 @@
         </div>
         
         <div class="meta">
-            Εμβαδόν <a rel="tag">{{ place.area }} m&sup2;</a> &bull;
-            Τιμή <a rel="tag">{{ place.price }} $</a> &bull;
-            Έτος Κατασκευής <a rel="tag">{{ place.year }}</a> 
-            {% if user.is_authenticated %}
-                <a id="favlink" style="padding-left: 10px;"><img title="Bookmark this place." src="{{ MEDIA_URL }}img/star.png" /></a>
-            {% endif %}
+            {% if place.action = 'S' %}
+                <span class="round">Προς πώληση</span>
+            {% else %}
+                <span class="round">Προς ενοικόαση</span>
+            {% endif %}            
+            {{ place.category }} &bull; {{ place.area }} τ.μ. &bull; {{ place.price }} €
         </div>
 
         <div class="post-content">
+            <strong style="border-bottom: 1px dotted #CCCCCC; padding-bottom: 30px;">Πληροφορίες</strong>
+            <ul>
+                <li><em>Έτος Κατασκευής: </em>{{ place.year }}</li>
+            </ul>
             <p>{{ place.description }}</p>
         </div>
 
@@ -102,14 +124,15 @@
         </div>
         
         <div class="date">
-            Submitted on {{ place.pub_date }} by {{ place.submitter.username }}
+            Submitted on {{ place.pub_date }} by {{ place.submitter.username }}.
+            Views: {{ place.hits }}
         </div>
     </li>
 </ul>
 
 <div id="comments">
     {% disqus_dev %}
-    {% disqus_show_comments %}
+    {# {% disqus_show_comments %} #}
 </div>
 
 {% endblock %}

@@ -70,7 +70,6 @@ class Place(models.Model):
 
     def get_absolute_url(self):
         return '/places/%i/' % self.pk
-        
 
 class Favorite(models.Model):
     user = models.ForeignKey(User)
