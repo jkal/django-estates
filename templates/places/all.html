@@ -32,10 +32,10 @@ All places
 <ul id="posts" >
     <li class="post">
         <h3>
-            <span>Searching for: </span>
+            Searching for:
             {% if filter_on %}
                 <span id="searching-for">"{{ filter_on }}"</span>
-                <span id="reset-filter" style="font-size:60%;"><a>[Reset filter]</a></span>
+                <a id="reset-filter">[Reset filter]</a>
             {% else %}
                 <span id="searching-for">All places</span>
             {% endif %}

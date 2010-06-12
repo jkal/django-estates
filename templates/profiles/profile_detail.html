@@ -13,10 +13,11 @@
         <h3>
             {{ profile.user }}'s Profile
             {% if user == profile.user %}
-                <span style="color:#ff0000;font-size:60%;padding-left:5px;"><a title="Edit your profile." href="{% url profiles_edit_profile %}">[Edit]</a></span>
-                <span style="color:#ff0000;font-size:60%;padding-left:5px;"><a title="Change your password." href="{% url auth_password_change %}">[Change Password]</a></span>
+                <a title="Edit your profile." href="{% url profiles_edit_profile %}">[Edit]</a>
+                <a title="Change your password." href="{% url auth_password_change %}">[Change Password]</a>
             {% endif %}
         </h3>
+        
         <div class="post-content">
             <ul>
                 <li style="padding-bottom: 10px;"><span>Name</span><div style="padding-left: 10px;"><b>{{ profile.firstname }} {{ profile.lastname }}</b></div></li>
@@ -29,13 +30,14 @@
 			{% if fav_list %}
                 <ul>
             		{% for fav in fav_list %}
-                	<li><a href="{% url view-place fav.place.pk %}">{{ fav.place }}</li></li>
+                	<li><a href="{% url view-place fav.place.pk %}">{{ fav.place }}</a></li>
             		{% endfor %}
                 </ul>
 			{% else %}
 				<div style="padding: 10px 10px">No favorite places yet.</div>
 			{% endif %}
         </div>
+        
     </li>
 </ul>
 

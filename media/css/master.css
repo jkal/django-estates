@@ -1,14 +1,14 @@
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 body { color: #747474; font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif; text-align: center; }
-    a { color: #006d92; text-decoration: none; }
-    a:hover { /*color: #e78200;*/ }
-    
-    hr {display:none;}
 
-    #status { margin-left:10px; display:inline; }
-    .green { background-color:#f1f7f8; }
-    .red { background-color: #FFD9D9; }
+a { color: #006d92; text-decoration: none; }
+hr {display:none;}
+
+#status { margin-left:10px; display:inline; }
+
+.green { background-color:#f1f7f8; }
+.red { background-color: #FFD9D9; }
 
 #network { background:#f1f7f8; font-size:80%; list-style:none; padding:8px; text-align:left; }
     #network li { display:table-cell; padding: 0 9px 0 9px; margin:0 20px 0 0; vertical-align:middle; }
@@ -30,7 +30,7 @@ body { color: #747474; font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif;
 	    #posts .post {border-bottom:#CCC 1px dotted;padding:15px 0;}
 		#posts li h4 {border-bottom:#e3f0f2 1px solid;color:#424242;font-size:120%;padding:0 0 5px 5px;}
 		#posts li h3 {border-bottom:#e3f0f2 1px solid;color:#424242;font-size:150%;padding:0 0 5px 5px;}
-		    #posts li h3 a {color:#424242;}
+		    #posts li h3 a {color:#424242;font-size:60%;padding-left:5px;}
 			#posts li h3 a:hover {color:#e78200;}
 		#posts li .side-map {background:#FFF;border:#e3f0f2 5px solid;display:block;float:right;height:250px;margin:-35px 0 0 15px;overflow:hidden;width:500px;}
         #posts li div.meta {background:#f1f7f8;color:#bdced1;font-size:73%;line-height:1.6;padding:5px 10px;}
@@ -40,7 +40,7 @@ body { color: #747474; font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif;
 				
 	#content {padding:20px 10px 5px 10px;}
 	    #content p {margin:0 0 20px 0;}
-		#content .preamble {font-size:115%;line-height:1.8;margin:0 0 30px 0;}
+		#content .preamble {font-size:115%;line-height:1.8;margin:0 0 0 0;}
 		    #content .preamble strong {color:#424242;}
 			#content .preamble em {background:#fff6e3;}
 		#content .quicklinks {border-top:#CCC 1px dotted;font-size:75%;line-height:1.6;padding:25px 0 0 0;}
@@ -50,7 +50,7 @@ body { color: #747474; font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif;
 	    #footer p {border-top:#424242 1px solid;color:#999;font-size:75%;line-height:30px;}
 
 /* Hacks */
-.clear:after, #network:after, #header:after, #header ul:after, #projects:after,#content:after, .post:after {
+.clear:after, #network:after, #header:after, #header ul:after, #content:after, .post:after {
 	content:".";
 	display:block;
 	height:0;
@@ -62,7 +62,6 @@ body { color: #747474; font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif;
 .clear, #network, #header, #header ul, #projects, #content, .post {display:block;}
 /* End hide from IE Mac */
 
-form { /*padding: 0 20px 20px 20px;*/ }
 form legend { color: #333; padding: 0 0 20px 0; text-transform: uppercase; }
 
 form, form fieldset input, form fieldset textarea, form label {
