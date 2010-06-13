@@ -12,19 +12,39 @@
 <script type="text/javascript">
 var geocoder;
 var map;
+var marker;
 
 function initialize() {
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(38, 22);
     var myOptions = {
-        zoom: 4,
+        zoom: 6,
         center: latlng,
-        mapTypeId: google.maps.MapTypeId.HYBRID
+        mapTypeControl: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
     map = new google.maps.Map(document.getElementById("new-place-map"), myOptions);
+    
+    google.maps.event.addListener(map, 'click', function(event) {
+        placeMarker(event.latLng);
+    });
+    
+    marker = new google.maps.Marker({
+        map: map
+    });
 }
 
-function codeAddress() {
+function placeMarker(location) {
+    var clickedLocation = new google.maps.LatLng(location);
+    
+    marker.setPosition(location)
+    map.setCenter(location);
+    $("#id_latitude").attr('value', location.lat()); 
+    $("#id_longitude").attr('value', location.lng());
+}
+
+function geocodeAddress() {
     var address = $("#id_address").val();
     var city = $("#id_city").val();
     var zipcode = $("#id_zipcode").val();
@@ -37,19 +57,14 @@ function codeAddress() {
                 if (status == google.maps.GeocoderStatus.OK) {
                     var geolocation = results[0].geometry.location;
 
+                    marker.setPosition(geolocation);
                     map.setCenter(geolocation);
                     map.setZoom(15);
 
                     $("#id_latitude").attr('value', geolocation.lat()); 
                     $("#id_longitude").attr('value', geolocation.lng());
-                    var marker = new google.maps.Marker({
-                        map: map, 
-                        position: results[0].geometry.location
-                    });
-                    $("#new-place-map").show();
                 } else {
-                    $("#new-place-map").hide();
-                    $("#geocode-status").show();
+                    alert("Geolocation failed. Please select your location on the map.");
                 }
             });
         }
@@ -73,7 +88,7 @@ $(document).ready(function() {
         focusFirstInput : true,
         afterNext : function(wizardData) {
             if (wizardData.currentStep == "step2") {
-                codeAddress();
+                geocodeAddress();
                 $.fn.colorbox({title:"Select location", width:"604px", height:"436px", inline:true, href:"#new-place-map"});
             }
         },

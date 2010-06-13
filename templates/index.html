@@ -12,15 +12,37 @@ CEID Real Estate Agency
         
         var map = new google.maps.Map(document.getElementById("map"), init_options);
 
+        var popular_image = '{{ MEDIA_URL }}img/pinb.png';
+        var latest_image = '{{ MEDIA_URL }}img/pinr.png';
+
         var popular_markers = new Array;
         {% for place in popular_places %}
             popular_markers.push(new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }}));
-        {% endfor %} 
+        {% endfor %}
+        
+        var latest_markers = new Array;
+        {% for place in popular_places %}
+            latest_markers.push(new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }}));
+        {% endfor %}
 
         var bounds = new google.maps.LatLngBounds();
+
         for (var i = 0; i < popular_markers.length; i++) {
-            marker = new google.maps.Marker({ position: popular_markers[i], map: map });
+            var marker = new google.maps.Marker({ 
+                position: popular_markers[i], 
+                map: map,
+                icon: popular_image,
+            });
             bounds.extend(popular_markers[i]);
+        }
+        
+        for (var i = 0; i < latest_markers.length; i++) {
+            var marker = new google.maps.Marker({ 
+                position: latest_markers[i], 
+                map: map,
+                icon: latest_image,
+            });
+            bounds.extend(latest_markers[i]);
         }
         
         map.fitBounds(bounds);
