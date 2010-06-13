@@ -4,14 +4,11 @@
     New Place
 {% endblock %}
 
-{% block style %}
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.history.js"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.form.js"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.validate.js"></script>
+{% block head %}
+<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/colorbox.css" />  
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.form.wizard-2.0.1-min.js"></script>
-{% endblock %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.colorbox-min.js"></script>
 
-{% block script %}
 <script type="text/javascript">
 var geocoder;
 var map;
@@ -38,7 +35,6 @@ function codeAddress() {
         if (geocoder) {
             geocoder.geocode( { 'address': fulladdr }, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
-                    $("#map-status").hide();
                     var geolocation = results[0].geometry.location;
 
                     map.setCenter(geolocation);
@@ -50,8 +46,10 @@ function codeAddress() {
                         map: map, 
                         position: results[0].geometry.location
                     });
+                    $("#new-place-map").show();
                 } else {
-                    $("#map-status").show();
+                    $("#new-place-map").hide();
+                    $("#geocode-status").show();
                 }
             });
         }
@@ -59,6 +57,8 @@ function codeAddress() {
 }
 
 $(document).ready(function() {
+    
+    initialize();
     
     $('#add-image').click(function() {
         $(this).parent().prepend('<p><input type="file" name="image"></p>');
@@ -70,32 +70,19 @@ $(document).ready(function() {
         historyEnabled : false, 
         formPluginEnabled: false, 
         validationEnabled : false,
-        focusFirstInput : true,     // puts focus at the first input on each step
+        focusFirstInput : true,
         afterNext : function(wizardData) {
-            if (wizardData.isLastStep) {
-                initialize();
+            if (wizardData.currentStep == "step2") {
                 codeAddress();
+                $.fn.colorbox({title:"Select location", width:"604px", height:"436px", inline:true, href:"#new-place-map"});
             }
         },
-    }, {
-        //validation settings
-    }, {
-        success: function(data) {   
-            // called when the form has been submitted correctly to the server
-            alert("post successful"); 
-        },
-        beforeSubmit: function(data) {
-            // called just before the form is submitted
-        },
-        dataType: 'json',
-        resetForm: true,
-    });
+    }, {}, {});
 });
 </script>
 {% endblock %}
 
 {% block content %}
-
 <ul id="posts" >
     <li class="post">
         <h3>New Place</h3>
@@ -104,5 +91,4 @@ $(document).ready(function() {
         </div>
     </li>
 </ul>
-
 {% endblock %}

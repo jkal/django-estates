@@ -18,14 +18,12 @@
         {# JQuery Plugins #}
         <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.infieldlabel.min.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.dataTables.js"></script>
-        <script type="text/javascript" src="{{ MEDIA_URL }}js/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
 
         {# Stylesheets #}
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/master.css" type="text/css" />
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery-ui-1.7.2.smoothness.css" type="text/css" />
         <link rel="stylesheet" href="{{ MEDIA_URL }}js/datatables/css/demo_table_jui.css" type="text/css" />
-        <link rel="stylesheet" href="{{ MEDIA_URL }}js/fancybox/jquery.fancybox-1.3.1.css" type="text/css" />
-
+        
         <script>
             $(document).ready(function() {
                 $('#top').slideDown(500);
@@ -33,8 +31,7 @@
             });
         </script>
 
-        {% block script %}{% endblock %}
-        {% block style %}{% endblock %}
+        {% block head %}{% endblock %}
     
     </head>
   
