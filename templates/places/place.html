@@ -100,16 +100,14 @@ a.round-other {
 
         <div class="post-content">
             <strong style="border-bottom: 1px dotted #CCCCCC;">Πληροφορίες</strong>
-            <ul>
-                <li><em>Έτος Κατασκευής: </em>{{ place.year }}</li>
-            </ul>
             <p>{{ place.description }}</p>
+            <p><em>Έτος Κατασκευής: </em>{{ place.year }}</p>
         </div>
 
         <div class="images">
 			{% if photos %}
 				{% for p in photos %}
-            		<a rel="photos" href="{{ p.pic.url }}">
+            		<a rel="photos" title="Escape to close" href="{{ p.pic.url }}">
                         <img src="{% thumbnail p.pic 100x50 %}" width="60" height="60"/>
 					</a>
 				{% endfor %}

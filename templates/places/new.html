@@ -13,6 +13,7 @@
 var geocoder;
 var map;
 var marker;
+var address, city, zipcode, country;
 
 function initialize() {
     geocoder = new google.maps.Geocoder();
@@ -45,10 +46,6 @@ function placeMarker(location) {
 }
 
 function geocodeAddress() {
-    var address = $("#id_address").val();
-    var city = $("#id_city").val();
-    var zipcode = $("#id_zipcode").val();
-    var country = $("#id_country").val();
     var fulladdr = address + ', ' + city + ', ' + country;
 
     if (address != '' && city != '') {
@@ -64,7 +61,7 @@ function geocodeAddress() {
                     $("#id_latitude").attr('value', geolocation.lat()); 
                     $("#id_longitude").attr('value', geolocation.lng());
                 } else {
-                    alert("Geolocation failed. Please select your location on the map.");
+                    alert("Google Maps was unable to geocode your location based on the data you provided. Please select your location on the map manually.");
                 }
             });
         }
@@ -88,8 +85,16 @@ $(document).ready(function() {
         focusFirstInput : true,
         afterNext : function(wizardData) {
             if (wizardData.currentStep == "step2") {
-                geocodeAddress();
-                $.fn.colorbox({title:"Select location", width:"604px", height:"436px", inline:true, href:"#new-place-map"});
+                address = $("#id_address").val();
+                city = $("#id_city").val();
+                zipcode = $("#id_zipcode").val();
+                country = $("#id_country").val();
+                if (address != '' && city != '') {
+                    geocodeAddress();
+                    $.fn.colorbox({title:"Hit Escape to close.", width:"604px", height:"436px", inline:true, href:"#new-place-map"});
+                } else {
+                    alert("Please go back and fill in at least the address and the city so that we could locate you on the map.");
+                }
             }
         },
     }, {}, {});
