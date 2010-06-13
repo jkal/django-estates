@@ -12,29 +12,51 @@
 Το Django μας επιτρέπει να σχεδιάσουμε τα URLs της εφαρμογής όπως εμείς θέλουμε, χωρίς κανέναν περιορισμό. Παρέχουμε
 στον URL dispatcher μια αντιστοιχία (URLconf) μεταξύ URL patterns και των συναρτήσεων (views) που θα τα εξυπηρετούν και 
 το Django αναλαμβάνει τα υπόλοιπα. Έτσι επιτυγχάνουμε κομψά, εύκολα και μόνιμα URLs όπως το "/articles/2003/03/3/" και
-όχι σαν το "/articles.php?year=2003&month=03&day=3".
+όχι σαν το "/articles.php?year=2003&month=03&day=3". Φυσικά, όπου έχει νόημα, μπορούμε να χρησιμοποιήσουμε και URLs με GET
+parameters όπως τα παραπάνω.
 
 ## Templates
 Η εμφάνιση της εφαρμογής καθορίζεται από τα templates (directory templates/). Ένα Django template δεν είναι τίποτα
 περισσότερο από ένα HTML αρχείο που κάνει embed μια minimal python-like γλώσσα (Django template language) και γίνεται
-render από το αντίστοιχο view.
+render από το αντίστοιχο view. Στα templates υλοποιείται ουσιαστικά όλο το front-end κομμάτι της εφαρμογής.
+
+### Javascript/AJAX
+Η εφαρμογή κάνει εκτενή χρήση Javascript μέσω του πολύ διαδομένου framework [JQuery](jquery.com) σε διάφορα σημεία.
+Πιο συγκεκριμένα, πέρα από τα απλά εφέ, χρησιμοποιείται για validation στην φόρμα εγγραφής, στην αναζήτηση, στην προβολή 
+των φωτογραφιών και στη φόρμα προσθήκης νέας αγγελίας. Η αναζήτηση και το σύστημα "Αγαπημένων" βασίζονται σε AJAX requests.
+AJAX χρησιμοποιείται επίσης και για τον έλεγχο ύπαρξης του username κατά την εγγραφή του χρήστη.
+
+Τέλος, όλοι οι χάρτες της εφαρμογής δημιουργούνται με το Google Maps API v3. Στην φόρμα δημιουργίας νέας αγγελίας,
+το σύστημα προσπαθεί να εντοπίσει την ακριβή τοποθεσία του ακινήτου με geocoding από τα στοιχεία που εισήγαγε ο χρήστης.
+Επειδή αυτό όμως δεν είναι κάτι που μπορεί να γίνεται πάντα με μεγάλη ακρίβεια δίνουμε τη δυνατότητα στο χρήστη να
+"διορθώσει" την επιλογή του geocoder με το χέρι πάνς στο χάρτη. 
 
 # Σχεδιασμός Βάσης
 
-Όπως κάθε Django project, για την αλληλεπίδραση με τη βάση δεδομένων χρησιμοποιούμε το ORM (Object-relational mapping)
-υποσύστημα του Django. Ο ορισμός του schema γίνεται μέσω του Model API στο αρχείο places/models.py.
+Όπως και στα περισσότερα Django projects, για την αλληλεπίδραση με τη βάση δεδομένων χρησιμοποιούμε το ORM (Object-Relational 
+Mapper) του Django. Το ORM του Django ακολουθεί το [Active Record design pattern](http://en.wikipedia.org/wiki/Active_record_pattern).
+Ο ορισμός του schema γίνεται μέσω του Model API στο αρχείο `places/models.py`.
 
 Συγκεκριμένα, διακρίνουμε τις εξής οντότητες:
 
 * User
+* UserProfile
 * Place
 * Category
 * Favorite
-* Image
-* UserProfile
+* Photo
 
-Κάθε μοντέλο αποτελεί και έναν πίνακα στη βάση δεδομένων.
+Κάθε μοντέλο αποτελεί και έναν πίνακα στη βάση δεδομένων. Η δημιουργία της βάσης γίνεται μέσω του management utility
+(`python manage.py syncdb`)
 
 # Deployment
 
-PostgreSQL, nginx + uWSGI
+Το Django παρέχει έναν minimal application server, κυρίως για debugging της εφαρμογής, ο οποίος όμως δεν είναι κατάλληλος
+για production deployment. Για αυτό το λόγο, το setup που θα χρησιμοποιήσουμε βασίζεται στον [nginx](nginx.net) και 
+τον [uWSGI](http://projects.unbit.it/uwsgi/). Ο nginx είναι ένας από τους ταχύτερους web servers που κυκλοφορούν ενώ 
+ο uWSGI είναι ένας πλήρης [WSGI](http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) server. Ο nginx λαμβάνει 
+τα requests στο port 80 και μέσω ενός unix socket τα προωθεί σε έναν (ή περισσότερους) uWSGI workers.
+
+Για database server χρησιμοποιούμε PostgreSQL 8.4.
+
+# Security
