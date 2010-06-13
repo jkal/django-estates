@@ -81,6 +81,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.markup',
     'registration',
     'profiles',
     'places',
@@ -110,3 +111,7 @@ DISQUS_API_KEY = 'fLVXYwkA1CQHcd17qMmfRbjOXKkyfhTKXh5GSqLMQFg7abkGYCpWMqyWKKcweL
 DISQUS_WEBSITE_SHORTNAME = 'realtyceid'
 
 THUMBNAIL_DEBUG = True
+
+ALLOWED_INCLUDE_ROOTS = (
+    os.path.dirname('__file__'),
+)

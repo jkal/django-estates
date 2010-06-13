@@ -75,6 +75,9 @@ class Favorite(models.Model):
     user = models.ForeignKey(User)
     place = models.ForeignKey(Place)
 
+    def __unicode__(self):
+        return '%s likes %s' % (self.user.username, self.place)
+
 class Photo(models.Model):
     place = models.ForeignKey(Place)
     pic = models.ImageField(upload_to="uploads/", blank=True)

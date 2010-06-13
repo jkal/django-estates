@@ -36,7 +36,7 @@
                     });
                 },  
                 error: function(textStatus) { 
-                    $.notifyBar({ cls: "error", html: "AJAX request failed because of:" + textStatus });
+                    $.notifyBar({ cls: "error", html: "AJAX request failed:" + textStatus });
                 },
             }); 
         });
@@ -63,7 +63,6 @@
 .round {
     background-color:#747474;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
 }
-
 a.round-red {
     font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
 }
@@ -98,13 +97,13 @@ a.round-other {
             {% if place.action = 'S' %}
                 <span class="round">Προς πώληση</span>
             {% else %}
-                <span class="round">Προς ενοικόαση</span>
+                <span class="round">Προς ενοικίαση</span>
             {% endif %}            
             {{ place.category }} &bull; {{ place.area }} τ.μ. &bull; {{ place.price }} €
         </div>
 
         <div class="post-content">
-            <strong style="border-bottom: 1px dotted #CCCCCC; padding-bottom: 30px;">Πληροφορίες</strong>
+            <strong style="border-bottom: 1px dotted #CCCCCC;">Πληροφορίες</strong>
             <ul>
                 <li><em>Έτος Κατασκευής: </em>{{ place.year }}</li>
             </ul>

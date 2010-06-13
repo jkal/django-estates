@@ -1,7 +1,6 @@
-+ Custom fields in registration form (username, password, email, phone number, [firstname, lastname])
+OK Custom fields in registration form (username, password, email, phone number, [firstname, lastname])
 OK Edit profile for registered users.
-+ View place: thumbnails!
-    http://www.alrond.com/en/2007/sep/20/making-thumbnails-in-django/
+OKView place: thumbnails!
 OK Favorite ads
 OK Submitter can delete his own ads.
 + Custom fields in PlaceForm
@@ -10,3 +9,5 @@ OK RSS with 10 latest ads
 
 -- After profile creation redirect to the homepage
 OK Add name/surname in user profile
+
+Reset Filter, Edit profile links

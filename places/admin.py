@@ -1,5 +1,5 @@
 from django.contrib import admin
-from places.models import Place, Category, UserProfile, Photo, Asset
+from places.models import Place, Category, UserProfile, Photo, Asset, Favorite
 
 class AssetAdmin(admin.ModelAdmin):
     pass
@@ -16,8 +16,12 @@ class PlaceAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     readonly_fields = ('slug',)
 
+class FavoriteAdmin(admin.ModelAdmin):
+    pass
+        
 admin.site.register(Place, PlaceAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Asset, AssetAdmin)
+admin.site.register(Favorite, FavoriteAdmin)

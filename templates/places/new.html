@@ -67,10 +67,10 @@ $(document).ready(function() {
     $("label").inFieldLabels();
     
     $("#new-place-form").formwizard({
-        historyEnabled : true, 
+        historyEnabled : false, 
         formPluginEnabled: false, 
         validationEnabled : false,
-        focusFirstInput : false,     // puts focus at the first input on each step
+        focusFirstInput : true,     // puts focus at the first input on each step
         afterNext : function(wizardData) {
             if (wizardData.isLastStep) {
                 initialize();
@@ -80,10 +80,12 @@ $(document).ready(function() {
     }, {
         //validation settings
     }, {
-        success: function(data) {   // called when the form has been submitted correctly to the server
+        success: function(data) {   
+            // called when the form has been submitted correctly to the server
             alert("post successful"); 
         },
-        beforeSubmit: function(data){   // called just before the form is submitted
+        beforeSubmit: function(data) {
+            // called just before the form is submitted
         },
         dataType: 'json',
         resetForm: true,

@@ -21,5 +21,6 @@ urlpatterns = patterns('',
     url(r'^places/', include('places.urls')),
     url(r'^profiles/', include('profiles.urls')),
     url(r'^usercheck/$', check_username, name='check-username'),
+    url(r'^about/$', 'django.views.generic.simple.direct_to_template', {'template': 'about.html'}),
     url(r'^$', index_view),
 )
