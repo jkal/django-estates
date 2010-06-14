@@ -26,6 +26,7 @@
         
         <script>
             $(document).ready(function() {
+                $('#top').hide();
                 $('#top').slideDown(500);
                 $("a").css("cursor", "pointer");
             });
@@ -36,7 +37,7 @@
     </head>
   
     <body>
-        <div id="top" style="display:none;">
+        <div id="top" style="display:none1;">
             <ul id="network" > 
                 <li><a href="/" title="Home"><img src="{{ MEDIA_URL }}img/home.png"></a></li>
                 {% if user.is_anonymous%}
