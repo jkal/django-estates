@@ -34,6 +34,12 @@ CEID Real Estate Agency
                 icon: popular_image,
             });
             bounds.extend(popular_markers[i]);
+            var infowindow = new google.maps.InfoWindow({
+                    content: "hello"
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
         }
         
         for (var i = 0; i < latest_markers.length; i++) {
@@ -43,6 +49,12 @@ CEID Real Estate Agency
                 icon: latest_image,
             });
             bounds.extend(latest_markers[i]);
+            var infowindow = new google.maps.InfoWindow({
+                    content: "hello"
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
         }
         
         map.fitBounds(bounds);

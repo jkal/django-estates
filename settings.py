@@ -18,14 +18,6 @@ DATABASES = {
         'HOST': '',                     # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
     },
-    #'default': {
-        #'ENGINE': 'postgresql_psycopg2',            # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        #'NAME': 'django_db',              # Or path to database file if using sqlite3.
-        #'USER': 'django',                     # Not used with sqlite3.
-        #'PASSWORD': 'django',                 # Not used with sqlite3.
-        #'HOST': '',                     # Set to empty string for localhost. Not used with sqlite3.
-        #'PORT': '',                     # Set to empty string for default. Not used with sqlite3.
-    #}
 }
 
 TIME_ZONE = 'Europe/Athens'
@@ -79,9 +71,8 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.markup',
     'registration',
     'profiles',
     'places',
@@ -103,15 +94,9 @@ EMAIL_HOST = 'mail.ceid.upatras.gr'
 #EMAIL_USE_TLS = ''
 DEFAULT_FROM_EMAIL = 'ikalantzis@ceid.upatras.gr'
 
-ABSOLUTE_URL_OVERRIDES = {
-    'django.contrib.auth.user': lambda o: "/blogs/%s/" % o.username,
-}
-
+# Disqus app settings
 DISQUS_API_KEY = 'fLVXYwkA1CQHcd17qMmfRbjOXKkyfhTKXh5GSqLMQFg7abkGYCpWMqyWKKcweL67'
 DISQUS_WEBSITE_SHORTNAME = 'realtyceid'
 
+# easy_thumbnails app settings
 THUMBNAIL_DEBUG = True
-
-ALLOWED_INCLUDE_ROOTS = (
-    os.path.dirname('__file__'),
-)
