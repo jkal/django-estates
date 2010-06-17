@@ -1,4 +1,31 @@
+# 
+# Initial Users
+#
+- model: auth.user
+  pk: 2
+  fields:
+    date_joined: 2010-06-16 19:23:12.208836
+    email: user1@example.com
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2010-06-16 19:23:12.216400
+    password: sha1$afe1a$83db2ab92642f8841fd9b316266183380e103d9a
+    username: user1
 
+- model: auth.user
+  pk: 3
+  fields:
+    date_joined: 2010-06-16 19:23:12.208836
+    email: user3@example.com
+    is_active: true
+    is_staff: false
+    is_superuser: false
+    last_login: 2010-06-16 19:23:12.216400
+    password: sha1$afe1a$83db2ab92642f8841fd9b316266183380e103d9a
+    username: user3
+
+#
 # Initial Categories
 #
 - model: places.Category
