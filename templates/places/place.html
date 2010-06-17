@@ -41,6 +41,10 @@ $(document).ready(function() {
     var myOptions = {
         zoom: 15,
         center: myLatlng,
+        mapTypeControl: true,
+        mapTypeControlOptions: { style: google.maps.MapTypeControlStyle.DROPDOWN_MENU },
+        navigationControl: true,
+        navigationControlOptions: { style: google.maps.NavigationControlStyle.SMALL },
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     
