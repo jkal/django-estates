@@ -37,14 +37,18 @@
     </head>
   
     <body>
-        <div id="top" style="display:none1;">
-            <ul id="network" > 
+        <div id="top">
+            <ul id="userbar" > 
                 <li><a href="/" title="Home"><img src="{{ MEDIA_URL }}img/home.png"></a></li>
                 {% if user.is_anonymous%}
                     <li><a href="{% url auth_login %}" title="Login">Login</a></li>
                     <li><a href="{% url registration_register %}" title="Register">New account?</a></li>
                 {% else %}
-                    <li><a href="{% url profiles_profile_detail user.username %}">Hi, {{ user.username }}</a></li>
+                    <li><a href="{% url profiles_profile_detail user.username %}">Hi, {{ user.username }}</a>
+                        {% if user.is_staff %}
+                        <span style="font-size: 80%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">Staff</span>
+                        {% endif %}
+                    </li>
                     <li><a href="{% url auth_logout %}" title="Logout">Logout</a></li>
                 {% endif %}
             </ul>
