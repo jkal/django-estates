@@ -44,7 +44,6 @@ class Place(models.Model):
     zipcode = models.IntegerField(verbose_name='Zip Code')
     city = models.CharField(max_length=50, verbose_name='City')
     country = models.CharField(max_length=50, default='Greece', verbose_name='Country')
-    
     latitude = models.FloatField()
     longitude = models.FloatField()
 

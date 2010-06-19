@@ -16,9 +16,6 @@ hr {display:none;}
 #container { margin:20px auto; text-align:left; width:960px; }
     
     #header {border-bottom:#f1f7f8 3px solid;}
-	    #header h1 {float:right;}
-		    #header h1 a {display:block;height:45px;text-indent:-5000px;width:65px;}
-			#header h1 a:hover {background-color:#e78200;}
 		#header ul {border-bottom:#424242 1px solid;}
 		    #header ul li {float:right;margin:0 20px 0 0;}
 			    #header ul li a {color:#424242;font-family: Georgia, "Times New Roman", Serif; font-size:150%; line-height:45px;}
