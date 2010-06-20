@@ -9,9 +9,7 @@ from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
 
 def index(request):
-    """
-    Find the 5 latest and 5 most popular ads to display.
-    """
+    """ Find the 5 latest and 5 most popular places to display. """
 
     latest5 = Place.objects.filter(published=True).order_by('-pub_date')[:5]
     popular5 = Place.objects.filter(published=True).order_by('-hits')[:5]
@@ -26,9 +24,17 @@ def index(request):
     return render_to_response('index.html', cx, context_instance=RequestContext(request))
 
 def all_places(request):
+    """ Create a list with all places and pass it to the template. """
+    
     q = request.GET.get('q', '')
     all_places = Place.objects.filter(published=True)
-    return render_to_response('places/all.html', { 'places_list' : all_places, 'filter_on' : q }, context_instance=RequestContext(request))
+    
+    cx = { 
+        'places_list' : all_places, 
+        'filter_on' : q 
+    }
+    
+    return render_to_response('places/all.html', cx, context_instance=RequestContext(request))
 
 @login_required
 def fav_place(request, place_id):
@@ -50,10 +56,17 @@ def view_place(request, place_id):
     """
 
     my_place = get_object_or_404(Place, pk=place_id)
-    my_place.hits = my_place.hits + 1
-    my_place.save()
     my_photos = list(Photo.objects.filter(place=my_place))
-    return render_to_response('places/place.html', {'place' : my_place, 'photos' : my_photos}, context_instance=RequestContext(request))
+    # increase views
+    my_place.hits += 1
+    my_place.save()
+    
+    cx = {
+        'place' : my_place, 
+        'photos' : my_photos
+    }
+    
+    return render_to_response('places/place.html', cx, context_instance=RequestContext(request))
 
 @login_required
 def delete_place(request, place_id):
@@ -61,11 +74,11 @@ def delete_place(request, place_id):
     if request.method == 'POST':
         if request.user == my_place.submitter:
             my_place.delete()
-            return render_to_response('places/delete_complete.html', {'place' : my_place}, context_instance=RequestContext(request))
+            return render_to_response('places/delete_complete.html', { 'place' : my_place }, context_instance=RequestContext(request))
         else:
             return HttpResponseForbidden()
     else:
-        return render_to_response('places/delete.html', {'place' : my_place}, context_instance=RequestContext(request))
+        return render_to_response('places/delete.html', { 'place' : my_place }, context_instance=RequestContext(request))
 
 @login_required
 def new_place(request):
