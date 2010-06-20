@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
-from places.views import index as index_view, check_username, custom_login
+from places.views import index as index_view 
+from views import check_username, custom_login
 import settings
 
 admin.autodiscover()
@@ -21,5 +22,5 @@ urlpatterns = patterns('',
     url(r'^places/', include('places.urls')),
     url(r'^profiles/', include('profiles.urls')),
     url(r'^usercheck/$', check_username, name='check-username'),
-    url(r'^$', index_view),
+    url(r'^$', index_view, name='index-page'),
 )

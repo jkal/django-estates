@@ -5,29 +5,8 @@ from django.contrib.auth.views import login, logout
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseServerError
 from django.core.files.base import ContentFile
-
 from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
-
-def custom_login(request):
-    if request.user.is_authenticated():
-        return HttpResponseRedirect('/')
-    else:
-        return login(request)
-
-def check_username(request):
-    """ 
-    Checks if the POST-ed username is available. 
-    Called from an AJAX request in the registration form.
-    ? Move this to some utility file.
-    """
-    if not request.POST:
-        return HttpResponseForbidden()
-    uname = request.POST.get('username', False)
-    if User.objects.filter(username=uname):
-        return HttpResponse('Username is not available.')
-    else:	
-        return HttpResponse('OK')
 
 def index(request):
     """
