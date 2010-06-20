@@ -7,7 +7,7 @@ All places
 {% block head %} 
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
-        oTable = $('#example').dataTable({
+        oTable = $('#places-table').dataTable({
             "bJQueryUI": true,
             "sPaginationType": "full_numbers",
         });
@@ -49,7 +49,7 @@ All places
         
         <div class="post-content">
             
-            <table class="display" id="example" style="width:100%">
+            <table class="display" id="places-table" style="width:100%">
                 <thead>
                     <tr>
                         <th>Address</th>
