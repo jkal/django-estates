@@ -14,7 +14,7 @@ class PlaceAdmin(admin.ModelAdmin):
     pass
 
 class CategoryAdmin(admin.ModelAdmin):
-    readonly_fields = ('slug',)
+    pass
 
 class FavoriteAdmin(admin.ModelAdmin):
     pass

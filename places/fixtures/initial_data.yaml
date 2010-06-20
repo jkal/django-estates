@@ -32,49 +32,42 @@
   pk: 1
   fields:
     name: "Διαμέρισμα"
-    slug: ""
     description: ""
 
 - model: places.Category
   pk: 2
   fields:
     name: "Γκαρσονιέρα"
-    slug: ""
     description: ""
 
 - model: places.Category
   pk: 3
   fields:
     name: "Μονοκατοικία"
-    slug: ""
     description: ""
 
 - model: places.Category
   pk: 4
   fields:
     name: "Οροφοδιαμέρισμα"
-    slug: ""
     description: ""
 
 - model: places.Category
   pk: 5
   fields:
     name: "Ρετιρέ"
-    slug: ""
     description: ""
 
 - model: places.Category
   pk: 6
   fields:
     name: "Μεζονέτα"
-    slug: ""
     description: ""
 
 - model: places.Category
   pk: 7
   fields:
     name: "Οικόπεδο"
-    slug: ""
     description: ""
 
 #

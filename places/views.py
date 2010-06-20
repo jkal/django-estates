@@ -98,6 +98,10 @@ def new_place(request):
             new_place.submitter = request.user
             new_place.save()
             
+            # handle assets
+            # for a in request.POST.getlist('asset'):
+            #    pass
+            
             # handle images
             for f in request.FILES.getlist('image'):
                 new_photo = Photo(place=new_place)

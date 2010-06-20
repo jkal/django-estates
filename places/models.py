@@ -1,3 +1,5 @@
+# -*- coding: utf8 -*-
+
 import datetime
 from django.db import models
 from django.contrib.auth.models import User
@@ -10,6 +12,9 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length=12)
     user = models.OneToOneField(User)
     public_profile_field = models.BooleanField(verbose_name="Public profile?")
+    
+    def __unicode__(self):
+        return self.user.username
 
     def get_absolute_url(self):
         return ('profiles_profile_detail', (), { 'username': self.user.username })
@@ -18,22 +23,14 @@ class UserProfile(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    slug = models.SlugField()
     description = models.TextField(blank=True, help_text='Optional')
     
     class Meta:
-        verbose_name_plural = 'categories'
+        verbose_name_plural = 'Κατηγορίες'
 
     def __unicode__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        """ Create slug from category name while saving. """
-        
-        if not self.slug:
-            from django.template.defaultfilters import slugify
-            self.slug = slugify(self.name)
-        super(Category, self).save(*args, **kwargs)
 
 class Place(models.Model):
     
@@ -86,6 +83,9 @@ class Photo(models.Model):
     
 class Asset(models.Model):
     name = models.CharField(max_length=30, blank=False)
+    
+    def __unicode__(self):
+        return self.name
 
 class PlaceAssets(models.Model):
     place = models.ForeignKey(Place)
