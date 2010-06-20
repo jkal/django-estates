@@ -6,7 +6,7 @@
     <li class="post">
         <h3>Create Profile</h3>
         <div class="post-content">
-            <form method="post" action="">
+            <form method="post" action="">{% csrf_token %}
                 <fieldset>
                     {% for field in form %}
                         {{ field.label_tag }}

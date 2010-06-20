@@ -90,7 +90,7 @@ $(document).ready(function(){
     <li class="post">
         <h3>Register</h3>
         <div class="post-content">
-            <form action="" method="post">
+            <form action="" method="post">{% csrf_token %}
                 <fieldset>
                     {% for field in form %}
                         <p>
