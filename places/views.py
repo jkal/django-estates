@@ -1,7 +1,7 @@
-from django.shortcuts import render_to_response, get_list_or_404, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import login, logout
+from django.contrib.auth.views import login
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseServerError
 from django.core.files.base import ContentFile
@@ -70,6 +70,8 @@ def view_place(request, place_id):
 
 @login_required
 def delete_place(request, place_id):
+    """ Delete place pointed by place_id. """
+    
     my_place = get_object_or_404(Place, pk=place_id)
     if request.method == 'POST':
         if request.user == my_place.submitter:

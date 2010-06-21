@@ -26,7 +26,12 @@ $(document).ready(function() {
 {% block content %}
 <ul id="posts" >
     <li class="post">
-        <h3>Login</h3>
+        <h3>
+            Login
+            <a href="{% url auth_password_reset %}">Forgot password?<a>
+        </h3>
+
+        
         <div class="post-content">
 
             <form action="" method="post">{% csrf_token %}

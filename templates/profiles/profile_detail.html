@@ -20,8 +20,8 @@
             <span style="font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">Staff</span>
             {% endif %}
             {% if user == profile.user %}
-                <a title="Edit your profile." href="{% url profiles_edit_profile %}">[Edit]</a>
-                <a title="Change your password." href="{% url auth_password_change %}">[Change Password]</a>
+                <a title="Edit your profile." href="{% url profiles_edit_profile %}">Edit</a>
+                <a title="Change your password." href="{% url auth_password_change %}">Change Password</a>
             {% endif %}
         </h3>
         
