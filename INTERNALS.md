@@ -69,5 +69,12 @@ user-submitted data και πάντα τα κάνουμε escape πριν τα �
 το αναλαμβάνει αυτό αυτόματα. Όλα τα SQL parameters γίνονται escape με βάση τους κανόνες κάθε database server (Postgres στο
 συγκεκριμένο project).
 
-* Cross-site Scripting (XSS): TODO
-* Cross-site Request Forgery (CSRF): TODO 
+* Cross-site Scripting (XSS): Απλή επίθεση που βασίζεται και πάλι σε non-sanitized URL parameters. Η λύση είναι απλή και
+οι νέες εκδόσεις του Django την εφαρμόζουν από default: κάθε string που προέρχεται από το χρήστη πρέπει να γίνει escape.
+
+* Cross-site Request Forgery (CSRF): Συμβαίνει όταν ένα κακόβουλο website εξαπατά το χρήστη φορτώνοντας/κάνοντας POST 
+σε ένα URL από κάποιο άλλο website στο οποίο ο χρήστης είναι ήδη authenticated, εκμεταλλευόμενο έτσι το 
+authentication status του χρήστη. Το Django παρέχει middleware για CSRF protection σε POST requests. Κάθε form που κάνει
+POST έχει ένα hidden field με value κάποια κρυφή τιμή που γίνεται generate συνήθως από το session ID του χρήστη. Όταν
+γίνεται η επεξεργασία της φόρμας (server-side) ελέγχουμε την τιμή του secret field και αν πετάμε error αν δεν κάνει 
+validate. 
