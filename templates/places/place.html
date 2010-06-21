@@ -108,8 +108,15 @@ a.round-other {
         </div>
 
         <div class="post-content">
-            <strong style="border-bottom: 1px dotted #CCCCCC;">Πληροφορίες</strong>
+            <p><strong style="border-bottom: 1px dotted #CCCCCC;">Άλλες Παροχές</strong></p>
+            <p>
+            {% for asset in assets %}
+                &bull; {{ asset.name }}
+            {% endfor %}
+            </p>
+            <p><strong style="border-bottom: 1px dotted #CCCCCC;">Πληροφορίες</strong></p>
             <p>{{ place.description }}</p>
+
             <p><em>Έτος Κατασκευής: </em>{{ place.year }}</p>
         </div>
 
@@ -136,5 +143,4 @@ a.round-other {
     {% disqus_dev %}
     {% disqus_show_comments %}
 </div>
-
 {% endblock %}

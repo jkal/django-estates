@@ -57,13 +57,15 @@ def view_place(request, place_id):
 
     my_place = get_object_or_404(Place, pk=place_id)
     my_photos = list(Photo.objects.filter(place=my_place))
+    my_assets = my_place.assets.all()
     # increase views
     my_place.hits += 1
     my_place.save()
     
     cx = {
         'place' : my_place, 
-        'photos' : my_photos
+        'photos' : my_photos,
+        'assets' : my_assets,
     }
     
     return render_to_response('places/place.html', cx, context_instance=RequestContext(request))
@@ -87,15 +89,14 @@ def new_place(request):
     if request.method == 'POST':
         form = PlaceForm(request.POST, request.FILES)
         if form.is_valid():
-            # print request.FILES
             new_place = form.save(commit=False)
             new_place.submitter = request.user
             new_place.save()
             
-            # handle assets
-            # for a in request.POST.getlist('asset'):
-            #    pass
-            
+            # required because of commit=False above
+            # see: http://docs.djangoproject.com/en/dev/topics/forms/modelforms/#the-save-method
+            form.save_m2m() 
+
             # handle images
             for f in request.FILES.getlist('image'):
                 new_photo = Photo(place=new_place)

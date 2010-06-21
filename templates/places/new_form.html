@@ -45,12 +45,21 @@
     
     <fieldset id="step3" class="step">        
         <legend>Other Info</legend>
+        Please select any available assets from the list.
+        <p>
+            {{ form.assets }}
+            {{ form.assets.errors }}
+        </p>
+    </fieldset>
+    
+    <fieldset id="step4" class="step">        
+        <legend>Photos</legend>
         <p>
             <input type="file" name="image">
         </p>
 
         <div style="padding: 10px 0 20px 0;" id="add-image">
-            <a>+ Add image</a>
+            <a>+ Add photo</a>
         </div>
     </fieldset>
     

@@ -26,6 +26,34 @@
     username: user3
 
 #
+# Initial Assets
+#
+- model: places.Asset
+  pk: 1
+  fields:
+    name: "Parking Place"
+
+- model: places.Asset
+  pk: 2
+  fields:
+    name: "Apothiki"
+
+- model: places.Asset
+  pk: 3
+  fields:
+    name: "Air Condition"
+
+- model: places.Asset
+  pk: 4
+  fields:
+    name: "Internet"
+
+- model: places.Asset
+  pk: 5
+  fields:
+    name: "Furnished"
+
+#
 # Initial Categories
 #
 - model: places.Category

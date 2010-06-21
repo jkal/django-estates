@@ -13,7 +13,7 @@ All places
         });
 
         {% if filter_on %}
-        oTable.fnFilter('{{ filter_on }}');
+        oTable.fnFilter('{{ filter_on|escapejs }}');
         {% endif %}
 
         $("#reset-filter").click(function() {
@@ -29,10 +29,10 @@ All places
 
 {% include "menu.html" %} 
 
-<ul id="posts" >
+<ul id="posts">
     <noscript>
         <center style="padding: 20px;">
-        This pages requires JavaScript enabled. Defaulting to plain view.
+        This page requires JavaScript enabled. Defaulting to plain view.
         </center>
     </noscript>
     
@@ -41,7 +41,7 @@ All places
             Searching for:
             {% if filter_on %}
                 <span id="searching-for">"{{ filter_on }}"</span>
-                <a id="reset-filter">[Reset filter]</a>
+                <a id="reset-filter">Reset filter</a>
             {% else %}
                 <span id="searching-for">All places</span>
             {% endif %}
@@ -54,6 +54,7 @@ All places
                     <tr>
                         <th>Address</th>
                         <th>Category</th>
+                        <th>Availability</th>
                         <th>City</th>
                         <th>Price</th>
                         <th>Area</th>
@@ -66,9 +67,15 @@ All places
                     <tr>
                         <td><a href="{% url view-place place.pk %}">{{ place.address }}</a></td>
                         <td>{{ place.category.name }}</td>
+                        
+                        {% if place.action == 'S' %}
+                        <td>Προς πώληση</td>
+                        {% else %}
+                        <td>Προς ενοικίαση</td>
+                        {% endif %}
                         <td>{{ place.city }}</td>
-                        <td>{{ place.price }}</td>
-                        <td>{{ place.area }}</td>
+                        <td>{{ place.price }} €</td>
+                        <td>{{ place.area }} τ.μ.</td>
                         <td>{{ place.year }}</td>
                     </tr>
                     {% endfor %}

@@ -31,6 +31,11 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+class Asset(models.Model):
+    name = models.CharField(max_length=30, blank=False)
+
+    def __unicode__(self):
+        return self.name
 
 class Place(models.Model):
     
@@ -39,7 +44,7 @@ class Place(models.Model):
     # location
     address = models.CharField(max_length=50, verbose_name='Address')
     zipcode = models.IntegerField(verbose_name='Zip Code')
-    city = models.CharField(max_length=50, verbose_name='City')
+    city = models.CharField(max_length=50, default="Patras", verbose_name='City')
     country = models.CharField(max_length=50, default='Greece', verbose_name='Country')
     latitude = models.FloatField()
     longitude = models.FloatField()
@@ -57,6 +62,8 @@ class Place(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
     hits = models.IntegerField(default=0)
+    
+    assets = models.ManyToManyField(Asset, blank=True)
 
     class Meta:
         get_latest_by = 'pub_date'
@@ -80,14 +87,4 @@ class Photo(models.Model):
     
     def __unicode__(self):
         return '%s for %s' % (self.pic.name, self.place)
-    
-class Asset(models.Model):
-    name = models.CharField(max_length=30, blank=False)
-    
-    def __unicode__(self):
-        return self.name
 
-class PlaceAssets(models.Model):
-    place = models.ForeignKey(Place)
-    asset = models.ForeignKey(Asset)
-    value = models.BooleanField(blank=False)

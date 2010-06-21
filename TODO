@@ -1,6 +1,6 @@
 OK Custom fields in registration form (username, password, email, phone number, [firstname, lastname])
 OK Edit profile for registered users.
-OKView place: thumbnails!
+OK View place: thumbnails!
 OK Favorite ads
 OK Submitter can delete his own ads.
 + Custom fields in PlaceForm
@@ -10,37 +10,6 @@ OK RSS with 10 latest ads
 -- After profile creation redirect to the homepage
 OK Add name/surname in user profile
 
-Reset Filter, Edit profile links
-
-Assets
-======================
-
-# forms.py
-class MyForm(forms.Form):
-    something = forms.CharField(max_length=30)
-
-    def __init__(self, *args, **kwargs):
-        extra = kwargs.pop('assets')
-        super(MyForm, self).__init__(*args, **kwargs)
-
-        for i, asset in enumerate(assets):
-            self.fields['custom_%s' % i] = forms.BooleanField(label=asset)
-    
-    def extra_asset(self):
-        for name, value in self.cleaned_data.items():
-            if name.startswith('custom_'):
-                yield (self.fields[name].label, value)
-    
-
-# views.py
-def my_view(request):
-    extra_assets = get_assets()
-    # ["asset1", "asset2"]
-    form = MyForm(request.POST or None, extra=extra_assets)
-    if form.is_valid():
-        for (question, answer) in form.extra_answers():
-            save_answer(request, question, answer)
-        return redirect("create_user_success")
-
-    return render_to_response("signup/form.html", {'form': form})
-
+New:
+- for ... empty
+- photos as many-to-many field in place
