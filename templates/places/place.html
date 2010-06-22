@@ -112,8 +112,11 @@ a.round-other {
             <p>
             {% for asset in assets %}
                 &bull; {{ asset.name }}
+            {% empty %}
+                <em>No additional assets</em>
             {% endfor %}
             </p>
+            
             <p><strong style="border-bottom: 1px dotted #CCCCCC;">Πληροφορίες</strong></p>
             <p>{{ place.description }}</p>
 
@@ -121,15 +124,13 @@ a.round-other {
         </div>
 
         <div class="images">
-			{% if photos %}
-				{% for p in photos %}
-            		<a rel="photos" title="Escape to close" href="{{ p.pic.url }}">
-                        <img src="{% thumbnail p.pic 100x50 %}" width="60" height="60"/>
-					</a>
-				{% endfor %}
-			{% else %}
-				No photos submitted.
-			{% endif %}
+		    {% for p in photos %}
+                <a rel="photos" title="Escape to close" href="{{ p.pic.url }}">
+                    <img src="{% thumbnail p.pic 100x50 %}" width="60" height="60"/>
+			    </a>
+			{% empty %}
+                <em>No photos submitted.</em>
+			{% endfor %}
         </div>
         
         <div class="date">

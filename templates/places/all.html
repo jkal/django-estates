@@ -69,10 +69,11 @@ All places
                         <td>{{ place.category.name }}</td>
                         
                         {% if place.action == 'S' %}
-                        <td>Προς πώληση</td>
+                            <td>Προς πώληση</td>
                         {% else %}
-                        <td>Προς ενοικίαση</td>
+                            <td>Προς ενοικίαση</td>
                         {% endif %}
+                        
                         <td>{{ place.city }}</td>
                         <td>{{ place.price }} €</td>
                         <td>{{ place.area }} τ.μ.</td>

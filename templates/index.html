@@ -71,38 +71,36 @@ CEID Real Estate Agency
         <p class="preamble">CEID <strong>Real Estate</strong></p>
         
         <p class="quicklinks">
-            {% if categories %}
-                Browse by categories 
-                <span>
-                    {% for cat in categories %}
-                        &nbsp <a href='{% url all-places %}?q={{ cat.name }}' title='{{ cat.description }}'>{{ cat.name }}</a>
-                    {% endfor %}
-                </span>
-            {% else %}
-                No categories yet. Bummer.
-            {% endif %}
+            Browse by categories 
+            <span>
+                {% for cat in categories %}
+                    &nbsp <a href='{% url all-places %}?q={{ cat.name }}' title='{{ cat.description }}'>{{ cat.name }}</a>
+                {% empty %}
+                    <em>No categories yet. Bummer.</em>
+                {% endfor %}
+            </span>
+            
             <br /><br />
             
-			{% if popular_places and latest_places %}
-				Popular
-            	<span>
-                	{% for place in popular_places %}
-                	&nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
-                	{% endfor %}
-            	</span>
+			Popular
+            <span>
+            {% for place in popular_places %}
+                &nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
+            {% empty %}
+                <em>No places added yet.</em>
+            {% endfor %}
+            </span>
             
-				<br />
+			<br />
             
-				Latest
-            	<span> 
-                	{% for place in latest_places %}
-                	&nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
-                	{% endfor %}
-            	</span>
-			{% else %}
-				No places added yet.
-			{% endif %}
-
+			Latest
+            <span> 
+            {% for place in latest_places %}
+                &nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
+            {% empty %}
+                <em>No places added yet.</em>
+            {% endfor %}
+            </span>
         </p> 
     </div>
 </div> 
