@@ -3,7 +3,7 @@ OK Edit profile for registered users.
 OK View place: thumbnails!
 OK Favorite ads
 OK Submitter can delete his own ads.
-+ Custom fields in PlaceForm
+OK Custom fields in PlaceForm
 OK Delete category => delete all child ads
 OK RSS with 10 latest ads
 
@@ -11,4 +11,4 @@ OK RSS with 10 latest ads
 OK Add name/surname in user profile
 
 New:
-- for ... empty
+OK - for ... empty

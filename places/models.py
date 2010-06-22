@@ -51,9 +51,9 @@ class Place(models.Model):
 
     # property info 
     action = models.CharField(max_length=1, blank=False, choices=ACTIONS, default="")
-    price = models.IntegerField(verbose_name='Price in Euros')
-    area = models.IntegerField(verbose_name='Area in square meters')
-    year = models.IntegerField(verbose_name='Construction year')
+    price = models.PositiveIntegerField(verbose_name='Price in Euros')
+    area = models.PositiveIntegerField(verbose_name='Area in square meters')
+    year = models.PositiveIntegerField(verbose_name='Construction year')
     description = models.TextField()
 
     # submission related
