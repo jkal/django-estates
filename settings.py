@@ -22,7 +22,7 @@ DATABASES = {
 
 TIME_ZONE = 'Europe/Athens'
 
-LANGUAGE_CODE = 'el-gr'
+LANGUAGE_CODE = 'gr'
 
 SITE_ID = 1
 
