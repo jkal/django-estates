@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
 CEID Real Estate Agency
@@ -71,34 +72,34 @@ CEID Real Estate Agency
         <p class="preamble">CEID <strong>Real Estate</strong></p>
         
         <p class="quicklinks">
-            Browse by categories 
+            {% trans "Browse by categories" %} 
             <span>
                 {% for cat in categories %}
                     &nbsp <a href='{% url all-places %}?q={{ cat.name }}' title='{{ cat.description }}'>{{ cat.name }}</a>
                 {% empty %}
-                    <em>No categories yet. Bummer.</em>
+                    <em>{% trans "No categories yet. Bummer." %}</em>
                 {% endfor %}
             </span>
             
             <br /><br />
             
-			Popular
+			{% trans "Popular" %}
             <span>
             {% for place in popular_places %}
                 &nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
             {% empty %}
-                <em>No places added yet.</em>
+                <em>{% trans "No places added yet." %}</em>
             {% endfor %}
             </span>
             
 			<br />
             
-			Latest
+			{% trans "Latest" %}
             <span> 
             {% for place in latest_places %}
                 &nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
             {% empty %}
-                <em>No places added yet.</em>
+                <em>{% trans "No places added yet." %}</em>
             {% endfor %}
             </span>
         </p> 
@@ -108,7 +109,7 @@ CEID Real Estate Agency
 <div id="map-wrapper">
     <noscript>
         <center style="padding: 50px;">
-            Maps require JavaScript enabled.
+            {% trans "Maps require JavaScript enabled." %}
         </center>
     </noscript>
     <div id="map" style="width: 100%; height: 480px; overflow: hidden;"></div> 
