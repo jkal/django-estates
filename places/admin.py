@@ -35,5 +35,5 @@ admin.site.register(Category, CategoryAdmin)
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Asset, AssetAdmin)
 admin.site.register(Favorite, FavoriteAdmin)
-# not needed since
+# not needed
 # admin.site.register(UserProfile, UserProfileInline)

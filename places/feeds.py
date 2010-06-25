@@ -1,10 +1,11 @@
 from django.contrib.syndication.views import Feed
+from django.utils.translation import ugettext_lazy as _
 from places.models import Place
 
 class LatestPlacesFeed(Feed):
-    title = 'Latest Places'
+    title = _('Latest Places')
     link = '/places/'
-    description = 'The 10 most recently added places.'
+    description = _('The 10 most recently added places.')
     
     def items(self):
         return Place.objects.filter(published=True).order_by('-pub_date')[:10] 

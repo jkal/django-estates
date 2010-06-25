@@ -5,6 +5,7 @@ from django.contrib.auth.views import login
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden, HttpResponseServerError
 from django.core.files.base import ContentFile
+from django.utils.translation import ugettext_lazy as _
 from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
 
@@ -44,9 +45,9 @@ def fav_place(request, place_id):
         my_place = get_object_or_404(Place, pk=place_id)
         obj, created = Favorite.objects.get_or_create(user=u, place=my_place)
         if created:
-            return HttpResponse('Your bookmarks have been updated.') 
+            return HttpResponse(_('Your bookmarks have been updated.')) 
         else:
-            return HttpResponse('This is already on your bookmarks.') 
+            return HttpResponse(_('This is already on your bookmarks.')) 
     else:
         return HttpResponse('What are you trying to do?')
 

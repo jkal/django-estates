@@ -1,6 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.contrib.auth.views import login
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
+from django.utils.translation import ugettext_lazy as _
 from places.models import User
 
 def custom_login(request):
@@ -21,6 +22,6 @@ def check_username(request):
         return HttpResponseForbidden()
     uname = request.POST.get('username', False)
     if User.objects.filter(username=uname):
-        return HttpResponse('Username is not available.')
+        return HttpResponse(_('Username is not available.'))
     else:	
         return HttpResponse('OK')
