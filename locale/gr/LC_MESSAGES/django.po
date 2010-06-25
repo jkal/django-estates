@@ -1,0 +1,227 @@
+#
+# gettext translation file.
+# greek
+#
+# {ikalantzis,vrachnis,asimos}@ceid.upatras.gr
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-26 01:11+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: views.py:25
+msgid "Username is not available."
+msgstr ""
+
+#: places/feeds.py:6
+msgid "Latest Places"
+msgstr ""
+
+#: places/feeds.py:8
+msgid "The 10 most recently added places."
+msgstr ""
+
+#: places/models.py:13
+msgid "Public profile?"
+msgstr ""
+
+#: places/models.py:25
+msgid "Optional"
+msgstr ""
+
+#: places/models.py:28
+msgid "Categories"
+msgstr ""
+
+#: places/models.py:44
+msgid "Address"
+msgstr ""
+
+#: places/models.py:45
+msgid "Zip Code"
+msgstr ""
+
+#: places/models.py:46
+msgid "Patras"
+msgstr ""
+
+#: places/models.py:46
+msgid "City"
+msgstr ""
+
+#: places/models.py:47
+msgid "Greece"
+msgstr ""
+
+#: places/models.py:47
+msgid "Country"
+msgstr ""
+
+#: places/models.py:53
+msgid "Price in Euros"
+msgstr ""
+
+#: places/models.py:54
+msgid "Area in square meters"
+msgstr ""
+
+#: places/models.py:55
+msgid "Construction year"
+msgstr ""
+
+#: places/models.py:59
+msgid "Submitter"
+msgstr ""
+
+#: places/models.py:60
+msgid "Category"
+msgstr ""
+
+#: places/views.py:48
+msgid "Your bookmarks have been updated."
+msgstr ""
+
+#: places/views.py:50
+msgid "This is already on your bookmarks."
+msgstr ""
+
+#: registration/admin.py:23
+msgid "Activate users"
+msgstr ""
+
+#: registration/admin.py:43
+msgid "Re-send activation emails"
+msgstr ""
+
+#: registration/forms.py:35
+msgid "Username"
+msgstr ""
+
+#: registration/forms.py:36
+msgid "This value must contain only letters, numbers and underscores."
+msgstr ""
+
+#: registration/forms.py:39
+msgid "Email address"
+msgstr ""
+
+#: registration/forms.py:41
+msgid "Password"
+msgstr ""
+
+#: registration/forms.py:43
+msgid "Password (again)"
+msgstr ""
+
+#: registration/forms.py:55
+msgid "A user with that username already exists."
+msgstr ""
+
+#: registration/forms.py:67
+msgid "The two password fields didn't match."
+msgstr ""
+
+#: registration/forms.py:78
+msgid "I have read and agree to the Terms of Service"
+msgstr ""
+
+#: registration/forms.py:79
+msgid "You must agree to the terms to register"
+msgstr ""
+
+#: registration/forms.py:95
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+
+#: registration/forms.py:122
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+
+#: registration/models.py:168
+msgid "user"
+msgstr ""
+
+#: registration/models.py:169
+msgid "activation key"
+msgstr ""
+
+#: registration/models.py:174
+msgid "registration profile"
+msgstr ""
+
+#: registration/models.py:175
+msgid "registration profiles"
+msgstr ""
+
+#: templates/base.html:44
+msgid "Home"
+msgstr ""
+
+#: templates/base.html:46
+msgid "Login"
+msgstr "Είσοδος"
+
+#: templates/base.html:47
+msgid "Register"
+msgstr ""
+
+#: templates/base.html:47
+msgid "New account?"
+msgstr "Νέος χρήστης"
+
+#: templates/base.html:49
+#, python-format
+msgid "Hi, %(user.username)s"
+msgstr "Γειά σου, %(user.username)s"
+
+#: templates/base.html:54
+msgid "Logout"
+msgstr "Αποσύνδεση"
+
+#: templates/base.html:66
+msgid "Powered by Django and JQuery."
+msgstr ""
+
+#: templates/index.html:75
+msgid "Browse by categories"
+msgstr ""
+
+#: templates/index.html:80
+msgid "No categories yet. Bummer."
+msgstr ""
+
+#: templates/index.html:86
+msgid "Popular"
+msgstr ""
+
+#: templates/index.html:91 templates/index.html.py:102
+msgid "No places added yet."
+msgstr ""
+
+#: templates/index.html:97
+msgid "Latest"
+msgstr ""
+
+#: templates/index.html:112
+msgid "Maps require JavaScript enabled."
+msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScript."
+
+#: templates/menu.html:5
+msgid "New Place"
+msgstr ""
+
+#: templates/menu.html:6
+msgid "Search"
+msgstr ""
