@@ -41,15 +41,15 @@
     <body>
         <div id="top">
             <ul id="userbar" > 
-                <li><a href="/" title="Home"><img src="{{ MEDIA_URL }}img/home.png"></a></li>
+                <li><a href="/" title="{% trans 'Home' %}"><img src="{{ MEDIA_URL }}img/home.png"></a></li>
                 {% if user.is_anonymous%}
-                    <li><a href="{% url auth_login %}" title="Login">{% trans "Login" %}</a></li>
-                    <li><a href="{% url registration_register %}" title="Register">{% trans "New account?" %}</a></li>
+                    <li><a href="{% url auth_login %}" title="{% trans 'Login' %}">{% trans "Login" %}</a></li>
+                    <li><a href="{% url registration_register %}" title="{% trans 'Register' %}">{% trans "New account?" %}</a></li>
                 {% else %}
-                    <li><a href="{% url profiles_profile_detail user.username %}">Hi, {{ user.username }}</a>
-                        {% if user.is_staff %}
-                        <span style="font-size: 80%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">Staff</span>
-                        {% endif %}
+                    <li><a href="{% url profiles_profile_detail user.username %}">{% blocktrans %}Hi, {{ user.username }}{% endblocktrans %}</a>    
+                    {% if user.is_staff %}
+                    <span style="font-size: 80%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">Staff</span>
+                    {% endif %}
                     </li>
                     <li><a href="{% url auth_logout %}" title="Logout">{% trans "Logout" %}</a></li>
                 {% endif %}
