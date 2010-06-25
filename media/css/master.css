@@ -88,3 +88,8 @@ form fieldset textarea {
 form label {
     color: #777;
 }
+
+.small {
+	font-size: 11px;
+	color: #999999;
+}
