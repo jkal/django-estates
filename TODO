@@ -12,3 +12,9 @@ OK Add name/surname in user profile
 
 New:
 OK - for ... empty
+
+http://docs.djangoproject.com/en/dev/ref/contrib/admin/actions/
+- add admin action 'Make published.' for Place models.
+
+- Fix the DRY issue with UserProfile.
+http://stackoverflow.com/questions/1727564/how-to-create-a-userprofile-form-in-django-with-first-name-last-name-modificatio
