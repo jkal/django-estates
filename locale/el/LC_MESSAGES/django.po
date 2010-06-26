@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-27 01:48+0300\n"
+"POT-Creation-Date: 2010-06-27 02:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -376,6 +376,85 @@ msgstr ""
 #: templates/places/place.html:7
 #, python-format
 msgid "%(place)s - CEID Real Estates"
+msgstr ""
+
+#: templates/profiles/create_profile.html:5
+#: templates/profiles/create_profile.html:11
+#: templates/profiles/create_profile.html:20
+#, fuzzy
+msgid "Create Profile"
+msgstr "Προφίλ Εγγραφής"
+
+#: templates/profiles/edit_profile.html:5
+#: templates/profiles/edit_profile.html:11
+#, fuzzy
+msgid "Edit Profile"
+msgstr "Προφίλ Εγγραφής"
+
+#: templates/profiles/edit_profile.html:20
+#, fuzzy
+msgid "Update Profile"
+msgstr "Προφίλ Εγγραφής"
+
+#: templates/profiles/profile_detail.html:6
+#, python-format
+msgid "%(profile.user)s 's Profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:8
+#: templates/profiles/profile_detail.html:53
+#, fuzzy
+msgid "Private Profile"
+msgstr "Προφίλ Εγγραφής"
+
+#: templates/profiles/profile_detail.html:19
+#, python-format
+msgid "%(profile.user)s's Profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:21
+msgid "Staff"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:24
+#, fuzzy
+msgid "Edit your profile"
+msgstr "Προφίλ Εγγραφής"
+
+#: templates/profiles/profile_detail.html:24
+msgid "Edit"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:25
+msgid "Change your password"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:25
+msgid "Change Password"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:31
+msgid "Name"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:32
+msgid "Phone Number"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:33
+msgid "Home Address"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:37
+msgid "Favorite places"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:42
+msgid "No favorite places yet."
+msgstr ""
+
+#: templates/profiles/profile_detail.html:55
+msgid "The user has marked his profile as private."
 msgstr ""
 
 #~ msgid "Hi, %(user.username)s"

@@ -1,21 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Create Profile{% endblock %}
+{% load i18n %}
+
+{% block title %}
+    {% blocktrans %}Create Profile{% endblocktrans %}
+{% endblock %}
  
 {% block content %}
 <ul id="posts" >
     <li class="post">
-        <h3>Create Profile</h3>
+        <h3>{% trans 'Create Profile' %}</h3>
         <div class="post-content">
             <form method="post" action="">{% csrf_token %}
                 <fieldset>
                     {% for field in form %}
-                        {{ field.label_tag }}
-                        {{ field }}
+                        {{ field.label_tag }} {{ field }}
                         {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
                     {% endfor %}
-                    <p>
-                        <button type="submit" >Create Profile</button>
-                    </p>
+
+                    <p><button type="submit" >{% trans 'Create Profile' %}</button></p>
                 </fieldset>
             </form>
         </div>

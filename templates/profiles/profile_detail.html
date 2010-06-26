@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
     {% if profile %}
-        {{ profile.user }} 's Profile
+        {% blocktrans %}{{ profile.user }} 's Profile{% endblocktrans %}
 	{% else %}
-        Private Profile
+        {% blocktrans %}Private Profile{% endblocktrans %}
 	{% endif %}
 {% endblock %}
 
@@ -15,30 +16,30 @@
 <ul id="posts" >
     <li class="post">
         <h3>
-            {{ profile.user }}'s Profile
+            {% blocktrans %}{{ profile.user }}'s Profile{% endblocktrans %}
             {% if profile.user.is_staff %}
-            <span style="font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">Staff</span>
+            <span style="font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">{% trans 'Staff' %}</span>
             {% endif %}
             {% if user == profile.user %}
-                <a title="Edit your profile." href="{% url profiles_edit_profile %}">Edit</a>
-                <a title="Change your password." href="{% url auth_password_change %}">Change Password</a>
+                <a title="{% trans 'Edit your profile' %}" href="{% url profiles_edit_profile %}">{% trans 'Edit' %}</a>
+                <a title="{% trans 'Change your password' %}" href="{% url auth_password_change %}">{% trans 'Change Password' %}</a>
             {% endif %}
         </h3>
         
         <div class="post-content">
             <ul>
-                <li style="padding-bottom: 10px;"><span>Name</span><div style="padding-left: 10px;"><b>{{ profile.firstname }} {{ profile.lastname }}</b></div></li>
-                <li style="padding-bottom: 10px;"><span>Phone Number</span><div style="padding-left: 10px;"><b>{{ profile.phone_number }}</b></div></li>
-                <li style="padding-bottom: 10px;"><span>Home Address</span><div style="padding-left: 10px;"><b>{{ profile.home_address}}</b></div></li>
+                <li style="padding-bottom: 10px;"><span>{% trans 'Name' %}</span><div style="padding-left: 10px;"><b>{{ profile.firstname }} {{ profile.lastname }}</b></div></li>
+                <li style="padding-bottom: 10px;"><span>{% trans 'Phone Number' %}</span><div style="padding-left: 10px;"><b>{{ profile.phone_number }}</b></div></li>
+                <li style="padding-bottom: 10px;"><span>{% trans 'Home Address' %}</span><div style="padding-left: 10px;"><b>{{ profile.home_address}}</b></div></li>
             </ul>
 
 			<br />
-			<h3>Favorite places</h3>
+			<h3>{% trans 'Favorite places' %}</h3>
             <ul>
             	{% for fav in fav_list %}
             	    <li><a href="{% url view-place fav.place.pk %}">{{ fav.place }}</a></li>
             	{% empty %}
-                    <div style="padding: 10px 10px">No favorite places yet.</div>
+                    <div style="padding: 10px 10px">{% trans 'No favorite places yet.' %}</div>
             	{% endfor %}
             </ul>
         </div>
@@ -49,9 +50,9 @@
 
 <ul id="posts" >
     <li class="post">
-        <h3>Private Profile</h3>
+        <h3>{% trans 'Private Profile' %}</h3>
         <div class="post-content">
-			The user has marked his profile as private.
+			{% trans 'The user has marked his profile as private.' %}
         </div>
     </li>
 </ul>
