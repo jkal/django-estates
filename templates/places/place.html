@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load disqus_tags %}
 {% load thumbnail %}
 
 {% block title %}
-    {{ place }}
+    {% blocktrans %}{{ place }} - CEID Real Estates{% endblocktrans %}
 {% endblock %}
 
 {% block head %}

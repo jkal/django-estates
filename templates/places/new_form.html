@@ -1,10 +1,12 @@
+{% load i18n %}
+
 <div style="position: absolute;left: -10000px;}">
     <div id="new-place-map" style="width: 600px; height: 400px; border: 1px solid #777; overflow: hidden;">&nbsp;</div>
 </div>
 
 <form id="new-place-form" enctype="multipart/form-data" action="{% url new-place %}" method="post">{% csrf_token %}
     <fieldset id="step1" class="step">        
-        <legend>Location Information</legend>
+        <legend>{% trans 'Location Information' %}</legend>
             <p>{{ form.address.label_tag }} {{ form.address }} {{ form.address.errors }}</p> 
             <p>{{ form.city.label_tag }} {{ form.city }} {{ form.city.errors }}</p> 
             <p>{{ form.zipcode.label_tag }} {{ form.zipcode }} {{ form.zipcode.errors }}</p> 
@@ -12,66 +14,41 @@
     </fieldset>        
 
     <fieldset id="step2" class="step">        
-        <legend>Property Information</legend>
-        <span> 
-            {{ form.category }}
-            {{ form.category.errors }}
-        </span> 
-        <span> 
-            {{ form.action }}
-            {{ form.action.errors }}
-        </span> 
-        <p> 
-            {{ form.price.label_tag }}
-            {{ form.price }}
-            {{ form.price.errors }}
-        </p> 
-        <p> 
-            {{ form.area.label_tag }}
-            {{ form.area }}
-            {{ form.area.errors }}
-        </p> 
-        <p> 
-            {{ form.year.label_tag }}
-            {{ form.year }}
-            {{ form.year.errors }}
-        </p> 
-        <p>
-            {{ form.description.label_tag }}
-            {{ form.description }}
-            {{ form.description.errors }}
-        </p>
+        <legend>{% trans 'Property Information' %}</legend>
+        <span>{{ form.category }} {{ form.category.errors }}</span> 
+        <span>{{ form.action }} {{ form.action.errors }}</span> 
+        <p>{{ form.price.label_tag }} {{ form.price }} {{ form.price.errors }}</p> 
+        <p>{{ form.area.label_tag }} {{ form.area }} {{ form.area.errors }}</p> 
+        <p>{{ form.year.label_tag }} {{ form.year }} {{ form.year.errors }}</p> 
+        <p>{{ form.description.label_tag }} {{ form.description }} {{ form.description.errors }}</p>
     </fieldset>
     
     <fieldset id="step3" class="step">        
-        <legend>Other Info</legend>
-        Please select any available assets from the list.
-        <p>
-            {{ form.assets }}
-            {{ form.assets.errors }}
-        </p>
+        <legend>{% trans 'Other Info' %}</legend>
+        {% trans 'Please select any available assets from the list.' %}
+        <p>{{ form.assets }}{{ form.assets.errors }}</p>
         <p class="small">
-            <em>Hold down "Control", or "Command" on a Mac, to select more than one.</em>
+            <em>{% trans 'Hold down "Control", or "Command" on a Mac, to select more than one.' %}</em>
         </p>
     </fieldset>
     
     <fieldset id="step4" class="step">        
-        <legend>Photos</legend>
-        <p>
-            <input type="file" name="image">
-        </p>
+        <legend>{% trans 'Photos' %}</legend>
+        <p><input type="file" name="image"></p>
 
         <div style="padding: 10px 0 20px 0;" id="add-image">
-            <a>+ Add photo</a>
+            <a>{% trans '+ Add photo' %}</a>
         </div>
     </fieldset>
     
     <div>
         <p>
-            <button class="navigation_button" type="reset">Back</button>            
-            <input class="navigation_button" value="Next" type="submit">
+            <button class="navigation_button" type="reset">{% trans 'Back' %}</button>            
+            <input class="navigation_button" value="{% trans 'Next' %}" type="submit">
         </p>
     </div>
+
+    {# Hidden coordinate fields #}
     {{ form.latitude }}
     {{ form.longitude }}
 </form>

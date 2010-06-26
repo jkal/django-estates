@@ -77,4 +77,8 @@ user-submitted data και πάντα τα κάνουμε escape πριν τα �
 authentication status του χρήστη. Το Django παρέχει middleware για CSRF protection σε POST requests. Κάθε form που κάνει
 POST έχει ένα hidden field με value κάποια κρυφή τιμή που γίνεται generate συνήθως από το session ID του χρήστη. Όταν
 γίνεται η επεξεργασία της φόρμας (server-side) ελέγχουμε την τιμή του secret field και αν πετάμε error αν δεν κάνει 
-validate. 
+validate.
+
+# Internationalization
+
+TODO

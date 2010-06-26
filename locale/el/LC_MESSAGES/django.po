@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-26 01:40+0300\n"
+"POT-Creation-Date: 2010-06-27 01:48+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: places/models.py:44
+#: places/models.py:44 templates/places/all.html:56
 msgid "Address"
 msgstr ""
 
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Patras"
 msgstr ""
 
-#: places/models.py:46
+#: places/models.py:46 templates/places/all.html:59
 msgid "City"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Submitter"
 msgstr ""
 
-#: places/models.py:60
+#: places/models.py:60 templates/places/all.html:57
 msgid "Category"
 msgstr ""
 
@@ -165,6 +165,26 @@ msgstr "Προφίλ Εγγραφής"
 msgid "registration profiles"
 msgstr "Εγγραφές"
 
+#: templates/404.html:13
+msgid ""
+"\n"
+"            Looks like you broke something. You should probably <a href="
+"\"javascript:history.go(-1)\">go back</a>.\n"
+"            "
+msgstr ""
+
+#: templates/500.html:11
+msgid "Internal Server Error"
+msgstr ""
+
+#: templates/500.html:13
+msgid ""
+"\n"
+"            Looks like something is not working as it should. You should "
+"probably <a href=\"javascript:history.go(-1)\">go back</a>.\n"
+"            "
+msgstr ""
+
 #: templates/base.html:44
 msgid "Home"
 msgstr "Αρχική"
@@ -217,13 +237,146 @@ msgstr ""
 msgid "Maps require JavaScript enabled."
 msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScript."
 
-#: templates/menu.html:5
+#: templates/menu.html:5 templates/places/new.html:5
+#: templates/places/new.html.py:115
 msgid "New Place"
 msgstr "Νέα Αγγελία"
 
 #: templates/menu.html:6
 msgid "Search"
 msgstr "Αναζήτηση"
+
+#: templates/places/all.html:5 templates/places/all.html.py:47
+msgid "All places"
+msgstr ""
+
+#: templates/places/all.html:36
+#, fuzzy
+msgid "This page requires JavaScript enabled. Defaulting to plain view."
+msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScript."
+
+#: templates/places/all.html:42
+#, fuzzy
+msgid "Searching for"
+msgstr "Αναζήτηση"
+
+#: templates/places/all.html:45
+msgid "Reset filter"
+msgstr ""
+
+#: templates/places/all.html:58
+msgid "Availability"
+msgstr ""
+
+#: templates/places/all.html:60
+msgid "Price"
+msgstr ""
+
+#: templates/places/all.html:61
+msgid "Area"
+msgstr ""
+
+#: templates/places/all.html:62
+#, fuzzy
+msgid "Year"
+msgstr "Αναζήτηση"
+
+#: templates/places/all.html:73
+msgid "Sale"
+msgstr ""
+
+#: templates/places/all.html:75
+msgid "Rent"
+msgstr ""
+
+#: templates/places/delete.html:5
+#, python-format
+msgid "Delete \"%(place)s\""
+msgstr ""
+
+#: templates/places/delete.html:11
+#, fuzzy
+msgid "Delete Place"
+msgstr "Νέα Αγγελία"
+
+#: templates/places/delete.html:15
+#, python-format
+msgid "Are you sure you want to delete \"<strong>%(place)s</strong>\"?"
+msgstr ""
+
+#: templates/places/delete.html:17
+msgid "Yes, delete it."
+msgstr ""
+
+#: templates/places/delete.html:20
+msgid ""
+"You can only delete the items you submitted. <a href=\"javascript:history."
+"back()\" >Go back.</a>"
+msgstr ""
+
+#: templates/places/delete_complete.html:5
+#, python-format
+msgid "%(place)s Deleted"
+msgstr ""
+
+#: templates/places/delete_complete.html:12
+#, fuzzy
+msgid "Deleted"
+msgstr "Νέα Αγγελία"
+
+#: templates/places/delete_complete.html:15
+#, python-format
+msgid ""
+"%(place)s was deleted succesfully. Back to the <a href=\"/\">homepage</a> or "
+"<a href=\"%(url all-places)s\">all places</a>."
+msgstr ""
+
+#: templates/places/new.html:109
+#, fuzzy
+msgid "This pages requires JavaScript enabled. You may experience problems."
+msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScript."
+
+#: templates/places/new_form.html:9
+msgid "Location Information"
+msgstr ""
+
+#: templates/places/new_form.html:17
+msgid "Property Information"
+msgstr ""
+
+#: templates/places/new_form.html:27
+msgid "Other Info"
+msgstr ""
+
+#: templates/places/new_form.html:28
+msgid "Please select any available assets from the list."
+msgstr ""
+
+#: templates/places/new_form.html:31
+msgid ""
+"Hold down \"Control\", or \"Command\" on a Mac, to select more than one."
+msgstr ""
+
+#: templates/places/new_form.html:36
+msgid "Photos"
+msgstr ""
+
+#: templates/places/new_form.html:40
+msgid "+ Add photo"
+msgstr ""
+
+#: templates/places/new_form.html:46
+msgid "Back"
+msgstr ""
+
+#: templates/places/new_form.html:47
+msgid "Next"
+msgstr ""
+
+#: templates/places/place.html:7
+#, python-format
+msgid "%(place)s - CEID Real Estates"
+msgstr ""
 
 #~ msgid "Hi, %(user.username)s"
 #~ msgstr "Γειά σου, %(user.username)s"

@@ -1,16 +1,18 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %} 
-    Deleted
+    {% blocktrans %}{{ place }} Deleted{% endblocktrans %}
 {% endblock %}
 
 {% block content %} 
 
 <ul id="posts" >
     <li class="post">
-        <h3>Deleted</h3>
+        <h3>{% trans 'Deleted' %}</h3>
         <div class="post-content">
-            {{ place }} was deleted succesfully. Back to the <a href="/">homepage</a> or <a href="{% url all-places %}">all places</a>.
+            {% url all-places all_places_url %}
+            {% blocktrans %}{{ place }} was deleted succesfully. Back to the <a href="/">homepage</a> or <a href="{{ url all-places }}">all places</a>.{% endblocktrans %}
         </div>
     </li>
 </ul>
