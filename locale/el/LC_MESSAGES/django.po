@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-26 01:11+0300\n"
+"POT-Creation-Date: 2010-06-26 01:40+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,23 +151,23 @@ msgstr ""
 
 #: registration/models.py:168
 msgid "user"
-msgstr ""
+msgstr "Χρήστης"
 
 #: registration/models.py:169
 msgid "activation key"
-msgstr ""
+msgstr "Κλειδί ενεργοποίησης"
 
 #: registration/models.py:174
 msgid "registration profile"
-msgstr ""
+msgstr "Προφίλ Εγγραφής"
 
 #: registration/models.py:175
 msgid "registration profiles"
-msgstr ""
+msgstr "Εγγραφές"
 
 #: templates/base.html:44
 msgid "Home"
-msgstr ""
+msgstr "Αρχική"
 
 #: templates/base.html:46
 msgid "Login"
@@ -182,9 +182,8 @@ msgid "New account?"
 msgstr "Νέος χρήστης"
 
 #: templates/base.html:49
-#, python-format
-msgid "Hi, %(user.username)s"
-msgstr "Γειά σου, %(user.username)s"
+msgid "Hi"
+msgstr "Γειά σου"
 
 #: templates/base.html:54
 msgid "Logout"
@@ -220,8 +219,11 @@ msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScri
 
 #: templates/menu.html:5
 msgid "New Place"
-msgstr ""
+msgstr "Νέα Αγγελία"
 
 #: templates/menu.html:6
 msgid "Search"
-msgstr ""
+msgstr "Αναζήτηση"
+
+#~ msgid "Hi, %(user.username)s"
+#~ msgstr "Γειά σου, %(user.username)s"
