@@ -19,71 +19,71 @@ msgstr ""
 
 #: views.py:25
 msgid "Username is not available."
-msgstr ""
+msgstr "Μη διαθέσιμο όνομα χρήστη."
 
 #: places/feeds.py:6
 msgid "Latest Places"
-msgstr ""
+msgstr "Τελευταίες τοποθεσίες"
 
 #: places/feeds.py:8
 msgid "The 10 most recently added places."
-msgstr ""
+msgstr "Οι 10 πιο πρόσφατες τοποθεσίες"
 
 #: places/models.py:13
 msgid "Public profile?"
-msgstr ""
+msgstr "Δημόσιο προφίλ;"
 
 #: places/models.py:25
 msgid "Optional"
-msgstr ""
+msgstr "Προαιρετικό"
 
 #: places/models.py:28
 msgid "Categories"
-msgstr ""
+msgstr "Κατηγορίες"
 
 #: places/models.py:42 templates/places/place.html:107
 msgid "For sale"
-msgstr ""
+msgstr "Για πώληση"
 
 #: places/models.py:43
 msgid "For rent"
-msgstr ""
+msgstr "Για ενοικίαση"
 
 #: places/models.py:47 templates/places/all.html:56
 msgid "Address"
-msgstr ""
+msgstr "Διεύθυνση"
 
 #: places/models.py:48
 msgid "Zip Code"
-msgstr ""
+msgstr "Ταχυδρομικό κώδικας"
 
 #: places/models.py:49
 msgid "Patras"
-msgstr ""
+msgstr "Πάτρα"
 
 #: places/models.py:49 templates/places/all.html:59
 msgid "City"
-msgstr ""
+msgstr "Πόλη"
 
 #: places/models.py:50
 msgid "Greece"
-msgstr ""
+msgstr "Ελλάδα"
 
 #: places/models.py:50
 msgid "Country"
-msgstr ""
+msgstr "Χώρα"
 
 #: places/models.py:56
 msgid "Price in Euros"
-msgstr ""
+msgstr "Τιμή σε ευρώ"
 
 #: places/models.py:57
 msgid "Area in square meters"
-msgstr ""
+msgstr "Περιοχή σε τετραγωνικά εκαστά"
 
 #: places/models.py:58 templates/places/place.html:127
 msgid "Construction year"
-msgstr ""
+msgstr "Έτος κατασκευής"
 
 #: places/models.py:62 templates/places/all.html:63
 msgid "Submitter"
@@ -91,83 +91,83 @@ msgstr ""
 
 #: places/models.py:63 templates/places/all.html:57
 msgid "Category"
-msgstr ""
+msgstr "Κατηγορία"
 
 #: registration/admin.py:23
 msgid "Activate users"
-msgstr ""
+msgstr "Ενεργοποιημένοι χρήστες"
 
 #: registration/admin.py:43
 msgid "Re-send activation emails"
-msgstr ""
+msgstr "Αποστολή του e-mail ενεργοποίησης"
 
 #: registration/forms.py:35 templates/registration/login.html:46
 msgid "Username"
-msgstr ""
+msgstr "Όνομα χρήστη"
 
 #: registration/forms.py:36
 msgid "This value must contain only letters, numbers and underscores."
-msgstr ""
+msgstr "Η τιμή αυτή πρέπει να περιέχει μόνο γράμματα, αριθμούς καi κάτω παύλες."
 
 #: registration/forms.py:39
 msgid "Email address"
-msgstr ""
+msgstr "Διεύθυνση e-mail"
 
 #: registration/forms.py:41 templates/registration/login.html:51
 msgid "Password"
-msgstr ""
+msgstr "Κωδικός πρόσβασης"
 
 #: registration/forms.py:43
 msgid "Password (again)"
-msgstr ""
+msgstr "Κωδικός πρόσβασης (ξανά)"
 
 #: registration/forms.py:55
 msgid "A user with that username already exists."
-msgstr ""
+msgstr "Υπάρχει ήδη ένας Χρήστης με αυτό το όνομα."
 
 #: registration/forms.py:67
 msgid "The two password fields didn't match."
-msgstr ""
+msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
 
 #: registration/forms.py:78
 msgid "I have read and agree to the Terms of Service"
-msgstr ""
+msgstr "Διάβασα και συμφωνώ με τους όρους χρήσης"
 
 #: registration/forms.py:79
 msgid "You must agree to the terms to register"
-msgstr ""
+msgstr "Πρέπει να συμφωνήσετε με τους όρους χρήσης"
 
 #: registration/forms.py:95
 msgid ""
 "This email address is already in use. Please supply a different email "
 "address."
-msgstr ""
+msgstr "Αυτή η διεύθυνση e-mail χρησιμοποιείται ήδη. Παρακαλώ χρησιμοποιήστε ένα διαφορετικό e-mail "
 
 #: registration/forms.py:122
 msgid ""
 "Registration using free email addresses is prohibited. Please supply a "
 "different email address."
-msgstr ""
+msgstr "Δεν ενδείκνυται η χρήση δωρεάν διευθύνσεων e-mail. Παρακαλώ χρησιμοποιήστε ένα διαφορετικό e-mail. "
 
 #: registration/models.py:168
 msgid "user"
-msgstr ""
+msgstr "χρήστης"
 
 #: registration/models.py:169
 msgid "activation key"
-msgstr ""
+msgstr "κλειδί ενεργοποίησης"
 
 #: registration/models.py:174
 msgid "registration profile"
-msgstr ""
+msgstr "προφίλ εγγραφής"
 
 #: registration/models.py:175
 msgid "registration profiles"
-msgstr ""
+msgstr "προφίλ εγγραφής"
 
 #: templates/404.html:5
 msgid "Page not found"
-msgstr ""
+msgstr "Η σελίδα δεν βρέθηκε."
 
 #: templates/404.html:11
 msgid "Uh oh."
@@ -177,7 +177,8 @@ msgstr ""
 msgid ""
 "Looks like you broke something. You should probably <a href=\"javascript:"
 "history.go(-1)\">go back</a>."
-msgstr ""
+msgstr "Φαίνεται πως κάνατε κάποιο λάθος. Πηγαίνετε <a href=\"javascript:"
+"history.go(-1)\">πίσω</a>."
 
 #: templates/500.html:5
 msgid "Server error (500)"
@@ -195,34 +196,34 @@ msgstr ""
 
 #: templates/base.html:44 templates/index.html:5
 msgid "Home"
-msgstr ""
+msgstr "Αρχική"
 
 #: templates/base.html:46 templates/registration/login.html:5
 #: templates/registration/login.html:31
 msgid "Login"
-msgstr ""
+msgstr "Σύνδεση"
 
 #: templates/base.html:47 templates/registration/registration_form.html:5
 #: templates/registration/registration_form.html:92
 msgid "Register"
-msgstr ""
+msgstr "Εγγραφή"
 
 #: templates/base.html:47
 msgid "New account?"
-msgstr ""
+msgstr "Νέος λογαριασμός"
 
 #: templates/base.html:49
 #, python-format
 msgid "Hi, %(user)s"
-msgstr ""
+msgstr "Γεια, %(user)s"
 
 #: templates/base.html:51 templates/profiles/profile_detail.html:21
 msgid "Staff"
-msgstr ""
+msgstr "Προσωπικό"
 
 #: templates/base.html:54 templates/registration/logout.html:11
 msgid "Logout"
-msgstr ""
+msgstr "Αποσύνδεση"
 
 #: templates/base.html:66
 msgid "&copy; 2010. Powered by Django and JQuery."
@@ -230,7 +231,7 @@ msgstr ""
 
 #: templates/index.html:75
 msgid "Browse by categories"
-msgstr ""
+msgstr "Αναζήτηση μέσω κατηγορίες"
 
 #: templates/index.html:80
 msgid "No categories yet. Bummer."
@@ -238,15 +239,15 @@ msgstr ""
 
 #: templates/index.html:86
 msgid "Popular"
-msgstr ""
+msgstr "Δημοφιλείς"
 
 #: templates/index.html:91 templates/index.html.py:102
 msgid "No places added yet."
-msgstr ""
+msgstr "Δεν έχουν προστεθεί τοποθεσίες ακόμα"
 
 #: templates/index.html:97
 msgid "Latest"
-msgstr ""
+msgstr "Τελευταίες"
 
 #: templates/index.html:112 templates/places/place.html:99
 msgid "Maps require JavaScript enabled."
@@ -255,15 +256,15 @@ msgstr ""
 #: templates/menu.html:5 templates/places/new.html:5
 #: templates/places/new.html.py:115
 msgid "New Place"
-msgstr ""
+msgstr "Νέα Αγγελία"
 
 #: templates/menu.html:6
 msgid "Search"
-msgstr ""
+msgstr "Αναζήτηση"
 
 #: templates/places/all.html:5 templates/places/all.html.py:47
 msgid "All places"
-msgstr ""
+msgstr "Όλες οι αγγελίες"
 
 #: templates/places/all.html:36
 msgid "This page requires JavaScript enabled. Defaulting to plain view."
@@ -271,7 +272,7 @@ msgstr ""
 
 #: templates/places/all.html:42
 msgid "Searching for"
-msgstr ""
+msgstr "Αναζήτηση"
 
 #: templates/places/all.html:45
 msgid "Reset filter"
@@ -279,19 +280,19 @@ msgstr ""
 
 #: templates/places/all.html:58
 msgid "Availability"
-msgstr ""
+msgstr "Διαθεσιμότητα"
 
 #: templates/places/all.html:60
 msgid "Price"
-msgstr ""
+msgstr "Τιμή"
 
 #: templates/places/all.html:61
 msgid "Area"
-msgstr ""
+msgstr "Περιοχή"
 
 #: templates/places/all.html:62
 msgid "Year"
-msgstr ""
+msgstr "Έτος"
 
 #: templates/places/all.html:74
 msgid "Sale"
