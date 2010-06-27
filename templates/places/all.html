@@ -2,10 +2,11 @@
 {% load i18n %}
 
 {% block title %} 
-    {% trans 'All places' %}
+    {% blocktrans %}All places{% endblocktrans %}
 {% endblock %}
 
-{% block head %} 
+{% block head %}
+{# <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script> #}
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         oTable = $('#places-table').dataTable({
@@ -20,7 +21,7 @@
         $("#reset-filter").click(function() {
             oTable.fnFilter('');
             $(this).hide();
-            $("#searching-for").html("All places");
+            $("#searching-for").html('All places');
         });
     });
 </script>

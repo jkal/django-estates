@@ -40,16 +40,16 @@ def all_places(request):
 @login_required
 def fav_place(request, place_id):
     """ User makes a GET request to favorite a place. """ 
-    if request.method == 'GET':
+    if request.method == 'POST':
         u = request.user
         my_place = get_object_or_404(Place, pk=place_id)
         obj, created = Favorite.objects.get_or_create(user=u, place=my_place)
         if created:
-            return HttpResponse(_('Your bookmarks have been updated.')) 
+            return HttpResponse(status=200) # OK, bookmarks updated 
         else:
-            return HttpResponse(_('This is already on your bookmarks.')) 
+            return HttpResponse(status=304) # Not Modified, already bookmarked
     else:
-        return HttpResponse('What are you trying to do?')
+        return HttpResponse(status=405) # Method Not Allowed, GET is not allowed
 
 def view_place(request, place_id):
     """

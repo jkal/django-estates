@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-27 02:00+0300\n"
+"POT-Creation-Date: 2010-06-27 04:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,56 +41,56 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: places/models.py:44 templates/places/all.html:56
+#: places/models.py:42 templates/places/place.html:108
+msgid "For sale"
+msgstr ""
+
+#: places/models.py:43
+msgid "For rent"
+msgstr ""
+
+#: places/models.py:47 templates/places/all.html:57
 msgid "Address"
 msgstr ""
 
-#: places/models.py:45
+#: places/models.py:48
 msgid "Zip Code"
 msgstr ""
 
-#: places/models.py:46
+#: places/models.py:49
 msgid "Patras"
 msgstr ""
 
-#: places/models.py:46 templates/places/all.html:59
+#: places/models.py:49 templates/places/all.html:60
 msgid "City"
 msgstr ""
 
-#: places/models.py:47
+#: places/models.py:50
 msgid "Greece"
 msgstr ""
 
-#: places/models.py:47
+#: places/models.py:50
 msgid "Country"
 msgstr ""
 
-#: places/models.py:53
+#: places/models.py:56
 msgid "Price in Euros"
 msgstr ""
 
-#: places/models.py:54
+#: places/models.py:57
 msgid "Area in square meters"
 msgstr ""
 
-#: places/models.py:55
+#: places/models.py:58 templates/places/place.html:128
 msgid "Construction year"
 msgstr ""
 
-#: places/models.py:59
+#: places/models.py:62
 msgid "Submitter"
 msgstr ""
 
-#: places/models.py:60 templates/places/all.html:57
+#: places/models.py:63 templates/places/all.html:58
 msgid "Category"
-msgstr ""
-
-#: places/views.py:48
-msgid "Your bookmarks have been updated."
-msgstr ""
-
-#: places/views.py:50
-msgid "This is already on your bookmarks."
 msgstr ""
 
 #: registration/admin.py:23
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Re-send activation emails"
 msgstr ""
 
-#: registration/forms.py:35
+#: registration/forms.py:35 templates/registration/login.html:46
 msgid "Username"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 msgid "Email address"
 msgstr ""
 
-#: registration/forms.py:41
+#: registration/forms.py:41 templates/registration/login.html:51
 msgid "Password"
 msgstr ""
 
@@ -165,12 +165,24 @@ msgstr "Προφίλ Εγγραφής"
 msgid "registration profiles"
 msgstr "Εγγραφές"
 
+#: templates/404.html:5
+msgid "404 - Page Not Found"
+msgstr ""
+
+#: templates/404.html:11
+msgid "Uh oh."
+msgstr ""
+
 #: templates/404.html:13
 msgid ""
 "\n"
 "            Looks like you broke something. You should probably <a href="
 "\"javascript:history.go(-1)\">go back</a>.\n"
 "            "
+msgstr ""
+
+#: templates/500.html:5
+msgid "500 - Internal Server Error"
 msgstr ""
 
 #: templates/500.html:11
@@ -189,11 +201,13 @@ msgstr ""
 msgid "Home"
 msgstr "Αρχική"
 
-#: templates/base.html:46
+#: templates/base.html:46 templates/registration/login.html:5
+#: templates/registration/login.html:31
 msgid "Login"
 msgstr "Είσοδος"
 
-#: templates/base.html:47
+#: templates/base.html:47 templates/registration/registration_form.html:5
+#: templates/registration/registration_form.html:92
 msgid "Register"
 msgstr ""
 
@@ -202,15 +216,24 @@ msgid "New account?"
 msgstr "Νέος χρήστης"
 
 #: templates/base.html:49
-msgid "Hi"
-msgstr "Γειά σου"
+#, fuzzy, python-format
+msgid "Hi, %(user)s"
+msgstr "Γειά σου, %(user)s"
 
-#: templates/base.html:54
+#: templates/base.html:51 templates/profiles/profile_detail.html:21
+msgid "Staff"
+msgstr ""
+
+#: templates/base.html:54 templates/registration/logout.html:11
 msgid "Logout"
 msgstr "Αποσύνδεση"
 
 #: templates/base.html:66
-msgid "Powered by Django and JQuery."
+msgid "&copy; 2010. Powered by Django and JQuery."
+msgstr ""
+
+#: templates/index.html:5
+msgid "CEID Real Estate Agency"
 msgstr ""
 
 #: templates/index.html:75
@@ -233,7 +256,7 @@ msgstr ""
 msgid "Latest"
 msgstr ""
 
-#: templates/index.html:112
+#: templates/index.html:112 templates/places/place.html:100
 msgid "Maps require JavaScript enabled."
 msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScript."
 
@@ -246,53 +269,53 @@ msgstr "Νέα Αγγελία"
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: templates/places/all.html:5 templates/places/all.html.py:47
+#: templates/places/all.html:5 templates/places/all.html.py:48
 msgid "All places"
-msgstr ""
+msgstr "Όλες οι αγγελίες"
 
-#: templates/places/all.html:36
+#: templates/places/all.html:37
 #, fuzzy
 msgid "This page requires JavaScript enabled. Defaulting to plain view."
 msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScript."
 
-#: templates/places/all.html:42
+#: templates/places/all.html:43
 #, fuzzy
 msgid "Searching for"
 msgstr "Αναζήτηση"
 
-#: templates/places/all.html:45
+#: templates/places/all.html:46
 msgid "Reset filter"
 msgstr ""
 
-#: templates/places/all.html:58
+#: templates/places/all.html:59
 msgid "Availability"
 msgstr ""
 
-#: templates/places/all.html:60
+#: templates/places/all.html:61
 msgid "Price"
 msgstr ""
 
-#: templates/places/all.html:61
+#: templates/places/all.html:62
 msgid "Area"
 msgstr ""
 
-#: templates/places/all.html:62
+#: templates/places/all.html:63
 #, fuzzy
 msgid "Year"
 msgstr "Αναζήτηση"
 
-#: templates/places/all.html:73
+#: templates/places/all.html:74
 msgid "Sale"
 msgstr ""
 
-#: templates/places/all.html:75
+#: templates/places/all.html:76
 msgid "Rent"
 msgstr ""
 
 #: templates/places/delete.html:5
-#, python-format
-msgid "Delete \"%(place)s\""
-msgstr ""
+#, fuzzy, python-format
+msgid "Delete \"%(p)s\""
+msgstr "Νέα Αγγελία"
 
 #: templates/places/delete.html:11
 #, fuzzy
@@ -301,7 +324,7 @@ msgstr "Νέα Αγγελία"
 
 #: templates/places/delete.html:15
 #, python-format
-msgid "Are you sure you want to delete \"<strong>%(place)s</strong>\"?"
+msgid "Are you sure you want to delete \"<strong>%(p)s</strong>\"?"
 msgstr ""
 
 #: templates/places/delete.html:17
@@ -315,9 +338,9 @@ msgid ""
 msgstr ""
 
 #: templates/places/delete_complete.html:5
-#, python-format
-msgid "%(place)s Deleted"
-msgstr ""
+#, fuzzy, python-format
+msgid "%(p)s Deleted"
+msgstr "Νέα Αγγελία"
 
 #: templates/places/delete_complete.html:12
 #, fuzzy
@@ -327,8 +350,8 @@ msgstr "Νέα Αγγελία"
 #: templates/places/delete_complete.html:15
 #, python-format
 msgid ""
-"%(place)s was deleted succesfully. Back to the <a href=\"/\">homepage</a> or "
-"<a href=\"%(url all-places)s\">all places</a>."
+"%(p)s was deleted succesfully. Back to the <a href=\"/\">homepage</a> or <a "
+"href=\"%(u)s\">all places</a>."
 msgstr ""
 
 #: templates/places/new.html:109
@@ -344,7 +367,7 @@ msgstr ""
 msgid "Property Information"
 msgstr ""
 
-#: templates/places/new_form.html:27
+#: templates/places/new_form.html:27 templates/places/place.html:125
 msgid "Other Info"
 msgstr ""
 
@@ -375,7 +398,64 @@ msgstr ""
 
 #: templates/places/place.html:7
 #, python-format
-msgid "%(place)s - CEID Real Estates"
+msgid "%(p)s - CEID Real Estates"
+msgstr ""
+
+#: templates/places/place.html:90
+msgid "You can delete this place."
+msgstr ""
+
+#: templates/places/place.html:90
+#, fuzzy
+msgid "Delete"
+msgstr "Νέα Αγγελία"
+
+#: templates/places/place.html:93
+msgid "Add this place to your favorites."
+msgstr ""
+
+#: templates/places/place.html:93
+msgid "Like!"
+msgstr ""
+
+#: templates/places/place.html:110
+msgid "To rent"
+msgstr ""
+
+#: templates/places/place.html:116
+msgid "Additional assets"
+msgstr ""
+
+#: templates/places/place.html:121
+msgid "No additional assets"
+msgstr ""
+
+#: templates/places/place.html:133
+msgid "Escape to close"
+msgstr ""
+
+#: templates/places/place.html:137
+msgid "No photos submitted."
+msgstr ""
+
+#: templates/places/place.html:143
+msgid "Views"
+msgstr ""
+
+#: templates/places/thanks.html:5
+#, fuzzy
+msgid "New place added"
+msgstr "Νέα Αγγελία"
+
+#: templates/places/thanks.html:11
+msgid "Thank you"
+msgstr ""
+
+#: templates/places/thanks.html:14
+#, python-format
+msgid ""
+"Your submission will be reviewed by an administrator shortly. Back to <a "
+"href=\"%(all_places_url)s\">all places."
 msgstr ""
 
 #: templates/profiles/create_profile.html:5
@@ -398,7 +478,7 @@ msgstr "Προφίλ Εγγραφής"
 
 #: templates/profiles/profile_detail.html:6
 #, python-format
-msgid "%(profile.user)s 's Profile"
+msgid "%(u)s 's Profile"
 msgstr ""
 
 #: templates/profiles/profile_detail.html:8
@@ -409,11 +489,7 @@ msgstr "Προφίλ Εγγραφής"
 
 #: templates/profiles/profile_detail.html:19
 #, python-format
-msgid "%(profile.user)s's Profile"
-msgstr ""
-
-#: templates/profiles/profile_detail.html:21
-msgid "Staff"
+msgid "%(u)s's Profile"
 msgstr ""
 
 #: templates/profiles/profile_detail.html:24
@@ -457,5 +533,57 @@ msgstr ""
 msgid "The user has marked his profile as private."
 msgstr ""
 
-#~ msgid "Hi, %(user.username)s"
-#~ msgstr "Γειά σου, %(user.username)s"
+#: templates/registration/activate.html:5
+#: templates/registration/activate.html:11
+msgid "Account Activation"
+msgstr ""
+
+#: templates/registration/activate.html:15
+#, python-format
+msgid ""
+"Your account has been activated. You may now <a href=\"%(login_url)s\">login "
+"and create your profile.</a>."
+msgstr ""
+
+#: templates/registration/activate.html:17
+msgid "Account activation failed. Probably not a valid link."
+msgstr ""
+
+#: templates/registration/login.html:32
+msgid "Forgot password?"
+msgstr ""
+
+#: templates/registration/login.html:41
+msgid "Sorry, you entered an invalid username or password."
+msgstr ""
+
+#: templates/registration/logout.html:5
+#, fuzzy
+msgid "Logged out"
+msgstr "Αποσύνδεση"
+
+#: templates/registration/logout.html:14
+msgid ""
+"You are now logged out. <a href=\"javascript:history.back()\" >Go back.</a>"
+msgstr ""
+
+#: templates/registration/registration_complete.html:5
+#: templates/registration/registration_complete.html:11
+#, fuzzy
+msgid "Registration Complete"
+msgstr "Προφίλ Εγγραφής"
+
+#: templates/registration/registration_complete.html:14
+msgid ""
+"Your account has been created. An email has been sent to your email address "
+"with information on how to activate it."
+msgstr ""
+
+msgid "Your bookmarks have been updated."
+msgstr "Τα αγαπημένα σας ενημερώθηκαν."
+
+#~ msgid "This is already on your bookmarks."
+#~ msgstr "Είναι ήδη στα αγαπημένα σας."
+
+#~ msgid "Hi"
+#~ msgstr "Γειά σου"

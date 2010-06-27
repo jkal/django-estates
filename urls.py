@@ -6,11 +6,16 @@ import settings
 
 admin.autodiscover()
 
+js_info_dict = {
+    'packages': ('realty',),
+}
+
 urlpatterns = patterns('',
     # static content
     url(r'%s(?P<path>.*)/$' % settings.MEDIA_URL[1:], 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT, }),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
     url(r'^accounts/login/', custom_login),
 
     # login right after registration

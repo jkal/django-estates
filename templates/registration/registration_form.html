@@ -1,7 +1,8 @@
 {% extends "base.html" %}
- 
-{% block title %}
-    Register
+{% load i18n %}
+
+ {% block title %}
+    {% blocktrans %}Register{% endblocktrans %}
 {% endblock %}
 
 {% block head %}
@@ -88,21 +89,19 @@ $(document).ready(function(){
 {% block content %}
 <ul id="posts" >
     <li class="post">
-        <h3>Register</h3>
+        <h3>{% trans 'Register' %}</h3>
         <div class="post-content">
             <form action="" method="post">{% csrf_token %}
                 <fieldset>
                     {% for field in form %}
                         <p>
-                            {{ field.label_tag }}
-                            {{ field }}<span id="status"></span>
+                            {{ field.label_tag }} {{ field }} <span id="status"></span>
                             {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
                         </p>
                     {% endfor %}
                 </fieldset>
-                <p>
-		      		<button type="submit">&rarr;</button>
-                </p>    
+
+                <p><button type="submit">&rarr;</button></p>    
             </form>
         </div>
     </li>

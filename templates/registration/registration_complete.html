@@ -1,17 +1,17 @@
 {% extends "base.html"  %}
+{% load i18n %}
  
 {% block title %}
-    Registration Complete
+    {% blocktrans %}Registration Complete{% endblocktrans %}
 {% endblock %}
 
 {% block content %}
 <ul id="posts" > 
     <li class="post"> 
-        <h3>Registration Complete</h3>
+        <h3>{% trans 'Registration Complete' %}</h3>
 
         <div class="post-content">
-            <p>Your account has been created. An email has been sent to your
-            email address with information on how to acivate it.</p>
+            <p>{% trans 'Your account has been created. An email has been sent to your email address with information on how to activate it.' %}</p>
         </div>
     </li>
 </ul>

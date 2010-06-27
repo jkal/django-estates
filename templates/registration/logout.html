@@ -1,16 +1,17 @@
 {% extends "base.html"  %}
- 
+{% load i18n %}
+
 {% block title %}
-    Logged out
+    {% blocktrans %}Logged out{% endblocktrans %}
 {% endblock %}
 
 {% block content %}
 <ul id="posts" > 
     <li class="post"> 
-        <h3>Logout</h3>
+        <h3>{% trans 'Logout' %}</h3>
 
         <div class="post-content">
-            <p>You are now logged out. <a href="javascript:history.back()" >Go back.</a></p>
+            <p>{% blocktrans %}You are now logged out. <a href="javascript:history.back()" >Go back.</a>{% endblocktrans %}</p>
         </div>
     </li>
 </ul>

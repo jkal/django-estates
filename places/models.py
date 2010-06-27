@@ -38,7 +38,10 @@ class Asset(models.Model):
 
 class Place(models.Model):
     
-    ACTIONS = (('S', 'For sale'), ('R', 'For rent'))
+    ACTIONS = (
+        ('S', _('For sale')), 
+        ('R', _('For rent'))
+    )
 
     # location
     address = models.CharField(max_length=50, verbose_name=_('Address'))

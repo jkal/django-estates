@@ -3,7 +3,7 @@
 
 {% block title %}
     {% if profile %}
-        {% blocktrans %}{{ profile.user }} 's Profile{% endblocktrans %}
+        {% blocktrans with profile.user as u %}{{ u }} 's Profile{% endblocktrans %}
 	{% else %}
         {% blocktrans %}Private Profile{% endblocktrans %}
 	{% endif %}
@@ -16,7 +16,7 @@
 <ul id="posts" >
     <li class="post">
         <h3>
-            {% blocktrans %}{{ profile.user }}'s Profile{% endblocktrans %}
+            {% blocktrans with profile.user as u%}{{ u }}'s Profile{% endblocktrans %}
             {% if profile.user.is_staff %}
             <span style="font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">{% trans 'Staff' %}</span>
             {% endif %}

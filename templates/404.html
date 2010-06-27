@@ -2,13 +2,13 @@
 {% load i18n %}
 
 {% block title %} 
-404 - Page Not Found
+    {% blocktrans %}404 - Page Not Found{% endblocktrans %}
 {% endblock %}
 
 {% block content %}
 <ul id="posts" >
     <li class="post">
-        <h3>Uh oh.</h3>
+        <h3>{% trans 'Uh oh.' %}</h3>
         <div class="post-content">
             {% blocktrans %}
             Looks like you broke something. You should probably <a href="javascript:history.go(-1)">go back</a>.

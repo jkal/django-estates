@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-Login
+    {% blocktrans %}Login{% endblocktrans %}
 {% endblock %}
 
 {% block head %}
@@ -27,8 +28,8 @@ $(document).ready(function() {
 <ul id="posts" >
     <li class="post">
         <h3>
-            Login
-            <a href="{% url auth_password_reset %}">Forgot password?</a>
+            {% trans 'Login' %}
+            <a href="{% url auth_password_reset %}">{% trans 'Forgot password?' %}</a>
         </h3>
 
         
@@ -37,17 +38,17 @@ $(document).ready(function() {
             <form action="" method="post">{% csrf_token %}
 
                 {% if form.errors %}
-                <p id="login-error">Sorry, that's not a valid username or password.</p> 
+                <p id="login-error">{% trans 'Sorry, you entered an invalid username or password.' %}</p> 
                 {% endif %}
 
                 <fieldset>
                     <p>
-                        <label for="username">Username</label>
+                        <label for="username">{% trans 'Username' %}</label>
                         <input id="username" type="text" name="username" /> 
                     </p>
 
                     <p>
-                        <label for="password">Password</label>
+                        <label for="password">{% trans 'Password' %}</label>
                         <input id="password" type="password" name="password" /> 
                     </p>
                 </fieldset>

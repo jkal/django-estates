@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block title %} 
-    {% blocktrans %}{{ place }} Deleted{% endblocktrans %}
+    {% blocktrans with place as p %}{{ p }} Deleted{% endblocktrans %}
 {% endblock %}
 
 {% block content %} 
@@ -11,8 +11,8 @@
     <li class="post">
         <h3>{% trans 'Deleted' %}</h3>
         <div class="post-content">
-            {% url all-places all_places_url %}
-            {% blocktrans %}{{ place }} was deleted succesfully. Back to the <a href="/">homepage</a> or <a href="{{ url all-places }}">all places</a>.{% endblocktrans %}
+            {% url all-places as all_places_url %}
+            {% blocktrans with place as p and all_places_url as u %}{{ p }} was deleted succesfully. Back to the <a href="/">homepage</a> or <a href="{{ u }}">all places</a>.{% endblocktrans %}
         </div>
     </li>
 </ul>

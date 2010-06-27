@@ -46,12 +46,12 @@
                     <li><a href="{% url auth_login %}" title="{% trans 'Login' %}">{% trans "Login" %}</a></li>
                     <li><a href="{% url registration_register %}" title="{% trans 'Register' %}">{% trans "New account?" %}</a></li>
                 {% else %}
-                    <li><a href="{% url profiles_profile_detail user.username %}">{% trans 'Hi' %}, {{ user.username }}</a>    
+                    <li><a href="{% url profiles_profile_detail user.username %}">{% blocktrans with user.username as user %}Hi, {{ user }}{% endblocktrans %}</a>
                     {% if user.is_staff %}
-                    <span style="font-size: 80%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">Staff</span>
+                    <span style="font-size: 80%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;">{% trans 'Staff' %}</span>
                     {% endif %}
                     </li>
-                    <li><a href="{% url auth_logout %}" title="Logout">{% trans "Logout" %}</a></li>
+                    <li><a href="{% url auth_logout %}" title="{% trans 'Logout' %}">{% trans "Logout" %}</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -63,7 +63,7 @@
 			<br />
 			
             <div id="footer">
-                <p>&copy; 2010. {% trans "Powered by Django and JQuery." %}
+                <p>{% blocktrans %}&copy; 2010. Powered by Django and JQuery.{% endblocktrans %}
 					<span style="float:right;">
 						<a href="{% url places-feed %}"><img src="{{ MEDIA_URL }}img/rss.png"></a>
 					</span>

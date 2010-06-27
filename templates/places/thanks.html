@@ -1,15 +1,17 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %} 
-    New place added
+    {% blocktrans %}New place added{% endblocktrans %}
 {% endblock %}
 
 {% block content %} 
 <ul id="posts" >
     <li class="post">
-        <h3>Thank you</h3>
+        <h3>{% trans 'Thank you' %}</h3>
         <div class="post-content">
-            Your submission will be reviewed by an administrator shortly. Back to <a href="{% url all-places %}">all places.</a></h3>
+            {% url all-places as all_places_url %}
+            {% blocktrans %}Your submission will be reviewed by an administrator shortly. Back to <a href="{{ all_places_url }}">all places.{% endblocktrans %}</a></h3>
         </div>
     </li>
 </ul>

@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block title %}
-    {% blocktrans %}Delete "{{ place }}"{% endblocktrans %}
+    {% blocktrans with place as p %}Delete "{{ p }}"{% endblocktrans %}
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,7 @@
 
         <div class="post-content">    
             {% if place.submitter == user %}
-            	<p>{% blocktrans %}Are you sure you want to delete "<strong>{{ place }}</strong>"?{% endblocktrans %}</p>
+            	<p>{% blocktrans with place as p %}Are you sure you want to delete "<strong>{{ p }}</strong>"?{% endblocktrans %}</p>
             	<form action="{% url delete-place place.pk %}" method="post">{% csrf_token %}
                 	<p><button type="submit">{% trans 'Yes, delete it.' %}</button></p>                    
             	</form> 
