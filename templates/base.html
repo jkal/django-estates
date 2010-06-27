@@ -63,7 +63,12 @@
 			<br />
 			
             <div id="footer">
-                <p>{% blocktrans %}&copy; 2010. Powered by Django and JQuery.{% endblocktrans %}
+                <p>
+                    &copy; 2010. Powered by <a title="No ponies were harmed during the development of this website.">Django</a>.
+                    
+                    {# Alternative footer - Django Powered button #}
+                    {# <a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangosite80x15_grey.gif" border="0" alt="A Django site." title="A Django site." /></a> #}
+                    
 					<span style="float:right;">
 						<a href="{% url places-feed %}"><img src="{{ MEDIA_URL }}img/rss.png"></a>
 					</span>

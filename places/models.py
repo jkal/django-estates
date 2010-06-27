@@ -5,20 +5,15 @@ from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 
 class UserProfile(models.Model):
-    firstname = models.CharField(max_length=30)
-    lastname = models.CharField(max_length=30)
-    home_address = models.CharField(max_length=30)
-    phone_number = models.CharField(max_length=12)
+    firstname = models.CharField(max_length=30, verbose_name=_('first name'))
+    lastname = models.CharField(max_length=30, verbose_name=_('last name'))
+    home_address = models.CharField(max_length=30, verbose_name=_('home address'))
+    phone_number = models.CharField(max_length=12, verbose_name=_('phone number'))
     user = models.OneToOneField(User)
     public_profile_field = models.BooleanField(verbose_name=_('Public profile?'))
     
     def __unicode__(self):
         return self.user.username
-
-    #def get_absolute_url(self):
-    #    return ('profiles_profile_detail', (), { 'username' : self.user.username })
-    
-    #get_absolute_url = models.permalink(get_absolute_url)
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -31,7 +26,7 @@ class Category(models.Model):
         return self.name
 
 class Asset(models.Model):
-    name = models.CharField(max_length=30, blank=False)
+    name = models.CharField(max_length=30, blank=False, verbose_name=_('Asset name'))
 
     def __unicode__(self):
         return self.name
@@ -56,7 +51,7 @@ class Place(models.Model):
     price = models.PositiveIntegerField(verbose_name=_('Price in Euros'))
     area = models.PositiveIntegerField(verbose_name=_('Area in square meters'))
     year = models.PositiveIntegerField(verbose_name=_('Construction year'))
-    description = models.TextField()
+    description = models.TextField(verbose_name=_('Description/Other info'))
 
     # submission related
     submitter = models.ForeignKey(User, verbose_name=_('Submitter'))
@@ -89,4 +84,3 @@ class Photo(models.Model):
     
     def __unicode__(self):
         return '%s for %s' % (self.pic.name, self.place)
-
