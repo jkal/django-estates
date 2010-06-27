@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block title %}
-    {% trans 'New Place' %}
+    {% blocktrans %}New Place{% endblocktrans %}
 {% endblock %}
 
 {% block head %}
@@ -92,7 +92,7 @@ $(document).ready(function() {
                 country = $("#id_country").val();
                 if (address != '' && city != '') {
                     geocodeAddress();
-                    $.fn.colorbox({title:"Hit Escape to close.", width:"604px", height:"436px", inline:true, href:"#new-place-map"});
+                    $.fn.colorbox({ title:"Hit Escape to close.", width:"604px", height:"436px", inline:true, href:"#new-place-map" });
                 } else {
                     alert("Please go back and fill in at least the address and the city so that we could locate you on the map.");
                 }

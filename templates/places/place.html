@@ -4,7 +4,7 @@
 {% load thumbnail %}
 
 {% block title %}
-    {% blocktrans with place as p %}{{ p }} - CEID Real Estates{% endblocktrans %}
+    {{ place }}
 {% endblock %}
 
 {% block head %}
@@ -13,7 +13,6 @@
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.notifybar.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.colorbox-min.js"></script>
 <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
-
 <script>
 $(document).ready(function() {
 
@@ -139,7 +138,7 @@ a.round-other {
         </div>
         
         <div class="date">
-            Submitted on {{ place.pub_date }} by {{ place.submitter }}.
+            {% blocktrans with place.pub_date as date and place.submitter as user %}Submitted on {{ date }} by {{ user }}.{% endblocktrans %}
             {% trans 'Views' %}: {{ place.hits }}
         </div>
     </li>

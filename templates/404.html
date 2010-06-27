@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block title %} 
-    {% blocktrans %}404 - Page Not Found{% endblocktrans %}
+    {% blocktrans %}Page not found{% endblocktrans %}
 {% endblock %}
 
 {% block content %}
@@ -10,9 +10,7 @@
     <li class="post">
         <h3>{% trans 'Uh oh.' %}</h3>
         <div class="post-content">
-            {% blocktrans %}
-            Looks like you broke something. You should probably <a href="javascript:history.go(-1)">go back</a>.
-            {% endblocktrans %}            
+            {% blocktrans %}Looks like you broke something. You should probably <a href="javascript:history.go(-1)">go back</a>.{% endblocktrans %}            
         </div>
     </li>
 </ul>

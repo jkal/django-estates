@@ -59,6 +59,14 @@ Mapper) του Django. Το ORM του Django ακολουθεί το [Active Re
 
 Για database server χρησιμοποιούμε PostgreSQL 8.4.
 
+## Debug Server
+
+Για να δοκιμάσουμε την εφαρμογή στον ενσωματωμένο server του Django αρκεί να τρέξουμε: 
+    
+    `python manage.py runserver 0.0.0.0:8000` 
+
+στο root directory του project.
+
 # Security
 
 Το Djago, ως middleware, παρέχει στους προγραμματιστές όλα τα εργαλεία για τη δημιουργία ασφαλών web εφαρμογών.
@@ -81,4 +89,6 @@ validate.
 
 # Internationalization
 
-TODO
+python manage.py makemessages -l el
+python manage.py makemessages -a
+python manage.py compilemessages

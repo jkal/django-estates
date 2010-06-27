@@ -2,16 +2,16 @@
 {% load i18n %}
 
 {% block title %} 
-    {% blocktrans %}New place added{% endblocktrans %}
+    {% blocktrans %}Submission complete{% endblocktrans %}
 {% endblock %}
 
 {% block content %} 
-<ul id="posts" >
+<ul id="posts">
     <li class="post">
         <h3>{% trans 'Thank you' %}</h3>
         <div class="post-content">
             {% url all-places as all_places_url %}
-            {% blocktrans %}Your submission will be reviewed by an administrator shortly. Back to <a href="{{ all_places_url }}">all places.{% endblocktrans %}</a></h3>
+            {% blocktrans with all_places_url as u %}Your submission will be reviewed by an administrator shortly. Back to<a href="{{ u }}"> all places.{% endblocktrans %}</a></h3>
         </div>
     </li>
 </ul>

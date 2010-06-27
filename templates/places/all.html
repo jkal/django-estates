@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block head %}
-{# <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script> #}
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         oTable = $('#places-table').dataTable({
@@ -61,6 +60,7 @@
                         <th>{% trans 'Price' %}</th>
                         <th>{% trans 'Area' %}</th>
                         <th>{% trans 'Year' %}</th>
+                        <th>{% trans 'Submitter' %}</th>
                     </tr>
                 </thead>
                 
@@ -80,6 +80,7 @@
                         <td>{{ place.price }} €</td>
                         <td>{{ place.area }} τ.μ.</td>
                         <td>{{ place.year }}</td>
+                        <td>{{ place.submitter }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

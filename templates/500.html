@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block title %} 
-    {% blocktrans %}500 - Internal Server Error{% endblocktrans %}
+    {% blocktrans %}Server error (500){% endblocktrans %}
 {% endblock %}
 
 {% block content %} 
@@ -10,9 +10,7 @@
     <li class="post">
         <h3>{% trans "Internal Server Error" %}</h3>
         <div class="post-content">
-            {% blocktrans %}
-            Looks like something is not working as it should. You should probably <a href="javascript:history.go(-1)">go back</a>.
-            {% endblocktrans %}
+            {% blocktrans %}Looks like something is not working as it should aka HTTTP 505. You should probably <a href="javascript:history.go(-1)">go back</a>.{% endblocktrans %}
         </div>
     </li>
 </ul>
