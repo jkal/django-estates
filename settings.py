@@ -22,6 +22,7 @@ DATABASES = {
 
 TIME_ZONE = 'Europe/Athens'
 
+# 'el' for Greek version, 'en' for English
 LANGUAGE_CODE = 'el'
 
 SITE_ID = 1
