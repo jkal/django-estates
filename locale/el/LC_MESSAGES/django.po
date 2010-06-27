@@ -1,0 +1,548 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-27 14:19+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: views.py:25
+msgid "Username is not available."
+msgstr ""
+
+#: places/feeds.py:6
+msgid "Latest Places"
+msgstr ""
+
+#: places/feeds.py:8
+msgid "The 10 most recently added places."
+msgstr ""
+
+#: places/models.py:13
+msgid "Public profile?"
+msgstr ""
+
+#: places/models.py:25
+msgid "Optional"
+msgstr ""
+
+#: places/models.py:28
+msgid "Categories"
+msgstr ""
+
+#: places/models.py:42 templates/places/place.html:107
+msgid "For sale"
+msgstr ""
+
+#: places/models.py:43
+msgid "For rent"
+msgstr ""
+
+#: places/models.py:47 templates/places/all.html:56
+msgid "Address"
+msgstr ""
+
+#: places/models.py:48
+msgid "Zip Code"
+msgstr ""
+
+#: places/models.py:49
+msgid "Patras"
+msgstr ""
+
+#: places/models.py:49 templates/places/all.html:59
+msgid "City"
+msgstr ""
+
+#: places/models.py:50
+msgid "Greece"
+msgstr ""
+
+#: places/models.py:50
+msgid "Country"
+msgstr ""
+
+#: places/models.py:56
+msgid "Price in Euros"
+msgstr ""
+
+#: places/models.py:57
+msgid "Area in square meters"
+msgstr ""
+
+#: places/models.py:58 templates/places/place.html:127
+msgid "Construction year"
+msgstr ""
+
+#: places/models.py:62 templates/places/all.html:63
+msgid "Submitter"
+msgstr ""
+
+#: places/models.py:63 templates/places/all.html:57
+msgid "Category"
+msgstr ""
+
+#: registration/admin.py:23
+msgid "Activate users"
+msgstr ""
+
+#: registration/admin.py:43
+msgid "Re-send activation emails"
+msgstr ""
+
+#: registration/forms.py:35 templates/registration/login.html:46
+msgid "Username"
+msgstr ""
+
+#: registration/forms.py:36
+msgid "This value must contain only letters, numbers and underscores."
+msgstr ""
+
+#: registration/forms.py:39
+msgid "Email address"
+msgstr ""
+
+#: registration/forms.py:41 templates/registration/login.html:51
+msgid "Password"
+msgstr ""
+
+#: registration/forms.py:43
+msgid "Password (again)"
+msgstr ""
+
+#: registration/forms.py:55
+msgid "A user with that username already exists."
+msgstr ""
+
+#: registration/forms.py:67
+msgid "The two password fields didn't match."
+msgstr ""
+
+#: registration/forms.py:78
+msgid "I have read and agree to the Terms of Service"
+msgstr ""
+
+#: registration/forms.py:79
+msgid "You must agree to the terms to register"
+msgstr ""
+
+#: registration/forms.py:95
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+
+#: registration/forms.py:122
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+
+#: registration/models.py:168
+msgid "user"
+msgstr ""
+
+#: registration/models.py:169
+msgid "activation key"
+msgstr ""
+
+#: registration/models.py:174
+msgid "registration profile"
+msgstr ""
+
+#: registration/models.py:175
+msgid "registration profiles"
+msgstr ""
+
+#: templates/404.html:5
+msgid "Page not found"
+msgstr ""
+
+#: templates/404.html:11
+msgid "Uh oh."
+msgstr ""
+
+#: templates/404.html:13
+msgid ""
+"Looks like you broke something. You should probably <a href=\"javascript:"
+"history.go(-1)\">go back</a>."
+msgstr ""
+
+#: templates/500.html:5
+msgid "Server error (500)"
+msgstr ""
+
+#: templates/500.html:11
+msgid "Internal Server Error"
+msgstr ""
+
+#: templates/500.html:13
+msgid ""
+"Looks like something is not working as it should aka HTTTP 505. You should "
+"probably <a href=\"javascript:history.go(-1)\">go back</a>."
+msgstr ""
+
+#: templates/base.html:44 templates/index.html:5
+msgid "Home"
+msgstr ""
+
+#: templates/base.html:46 templates/registration/login.html:5
+#: templates/registration/login.html:31
+msgid "Login"
+msgstr ""
+
+#: templates/base.html:47 templates/registration/registration_form.html:5
+#: templates/registration/registration_form.html:92
+msgid "Register"
+msgstr ""
+
+#: templates/base.html:47
+msgid "New account?"
+msgstr ""
+
+#: templates/base.html:49
+#, python-format
+msgid "Hi, %(user)s"
+msgstr ""
+
+#: templates/base.html:51 templates/profiles/profile_detail.html:21
+msgid "Staff"
+msgstr ""
+
+#: templates/base.html:54 templates/registration/logout.html:11
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:66
+msgid "&copy; 2010. Powered by Django and JQuery."
+msgstr ""
+
+#: templates/index.html:75
+msgid "Browse by categories"
+msgstr ""
+
+#: templates/index.html:80
+msgid "No categories yet. Bummer."
+msgstr ""
+
+#: templates/index.html:86
+msgid "Popular"
+msgstr ""
+
+#: templates/index.html:91 templates/index.html.py:102
+msgid "No places added yet."
+msgstr ""
+
+#: templates/index.html:97
+msgid "Latest"
+msgstr ""
+
+#: templates/index.html:112 templates/places/place.html:99
+msgid "Maps require JavaScript enabled."
+msgstr ""
+
+#: templates/menu.html:5 templates/places/new.html:5
+#: templates/places/new.html.py:115
+msgid "New Place"
+msgstr ""
+
+#: templates/menu.html:6
+msgid "Search"
+msgstr ""
+
+#: templates/places/all.html:5 templates/places/all.html.py:47
+msgid "All places"
+msgstr ""
+
+#: templates/places/all.html:36
+msgid "This page requires JavaScript enabled. Defaulting to plain view."
+msgstr ""
+
+#: templates/places/all.html:42
+msgid "Searching for"
+msgstr ""
+
+#: templates/places/all.html:45
+msgid "Reset filter"
+msgstr ""
+
+#: templates/places/all.html:58
+msgid "Availability"
+msgstr ""
+
+#: templates/places/all.html:60
+msgid "Price"
+msgstr ""
+
+#: templates/places/all.html:61
+msgid "Area"
+msgstr ""
+
+#: templates/places/all.html:62
+msgid "Year"
+msgstr ""
+
+#: templates/places/all.html:74
+msgid "Sale"
+msgstr ""
+
+#: templates/places/all.html:76
+msgid "Rent"
+msgstr ""
+
+#: templates/places/delete.html:5 templates/places/place.html:89
+msgid "Delete"
+msgstr ""
+
+#: templates/places/delete.html:11
+msgid "Delete place"
+msgstr ""
+
+#: templates/places/delete.html:15
+#, python-format
+msgid "Are you sure you want to delete \"<strong>%(p)s</strong>\"?"
+msgstr ""
+
+#: templates/places/delete.html:18
+msgid "Yes, delete it."
+msgstr ""
+
+#: templates/places/delete.html:21
+msgid ""
+"You can only delete the items you submitted. <a href=\"javascript:history."
+"back()\" >Go back.</a>"
+msgstr ""
+
+#: templates/places/delete_complete.html:5
+#: templates/places/delete_complete.html:12
+msgid "Deleted"
+msgstr ""
+
+#: templates/places/delete_complete.html:15
+#, python-format
+msgid ""
+"%(p)s was deleted succesfully. Back to the <a href=\"/\">homepage</a> or <a "
+"href=\"%(u)s\">all places</a>."
+msgstr ""
+
+#: templates/places/new.html:109
+msgid "This pages requires JavaScript enabled. You may experience problems."
+msgstr ""
+
+#: templates/places/new_form.html:9
+msgid "Location Information"
+msgstr ""
+
+#: templates/places/new_form.html:17
+msgid "Property Information"
+msgstr ""
+
+#: templates/places/new_form.html:27 templates/places/place.html:124
+msgid "Other Info"
+msgstr ""
+
+#: templates/places/new_form.html:28
+msgid "Please select any available assets from the list."
+msgstr ""
+
+#: templates/places/new_form.html:31
+msgid ""
+"Hold down \"Control\", or \"Command\" on a Mac, to select more than one."
+msgstr ""
+
+#: templates/places/new_form.html:36
+msgid "Photos"
+msgstr ""
+
+#: templates/places/new_form.html:40
+msgid "+ Add photo"
+msgstr ""
+
+#: templates/places/new_form.html:46
+msgid "Back"
+msgstr ""
+
+#: templates/places/new_form.html:47
+msgid "Next"
+msgstr ""
+
+#: templates/places/place.html:89
+msgid "You can delete this place."
+msgstr ""
+
+#: templates/places/place.html:92
+msgid "Add this place to your favorites."
+msgstr ""
+
+#: templates/places/place.html:92
+msgid "Like!"
+msgstr ""
+
+#: templates/places/place.html:109
+msgid "To rent"
+msgstr ""
+
+#: templates/places/place.html:115
+msgid "Additional assets"
+msgstr ""
+
+#: templates/places/place.html:120
+msgid "No additional assets"
+msgstr ""
+
+#: templates/places/place.html:132
+msgid "Escape to close"
+msgstr ""
+
+#: templates/places/place.html:136
+msgid "No photos submitted."
+msgstr ""
+
+#: templates/places/place.html:141
+#, python-format
+msgid "Submitted on %(date)s by %(user)s."
+msgstr ""
+
+#: templates/places/place.html:142
+msgid "Views"
+msgstr ""
+
+#: templates/places/thanks.html:5
+msgid "Submission complete"
+msgstr ""
+
+#: templates/places/thanks.html:11
+msgid "Thank you"
+msgstr ""
+
+#: templates/places/thanks.html:14
+#, python-format
+msgid ""
+"Your submission will be reviewed by an administrator shortly. Back to<a href="
+"\"%(u)s\"> all places."
+msgstr ""
+
+#: templates/profiles/create_profile.html:5
+#: templates/profiles/create_profile.html:11
+#: templates/profiles/create_profile.html:20
+msgid "Create Profile"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:5
+#: templates/profiles/edit_profile.html:11
+msgid "Edit Profile"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:20
+msgid "Update Profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:6
+#, python-format
+msgid "%(u)s 's Profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:8
+#: templates/profiles/profile_detail.html:53
+msgid "Private Profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:19
+#, python-format
+msgid "%(u)s's Profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:24
+msgid "Edit your profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:24
+msgid "Edit"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:25
+msgid "Change your password"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:25
+msgid "Change Password"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:31
+msgid "Name"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:32
+msgid "Phone Number"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:33
+msgid "Home Address"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:37
+msgid "Favorite places"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:42
+msgid "No favorite places yet."
+msgstr ""
+
+#: templates/profiles/profile_detail.html:55
+msgid "The user has marked his profile as private."
+msgstr ""
+
+#: templates/registration/activate.html:5
+#: templates/registration/activate.html:11
+msgid "Account Activation"
+msgstr ""
+
+#: templates/registration/activate.html:15
+#, python-format
+msgid ""
+"Your account has been activated. You may now <a href=\"%(login_url)s\">login "
+"and create your profile.</a>."
+msgstr ""
+
+#: templates/registration/activate.html:17
+msgid "Account activation failed. Probably not a valid link."
+msgstr ""
+
+#: templates/registration/login.html:32
+msgid "Forgot password?"
+msgstr ""
+
+#: templates/registration/login.html:41
+msgid "Sorry, you entered an invalid username or password."
+msgstr ""
+
+#: templates/registration/logout.html:5
+msgid "Logged out"
+msgstr ""
+
+#: templates/registration/logout.html:14
+msgid ""
+"You are now logged out. <a href=\"javascript:history.back()\" >Go back.</a>"
+msgstr ""
+
+#: templates/registration/registration_complete.html:5
+#: templates/registration/registration_complete.html:11
+msgid "Registration Complete"
+msgstr ""
+
+#: templates/registration/registration_complete.html:14
+msgid ""
+"Your account has been created. An email has been sent to your email address "
+"with information on how to activate it."
+msgstr ""
