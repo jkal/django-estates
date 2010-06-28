@@ -6,6 +6,10 @@
 {% endblock %}
 
 {% block head %}
+<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.dataTables.js"></script>
+{# <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery-ui-1.7.2.smoothness.css" type="text/css" /> #}
+<link rel="stylesheet" href="{{ MEDIA_URL }}js/datatables/css/demo_table_jui.css" type="text/css" />
+
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         oTable = $('#places-table').dataTable({
