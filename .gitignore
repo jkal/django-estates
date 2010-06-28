@@ -1,6 +1,9 @@
 *.pyc
 *.db
+*.sqlite
 *.mo
+*.jpg
+*.png
 .DS_Store
 /media/uploads/*
 *garbage*
