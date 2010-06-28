@@ -16,6 +16,9 @@ function isValidEmailAddress(emailAddress) {
 $(document).ready(function(){
     $("label").inFieldLabels();
 
+    /* 
+     * Username validation.
+     */
     $("#id_username").change(function() { 
         var username = $("#id_username").val();
         var msgbox = $("#status");
@@ -28,8 +31,7 @@ $(document).ready(function(){
                 url: "{% url check-username %}", 
                 data: "username="+ username, 
                 success: function(msg) { 
-                    $("#status").ajaxComplete(function(event, request) { 
-                        var d = msg;
+                    $("#status").ajaxComplete(function(event, request) {
                         var str = msg.substr(0, 2);
                         if (str == 'OK') { 
                             $("#id_username").removeClass("red");
@@ -49,7 +51,10 @@ $(document).ready(function(){
         }
         return false;
     });
-
+    
+    /* 
+     * Email validation.
+     */
 	$("#id_email").change(function() {
 		var email = $("#id_email").val();
 		if (email != 0) {    
@@ -66,11 +71,14 @@ $(document).ready(function(){
 		}
 	});
 
+    /* 
+     * Password match validation.
+     */
 	$("#id_password2").keyup(function() {
 		var pass1 = $("#id_password1").val();
 		var pass2 = $("#id_password2").val();
 
-		if (pass1 != pass2 ) {
+		if (pass1 != pass2) {
 			$("#id_password1").removeClass("green");
 			$("#id_password1").addClass("red");
 			$("#id_password2").removeClass("green");
