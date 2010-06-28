@@ -23,6 +23,9 @@ hr {display:none;}
 
     #map-wrapper {background:#f1f7f8;border:#e3f0f2 1px solid;list-style:none;margin:0;padding:5px;display:block;}
 
+    #comments { padding: 15px 0px 15px 10px;}
+	#comments h1 { border-bottom:#e3f0f2 1px solid; color:#424242; font-size:120%; margin:0 0 20px 0px; }
+	
     #posts {padding:5px 0;}
 	    #posts .post {border-bottom:#CCC 1px dotted;padding:15px 0;}
 		#posts li h4 {border-bottom:#e3f0f2 1px solid;color:#424242;font-size:120%;padding:0 0 5px 5px;}
@@ -30,7 +33,6 @@ hr {display:none;}
 		    #posts li h3 a {color:#424242;font-size:60%;padding-left:5px;}
 			#posts li h3 a:hover {color:#e78200;}
 		#posts li .side-map {background:#FFF;border:#e3f0f2 5px solid;display:block;float:right;height:250px;margin:-35px 0 0 15px;overflow:hidden;width:500px;}
-/*        #posts li div.meta {background:#f1f7f8;color:#bdced1;font-size:73%;line-height:1.6;padding:5px 10px;}*/
         #posts li div.meta {background:#f1f7f8;color:#000;font-weight:bold; font-size:73%;line-height:1.6;padding:5px 10px;}
         #posts li div.post-content {font-size:80%;line-height:1.6;padding:15px 15px 15px 10px;}
 		#posts li div.date {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:15px 0 0 0;}

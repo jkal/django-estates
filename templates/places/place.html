@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load disqus_tags %}
+{# {% load disqus_tags %} #}
 {% load thumbnail %}
 
 {% block title %}
@@ -8,12 +8,17 @@
 {% endblock %}
 
 {% block head %}
+{# Scripts and custom CSS widgets #}
 <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/notifybar.css" /> 
 <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/colorbox.css" />
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.notifybar.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.colorbox-min.js"></script>
 <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
 <script>
+
+/* DISQUS comments variables */
+var disqus_developer = 1; 
+
 $(document).ready(function() {
 
     $("a[rel='photos']").colorbox();
@@ -145,7 +150,17 @@ a.round-other {
 </ul>
 
 <div id="comments">
-    {% disqus_dev %}
-    {% disqus_show_comments %}
+    <h1>{% trans 'Comments' %}</h1>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://realtyceid.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=realtyceid">comments powered by Disqus.</a></noscript>
+    {# <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a> #}
 </div>
 {% endblock %}

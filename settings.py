@@ -77,7 +77,6 @@ INSTALLED_APPS = (
     'registration',
     'profiles',
     'places',
-    'disqus',
     'easy_thumbnails',
     #'south',
 )
@@ -94,10 +93,6 @@ EMAIL_HOST = 'mail.ceid.upatras.gr'
 #EMAIL_HOST_PASSWORD = ''
 #EMAIL_USE_TLS = ''
 DEFAULT_FROM_EMAIL = 'ikalantzis@ceid.upatras.gr'
-
-# Disqus app settings
-DISQUS_API_KEY = 'fLVXYwkA1CQHcd17qMmfRbjOXKkyfhTKXh5GSqLMQFg7abkGYCpWMqyWKKcweL67'
-DISQUS_WEBSITE_SHORTNAME = 'realtyceid'
 
 # easy_thumbnails app settings
 THUMBNAIL_DEBUG = True
