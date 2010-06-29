@@ -1,24 +1,35 @@
 # Αρχιτεκτονική Συστήματος
 
 Η εφαρμογή που υλοποιήσαμε βασίζεται εξ ολοκλήρου στο [Django Web framework](http://djangoproject.com) και συγκεκριμένα
-στην έκδοση 1.2. Το Django ακολουθεί μια παραλλαγή του MVC (Model-View-Controller) design pattern που επιτρέπει το
-διαχωρισμό του business logic από την εμφάνιση/input και την αλληλεπίδραση με τη βάση δεδομένων.
+στις εκδόσεις >=1.2. 
+
+Εξυπηρετώντας την αρχή [DRY](http://www.c2.com/cgi/wiki?DontRepeatYourself) και την επαναχρησιμοποίηση κώδικα,
+η αρχιτεκτονική ενός Django project βασίζεται σε μεγάλο βαθμό στην ύπαρξη pluggable applications. Ένα application είναι 
+ένα κομμάτι κώδικα που παρέχει μια συγκεκριμένη λειτουργία χωρίς λειτουργικές εξαρτήσεις από το υπόλοιπο project με σκοπό 
+την εύκολη επαναχρησιμοποίησή του (με μικρές ίσως αλλαγές) και σε άλλα projects. 
+
+Το Django ακολουθεί μια παραλλαγή του MVC (Model-View-Controller) design pattern που επιτρέπει το διαχωρισμό του 
+business logic από την εμφάνιση/input και την αλληλεπίδραση με τη βάση δεδομένων.
 
 ## Views
 Ένα view είναι μια απλή Python function που παίρνει από το Django ως parameter ένα HTTP request και εκτελεί την
-κατάλληλη επεξεργασία πάνω σε αυτό. Επιστρέφει ένα HTTP response με τα αποτελέσματα της επεξεργασίας.
+κατάλληλη επεξεργασία πάνω σε αυτό. Επιστρέφει ένα HTTP response με τα αποτελέσματα της επεξεργασίας. "Ζουν" στο αρχείο
+`views.py` μέσα σε κάθε app του project. Στο συγκεκριμένο project, η βασική λειτουργικότητα της εφαρμογής παρέχεται από
+το app στο directory places/.
 
 ## URLs
 Το Django μας επιτρέπει να σχεδιάσουμε τα URLs της εφαρμογής όπως εμείς θέλουμε, χωρίς κανέναν περιορισμό. Παρέχουμε
 στον URL dispatcher μια αντιστοιχία (URLconf) μεταξύ URL patterns και των συναρτήσεων (views) που θα τα εξυπηρετούν και 
 το Django αναλαμβάνει τα υπόλοιπα. Έτσι επιτυγχάνουμε κομψά, εύκολα και μόνιμα URLs όπως το "/articles/2003/03/3/" και
 όχι σαν το "/articles.php?year=2003&month=03&day=3". Φυσικά, όπου έχει νόημα, μπορούμε να χρησιμοποιήσουμε και URLs με GET
-parameters όπως τα παραπάνω.
+parameters όπως τα παραπάνω. Στον κατάλογο του project υπάρχει το αρχείο με τα βασικά URLs (`src/estates/urls.py`) το
+οποίο κάνει include τα επιμέρους URLs των διάφορων εφαρμογών.
 
 ## Templates
 Η εμφάνιση της εφαρμογής καθορίζεται από τα templates (directory templates/). Ένα Django template δεν είναι τίποτα
 περισσότερο από ένα HTML αρχείο που κάνει embed μια minimal python-like γλώσσα (Django template language) και γίνεται
-render από το αντίστοιχο view. Στα templates υλοποιείται ουσιαστικά όλο το front-end κομμάτι της εφαρμογής.
+render από το αντίστοιχο view. Στα templates υλοποιείται ουσιαστικά όλο το front-end κομμάτι της εφαρμογής. Βρίσκονται
+στον κατάλογο `src/estates/templates`. Τα διάφορα στατικά αρχεία (css/javascript/images) βρίσκονται στο media/.
 
 ### Javascript/AJAX
 Η εφαρμογή κάνει εκτενή χρήση JavaScript μέσω του πολύ διαδομένου framework [JQuery](jquery.com) σε διάφορα σημεία.
@@ -33,21 +44,27 @@ AJAX χρησιμοποιείται επίσης και για τον έλεγχ
 
 # Σχεδιασμός Βάσης
 
-Όπως και στα περισσότερα Django projects, για την αλληλεπίδραση με τη βάση δεδομένων χρησιμοποιούμε το ORM (Object-Relational 
-Mapper) του Django. Το ORM του Django ακολουθεί το [Active Record design pattern](http://en.wikipedia.org/wiki/Active_record_pattern).
+Όπως και στα περισσότερα Django projects, για την αλληλεπίδραση με τη βάση δεδομένων χρησιμοποιούμε το ORM 
+(Object-Relational Mapper) του Django. Το ORM τακολουθεί το [Active Record design pattern](http://en.wikipedia.org/wiki/Active_record_pattern).
 Ο ορισμός του schema γίνεται μέσω του Model API στο αρχείο `places/models.py`.
 
-Συγκεκριμένα, διακρίνουμε τις εξής οντότητες:
+## Models
+Ουσιαστικά, το ORM είναι ενα abstraction πάνω από το database API που μας επιτρέπει αλληλεπίδραση με τη βάση δεδομένων 
+με κώδικα Python. Κάθε model δεν είναι τίποτα άλλο από μια κλάση η οποία εσωτερικά αναλαμβάνει τα SQL transactions με το
+RDBMS.
 
-* User
-* UserProfile
-* Place
-* Category
-* Favorite
-* Photo
+Πιο συγκεκριμένα, διακρίνουμε τις εξής οντότητες:
 
-Κάθε μοντέλο αποτελεί και έναν πίνακα στη βάση δεδομένων. Η δημιουργία της βάσης γίνεται μέσω του management utility
-(`python manage.py syncdb`)
+* User: Αναπαριστά τον χρήστη.
+* UserProfile: Επιπλέον στοιχεία του χρήστη (διεύθυνση, τηλέφωνο). Σχέση 1-1 με User.
+* Place: Αναπαριστά το ακίνητο/αγγελία.
+* Category: Κατηγορίες ακινήτων.
+* Favorite: Συνδέει User-Place.
+* Photo: Συνδέει φωτογραφίες με ακίνητα.
+* Asset: Κάθε ακίνητο μπορεί να έχει κάποιες επιπλέον παροχές.
+
+Κάθε μοντέλο αναπαρίσταται ως πίνακας στη βάση δεδομένων. Η δημιουργία της βάσης γίνεται μέσω του management utility
+(`python manage.py syncdb`).
 
 # Deployment
 
