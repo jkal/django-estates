@@ -41,7 +41,7 @@ for i in `jot - 1 $USERS`; do
   for each in `jot - 1 $USER_PLACES`; do
     let places+=1 > /dev/null
     rand=`jot -r 1 1 37`
-    place=`sed -n ${rand}s/,\ /,/gp addresses`
+    place=`sed -n ${rand}s/,\ /,/gp addresses.sample`
     echo "- model: places.Place"
     echo "  pk: $places"
     echo "  fields:"
