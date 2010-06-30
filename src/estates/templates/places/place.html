@@ -35,6 +35,7 @@ $(document).ready(function() {
                 } else if (request.status == 304) {
                     $.notifyBar({ html: gettext("Place is already bookmarked."), delay: 2000, animationSpeed: "normal" });
                 }
+                //TODO disable favlink
             },  
             error: function(data, txtstat, request) { 
                 $.notifyBar({ cls: "error", html: "Request failed:" + txtstat });

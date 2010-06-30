@@ -30,7 +30,6 @@ for i in `jot - 2 $USERS`; do
     echo
 done
 
-
 echo "#"
 echo "# Sample places"
 echo "#"
@@ -53,7 +52,7 @@ for i in `jot - 1 $USERS`; do
     echo "    longitude   : \"`echo $place | cut -d, -f3`\""
     echo 
     echo "    submitter: $i"
-    echo "    action: 'S'"
+    echo "    action: `jot -rc 1 {R,S}`"
     echo "    price: `jot -r 1 300 1550`"
     echo "    area: `jot -r 1 30 230`"
     echo "    year: `jot -r 1 1965 2009`"
@@ -70,7 +69,7 @@ echo "#"
 echo "# Some photos"
 echo "#"
 
-for i in `jot - 2 $USERS`; do
+for i in `jot - 1 $places`; do
     echo '- model: places.photo'
     echo "  pk: 1"
     echo '  fields:'
