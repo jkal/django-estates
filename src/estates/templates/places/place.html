@@ -23,6 +23,7 @@ $(document).ready(function() {
     $("a[rel='photos']").colorbox();
 
     $("#favlink").click(function() {
+        $(this).hide();
         $.ajax({
             type: "POST",
             url: "{% url fave-place place.pk %}",
@@ -117,21 +118,22 @@ a.round-other {
 
         <div class="post-content">
             <p><strong style="border-bottom: 1px dotted #CCCCCC;">{% trans 'Additional assets' %}</strong></p>
-            <p>
+            
+            <ul>
             {% for asset in assets %}
-                &bull; {{ asset.name }}
+                <li>&bull; {{ asset.name }}</li>
             {% empty %}
-                <em>{% trans 'No additional assets' %}</em>
+                <li><em>{% trans 'No additional assets' %}</em></li>
             {% endfor %}
-            </p>
+            </ul>
             
             <p><strong style="border-bottom: 1px dotted #CCCCCC;">{% trans 'Other Info' %}</strong></p>
-            <p>{{ place.description }}</p>
+            {{ place.description }}
 
             <p><em>{% trans 'Construction year' %}: </em>{{ place.year }}</p>
         </div>
 
-        <div class="images">
+        <div class="images">            
 		    {% for p in photos %}
                 <a rel="photos" title="{% trans 'Escape to close' %}" href="{{ p.pic.url }}">
                     <img src="{% thumbnail p.pic 100x50 %}" width="60" height="60"/>
