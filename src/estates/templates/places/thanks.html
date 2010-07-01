@@ -11,7 +11,7 @@
         <h3>{% trans 'Thank you' %}</h3>
         <div class="post-content">
             {% url all-places as all_places_url %}
-            {% blocktrans with all_places_url as u %}Your submission will be reviewed by an administrator shortly. Back to<a href="{{ u }}"> all places.{% endblocktrans %}</a></h3>
+            <p>{% blocktrans with all_places_url as u %}Your submission will be reviewed by an administrator shortly. Back to<a href="{{ u }}"> all places.{% endblocktrans %}</a></h3></p>
         </div>
     </li>
 </ul>

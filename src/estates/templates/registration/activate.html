@@ -9,14 +9,14 @@
 <ul id="posts" >
     <li class="post">
         <h3>{% trans 'Account Activation' %}</h3>
-        <div class="post-content">
+        <div class="post-content"><p>
             {% if account %}
                 {% url auth_login as login_url %}
                 <p>{% blocktrans %}Your account has been activated. You may now <a href="{{ login_url }}">login and create your profile.</a>.{% endblocktrans %}</p> 
             {% else %}
                 <p>{% trans 'Account activation failed. Probably not a valid link.' %}</p> 
             {% endif %}
-        </div>
+        </p></div>
     </li>
 </ul>
 {% endblock %}
