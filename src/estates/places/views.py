@@ -8,6 +8,7 @@ from django.core.files.base import ContentFile
 from django.utils.translation import ugettext_lazy as _
 from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
+from django.core import serializers
 
 def index(request):
     """ Find the 5 latest and 5 most popular places to display. """
@@ -23,19 +24,25 @@ def index(request):
     }
 
     return render_to_response('index.html', cx, context_instance=RequestContext(request))
-
-def all_places(request):
+    
+def search_places(request):
     """ Create a list with all places and pass it to the template. """
     
     q = request.GET.get('q', '')
     all_places = Place.objects.filter(published=True)
-    
-    cx = { 
-        'places_list' : all_places, 
-        'filter_on' : q 
+
+    cx = {
+        'places_list' : all_places,
+        'filter_on' : q
     }
-    
+
     return render_to_response('places/all.html', cx, context_instance=RequestContext(request))
+
+def all_places(request):
+    all_places = Place.objects.filter(published=True)
+    data = serializers.serialize("json", all_places, ensure_ascii=False, use_natural_keys=True, fields=('submitter', 'address', 'category', 'city', 'area', 'price'))
+    
+    return HttpResponse(data, content_type='application/javascript;charset=utf8')
 
 @login_required
 def fav_place(request, place_id):
@@ -59,6 +66,7 @@ def view_place(request, place_id):
     my_place = get_object_or_404(Place, pk=place_id)
     my_photos = list(Photo.objects.filter(place=my_place))
     my_assets = my_place.assets.all()
+    
     # increase views
     my_place.hits += 1
     my_place.save()
