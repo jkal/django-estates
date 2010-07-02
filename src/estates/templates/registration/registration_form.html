@@ -98,7 +98,7 @@ $(document).ready(function(){
 <ul id="posts" >
     <li class="post">
         <h3>{% trans 'Register' %}</h3>
-        <div class="post-content">
+        <div class="post-content"><p>
             <form action="" method="post">{% csrf_token %}
                 <fieldset>
                     {% for field in form %}
@@ -110,7 +110,7 @@ $(document).ready(function(){
                 </fieldset>
 
                 <p><button type="submit">&rarr;</button></p>    
-            </form>
+            </form></p>
         </div>
     </li>
 </ul>

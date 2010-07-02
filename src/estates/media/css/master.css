@@ -34,7 +34,9 @@ hr {display:none;}
 			#posts li h3 a:hover {color:#e78200;}
 		#posts li .side-map {background:#FFF;border:#e3f0f2 5px solid;display:block;float:right;height:250px;margin:-35px 0 0 15px;overflow:hidden;width:500px;}
         #posts li div.meta {background:#f1f7f8;color:#000;font-weight:bold; font-size:73%;line-height:1.6;padding:5px 10px;}
-        #posts li div.post-content {font-size:80%;line-height:1.6;padding:15px 15px 15px 10px;}
+        #posts li div.post-content {font-size:80%;line-height:1.6;padding:0px 15px 10px 10px;}
+			#posts li div.post-content p {margin-top:10px;}
+	        
 		#posts li div.date {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:15px 0 0 0;}
 		#posts li div.images {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:5px 0 0 0;}
 				
@@ -94,4 +96,5 @@ form label {
 .small {
 	font-size: 11px;
 	color: #999999;
+	padding: 10px;
 }

@@ -19,6 +19,9 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True, help_text=_('Optional'))
     
+    def natural_key(self):
+        return (self.name)
+
     class Meta:
         verbose_name_plural = _('Categories')
 
@@ -51,11 +54,11 @@ class Place(models.Model):
     price = models.PositiveIntegerField(verbose_name=_('Price in Euros'))
     area = models.PositiveIntegerField(verbose_name=_('Area in square meters'))
     year = models.PositiveIntegerField(verbose_name=_('Construction year'))
-    description = models.TextField(verbose_name=_('Description/Other info'))
+    description = models.TextField(blank=True, verbose_name=_('Description/Other info'))
 
     # submission related
     submitter = models.ForeignKey(User, verbose_name=_('Submitter'))
-    category = models.ForeignKey(Category, blank=False, verbose_name=_('Category'), default="")
+    category = models.ForeignKey(Category, verbose_name=_('Category'), default="")
     pub_date = models.DateTimeField(auto_now_add=True)
     published = models.BooleanField(default=False)
     hits = models.IntegerField(default=0)
