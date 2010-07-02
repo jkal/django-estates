@@ -9,7 +9,8 @@
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         
-        $.getJSON("http://localhost:8000/places/json/", function(data) {
+        /* Get data with AJAX and populate the table. */
+        $.getJSON("{% url places-json %}", function(data) {
             $.each(data, function(i, item) {
                 $("#box-table-a tbody").append(
                     '<tr>' + 
@@ -20,30 +21,56 @@
                         '<td>' + item.fields.price +'</td>' +
                     '</tr>');
             });
+            $("#all-places .loading").remove();
+            $("#box-table-a").show();
         });
-        $("#all-places .loading").remove();
-        $("#box-table-a").show();
-    
-        $("#filter-input").keyup(function () {
-            var filter = $(this).val().toLowerCase(), count = 0;
-            
-            $("#box-table-a tr").each(function(i, e) {
-                count = 0;
-                // select the td elements of each tr, as we can't manipulate with visibility of tr
-                var myChildren = $(this).children("td");
+        
+        function applyfilter(filter) {
+            var cnt = 0;
+
+            /* foreach tr... */
+            $("#box-table-a tbody tr").each(function(i, e) {
+
+                /* select all td elements of tr, as we can't manipulate with visibility of tr */
+                var tds = $(this).children("td");
                 
-                // get the text of all td elements
+                /* get the text of all td elements */
                 tr_data = $(this).text().toLowerCase();
                 
                 if (tr_data.indexOf(filter) == -1 ) {
-                    myChildren.fadeOut();
+                    tds.fadeOut();
                 } else {
-                    myChildren.fadeIn();
+                    tds.fadeIn();
+                    cnt++;
                 }
             });
-            $("#filter-count").text(count);
+            return cnt;
+        }
+    
+        $("#filter-input").keyup(function () {
+            var filter = $(this).val().toLowerCase();
+            var cnt = applyfilter(filter);
+            $("#filter-count").text(cnt);
         });
-    });
+        
+        /*
+        function getUrlVars() {
+        	var vars = {};
+        	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        		vars[key] = value;
+        	});
+        	return vars;
+        }
+        
+        var query = getUrlVars()["q"];
+        if (query != undefined) {
+            var cnt2 = applyfilter('300');
+            $("#filter-count").text(cnt2);
+        } else {
+            console.log('undefined query');
+        }
+        */
+});
 </script>
 {% endblock %}
 
@@ -60,13 +87,7 @@
     
     <li class="post">
         <h3>
-            {% trans 'Searching for' %}: 
-            {% if filter_on %}
-                <span id="searching-for">"{{ filter_on }}"</span>
-                <a id="reset-filter">{% trans 'Reset filter' %}</a>
-            {% else %}
-                <span id="searching-for">{% trans 'All places' %}</span>
-            {% endif %}
+            {% trans 'Searching' %} 
         </h3>
         
         <div class="post-content">

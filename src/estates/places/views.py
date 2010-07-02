@@ -28,19 +28,12 @@ def index(request):
 def search_places(request):
     """ Create a list with all places and pass it to the template. """
     
-    q = request.GET.get('q', '')
     all_places = Place.objects.filter(published=True)
-
-    cx = {
-        'places_list' : all_places,
-        'filter_on' : q
-    }
-
-    return render_to_response('places/all.html', cx, context_instance=RequestContext(request))
+    return render_to_response('places/all.html', { 'places_list' : all_places }, context_instance=RequestContext(request))
 
 def all_places(request):
     all_places = Place.objects.filter(published=True)
-    data = serializers.serialize("json", all_places, ensure_ascii=False, use_natural_keys=True, fields=('submitter', 'address', 'category', 'city', 'area', 'price'))
+    data = serializers.serialize("json", all_places, ensure_ascii=False, use_natural_keys=True, fields=('submitter', 'action', 'address', 'category', 'city', 'area', 'price'))
     
     return HttpResponse(data, content_type='application/javascript;charset=utf8')
 
