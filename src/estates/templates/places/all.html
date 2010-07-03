@@ -91,12 +91,12 @@
         </h3>
         
         <div class="post-content">
-            <div id='filter-input-box' style="padding:20px 0px;">
+            <div id='filter-input-box'>
                 <input id="filter-input" name="filter" size="40"/>
                 <span class="small">Showing <span id="filter-count">{{ places_list|length}}</span> of {{ places_list|length}} places.</span>
             </div>
             
-            <div id="all-places" class="filtered">
+            <div id="all-places">
                 <span class="loading">Loading places...</span>
                 
                 <table id="box-table-a" summary="All places" style="display:none">
@@ -109,7 +109,7 @@
                             <th scope="col">Area</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody><!-- Intentionally empty --></tbody>
                 </table>
                 
             </div>

@@ -81,7 +81,7 @@ $(document).ready(function() {
                     {% trans 'Maps require JavaScript enabled.' %}
                 </center>
             </noscript>
-            <div id="map" style="height: 100%;"></div>
+            <div id="map" class='map-small'></div>
         </div>
         
         <div class="meta">
@@ -94,7 +94,7 @@ $(document).ready(function() {
         </div>
 
         <div class="post-content">
-            <p><strong style="border-bottom: 1px dotted #CCCCCC;">{% trans 'Additional assets' %}</strong></p>
+            <p><strong>{% trans 'Additional assets' %}</strong></p>
             
             <ul>
             {% for asset in assets %}
@@ -104,7 +104,7 @@ $(document).ready(function() {
             {% endfor %}
             </ul>
             
-            <p><strong style="border-bottom: 1px dotted #CCCCCC;">{% trans 'Other Info' %}</strong></p>
+            <p><strong>{% trans 'Other Info' %}</strong></p>
             {{ place.description }}
 
             <p><em>{% trans 'Construction year' %}: </em>{{ place.year }}</p>

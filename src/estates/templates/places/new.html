@@ -37,7 +37,6 @@ function placeMarker(location) {
     var clickedLocation = new google.maps.LatLng(location);
     
     marker.setPosition(location)
-    map.setCenter(location);
     $("#id_latitude").attr('value', location.lat()); 
     $("#id_longitude").attr('value', location.lng());
 }
