@@ -9,6 +9,14 @@ hr {display:none;}
 
 .green { background-color:#f1f7f8; }
 .red { background-color: #FFD9D9; }
+.round-red {
+    font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
+}
+
+.round-blue {
+    font-size: 60%; background-color:#5f99cf;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
+}
+
 
 #userbar { background:#f1f7f8; font-size:80%; padding:8px; text-align:left; }
     #userbar li { display:table-cell; padding: 0 9px 0 9px; margin:0 20px 0 0; vertical-align:middle; }
@@ -98,3 +106,45 @@ form label {
 	color: #999999;
 	padding: 10px;
 }
+
+/*
+ * Tables
+ */
+
+#box-table-a {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+#box-table-a th {
+	font-size: 13px;
+	font-weight: normal;
+	padding: 8px;
+	background: #add0d6;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+}
+
+#box-table-a td {
+	padding: 8px;
+	background: #F1F7F8;
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+}
+
+#box-table-a tr:hover td {
+	background: #daeaed;
+	color: #339;
+}
+
+/*
+ * Notifybar custom styling
+ */
+.jquery-notify-bar {width:100%;position:fixed;top:0;left:0;z-index:32768;background-color:transparent;font-size:80%;color:#006d92;text-align:center;margin:5px;padding:10px 0}
+.jquery-notify-bar.error {color:red;background-color:#fdd}
+.jquery-notify-bar.success {color:#060;background-color:#F1F7F8}
+.notify-bar-close {position:absolute;left:95%;font-size:11px}

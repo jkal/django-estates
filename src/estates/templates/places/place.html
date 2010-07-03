@@ -7,12 +7,6 @@
 {% endblock %}
 
 {% block head %}
-{# Scripts and custom CSS widgets #}
-<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/notifybar.css" /> 
-<link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}css/colorbox.css" />
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.notifybar.js"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.colorbox-min.js"></script>
-<script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
 <script>
 
 /* DISQUS comments variables */
@@ -65,23 +59,6 @@ $(document).ready(function() {
 {% endblock %}
 
 {% block content %}
-<style>
-.round {
-    background-color:#747474;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
-}
-
-a.round-red {
-    font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
-}
-
-a.round-blue {
-    font-size: 60%; background-color:#5f99cf;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
-}
-
-a.round-other {
-    font-size: 60%; background-color:#5F99CF;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;
-}
-</style>
 
 {% include "menu.html" %}
 
