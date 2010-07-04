@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-29 02:22+0300\n"
+"POT-Creation-Date: 2010-07-05 01:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,73 +49,93 @@ msgstr "Αριθμός τηλεφώνου"
 msgid "Public profile?"
 msgstr "Δημόσιο προφίλ;"
 
-#: places/models.py:20
+#: places/models.py:16
+msgid "User Profiles"
+msgstr "Προφίλ χρηστών"
+
+#: places/models.py:23
 msgid "Optional"
 msgstr "Προαιρετικό"
 
-#: places/models.py:23
+#: places/models.py:29
 msgid "Categories"
 msgstr "Κατηγορίες"
 
-#: places/models.py:29
+#: places/models.py:35
 msgid "Asset name"
 msgstr "Όνομα χρήστη"
 
-#: places/models.py:37 templates/places/place.html:111
+#: places/models.py:38
+msgid "Assets"
+msgstr "Παροχές"
+
+#: places/models.py:46 templates/places/place.html:89
 msgid "For sale"
 msgstr "Προς πώληση"
 
-#: places/models.py:38
+#: places/models.py:47
 msgid "For rent"
 msgstr "Προς ενοικίαση"
 
-#: places/models.py:42 templates/places/all.html:60
+#: places/models.py:51 templates/places/all.html:105
 msgid "Address"
 msgstr "Διεύθυνση"
 
-#: places/models.py:43
+#: places/models.py:52
 msgid "Zip Code"
 msgstr "Ταχυδρομικός κώδικας"
 
-#: places/models.py:44
+#: places/models.py:53
 msgid "Patras"
 msgstr "Πάτρα"
 
-#: places/models.py:44 templates/places/all.html:63
+#: places/models.py:53 templates/places/all.html:106
 msgid "City"
 msgstr "Πόλη"
 
-#: places/models.py:45
+#: places/models.py:54
 msgid "Greece"
 msgstr "Ελλάδα"
 
-#: places/models.py:45
+#: places/models.py:54
 msgid "Country"
 msgstr "Χώρα"
 
-#: places/models.py:51
+#: places/models.py:60
 msgid "Price in Euros"
 msgstr "Τιμή (€)"
 
-#: places/models.py:52
+#: places/models.py:61
 msgid "Area in square meters"
 msgstr "Εμβαδόν (τ.μ.)"
 
-#: places/models.py:53 templates/places/place.html:131
+#: places/models.py:62 templates/places/place.html:110
 msgid "Construction year"
 msgstr "Έτος κατασκευής"
 
-#: places/models.py:54
+#: places/models.py:63
 msgid "Description/Other info"
 msgstr "Περιγραφή/Άλλες πληροφορίες"
 
-#: places/models.py:57 templates/places/all.html:67
+#: places/models.py:66
 msgid "Submitter"
 msgstr "Χρήστης"
 
-#: places/models.py:58 templates/places/all.html:61
+#: places/models.py:67
 msgid "Category"
 msgstr "Κατηγορία"
+
+#: places/models.py:75
+msgid "Places"
+msgstr "Ακίνητα"
+
+#: places/models.py:89
+msgid "Favorites"
+msgstr "Αγαπημένες αγγελίες"
+
+#: places/models.py:99 templates/places/new_form.html:36
+msgid "Photos"
+msgstr "Φωτογραφιες"
 
 #: registration/admin.py:23
 msgid "Activate users"
@@ -226,34 +246,34 @@ msgstr ""
 "Φαίνεται πως κάτι δεν πήγε καλά. Πηγαίνετε <a href=\"javascript:history.go(-"
 "1)\">πίσω</a>."
 
-#: templates/base.html:41 templates/index.html:5
+#: templates/base.html:45 templates/index.html:5
 msgid "Home"
 msgstr "Αρχική"
 
-#: templates/base.html:43 templates/registration/login.html:5
+#: templates/base.html:47 templates/registration/login.html:5
 #: templates/registration/login.html:31
 msgid "Login"
 msgstr "Σύνδεση"
 
-#: templates/base.html:44 templates/registration/registration_form.html:5
+#: templates/base.html:48 templates/registration/registration_form.html:5
 #: templates/registration/registration_form.html:100
 msgid "Register"
 msgstr "Εγγραφή"
 
-#: templates/base.html:44
+#: templates/base.html:48
 msgid "New account?"
 msgstr "Νέος χρήστης;"
 
-#: templates/base.html:46
+#: templates/base.html:50
 #, python-format
 msgid "Hi, %(user)s"
 msgstr "Γεια, %(user)s"
 
-#: templates/base.html:48 templates/profiles/profile_detail.html:21
+#: templates/base.html:52 templates/profiles/profile_detail.html:21
 msgid "Staff"
 msgstr ""
 
-#: templates/base.html:51 templates/registration/logout.html:11
+#: templates/base.html:55 templates/registration/logout.html:11
 msgid "Logout"
 msgstr "Αποσύνδεση"
 
@@ -277,12 +297,12 @@ msgstr "Δεν έχουν προστεθεί ακόμα αγγελίες."
 msgid "Latest"
 msgstr "Τελευταίες"
 
-#: templates/index.html:112 templates/places/place.html:103
+#: templates/index.html:112 templates/places/place.html:81
 msgid "Maps require JavaScript enabled."
 msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScript."
 
 #: templates/menu.html:5 templates/places/new.html:5
-#: templates/places/new.html.py:115
+#: templates/places/new.html.py:110
 msgid "New Place"
 msgstr "Νέα Αγγελία"
 
@@ -290,47 +310,19 @@ msgstr "Νέα Αγγελία"
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: templates/places/all.html:5 templates/places/all.html.py:51
+#: templates/places/all.html:5
 msgid "All places"
 msgstr "Όλες οι αγγελίες"
 
-#: templates/places/all.html:40
+#: templates/places/all.html:84
 msgid "This page requires JavaScript enabled. Defaulting to plain view."
 msgstr "Η σελίδα απαιτεί ενεργοποιημένη JavaScript. Βλέπετε μια βασική έκδοση."
 
-#: templates/places/all.html:46
-msgid "Searching for"
-msgstr "Αναζήτηση για"
+#: templates/places/all.html:90
+msgid "Searching"
+msgstr "Αναζήτηση"
 
-#: templates/places/all.html:49
-msgid "Reset filter"
-msgstr "Καθαρισμός"
-
-#: templates/places/all.html:62
-msgid "Availability"
-msgstr "Διαθεσιμότητα"
-
-#: templates/places/all.html:64
-msgid "Price"
-msgstr "Τιμή"
-
-#: templates/places/all.html:65
-msgid "Area"
-msgstr "Εμβαδόν"
-
-#: templates/places/all.html:66
-msgid "Year"
-msgstr "Έτος Κατασκευής"
-
-#: templates/places/all.html:78
-msgid "Sale"
-msgstr "Πώληση"
-
-#: templates/places/all.html:80
-msgid "Rent"
-msgstr "Ενοικίαση"
-
-#: templates/places/delete.html:5 templates/places/place.html:93
+#: templates/places/delete.html:5 templates/places/place.html:71
 msgid "Delete"
 msgstr "Διαγραφή"
 
@@ -369,7 +361,7 @@ msgstr ""
 "Το %(p)s διεγράφη επιτυχώς. Πίσω στην <a href=\"/\">αρχική</a> ή <a href=\"%"
 "(u)s\">όλες τις αγγελίες</a>."
 
-#: templates/places/new.html:109
+#: templates/places/new.html:104
 msgid "This pages requires JavaScript enabled. You may experience problems."
 msgstr ""
 "Αυτή η σελίδα απαιτεί ενεργοποιημένη JavaScript. Μπορεί να αντιμετωπίσετε "
@@ -383,7 +375,7 @@ msgstr "Επιλογη Τοποθεσιας"
 msgid "Property Information"
 msgstr "Πληροφοριες ακινητου"
 
-#: templates/places/new_form.html:27 templates/places/place.html:128
+#: templates/places/new_form.html:27 templates/places/place.html:107
 msgid "Other Info"
 msgstr "Αλλες πληροφοριες"
 
@@ -398,10 +390,6 @@ msgstr ""
 "Για πολλαπλή επιλογή, κρατήστε πατημένο το \"Control\", ή \"Command\" στο "
 "Mac."
 
-#: templates/places/new_form.html:36
-msgid "Photos"
-msgstr "Φωτογραφιες"
-
 #: templates/places/new_form.html:40
 msgid "+ Add photo"
 msgstr "+ Προσθήκη Φωτογραφίας"
@@ -414,48 +402,48 @@ msgstr "Πίσω"
 msgid "Next"
 msgstr "Επόμενο"
 
-#: templates/places/place.html:93
+#: templates/places/place.html:71
 msgid "You can delete this place."
 msgstr "Μπορείτε να διαγράψετε αυτή την αγγελία."
 
-#: templates/places/place.html:96
+#: templates/places/place.html:74
 msgid "Add this place to your favorites."
 msgstr "Προσθέστε αυτή την αγγελία στα Αγαπημένα σας."
 
-#: templates/places/place.html:96
+#: templates/places/place.html:74
 msgid "Like!"
 msgstr "Μου αρέσει!"
 
-#: templates/places/place.html:113
+#: templates/places/place.html:91
 msgid "To rent"
 msgstr "Προς ενοικίαση"
 
-#: templates/places/place.html:119
+#: templates/places/place.html:97
 msgid "Additional assets"
 msgstr "Επιπλέον παροχές"
 
-#: templates/places/place.html:124
+#: templates/places/place.html:103
 msgid "No additional assets"
 msgstr "Δεν υπάρχουν παροχές"
 
-#: templates/places/place.html:136
+#: templates/places/place.html:115
 msgid "Escape to close"
 msgstr "Escape για κλείσιμο"
 
-#: templates/places/place.html:140
+#: templates/places/place.html:119
 msgid "No photos submitted."
 msgstr "Δεν υπάρχουν φωτογραφίες."
 
-#: templates/places/place.html:145
+#: templates/places/place.html:124
 #, python-format
 msgid "Submitted on %(date)s by %(user)s."
 msgstr "Υποβλήθηκε την %(date)s από %(user)s."
 
-#: templates/places/place.html:146
+#: templates/places/place.html:125
 msgid "Views"
 msgstr "Εμφανίσεις"
 
-#: templates/places/place.html:152
+#: templates/places/place.html:131
 msgid "Comments"
 msgstr "Σχόλια"
 
