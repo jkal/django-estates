@@ -1,0 +1,7 @@
+/*
+ * Notifybar custom styling
+ */
+.jquery-notify-bar {width:100%;position:fixed;top:0;left:0;z-index:32768;background-color:transparent;font-size:80%;color:#006d92;text-align:center;margin:5px;padding:10px 0}
+.jquery-notify-bar.error {color:red;background-color:#fdd}
+.jquery-notify-bar.success {color:#060;background-color:#F1F7F8}
+.notify-bar-close {position:absolute;left:95%;font-size:11px}
