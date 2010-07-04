@@ -11,6 +11,8 @@
         
         /* Get data with AJAX and populate the table. */
         $.getJSON("{% url places-json %}", function(data) {
+            $("#all-places .loading").remove();
+            $("#box-table-a").show();
             $.each(data, function(i, item) {
                 $("#box-table-a tbody").append(
                     '<tr>' + 
@@ -21,8 +23,6 @@
                         '<td>' + item.fields.price +'</td>' +
                     '</tr>');
             });
-            $("#all-places .loading").remove();
-            $("#box-table-a").show();
         });
         
         function applyfilter(filter) {

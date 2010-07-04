@@ -12,6 +12,9 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User)
     public_profile_field = models.BooleanField(verbose_name=_('Public profile?'))
     
+    class Meta:
+        verbose_name_plural = _('User Profiles')
+    
     def __unicode__(self):
         return self.user.username
 
@@ -30,6 +33,9 @@ class Category(models.Model):
 
 class Asset(models.Model):
     name = models.CharField(max_length=30, blank=False, verbose_name=_('Asset name'))
+
+    class Meta:
+        verbose_name_plural = _('Assets')
 
     def __unicode__(self):
         return self.name
@@ -66,6 +72,7 @@ class Place(models.Model):
     assets = models.ManyToManyField(Asset, blank=True)
 
     class Meta:
+        verbose_name_plural = _('Places')
         get_latest_by = 'pub_date'
 
     def __unicode__(self):
@@ -78,12 +85,18 @@ class Favorite(models.Model):
     user = models.ForeignKey(User)
     place = models.ForeignKey(Place)
 
+    class Meta:
+        verbose_name_plural = _('Favorites')
+
     def __unicode__(self):
         return '%s likes %s' % (self.user.username, self.place)
 
 class Photo(models.Model):
     place = models.ForeignKey(Place)
     pic = models.ImageField(upload_to="uploads/", blank=True)
+    
+    class Meta:
+        verbose_name_plural = _('Photos')
     
     def __unicode__(self):
         return '%s for %s' % (self.pic.name, self.place)
