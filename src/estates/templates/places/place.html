@@ -26,13 +26,14 @@ $(document).ready(function() {
                 
             success: function(data, txtstat, request) {
                 if (request.status == 200) {
-                    $.notifyBar({ html: gettext("Your bookmarks have been updated."), delay: 2000, animationSpeed: "normal" });
+                    $('#favbox').html("&#9733;");
                 } else if (request.status == 304) {
-                    $.notifyBar({ html: gettext("Place is already bookmarked."), delay: 2000, animationSpeed: "normal" });
+                    console.log('Place is already bookmarked.')
                 }
             },  
             error: function(data, txtstat, request) { 
-                $.notifyBar({ cls: "error", html: "Request failed:" + txtstat });
+                $('#favbox').html("&#8855;");
+                console.log("Fave request failed:" + txtstat)
             },
         }); 
     });
@@ -71,7 +72,13 @@ $(document).ready(function() {
                 <a class="round-red" title="{% trans 'You can delete this place.' %}" href="{% url delete-place place.pk %}">{% trans 'Delete' %}<a>
             {% endif %}
             {% if user.is_authenticated %}
-                <a class="round-blue" title="{% trans 'Add this place to your favorites.' %}" id="favlink" style="padding-left: 5px;">{% trans 'Like!' %}</a>
+                <span class="round-blue" id="favbox">
+                {% if is_faved %}
+                    &#9733;
+                {% else %}
+                    <a title="{% trans 'Add this place to your favorites.' %}" id="favlink">{% trans 'Like!' %}</a>
+                {% endif %}
+                </span>
             {% endif %}
         </h4>
         

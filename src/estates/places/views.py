@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
 from django.core import serializers
+from django.core.exceptions import ObjectDoesNotExist
 
 def index(request):
     """ Find the 5 latest and 5 most popular places to display. """
@@ -25,13 +26,11 @@ def index(request):
 
     return render_to_response('index.html', cx, context_instance=RequestContext(request))
     
-def search_places(request):
-    """ Create a list with all places and pass it to the template. """
-    
+def search_places(request):    
     all_places = Place.objects.filter(published=True)
     return render_to_response('places/all.html', { 'places_list' : all_places }, context_instance=RequestContext(request))
 
-def all_places(request):
+def json(request):
     all_places = Place.objects.filter(published=True)
     data = serializers.serialize("json", all_places, ensure_ascii=False, use_natural_keys=True, fields=('submitter', 'action', 'address', 'category', 'city', 'area', 'price'))
     
@@ -60,6 +59,13 @@ def view_place(request, place_id):
     my_photos = list(Photo.objects.filter(place=my_place))
     my_assets = my_place.assets.all()
     
+    is_faved = False
+    if request.user.is_authenticated(): 
+        try:
+            is_faved = Favorite.objects.get(user=request.user, place=my_place)
+        except ObjectDoesNotExist:
+            pass
+
     # increase views
     my_place.hits += 1
     my_place.save()
@@ -68,6 +74,7 @@ def view_place(request, place_id):
         'place' : my_place, 
         'photos' : my_photos,
         'assets' : my_assets,
+        'is_faved' : is_faved,
     }
     
     return render_to_response('places/place.html', cx, context_instance=RequestContext(request))

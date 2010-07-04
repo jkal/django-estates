@@ -11,6 +11,8 @@ hr {display:none;}
 .red { background-color: #FFD9D9; }
 .round-red {font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;}
 .round-blue { font-size: 60%; background-color:#5f99cf;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;}
+.round-blue a { color:white;}
+
 .round {background-color:#747474;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;}
 .red-button {font-size: 80%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;}
 
@@ -146,11 +148,3 @@ form label {
 	background: #daeaed;
 	color: #339;
 }
-
-/*
- * Notifybar custom styling
- */
-.jquery-notify-bar {width:100%;position:fixed;top:0;left:0;z-index:32768;background-color:transparent;font-size:80%;color:#006d92;text-align:center;margin:5px;padding:10px 0}
-.jquery-notify-bar.error {color:red;background-color:#fdd}
-.jquery-notify-bar.success {color:#060;background-color:#F1F7F8}
-.notify-bar-close {position:absolute;left:95%;font-size:11px}
