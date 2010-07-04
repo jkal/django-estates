@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-05 01:35+0300\n"
+"POT-Creation-Date: 2010-07-05 01:41+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr "Περιγραφή/Άλλες πληροφορίες"
 msgid "Submitter"
 msgstr "Χρήστης"
 
-#: places/models.py:67
+#: places/models.py:67 templates/places/all.html:107
 msgid "Category"
 msgstr "Κατηγορία"
 
@@ -321,6 +321,14 @@ msgstr "Η σελίδα απαιτεί ενεργοποιημένη JavaScript. 
 #: templates/places/all.html:90
 msgid "Searching"
 msgstr "Αναζήτηση"
+
+#: templates/places/all.html:108
+msgid "Price"
+msgstr "Τιμή"
+
+#: templates/places/all.html:109
+msgid "Area"
+msgstr "Εμβαδόν"
 
 #: templates/places/delete.html:5 templates/places/place.html:71
 msgid "Delete"
