@@ -9,7 +9,7 @@ class UserProfile(models.Model):
     lastname = models.CharField(max_length=30, verbose_name=_('last name'))
     home_address = models.CharField(max_length=30, verbose_name=_('home address'))
     phone_number = models.CharField(max_length=12, verbose_name=_('phone number'))
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, verbose_name=_('User'))
     public_profile_field = models.BooleanField(verbose_name=_('Public profile?'))
     
     class Meta:
@@ -26,6 +26,7 @@ class Category(models.Model):
         return (self.name)
 
     class Meta:
+        verbose_name = _('Category')
         verbose_name_plural = _('Categories')
 
     def __unicode__(self):
@@ -35,6 +36,7 @@ class Asset(models.Model):
     name = models.CharField(max_length=30, blank=False, verbose_name=_('Asset name'))
 
     class Meta:
+        verbose_name = _('Asset')
         verbose_name_plural = _('Assets')
 
     def __unicode__(self):
@@ -72,6 +74,7 @@ class Place(models.Model):
     assets = models.ManyToManyField(Asset, blank=True, verbose_name=_('Assets'))
 
     class Meta:
+        verbose_name = _('Place')
         verbose_name_plural = _('Places')
         get_latest_by = 'pub_date'
 
@@ -82,20 +85,22 @@ class Place(models.Model):
         return '/places/%i/' % self.pk
 
 class Favorite(models.Model):
-    user = models.ForeignKey(User)
-    place = models.ForeignKey(Place)
+    user = models.ForeignKey(User, verbose_name=_('User'))
+    place = models.ForeignKey(Place, verbose_name=_('Place'))
 
     class Meta:
+        verbose_name = _('Favorite')
         verbose_name_plural = _('Favorites')
 
     def __unicode__(self):
         return '%s likes %s' % (self.user.username, self.place)
 
 class Photo(models.Model):
-    place = models.ForeignKey(Place)
-    pic = models.ImageField(upload_to="uploads/", blank=True)
+    place = models.ForeignKey(Place, verbose_name=_('Place'))
+    pic = models.ImageField(upload_to="uploads/", blank=True, verbose_name=_('Photo'))
     
     class Meta:
+        verbose_name = _('Photo')
         verbose_name_plural = _('Photos')
     
     def __unicode__(self):

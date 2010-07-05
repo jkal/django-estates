@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-06 00:23+0300\n"
+"POT-Creation-Date: 2010-07-06 00:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,10 @@ msgstr "Διεύθυνση οικίας"
 msgid "phone number"
 msgstr "Αριθμός τηλεφώνου"
 
+#: places/models.py:12 places/models.py:88
+msgid "User"
+msgstr "Χρήστης"
+
 #: places/models.py:13
 msgid "Public profile?"
 msgstr "Δημόσιο προφίλ;"
@@ -65,107 +69,123 @@ msgstr "Όνομα"
 msgid "Description (optional)"
 msgstr "Περιγραφή (προαιρετικό)"
 
-#: places/models.py:29
-msgid "Categories"
-msgstr "Κατηγορίες"
-
-#: places/models.py:35
-msgid "Asset name"
-msgstr "Όνομα χρήστη"
-
-#: places/models.py:38 places/models.py:72
-msgid "Assets"
-msgstr "Παροχές"
-
-#: places/models.py:46 templates/places/place.html:93
-msgid "For sale"
-msgstr "Προς πώληση"
-
-#: places/models.py:47
-msgid "For rent"
-msgstr "Προς ενοικίαση"
-
-#: places/models.py:51 templates/places/all.html:98
-msgid "Address"
-msgstr "Διεύθυνση"
-
-#: places/models.py:52
-msgid "Zip Code"
-msgstr "Ταχυδρομικός κώδικας"
-
-#: places/models.py:53
-msgid "Patras"
-msgstr "Πάτρα"
-
-#: places/models.py:53 templates/places/all.html:99
-msgid "City"
-msgstr "Πόλη"
-
-#: places/models.py:54
-msgid "Greece"
-msgstr "Ελλάδα"
-
-#: places/models.py:54
-msgid "Country"
-msgstr "Χώρα"
-
-#: places/models.py:55
-msgid "Latitude"
-msgstr "Γεωγραφικό Πλάτος"
-
-#: places/models.py:56
-msgid "Longitude"
-msgstr "Γεωγραφικό Μήκος"
-
-#: places/models.py:59
-msgid "Availability"
-msgstr "Διαθεσιμότητα"
-
-#: places/models.py:60
-msgid "Price in Euros"
-msgstr "Τιμή (€)"
-
-#: places/models.py:61
-msgid "Area in square meters"
-msgstr "Εμβαδόν (τ.μ.)"
-
-#: places/models.py:62 templates/places/place.html:114
-msgid "Construction year"
-msgstr "Έτος κατασκευής"
-
-#: places/models.py:63
-msgid "Description/Other info"
-msgstr "Περιγραφή/Άλλες πληροφορίες"
-
-#: places/models.py:66
-msgid "Submitter"
-msgstr "Χρήστης"
-
-#: places/models.py:67 templates/places/all.html:100
+#: places/models.py:29 places/models.py:69 templates/places/all.html:100
 msgid "Category"
 msgstr "Κατηγορία"
 
+#: places/models.py:30
+msgid "Categories"
+msgstr "Κατηγορίες"
+
+#: places/models.py:36
+msgid "Asset name"
+msgstr "Όνομα παροχής"
+
+#: places/models.py:39
+msgid "Asset"
+msgstr "Παροχή"
+
+#: places/models.py:40 places/models.py:74
+msgid "Assets"
+msgstr "Παροχές"
+
+#: places/models.py:48 templates/places/place.html:93
+msgid "For sale"
+msgstr "Προς πώληση"
+
+#: places/models.py:49
+msgid "For rent"
+msgstr "Προς ενοικίαση"
+
+#: places/models.py:53 templates/places/all.html:98
+msgid "Address"
+msgstr "Διεύθυνση"
+
+#: places/models.py:54
+msgid "Zip Code"
+msgstr "Ταχυδρομικός κώδικας"
+
+#: places/models.py:55
+msgid "Patras"
+msgstr "Πάτρα"
+
+#: places/models.py:55 templates/places/all.html:99
+msgid "City"
+msgstr "Πόλη"
+
+#: places/models.py:56
+msgid "Greece"
+msgstr "Ελλάδα"
+
+#: places/models.py:56
+msgid "Country"
+msgstr "Χώρα"
+
+#: places/models.py:57
+msgid "Latitude"
+msgstr "Γεωγραφικό Πλάτος"
+
+#: places/models.py:58
+msgid "Longitude"
+msgstr "Γεωγραφικό Μήκος"
+
+#: places/models.py:61
+msgid "Availability"
+msgstr "Διαθεσιμότητα"
+
+#: places/models.py:62
+msgid "Price in Euros"
+msgstr "Τιμή (€)"
+
+#: places/models.py:63
+msgid "Area in square meters"
+msgstr "Εμβαδόν (τ.μ.)"
+
+#: places/models.py:64 templates/places/place.html:114
+msgid "Construction year"
+msgstr "Έτος κατασκευής"
+
+#: places/models.py:65
+msgid "Description/Other info"
+msgstr "Περιγραφή/Άλλες πληροφορίες"
+
 #: places/models.py:68
+msgid "Submitter"
+msgstr "Χρήστης"
+
+#: places/models.py:70
 msgid "Publication date"
 msgstr "Ημερομηνία Δημοσίευσης"
 
-#: places/models.py:69
+#: places/models.py:71
 msgid "Is published?"
 msgstr "Δημοσιευμένο;"
 
-#: places/models.py:70
+#: places/models.py:72
 msgid "Hits"
 msgstr "Εμφανίσεις"
 
-#: places/models.py:75
+#: places/models.py:77 places/models.py:89 places/models.py:99
+msgid "Place"
+msgstr "Ακίνητο"
+
+#: places/models.py:78
 msgid "Places"
 msgstr "Ακίνητα"
 
-#: places/models.py:89
+#: places/models.py:92
+msgid "Favorite"
+msgstr "Αγαπημένη αγγελία"
+
+#: places/models.py:93
 msgid "Favorites"
 msgstr "Αγαπημένες αγγελίες"
 
-#: places/models.py:99 templates/places/new_form.html:37
+#: places/models.py:100 places/models.py:103
+msgid "Photo"
+msgstr "Φωτογραφία"
+
+#: places/models.py:104 templates/places/new_form.html:37
 msgid "Photos"
 msgstr "Φωτογραφιες"
 
