@@ -3,6 +3,6 @@
 *.sqlite
 *.mo
 .DS_Store
-/media/uploads/*
+uploads/
 *garbage*
 TODO
