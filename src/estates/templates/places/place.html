@@ -73,7 +73,7 @@ $(document).ready(function() {
             {% endif %}
             
             {% if user.is_authenticated %}
-                <span class="round-blue" id="favbox">
+                <span class="round-blue" id="favbox" title="{% trans 'You like this place.' %}">
                 {% if is_faved %}
                     &#9733;
                 {% else %}
