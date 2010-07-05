@@ -3,19 +3,21 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 body { color: #747474; font: 100% "Lucida Grande", Helvetica, Arial, Sans-serif; text-align: center; }
 
 a { color: #006d92; text-decoration: none; }
-hr {display:none;}
+hr { display:none; }
 
-#status { margin-left:10px; display:inline; }
-
+/* Various text classes */
 .green { background-color:#f1f7f8; }
 .red { background-color: #FFD9D9; }
+.round {background-color:#747474;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;}
 .round-red {font-size: 60%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;}
 .round-blue { font-size: 60%; background-color:#5f99cf;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;}
-.round-blue a { color:white;}
-
-.round {background-color:#747474;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px;}
+	.round-blue a { color:white;}
 .red-button {font-size: 80%; background-color:#dd0000;-moz-border-radius:3px 3px 3px 3px; -webkit-border-radius:3px 3px 3px 3px; color:white; padding:0 3px; margin: 3px;}
+.map-big {width: 100%; height: 480px; overflow: hidden;}
+.map-small {height: 100%;}
+.small {font-size: 11px;color: #999999;padding: 10px;}
 
+/* Layout styling */
 #userbar { background:#f1f7f8; font-size:80%; padding:8px; text-align:left; }
     #userbar li { display:table-cell; padding: 0 9px 0 9px; margin:0 20px 0 0; vertical-align:middle; }
 
@@ -42,21 +44,9 @@ hr {display:none;}
         #posts li div.meta {background:#f1f7f8;color:#000;font-weight:bold; font-size:73%;line-height:1.6;padding:5px 10px;}
         #posts li div.post-content {font-size:80%;line-height:1.6;padding:0px 15px 10px 10px;}
 			#posts li div.post-content ul {margin-top: 10px;}
-/*			#posts li div.post-content li {padding-bottom: 10px;}*/
-        		#posts li div.post-content li div {padding-left: 10px; font-weight:bold;}
-				
+        	#posts li div.post-content li div {padding-left: 10px; font-weight:bold;}				
 			#posts li div.post-content p {margin-top:10px;}
 			#posts li div.post-content strong {border-bottom: 1px dotted #CCCCCC;}
-
-#filter-input-box {padding:20px 0px;}
-
-.map-big {width: 100%; height: 480px; overflow: hidden;}
-.map-small {height: 100%;}
-
-#new-place-map {width: 600px; height: 400px; border: 1px solid #777; overflow: hidden;}
-
-#add-image { padding: 10px 0 20px 0; }
-	        
 		#posts li div.date {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:15px 0 0 0;}
 		#posts li div.images {border-top:#CCC 1px dotted;color:#999;font-size:75%;font-style:italic;margin:5px 0 0 10px;padding:5px 0 0 0;}
 				
@@ -71,7 +61,13 @@ hr {display:none;}
     #footer {border-top:#f1f7f8 3px solid;}
 	    #footer p {border-top:#424242 1px solid;color:#999;font-size:75%;line-height:30px;}
 
-/* Hacks */
+/* Custom elements */
+#status { margin-left:10px; display:inline; }
+#filter-input-box {padding:20px 0px;}
+#new-place-map {width: 600px; height: 400px; border: 1px solid #777; overflow: hidden;}
+#add-image { padding: 10px 0 20px 0; }
+
+/* IE Hacks */
 .clear:after, #statusbar:after, #header:after, #header ul:after, #content:after, .post:after {
 	content:".";
 	display:block;
@@ -80,71 +76,19 @@ hr {display:none;}
 	visibility:hidden;
 }
 
-form legend { color: #333; padding: 0 0 20px 0; text-transform: uppercase; }
-
-form, form fieldset input, form fieldset textarea, form label {
-    font-family: Helvetica, Arial;
-    font-size: 10pt;
-}
-
+/* Forms */
+form, form fieldset input, form fieldset textarea, form label { font-family: Helvetica, Arial; font-size: 10pt;}
+form label {color: #777;}
 form p { position: relative; margin: 10px 0;}
-form p label { position: absolute; top: 0; left: 0;}
+	form p label { position: absolute; top: 0; left: 0;}
 
-form fieldset input,
-form fieldset textarea { padding: 5px; margin: 0; border: solid 1px #ccc; }
+form legend { color: #333; padding: 0 0 20px 0; text-transform: uppercase; }
+form fieldset input, form fieldset textarea { padding: 5px; margin: 0; border: solid 1px #ccc; }
+form fieldset label { width: 380px; display: block; margin: 5px 5px 5px 6px;padding: 0;}
+form fieldset textarea {padding: 2px;width: 404px;}
 
-form fieldset label {
-    width: 380px;
-    display: block;
-    margin: 5px 5px 5px 6px;
-    padding: 0;
-}
-
-form fieldset textarea {
-    padding: 2px;
-    width: 404px;
-}
-
-form label {
-    color: #777;
-}
-
-.small {
-	font-size: 11px;
-	color: #999999;
-	padding: 10px;
-}
-
-/*
- * Tables
- */
-
-#box-table-a {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
-	width: 100%;
-	text-align: left;
-	border-collapse: collapse;
-}
-
-#box-table-a th {
-	font-size: 13px;
-	font-weight: normal;
-	padding: 8px;
-	background: #add0d6;
-	border-bottom: 1px solid #fff;
-	color: #fff;
-}
-
-#box-table-a td {
-	padding: 8px;
-	background: #F1F7F8;
-	border-bottom: 1px solid #fff;
-	color: #669;
-	border-top: 1px solid transparent;
-}
-
-#box-table-a tr:hover td {
-	background: #daeaed;
-	color: #339;
-}
+/* Tables */
+#box-table-a { font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif; font-size: 12px; width: 100%; text-align: left; border-collapse: collapse; }
+	#box-table-a th { font-size: 13px; font-weight: normal; padding: 8px; background: #add0d6; border-bottom: 1px solid #fff; color: #fff;}
+	#box-table-a td { padding: 8px;background: #F1F7F8;border-bottom: 1px solid #fff;color: #669;border-top: 1px solid transparent;}
+	#box-table-a tr:hover td {background: #daeaed; color: #339;}
