@@ -7,86 +7,66 @@
 
 {% block head %}
 <script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-        
-        var pagecount = 1;
-        
-        function handlejson(data) {
-            $.each(data, function(i, item) {
-                $("#box-table-a tbody").append(
-                    '<tr>' + 
-                        '<td>' + item.fields.address + '</a></td>' +
-                        '<td>' + item.fields.city + '</td>' +
-                        '<td>' + item.fields.category +'</td>' +
-                        '<td>' + item.fields.area +'</td>' +
-                        '<td>' + item.fields.price +'</td>' +
-                    '</tr>');
-            });
-        }
-        
-        /* Get data with AJAX and populate the table. */
+$(document).ready(function() {
+    
+    var pagecount = 1;
+    
+    function handlejson(data) {
+        $.each(data, function(i, item) {
+            $("#box-table-a tbody").append(
+                '<tr>' + 
+                    '<td><a href="/places/' + item.pk + '">' + item.fields.address + '</a></td>' +
+                    '<td>' + item.fields.city + '</td>' +
+                    '<td>' + item.fields.category +'</td>' +
+                    '<td>' + item.fields.area +'</td>' +
+                    '<td>' + item.fields.price +'</td>' +
+                '</tr>');
+        });
+    }
+    
+    /* Get data with AJAX and populate the table. */
+    $.getJSON("{% url places-json %}?page=" + pagecount, function(data) {
+        $("#all-places .loading").remove();
+        handlejson(data);
+        $("#box-table-a").show();
+        $("#filter-count").text($("#box-table-a tbody tr").length);
+    });
+    
+    $('#show-more').click(function() {
+        pagecount++;
         $.getJSON("{% url places-json %}?page=" + pagecount, function(data) {
-            $("#all-places .loading").remove();
             handlejson(data);
-            $("#box-table-a").show();
             $("#filter-count").text($("#box-table-a tbody tr").length);
         });
-        
-        $('#show-more').click(function() {
-            pagecount++;
-            $.getJSON("{% url places-json %}?page=" + pagecount, function(data) {
-                // $("#all-places .loading").remove();
-                handlejson(data);
-                // $("#box-table-a").show();
-                $("#filter-count").text($("#box-table-a tbody tr").length);
-            });
-        });
-        
-        function applyfilter(filter) {
-            var cnt = 0;
-
-            /* foreach tr... */
-            $("#box-table-a tbody tr").each(function(i, e) {
-
-                /* select all td elements of tr, as we can't manipulate with visibility of tr */
-                var tds = $(this).children("td");
-                
-                /* get the text of all td elements */
-                tr_data = $(this).text().toLowerCase();
-                
-                if (tr_data.indexOf(filter) == -1 ) {
-                    tds.fadeOut();
-                } else {
-                    tds.fadeIn();
-                    cnt++;
-                }
-            });
-            return cnt;
-        }
+    });
     
-        $("#filter-input").keyup(function () {
-            var filter = $(this).val().toLowerCase();
-            var cnt = applyfilter(filter);
-            $("#filter-count").text(cnt);
+    function applyfilter(filter) {
+        var cnt = 0;
+
+        /* foreach tr... */
+        $("#box-table-a tbody tr").each(function(i, e) {
+
+            /* select all td elements of tr, as we can't manipulate with visibility of tr */
+            var tds = $(this).children("td");
+            
+            /* get the text of all td elements */
+            tr_data = $(this).text().toLowerCase();
+            
+            if (tr_data.indexOf(filter) == -1 ) {
+                tds.fadeOut();
+            } else {
+                tds.fadeIn();
+                cnt++;
+            }
         });
-        
-        /*
-        function getUrlVars() {
-        	var vars = {};
-        	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-        		vars[key] = value;
-        	});
-        	return vars;
-        }
-        
-        var query = getUrlVars()["q"];
-        if (query != undefined) {
-            var cnt2 = applyfilter('300');
-            $("#filter-count").text(cnt2);
-        } else {
-            console.log('undefined query');
-        }
-        */
+        return cnt;
+    }
+
+    $("#filter-input").keyup(function () {
+        var filter = $(this).val().toLowerCase();
+        var cnt = applyfilter(filter);
+        $("#filter-count").text(cnt);
+    });
 });
 </script>
 {% endblock %}
