@@ -39,7 +39,7 @@
             	{% for fav in fav_list %}
             	    <li><a href="{% url view-place fav.place.pk %}">{{ fav.place }}</a></li>
             	{% empty %}
-                    <div style="padding: 10px 10px">{% trans 'No favorite places yet.' %}</div>
+                    <div id="small">{% trans 'No favorite places yet.' %}</div>
             	{% endfor %}
             </ul>
         </div>

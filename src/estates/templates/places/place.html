@@ -69,8 +69,9 @@ $(document).ready(function() {
         <h4>
             {{ place.address}}, {{ place.city}}
             {% if place.submitter == user %}
-                <a class="round-red" title="{% trans 'You can delete this place.' %}" href="{% url delete-place place.pk %}">{% trans 'Delete' %}<a>
+                <a class="round-red" title="{% trans 'You can delete this place.' %}" href="{% url delete-place place.pk %}">{% trans 'Delete' %}</a>
             {% endif %}
+            
             {% if user.is_authenticated %}
                 <span class="round-blue" id="favbox">
                 {% if is_faved %}
@@ -83,11 +84,7 @@ $(document).ready(function() {
         </h4>
         
         <div class="side-map">
-            <noscript>
-                <center style="padding: 100px;">
-                    {% trans 'Maps require JavaScript enabled.' %}
-                </center>
-            </noscript>
+            <noscript>{% trans 'Maps require JavaScript enabled.' %}</noscript>
             <div id="map" class='map-small'></div>
         </div>
         
@@ -146,6 +143,5 @@ $(document).ready(function() {
     })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=realtyceid">comments powered by Disqus.</a></noscript>
-    {# <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a> #}
 </div>
 {% endblock %}
