@@ -5,10 +5,10 @@
 # 
 
 docs/
-    Η τεχνική αναφορά του project και άλλα ζητούμενα.
+    Η τεχνική αναφορά του project (INTERNALS.md, INTERNALS.html) και άλλα ζητούμενα.
 
 src/
-    O κώδικας της εφαρμογής.
+    O κώδικας της εφαρμογής (Django project με όνομα estates).
     
 scripts/
     Διάφορα βοηθητικά scripts όπως αυτό με το οποίο κάνουμε generate τα test data.

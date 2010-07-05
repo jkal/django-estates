@@ -106,6 +106,14 @@ validate.
 
 # Internationalization
 
-python manage.py makemessages -l el
-python manage.py makemessages -a
-python manage.py compilemessages
+Για τη μετάφραση της εφαρμογής, το Django χρησιμοποιεί τη βιβλιοθήκη διεθνοποίησης gettext. Σε διάφορα σημεία μέσα στον
+κώδικα μαρκάρουμε τα translation strings (είτε σε python code, είτε στα templates). Δίνοντας
+
+    python manage.py makemessages -l el
+    python manage.py makemessages -a
+
+φτιάχνουμε το αρχείο μετάφρασης (`locale/el/LC_MESSAGES/django.po`). Αφού μεταφραστεί το αρχείο, δίνουμε
+    
+    python manage.py compilemessages
+
+για να περαστούν οι αλλαγές στο Django.
