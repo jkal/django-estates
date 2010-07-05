@@ -31,13 +31,14 @@ class PlaceAdmin(admin.ModelAdmin):
         PhotoInline
     ]
     
-    list_display   = ('pk', 'address', 'city', 'category', 'submitter', 'published')
+    list_display   = ('pk', 'address', 'city', 'category', 'submitter', 'published', 'action')
+    list_display_links = ('address',)
+    list_editable = ('category', 'action')
     list_filter    = ('published', 'category', 'action')
     ordering       = ('-pub_date',)
     search_fields  = ('address',)
     list_per_page  = 25
-    
-    #filter_horizontal
+    filter_horizontal = ('assets',)
 
     actions = ['make_published']
     
