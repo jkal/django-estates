@@ -11,4 +11,7 @@ class LatestPlacesFeed(Feed):
         return Place.objects.filter(published=True).order_by('-pub_date')[:10] 
     
     def item_description(self, item):
-        return item.description
+        action = 'Sale' if item.action == 'S' else 'Rent'
+        
+        itemdata = "%s, %sm, %sE" % (action, item.area, item.price)
+        return itemdata
