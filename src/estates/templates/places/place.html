@@ -67,7 +67,7 @@ $(document).ready(function() {
 
     <li class="post">
         <h4>
-            {{ place.address}}, {{ place.city}}
+            {{ place.address}}, {{ place.city }}
             {% if place.submitter == user %}
                 <a class="round-red" title="{% trans 'You can delete this place.' %}" href="{% url delete-place place.pk %}">{% trans 'Delete' %}</a>
             {% endif %}
