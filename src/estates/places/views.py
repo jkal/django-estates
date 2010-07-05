@@ -10,6 +10,7 @@ from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
 from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 def index(request):
     """ Find the 5 latest and 5 most popular places to display. """
@@ -32,8 +33,21 @@ def search_places(request):
 
 def json(request):
     all_places = Place.objects.filter(published=True)
-    data = serializers.serialize("json", all_places, ensure_ascii=False, use_natural_keys=True, fields=('submitter', 'action', 'address', 'category', 'city', 'area', 'price'))
+    paginator = Paginator(all_places, 25)    # 25 objects per page
     
+    # Make sure page request is an int. If not, deliver first page.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+    
+    # If page > total pages, deliver the last page.
+    try:
+        my_places = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        my_places = paginator.page(paginator.num_pages)
+    
+    data = serializers.serialize("json", my_places.object_list, ensure_ascii=False, use_natural_keys=True, fields=('submitter', 'action', 'address', 'category', 'city', 'area', 'price'))
     return HttpResponse(data, content_type='application/javascript;charset=utf8')
 
 @login_required

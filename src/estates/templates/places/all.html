@@ -9,10 +9,9 @@
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         
-        /* Get data with AJAX and populate the table. */
-        $.getJSON("{% url places-json %}", function(data) {
-            $("#all-places .loading").remove();
-            $("#box-table-a").show();
+        var pagecount = 1;
+        
+        function handlejson(data) {
             $.each(data, function(i, item) {
                 $("#box-table-a tbody").append(
                     '<tr>' + 
@@ -22,6 +21,24 @@
                         '<td>' + item.fields.area +'</td>' +
                         '<td>' + item.fields.price +'</td>' +
                     '</tr>');
+            });
+        }
+        
+        /* Get data with AJAX and populate the table. */
+        $.getJSON("{% url places-json %}?page=" + pagecount, function(data) {
+            $("#all-places .loading").remove();
+            handlejson(data);
+            $("#box-table-a").show();
+            $("#filter-count").text($("#box-table-a tbody tr").length);
+        });
+        
+        $('#show-more').click(function() {
+            pagecount++;
+            $.getJSON("{% url places-json %}?page=" + pagecount, function(data) {
+                // $("#all-places .loading").remove();
+                handlejson(data);
+                // $("#box-table-a").show();
+                $("#filter-count").text($("#box-table-a tbody tr").length);
             });
         });
         
@@ -107,6 +124,8 @@
                     </thead>
                     <tbody><!-- Intentionally empty --></tbody>
                 </table>
+                
+                <a id="show-more">Load more...</a>
                 
             </div>
         </div>    

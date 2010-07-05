@@ -5,7 +5,7 @@ from places.views import json, new_place, view_place, delete_place, fav_place, s
 
 urlpatterns = patterns('',
     url(r'^$', search_places, name='all-places'),
-    url(r'^json/', json, name='places-json'),
+    url(r'^json/$', json, name='places-json'),
     url(r'^new/$', new_place, name='new-place'),
     url(r'^new/thanks/$', direct_to_template, {'template':'places/thanks.html'}, name='new-place-thanks'),
     url(r'^feed/$', LatestPlacesFeed(), name='places-feed'), 
