@@ -60,6 +60,7 @@ hr { display:none; }
     
     #footer {border-top:#f1f7f8 3px solid;}
 	    #footer p {border-top:#424242 1px solid;color:#999;font-size:75%;line-height:30px;}
+		#footer p .right {float:right;}
 
 /* Custom elements */
 #status { margin-left:10px; display:inline; }
