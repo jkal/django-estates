@@ -125,7 +125,7 @@ $(document).ready(function() {
         </div>
         
         <div class="date">
-            {% blocktrans with place.pub_date as date and place.submitter as user %}Submitted on {{ date }} by {{ user }}.{% endblocktrans %}
+            {% blocktrans with place.pub_date|date:"SHORT_DATETIME_FORMAT" as date and place.submitter as user %}Submitted on {{ date }} by {{ user }}.{% endblocktrans %}
             {% trans 'Views' %}: {{ place.hits }}
         </div>
     </li>
