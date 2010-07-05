@@ -16,37 +16,46 @@ class UserProfileInline(admin.TabularInline):
 
 class UserAdmin(UserAdmin):
     inlines = [
-        UserProfileInline
+        UserProfileInline,
     ]
 
 class PhotoAdmin(admin.ModelAdmin):
     pass
 
-class PlaceAdmin(admin.ModelAdmin):
+class PhotoInline(admin.TabularInline):
+    model = Photo
 
-    list_display   = ('address', 'category', 'submitter')
+class PlaceAdmin(admin.ModelAdmin):
+    
+    inlines = [
+        PhotoInline
+    ]
+    
+    list_display   = ('pk', 'address', 'city', 'category', 'submitter', 'published')
     list_filter    = ('published', 'category', 'action')
     ordering       = ('-pub_date',)
     search_fields  = ('address',)
+    list_per_page  = 25
+    
+    #filter_horizontal
 
     actions = ['make_published']
     
     def make_published(self, request, queryset):
         queryset.update(published=True)
     make_published.short_description = _('Mark selected places as published.')
-    
 
 class CategoryAdmin(admin.ModelAdmin):
     pass
 
 class FavoriteAdmin(admin.ModelAdmin):
-    pass
+    # this is pretty cool actually
+    raw_id_fields = ('user', 'place')
 
 admin.site.register(User, UserAdmin) 
 admin.site.register(Place, PlaceAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Photo, PhotoAdmin)
+# we don't need this since it's inlined to the PlaceAdmi
+# admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Asset, AssetAdmin)
 admin.site.register(Favorite, FavoriteAdmin)
-# not needed
-# admin.site.register(UserProfile, UserProfileInline)
