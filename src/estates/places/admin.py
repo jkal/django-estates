@@ -1,11 +1,12 @@
 from django.contrib import admin
 from places.models import Place, Category, UserProfile, Photo, Asset, Favorite
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
 
 # unregister User model to add the inline
 admin.site.unregister(User)
+admin.site.unregister(Group)
 
 class AssetAdmin(admin.ModelAdmin):
     pass
@@ -22,6 +23,12 @@ class PhotoAdmin(admin.ModelAdmin):
     pass
 
 class PlaceAdmin(admin.ModelAdmin):
+
+    list_display   = ('address', 'category', 'submitter')
+    list_filter    = ('published', 'category', 'action')
+    ordering       = ('-pub_date',)
+    search_fields  = ('address',)
+
     actions = ['make_published']
     
     def make_published(self, request, queryset):

@@ -19,8 +19,8 @@ class UserProfile(models.Model):
         return self.user.username
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, help_text=_('Optional'))
+    name = models.CharField(max_length=100, verbose_name=_('Name'))
+    description = models.TextField(blank=True, help_text=_('Description (optional)'))
     
     def natural_key(self):
         return (self.name)
@@ -52,11 +52,11 @@ class Place(models.Model):
     zipcode = models.IntegerField(verbose_name=_('Zip Code'))
     city = models.CharField(max_length=50, default=_('Patras'), verbose_name=_('City'))
     country = models.CharField(max_length=50, default=_('Greece'), verbose_name=_('Country'))
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+    latitude = models.FloatField(verbose_name=_('Latitude'))
+    longitude = models.FloatField(verbose_name=_('Longitude'))
 
     # property info 
-    action = models.CharField(max_length=1, blank=False, choices=ACTIONS, default="")
+    action = models.CharField(max_length=1, blank=False, choices=ACTIONS, default="", verbose_name=_('Availability'))
     price = models.PositiveIntegerField(verbose_name=_('Price in Euros'))
     area = models.PositiveIntegerField(verbose_name=_('Area in square meters'))
     year = models.PositiveIntegerField(verbose_name=_('Construction year'))
@@ -65,11 +65,11 @@ class Place(models.Model):
     # submission related
     submitter = models.ForeignKey(User, verbose_name=_('Submitter'))
     category = models.ForeignKey(Category, verbose_name=_('Category'), default="")
-    pub_date = models.DateTimeField(auto_now_add=True)
-    published = models.BooleanField(default=False)
-    hits = models.IntegerField(default=0)
+    pub_date = models.DateTimeField(auto_now_add=True, verbose_name=_('Publication date'))
+    published = models.BooleanField(default=False, verbose_name=_('Is published?'))
+    hits = models.IntegerField(default=0, verbose_name=_('Hits'))
     
-    assets = models.ManyToManyField(Asset, blank=True)
+    assets = models.ManyToManyField(Asset, blank=True, verbose_name=_('Assets'))
 
     class Meta:
         verbose_name_plural = _('Places')
