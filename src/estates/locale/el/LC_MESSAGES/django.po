@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-06 15:12+0300\n"
+"POT-Creation-Date: 2010-07-06 18:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,7 +79,7 @@ msgstr "Όνομα"
 msgid "Description (optional)"
 msgstr "Περιγραφή (προαιρετικό)"
 
-#: places/models.py:31 places/models.py:92 templates/places/all.html:61
+#: places/models.py:31 places/models.py:92 templates/places/all.html:62
 msgid "Category"
 msgstr "Κατηγορία"
 
@@ -107,7 +107,7 @@ msgstr "Προς πώληση"
 msgid "For rent"
 msgstr "Προς ενοικίαση"
 
-#: places/models.py:76 templates/places/all.html:59
+#: places/models.py:76 templates/places/all.html:60
 msgid "Address"
 msgstr "Διεύθυνση"
 
@@ -119,7 +119,7 @@ msgstr "Ταχυδρομικός κώδικας"
 msgid "Patras"
 msgstr "Πάτρα"
 
-#: places/models.py:78 templates/places/all.html:60
+#: places/models.py:78 templates/places/all.html:61
 msgid "City"
 msgstr "Πόλη"
 
@@ -339,27 +339,27 @@ msgstr ""
 msgid "Logout"
 msgstr "Αποσύνδεση"
 
-#: templates/index.html:82
+#: templates/index.html:85
 msgid "Browse by categories"
 msgstr "Κατηγορίες ακινήτων"
 
-#: templates/index.html:87
+#: templates/index.html:90
 msgid "No categories yet. Bummer."
 msgstr "Δεν υπάρχουν ακόμα κατηγορίες. Κρίμα."
 
-#: templates/index.html:93
+#: templates/index.html:96
 msgid "Popular"
 msgstr "Δημοφιλείς"
 
-#: templates/index.html:98 templates/index.html.py:109
+#: templates/index.html:101 templates/index.html.py:112
 msgid "No places added yet."
 msgstr "Δεν έχουν προστεθεί ακόμα αγγελίες."
 
-#: templates/index.html:104
+#: templates/index.html:107
 msgid "Latest"
 msgstr "Τελευταίες"
 
-#: templates/index.html:117 templates/places/place.html:87
+#: templates/index.html:120 templates/places/place.html:87
 msgid "Maps require JavaScript enabled."
 msgstr "Οι χάρτες απαιτούν ενεργοποιημένη JavaScript."
 
@@ -384,13 +384,22 @@ msgstr "Η σελίδα απαιτεί ενεργοποιημένη JavaScript. 
 msgid "Searching"
 msgstr "Αναζήτηση"
 
-#: templates/places/all.html:62
+#: templates/places/all.html:49
+#, python-format
+msgid "Approximately <span id=\"filter-count\">%(count)s</span> results."
+msgstr "Περίπου <span id=\"filter-count\">%(count)s</span> αποτελέσματα."
+
+#: templates/places/all.html:63
 msgid "Price"
 msgstr "Τιμή"
 
-#: templates/places/all.html:63
+#: templates/places/all.html:64
 msgid "Area"
 msgstr "Εμβαδόν"
+
+#: templates/places/all.html:82
+msgid "No results."
+msgstr "Δεν βρέθηκαν αγγελίες."
 
 #: templates/places/delete.html:5 templates/places/place.html:72
 msgid "Delete"
