@@ -24,8 +24,22 @@ def index(request):
 
     return render_to_response('index.html', cx, context_instance=RequestContext(request))
     
+def search_places_count(request):
+    if request.method != 'POST':
+        return HttpResponse(status=405) # Method Not Allowed, GET is not allowed.
+    query = request.POST.get('q', False)
+    
+    if query:
+        results = Place.objects.search(query).filter(published=True).count()
+    else:
+        results = Place.objects.all().count()
+    
+    print query
+    return HttpResponse(results)
+
 def search_places(request):
     query = request.GET.get('q', False)
+    print query
     if query:
         # See PlaceManager in models.py.
         results = Place.objects.search(query).filter(published=True)

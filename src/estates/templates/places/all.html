@@ -9,10 +9,24 @@
 {% block head %}
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
-    $('#filter-button').click( function() {
-        q = $('#filter-input').val();
-     $('#results').html('&nbsp;').load('/places/?q=' + q);
- });
+    $('#search-info').hide()
+    
+    $("#filter-input").keyup(function () {
+        $('#search-info').show()
+        var query = $(this).val().toLowerCase();
+        var encoded_query = encodeURIComponent(query);
+        $.ajax({ 
+            type: "POST",
+            url: "{% url search-count %}",
+            data: { q : query },
+            cache: false, 
+            context: document.body, 
+            success: function(data) {
+                console.log('count=' + data)
+                $("#filter-count").text(data);
+            }
+        });
+    });
 });
 </script>
 {% endblock %}
@@ -31,8 +45,8 @@ $(document).ready(function() {
             <div id='filter-input-box'>
                 <form action="" method="GET">
                     <input id="filter-input" name="q" size="40"/>
-                    <input id="filter-button" type="submit" value="Search"/>
-                    <span class="small">Showing <span id="filter-count">{{ place_list|length}}</span> of {{ place_list|length}} places.</span>
+                    <input id="filter-button" type="submit" value="Show results"/>
+                    <span class="small" id="search-info">Approximately <span id="filter-count">{{ place_list|length}}</span> results.</span>
                 </form>
             </div>
             
@@ -62,6 +76,9 @@ $(document).ready(function() {
                     </tbody>
                 </table>
                 {% paginate %}
+                <span style="float:right;">
+                
+                </span>
             </div>
         </div>    
     </li>
