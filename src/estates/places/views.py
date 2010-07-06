@@ -8,13 +8,10 @@ from django.core.files.base import ContentFile
 from django.utils.translation import ugettext_lazy as _
 from places.models import Place, Category, User, Favorite, Photo
 from places.forms import PlaceForm
-from django.core import serializers
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 def index(request):
-    """ Find the 5 latest and 5 most popular places to display. """
-
     latest5 = Place.objects.filter(published=True).order_by('-pub_date')[:5]
     popular5 = Place.objects.filter(published=True).order_by('-hits')[:5]
     categories = Category.objects.all()
@@ -27,52 +24,41 @@ def index(request):
 
     return render_to_response('index.html', cx, context_instance=RequestContext(request))
     
-def search_places(request):    
-    all_places = Place.objects.filter(published=True)
-    return render_to_response('places/all.html', { 'places_list' : all_places }, context_instance=RequestContext(request))
-
-def json(request):
-    all_places = Place.objects.filter(published=True)
-    paginator = Paginator(all_places, 25)    # 25 objects per page
+def search_places(request):
+    query = request.GET.get('q', False)
+    if query:
+        # See PlaceManager in models.py.
+        results = Place.objects.search(query).filter(published=True)
+    else:
+        # Return all places.
+        results = Place.objects.filter(published=True)
     
-    # Make sure page request is an int. If not, deliver first page.
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-    
-    # If page > total pages, deliver the last page.
-    try:
-        my_places = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        my_places = paginator.page(paginator.num_pages)
-    
-    data = serializers.serialize("json", my_places.object_list, ensure_ascii=False, use_natural_keys=True, fields=('submitter', 'action', 'address', 'category', 'city', 'area', 'price'))
-    return HttpResponse(data, content_type='application/javascript;charset=utf8')
+    # Pagination takes place in the template.
+    return render_to_response('places/all.html', { 'place_list' : results }, context_instance=RequestContext(request))
 
 @login_required
 def fav_place(request, place_id):
-    """ User makes a GET request to favorite a place. """ 
+    """ User makes a POST request to favorite a place. """ 
+    
     if request.method == 'POST':
         u = request.user
         my_place = get_object_or_404(Place, pk=place_id)
         obj, created = Favorite.objects.get_or_create(user=u, place=my_place)
         if created:
-            return HttpResponse(status=200) # OK, bookmarks updated 
+            return HttpResponse(status=200) # OK, bookmarks updated.
         else:
-            return HttpResponse(status=304) # Not Modified, already bookmarked
+            return HttpResponse(status=304) # Not Modified, already bookmarked.
     else:
-        return HttpResponse(status=405) # Method Not Allowed, GET is not allowed
+        return HttpResponse(status=405) # Method Not Allowed, GET is not allowed.
 
 def view_place(request, place_id):
-    """
-    Find a place using its primary key and pass its information to the template.
-    """
+    """ Find a place based on PK and pass its information to the template. """
 
     my_place = get_object_or_404(Place, pk=place_id)
     my_photos = list(Photo.objects.filter(place=my_place))
     my_assets = my_place.assets.all()
     
+    # Determine if the object is faved so that we can mark it.
     is_faved = False
     if request.user.is_authenticated(): 
         try:
@@ -80,7 +66,7 @@ def view_place(request, place_id):
         except ObjectDoesNotExist:
             pass
 
-    # increase views
+    # Increase views.
     my_place.hits += 1
     my_place.save()
     
@@ -99,7 +85,8 @@ def delete_place(request, place_id):
     
     my_place = get_object_or_404(Place, pk=place_id)
     if request.method == 'POST':
-        if request.user == my_place.submitter:
+        # Necessary checks. Admins can delete places from the frontend.
+        if request.user == my_place.submitter or request.user.is_staff:
             my_place.delete()
             return render_to_response('places/delete_complete.html', { 'place' : my_place }, context_instance=RequestContext(request))
         else:

@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
+import operator
+from django.db.models import Q
 
 class UserProfile(models.Model):
     firstname = models.CharField(max_length=30, verbose_name=_('first name'))
@@ -42,6 +44,27 @@ class Asset(models.Model):
     def __unicode__(self):
         return self.name
 
+class PlaceManager(models.Manager):
+    def search(self, search_terms):
+        terms = [term.strip() for term in search_terms.split()]
+        q_objects = []
+
+        for term in terms:
+            # Search field lookups.
+            # NOTE: SQLite doesn't support case-insensitive matching for non-ASCII strings.
+            q_objects.append(Q(address__icontains=term))
+            q_objects.append(Q(city__icontains=term))
+            q_objects.append(Q(price__icontains=term))
+            q_objects.append(Q(area__icontains=term))
+            q_objects.append(Q(submitter__username__icontains=term))
+            q_objects.append(Q(category__name__icontains=term))
+            
+            # Start with a bare QuerySet.
+            qs = self.get_query_set()
+
+            # Use operator's or_ to string together all Q objects.
+            return qs.filter(reduce(operator.or_, q_objects))
+
 class Place(models.Model):
     
     ACTIONS = (
@@ -72,6 +95,7 @@ class Place(models.Model):
     hits = models.IntegerField(default=0, verbose_name=_('Hits'))
     
     assets = models.ManyToManyField(Asset, blank=True, verbose_name=_('Assets'))
+    objects = PlaceManager()
 
     class Meta:
         verbose_name = _('Place')

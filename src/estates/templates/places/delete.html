@@ -11,7 +11,7 @@
         <h3>{% trans 'Delete place' %}</h3>
 
         <div class="post-content">    
-            {% if place.submitter == user %}
+            {% if place.submitter == user or user.is_staff %}
             	<p>{% blocktrans with place as p %}Are you sure you want to delete "<strong>{{ p }}</strong>"?{% endblocktrans %}</p>
 
             	<form action="{% url delete-place place.pk %}" method="post">{% csrf_token %}

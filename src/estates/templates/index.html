@@ -69,7 +69,14 @@
 
 <div id="content"> 
     <div>
-        <p class="preamble">CEID <strong>Real Estate</strong></p>
+        <p class="preamble">
+            <span>CEID <strong>Real Estate</strong></span>
+            <span>
+                <form style="float:right;" action="/places/" method="GET">
+                    <input id="filter-input" name="q" size="40"/>
+                </form>
+            </span>            
+        </p>
         
         <p class="quicklinks">
             {% trans "Browse by categories" %} 
