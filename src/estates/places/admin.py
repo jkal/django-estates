@@ -1,12 +1,14 @@
 from django.contrib import admin
 from places.models import Place, Category, UserProfile, Photo, Asset, Favorite
 from django.contrib.auth.models import User, Group
+from django.contrib.sites.models import Site
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
 
 # unregister User model to add the inline
 admin.site.unregister(User)
 admin.site.unregister(Group)
+admin.site.unregister(Site)
 
 class AssetAdmin(admin.ModelAdmin):
     pass
