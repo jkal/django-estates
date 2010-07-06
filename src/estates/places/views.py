@@ -30,16 +30,15 @@ def search_places_count(request):
     query = request.POST.get('q', False)
     
     if query:
+        # count()'s supposed to be faster than len()
         results = Place.objects.search(query).filter(published=True).count()
     else:
         results = Place.objects.all().count()
     
-    print query
     return HttpResponse(results)
 
 def search_places(request):
     query = request.GET.get('q', False)
-    print query
     if query:
         # See PlaceManager in models.py.
         results = Place.objects.search(query).filter(published=True)

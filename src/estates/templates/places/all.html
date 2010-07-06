@@ -14,7 +14,6 @@ $(document).ready(function() {
     $("#filter-input").keyup(function () {
         $('#search-info').show()
         var query = $(this).val().toLowerCase();
-        var encoded_query = encodeURIComponent(query);
         $.ajax({ 
             type: "POST",
             url: "{% url search-count %}",
@@ -52,6 +51,8 @@ $(document).ready(function() {
             
             <div id="all-places">
                 
+                {% %}
+                {% if place_list %}
                 <table id="box-table-a">
                     <thead>
                     	<tr>
@@ -76,9 +77,9 @@ $(document).ready(function() {
                     </tbody>
                 </table>
                 {% paginate %}
-                <span style="float:right;">
-                
-                </span>
+                {% else %}
+                    <p>No results.</p>
+                {% endif %}
             </div>
         </div>    
     </li>
