@@ -14,7 +14,6 @@
 
         {# JQuery and Maps API #}
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
         {# JQuery Plugins #}
@@ -65,11 +64,7 @@
             <div id="footer">
                 <p>
                     &copy; 2010. Powered by <a title="No ponies were harmed during the development of this website.">Django</a>.
-                    
-                    {# Alternative footer - Django Powered button #}
-                    {# <a href="http://www.djangoproject.com/"><img src="http://media.djangoproject.com/img/badges/djangosite80x15_grey.gif" border="0" alt="A Django site." title="A Django site." /></a> #}
-                    
-					<span class="right">
+                    <span class="right">
 						<a href="{% url places-feed %}"><img src="{{ MEDIA_URL }}img/rss.png"></a>
 					</span>
 				</p>
