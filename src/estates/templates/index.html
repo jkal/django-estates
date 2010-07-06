@@ -26,7 +26,6 @@ function setMarkers(map) {
     var popular_image = '{{ MEDIA_URL }}img/pinb.png', latest_image = '{{ MEDIA_URL }}img/pinr.png';
     
     var bounds = new google.maps.LatLngBounds();
-    var infowindow = new google.maps.InfoWindow();
     var latlng;
 
     {% for place in popular_places %}
