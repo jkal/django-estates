@@ -7,59 +7,62 @@
 
 {% block head %}
 <script>
-    $(document).ready(function() { 
-        var greece = new google.maps.LatLng(39.0, 22.0);
-        var init_options = { zoom: 5, center: greece, mapTypeId: google.maps.MapTypeId.ROADMAP }
-        
-        var map = new google.maps.Map(document.getElementById("map"), init_options);
+var infowindow = new google.maps.InfoWindow({ size: new google.maps.Size(150, 50)});
 
-        var popular_image = '{{ MEDIA_URL }}img/pinb.png';
-        var latest_image = '{{ MEDIA_URL }}img/pinr.png';
+function initialize() {
+    var greece = new google.maps.LatLng(39.0, 22.0);
+    var init_options = { zoom: 6, center: greece, mapTypeId: google.maps.MapTypeId.ROADMAP }
+    
+    var map = new google.maps.Map(document.getElementById("map"), init_options);
+    
+    google.maps.event.addListener(map, 'click', function() {
+        infowindow.close();
+    });
+    
+    setMarkers(map);
+}
 
-        var popular_markers = new Array;
-        {% for place in popular_places %}
-            popular_markers.push(new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }}));
-        {% endfor %}
-        
-        var latest_markers = new Array;
-        {% for place in popular_places %}
-            latest_markers.push(new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }}));
-        {% endfor %}
+function setMarkers(map) {
+    var popular_image = '{{ MEDIA_URL }}img/pinb.png', latest_image = '{{ MEDIA_URL }}img/pinr.png';
+    
+    var bounds = new google.maps.LatLngBounds();
+    var infowindow = new google.maps.InfoWindow();
+    var latlng;
 
-        var bounds = new google.maps.LatLngBounds();
+    {% for place in popular_places %}
+        latlng = new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }});
+        createMarker(map, latlng, popular_image, '{{ place.address }}', '{{ place.category }}, {{ place.area }} τ.μ.');
+        bounds.extend(latlng);
+    {% endfor %}
 
-        for (var i = 0; i < popular_markers.length; i++) {
-            var marker = new google.maps.Marker({ 
-                position: popular_markers[i], 
-                map: map,
-                icon: popular_image,
-            });
-            bounds.extend(popular_markers[i]);
-            var infowindow = new google.maps.InfoWindow({
-                    content: "hello"
-            });
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map, marker);
-            });
-        }
-        
-        for (var i = 0; i < latest_markers.length; i++) {
-            var marker = new google.maps.Marker({ 
-                position: latest_markers[i], 
-                map: map,
-                icon: latest_image,
-            });
-            bounds.extend(latest_markers[i]);
-            var infowindow = new google.maps.InfoWindow({
-                    content: "hello"
-            });
-            google.maps.event.addListener(marker, 'click', function() {
-                infowindow.open(map, marker);
-            });
-        }
-        
-        map.fitBounds(bounds);
-    }); 
+    {% for place in latest_places %}
+        latlng = new google.maps.LatLng({{ place.latitude }}, {{ place.longitude }});
+        createMarker(map, latlng, latest_image, '{{ place.address }}', '{{ place.category }}, {{ place.area }} τ.μ.');
+        bounds.extend(latlng);
+    {% endfor %}
+    
+    map.fitBounds(bounds);
+}
+
+function createMarker(map, position, icon, label, html) {
+    var content = '<b>' + label + '</b><br>' + html;
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        icon: icon,
+        title: label,
+        zIndex: Math.round(position.lat()*-100000)<<5
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(content); 
+        infowindow.open(map, marker);
+    });
+}
+
+$(document).ready(function() { 
+    initialize();
+}); 
 </script>
 {% endblock %}
 
@@ -72,8 +75,8 @@
         <p class="preamble">
             <span>CEID <strong>Real Estate</strong></span>
             <span>
-                <form style="float:right;" action="/places/" method="GET">
-                    <input id="filter-input" name="q" size="40"/>
+                <form action="/places/" method="GET">
+                    <input class="index-form" id="filter-input" name="q" size="40"/>
                 </form>
             </span>            
         </p>
@@ -93,7 +96,7 @@
 			{% trans "Popular" %}
             <span>
             {% for place in popular_places %}
-                &nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
+                &nbsp <a href='{% url view-place place.pk %}' title='{{ place.category }}, {{ place.area }} τ.μ.'>{{ place.address }}</a>
             {% empty %}
                 <em>{% trans "No places added yet." %}</em>
             {% endfor %}
@@ -104,7 +107,7 @@
 			{% trans "Latest" %}
             <span> 
             {% for place in latest_places %}
-                &nbsp <a href='{% url view-place place.pk %}'>{{ place.address }}</a>
+                &nbsp <a href='{% url view-place place.pk %}' title='{{ place.category }}, {{ place.area }} τ.μ.'>{{ place.address }}</a>
             {% empty %}
                 <em>{% trans "No places added yet." %}</em>
             {% endfor %}

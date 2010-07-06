@@ -45,7 +45,9 @@ $(document).ready(function() {
                 <form action="" method="GET">
                     <input id="filter-input" name="q" size="40"/>
                     <input id="filter-button" type="submit" value="Show results"/>
-                    <span class="small" id="search-info">Approximately <span id="filter-count">{{ place_list|length}}</span> results.</span>
+                    <span class="small" id="search-info">
+                        {% blocktrans with place_list|length as count %}Approximately <span id="filter-count">{{ count }}</span> results.{% endblocktrans %}
+                    </span>
                 </form>
             </div>
             
@@ -66,7 +68,7 @@ $(document).ready(function() {
                         {% autopaginate place_list 10 %}
                         {% for place in place_list %}
                         <tr>
-                            <td>{{ place.address }}</td>
+                            <td><a href="{% url view-place place.pk %}">{{ place.address }}</td>
                             <td>{{ place.city }}</td>
                             <td>{{ place.category }}</td>
                             <td>{{ place.price }}</td>
@@ -77,7 +79,7 @@ $(document).ready(function() {
                 </table>
                 {% paginate %}
                 {% else %}
-                    <p>No results.</p>
+                    <p>{% trans 'No results.' %}</p>
                 {% endif %}
             </div>
         </div>    
